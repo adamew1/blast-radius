@@ -1,0 +1,1 @@
+{"meta": {"method": "GET", "url": "https://coins.llama.fi/chart/ethereum:0x836a808d4828586a69364065a1e064609f5078c7", "params": {"start": 1689811200, "span": 186, "period": "4h"}, "label": "chart:ethereum:0x836a808d4828586a69364065a1e064609f5078c7"}, "data": {"coins": {}}, "cached_at": 1791662438.1972048}

@@ -1,0 +1,1 @@
+{"meta": {"method": "GET", "url": "https://coins.llama.fi/chart/coingecko:metronome-synth-eth", "params": {"start": 1689811200, "span": 186, "period": "4h"}, "label": "chart:coingecko:metronome-synth-eth"}, "data": {"coins": {}}, "cached_at": 1791662442.4859796}

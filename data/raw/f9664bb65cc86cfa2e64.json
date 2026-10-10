@@ -1,0 +1,1 @@
+{"meta": {"method": "GET", "url": "https://coins.llama.fi/chart/coingecko:jpegd-peth", "params": {"start": 1689811200, "span": 31, "period": "1d"}, "label": "chart:coingecko:jpegd-peth"}, "data": {"coins": {}}, "cached_at": 1791662439.8091311}
