@@ -11,8 +11,22 @@ decision:
   exit_multiple: 1.5          # EXIT if EL >= exit_multiple * exit_cost
   stay_multiple: 0.7          # STAY if EL <= stay_multiple * exit_cost; between -> REDUCE
 
-# Demo positions (placeholders; real IDs written by refresh_cache.py in Phase 1).
-positions: []
+# Demo positions (finalized in Phase 1 from live data).
+positions:
+  - id: pt-susds
+    kind: pendle_pt
+    label: "Pendle PT-sUSDS · 26 Nov 2026"
+    chain: ethereum
+    chain_id: 1
+    market: "0x9c560ebaf78e596cbcc27411d633a74d628dd7dc"   # PT-sUSDS market (also Morpho collateral)
+    size_usd: 500000
+  - id: smokehouse-usdt
+    kind: morpho_vault
+    label: "Morpho Smokehouse USDT"
+    chain: ethereum
+    chain_id: 1
+    vault: "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484"     # 22 markets, layered PT/LST collateral
+    size_usd: 500000
 
 # Historical replay — verified coin keys (see plan). Baselines noted where not 1.0.
 replay:
