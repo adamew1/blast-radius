@@ -7,9 +7,8 @@ monte_carlo:
   seed: 42
 
 decision:
-  # REDUCE when expected loss is comparable to exit cost; EXIT when it clearly dominates.
-  exit_multiple: 1.5          # EXIT if EL >= exit_multiple * exit_cost
-  stay_multiple: 0.7          # STAY if EL <= stay_multiple * exit_cost; between -> REDUCE
+  # Compare expected net P&L of holding (carry - expected loss) against the cost of exiting.
+  tail_tolerance: 0.15        # CVaR-95 above this forces at least REDUCE even if the mean is fine
 
 # Demo positions (finalized in Phase 1 from live data).
 positions:

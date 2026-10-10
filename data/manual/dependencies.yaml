@@ -1,12 +1,185 @@
-# Manual dependency facts that the public APIs do NOT expose (oracles for some assets,
-# off-chain issuers/custodians, backing composition). EVERY entry carries a source URL and
-# renders in the UI with a "manual" badge so nothing is presented as if it were fetched live.
+# Manual dependency facts the public APIs do NOT expose (off-chain issuers, backing
+# composition, and asset oracles where Morpho doesn't supply one). EVERY entry carries a
+# source URL and renders in the UI with a "manual" badge — nothing here is presented as if
+# it were fetched live. Addresses are Ethereum mainnet, lowercased.
 #
-# Keyed by lowercase token symbol or contract address. Populated during Phase 1/2.
+# Schema:
+#   chains:   <name>: {risk_category, source}
+#   issuers:  <key>:  {name, kind, defillama_slug, risk_category, source}
+#   tokens:   <addr>: {symbol, kind, peg, wraps, backing_share, issuer, risk_category,
+#                      oracle: {name, source}, source}
+#     kind: base | stablecoin | lst | lrt | wrapper   (wrapper/lst/lrt have `wraps`)
 
-tokens: {}
-# Example shape (filled in Phase 2):
-# wsteth:
-#   issuer: {name: "Lido", kind: issuer, source: "https://lido.fi"}
-#   oracle: {name: "Chainlink wstETH/ETH", address: "0x...", source: "https://data.chain.link"}
-#   backing: [{asset: "stETH", share_pct: 100, source: "https://lido.fi/scorecard"}]
+chains:
+  ethereum:
+    risk_category: "Chain"
+    source: "https://defillama.com/chain/Ethereum"
+
+issuers:
+  sky:
+    name: "Sky (formerly MakerDAO)"
+    kind: "CDP / stablecoin issuer"
+    defillama_slug: "sky-lending"
+    risk_category: "CDP"
+    source: "https://sky.money"
+  lido:
+    name: "Lido"
+    kind: "liquid staking"
+    defillama_slug: "lido"
+    risk_category: "Liquid Staking"
+    source: "https://lido.fi"
+  etherfi:
+    name: "ether.fi"
+    kind: "liquid restaking"
+    defillama_slug: "ether.fi-stake"
+    risk_category: "Liquid Restaking"
+    source: "https://ether.fi"
+  ethena:
+    name: "Ethena"
+    kind: "synthetic dollar"
+    defillama_slug: "ethena"
+    risk_category: "Synthetic Dollar"
+    source: "https://ethena.fi"
+  circle:
+    name: "Circle"
+    kind: "fiat-backed stablecoin"
+    defillama_slug: "circle"
+    risk_category: "Stablecoin (fiat)"
+    source: "https://www.circle.com/usdc"
+  tether:
+    name: "Tether"
+    kind: "fiat-backed stablecoin"
+    defillama_slug: "tether"
+    risk_category: "Stablecoin (fiat)"
+    source: "https://tether.to"
+  coinbase:
+    name: "Coinbase"
+    kind: "custodial wrapped BTC"
+    risk_category: "Wrapped BTC (custodial)"
+    source: "https://www.coinbase.com/cbbtc"
+
+tokens:
+  # --- P1 underlying chain: sUSDS -> USDS -> Sky ---
+  "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd":
+    symbol: "sUSDS"
+    kind: "wrapper"
+    peg: null
+    wraps: "0xdc035d45d973e3ec169d2276ddab16f1e407384f"   # USDS (yield-accruing wrapper)
+    backing_share: 100
+    issuer: "sky"
+    risk_category: "Yield (savings)"
+    oracle: {name: "Sky SSR / Chainlink sUSDS", source: "https://docs.sky.money"}
+    source: "https://docs.sky.money/sky-tokens/susds"
+  "0xdc035d45d973e3ec169d2276ddab16f1e407384f":
+    symbol: "USDS"
+    kind: "stablecoin"
+    peg: 1.0
+    wraps: null
+    backing_share: 100
+    issuer: "sky"
+    risk_category: "CDP stablecoin"
+    oracle: {name: "Sky PSM (hardcoded $1)", source: "https://docs.sky.money"}
+    source: "https://docs.sky.money/sky-tokens/usds"
+  # --- Lido LST chain ---
+  "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0":
+    symbol: "wstETH"
+    kind: "lst"
+    peg: null
+    wraps: "0xae7ab96520de3a18e5e111b5eaab095312d7fe84"   # stETH
+    backing_share: 100
+    issuer: "lido"
+    risk_category: "Liquid Staking"
+    oracle: {name: "Chainlink wstETH/ETH", source: "https://data.chain.link"}
+    source: "https://docs.lido.fi/contracts/wsteth"
+  "0xae7ab96520de3a18e5e111b5eaab095312d7fe84":
+    symbol: "stETH"
+    kind: "lst"
+    peg: null
+    wraps: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"   # ETH (base)
+    backing_share: 100
+    issuer: "lido"
+    risk_category: "Liquid Staking"
+    source: "https://docs.lido.fi"
+  # --- ether.fi LRT chain ---
+  "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee":
+    symbol: "weETH"
+    kind: "lrt"
+    peg: null
+    wraps: "0x35fa164735182de50811e8e2e824cfb9b6118ac2"   # eETH
+    backing_share: 100
+    issuer: "etherfi"
+    risk_category: "Liquid Restaking"
+    oracle: {name: "Redstone/Chainlink weETH", source: "https://data.chain.link"}
+    source: "https://etherfi.gitbook.io"
+  "0x35fa164735182de50811e8e2e824cfb9b6118ac2":
+    symbol: "eETH"
+    kind: "lrt"
+    peg: null
+    wraps: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    backing_share: 100
+    issuer: "etherfi"
+    risk_category: "Liquid Restaking"
+    source: "https://etherfi.gitbook.io"
+  # --- Ethena synthetic dollar ---
+  "0x9d39a5de30e57443bff2a8307a4256c8797a3497":
+    symbol: "sUSDe"
+    kind: "wrapper"
+    peg: null
+    wraps: "0x4c9edd5852cd905f086c759e8383e09bff1e68b3"   # USDe
+    backing_share: 100
+    issuer: "ethena"
+    risk_category: "Yield (savings)"
+    source: "https://docs.ethena.fi"
+  "0x4c9edd5852cd905f086c759e8383e09bff1e68b3":
+    symbol: "USDe"
+    kind: "stablecoin"
+    peg: 1.0
+    wraps: null
+    backing_share: 100
+    issuer: "ethena"
+    risk_category: "Synthetic Dollar"
+    oracle: {name: "Chainlink/Redstone USDe", source: "https://data.chain.link"}
+    source: "https://docs.ethena.fi"
+  # --- base / terminal assets ---
+  "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee":
+    symbol: "ETH"
+    kind: "base"
+    peg: null
+    risk_category: "Native asset"
+    source: "https://ethereum.org"
+  "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2":
+    symbol: "WETH"
+    kind: "base"
+    peg: null
+    risk_category: "Native asset"
+    source: "https://weth.io"
+  "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599":
+    symbol: "WBTC"
+    kind: "wrapper"
+    peg: null
+    issuer: "tether"   # WBTC custody (BitGo); placeholder issuer, flagged
+    risk_category: "Wrapped BTC (custodial)"
+    source: "https://wbtc.network"
+  "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf":
+    symbol: "cbBTC"
+    kind: "wrapper"
+    peg: null
+    issuer: "coinbase"
+    risk_category: "Wrapped BTC (custodial)"
+    source: "https://www.coinbase.com/cbbtc"
+  "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48":
+    symbol: "USDC"
+    kind: "stablecoin"
+    peg: 1.0
+    issuer: "circle"
+    risk_category: "Stablecoin (fiat)"
+    oracle: {name: "Chainlink USDC/USD", source: "https://data.chain.link"}
+    source: "https://www.circle.com/usdc"
+  "0xdac17f958d2ee523a2206206994597c13d831ec7":
+    symbol: "USDT"
+    kind: "stablecoin"
+    peg: 1.0
+    issuer: "tether"
+    risk_category: "Stablecoin (fiat)"
+    oracle: {name: "Chainlink USDT/USD", source: "https://data.chain.link"}
+    source: "https://tether.to"
