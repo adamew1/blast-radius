@@ -33,8 +33,8 @@ The incident model **edges out the base rate on ROC-AUC and Brier, not PR-AUC; b
 Excluding Stream: **2/6 advance catches**, **4 misses**
 (including 3 same-bar signals), **6h median lead** among catches,
 and **$94,535 saved versus a naive 5% price-watcher** on $1M per pair.
-Savings include every pair: a missed exit holds to its observed worst-14d mark, an unrealized
-valuation rather than an executed sale. Both exit strategies assume 1% cost on sale proceeds.
+Savings include every pair, including late exits. If no EXIT fires, the held position is valued
+at its observed worst-14d mark, an unrealized valuation. Both exit strategies assume 1% cost on sale proceeds.
 
 Including the Stream development pairs: **4/8 catches**,
 **36h median lead**, **$1,878,696 saved vs naive**.

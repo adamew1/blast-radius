@@ -104,8 +104,8 @@ The model **edges out the base rate on ROC-AUC and Brier, not PR-AUC; base-rate 
 Excluding Stream: **2/6 advance catches**, **4 misses**
 (including 3 same-bar signals), **6h median lead** among catches,
 and **$94,535 saved versus a naive 5% price-watcher** on $1M per pair.
-Savings include every pair: a missed exit holds to its observed worst-14d mark, an unrealized
-valuation rather than an executed sale. Both exit strategies assume 1% cost on sale proceeds.
+Savings include every pair, including late exits. If no EXIT fires, the held position is valued
+at its observed worst-14d mark, an unrealized valuation. Both exit strategies assume 1% cost on sale proceeds.
 
 Including the Stream development pairs: **4/8 catches**,
 **36h median lead**, **$1,878,696 saved vs naive**.
@@ -195,6 +195,19 @@ $env:BLAST_RADIUS_OFFLINE = "1"
 ```
 
 `--restart` recomputes analyses using the cached snapshot; it does not refresh market data. Checkpoints resume only when the universe, configuration, mapping and analysis-code fingerprints match.
+
+Offline Chromium verification covers all six pages, the Position shock toggle and vault selector,
+Replay dates, and sidebar navigation. Results and source hashes are in
+[`artifacts/verification.json`](artifacts/verification.json), with screenshots in
+[`artifacts/screenshots/`](artifacts/screenshots/). To repeat with the offline app running,
+install the optional development tools, then run:
+
+```powershell
+.venv/Scripts/python.exe -m pip install playwright
+$env:PLAYWRIGHT_BROWSERS_PATH = "$PWD/.playwright-mcp/browsers"
+.venv/Scripts/python.exe -m playwright install chromium
+.venv/Scripts/python.exe scripts/verify_app.py
+```
 
 ---
 

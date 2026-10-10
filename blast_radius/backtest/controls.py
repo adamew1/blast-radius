@@ -1,4 +1,4 @@
-"""False-alarm control test: run the identical frozen rule over calm 2024 for each pair, using a
+"""False-alarm control test: run the identical rule over observed 2024 windows for each pair, using a
 rolling 7-day median reference (so the rule works the same outside event windows). Count EXIT
 episodes that are NOT followed by a real >5% downstream break within 14 days -> false alarms/pair-year.
 

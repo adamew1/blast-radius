@@ -75,7 +75,7 @@ def main() -> None:
     split = {"pre_2024": _summarise([r for r in oos if year(r) < 2024]),
              "y2024_2025": _summarise([r for r in oos if year(r) >= 2024])}
 
-    print("Running false-alarm controls over calm 2024 (non-development pairs)...")
+    print("Running false-alarm controls over observed 2024 windows (non-development pairs)...")
     pairs = [ev for ev in all_events if ev["cohort"] != "development"]
     fa_rows = [false_alarm_test(p) for p in pairs]
     for row in fa_rows:
@@ -102,6 +102,7 @@ def main() -> None:
     out = {
         "generated_at_note": "numbers computed by code from cached real DefiLlama data",
         "rule": cfg,  # the frozen signal rule, echoed in
+        "params": cfg,
         "triggers": sorted({r["trigger"] for r in results}),
         "n_events": len(results), "n_triggers_out_of_sample": len({r["trigger"] for r in oos}),
         "headline": headline, "split": split, "false_alarms": false_alarms,

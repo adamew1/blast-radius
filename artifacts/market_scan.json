@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-10T20:56:10.460514+00:00",
-  "snapshot_fingerprint": "c3383d27911b3faffd661fec95f1725de6c82b31f92e07e954498e9ddb6f2fb9",
+  "generated_at": "2026-10-10T20:59:25.207119+00:00",
+  "snapshot_fingerprint": "cce707e79fd3ae6ccd0f520735a165a6be1ab8a1d67e4cb34fad2e80130bd3d0",
   "config": {
     "chain_id": 1,
     "morpho_min_tvl_usd": 10000000,
@@ -20319,7 +20319,7 @@
     }
   ],
   "errors": [],
-  "scan_wall_seconds": 1.804,
+  "scan_wall_seconds": 1.534,
   "limitations": [
     "Ethereum only; listed Morpho V1 vaults and active Pendle markets above declared cutoffs.",
     "Cache snapshot, not a current-price feed. Refresh explicitly to update.",

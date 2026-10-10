@@ -24,8 +24,8 @@ def generated_sections():
 Excluding Stream: **{h['events_caught']}/{h['events_total']} advance catches**, **{h['misses']} misses**
 (including {h['simultaneous_signals']} same-bar signals), **{h['median_lead_hours']:g}h median lead** among catches,
 and **${h['total_saved_vs_naive_usd']:,} saved versus a naive 5% price-watcher** on $1M per pair.
-Savings include every pair: a missed exit holds to its observed worst-14d mark, an unrealized
-valuation rather than an executed sale. Both exit strategies assume 1% cost on sale proceeds.
+Savings include every pair, including late exits. If no EXIT fires, the held position is valued
+at its observed worst-14d mark, an unrealized valuation. Both exit strategies assume 1% cost on sale proceeds.
 
 Including the Stream development pairs: **{incl['events_caught']}/{incl['events_total']} catches**,
 **{incl['median_lead_hours']:g}h median lead**, **${incl['total_saved_vs_naive_usd']:,} saved vs naive**.
@@ -80,8 +80,8 @@ not executable quotes for entire pools. Source-cache dates, coverage and full re
         f"{top['label']} is the largest shared issuer dependency at ${top['exposure_usd']:,.0f} weighted notional, "
         f"with {cov['fully_looked_through_pct']:.1f}% mapped to declared depth. Caveats: retrospective "
         f"selection, only {bt['n_triggers_out_of_sample']} independent crises, estimated exposure shares, "
-        "4h sampling and indicative exit prices, missed-exit savings marked at the observed worst 14-day "
-        "hold value, incomplete control coverage, current risk priors, Stream as the development case, "
+        "4h sampling and indicative exit prices, worst-14-day hold valuation if no EXIT fires, "
+        "incomplete control coverage, current risk priors, Stream as the development case, "
         "manual-map and reserve-depth limits, omitted Morpho loan-asset issuer risk, Ethereum-only scope, "
         "and overlapping gross capital. No early-warning ML benchmark is claimed. The separate incident "
         "model improves ROC-AUC and Brier, not PR-AUC; base-rate priors remain the production backbone."

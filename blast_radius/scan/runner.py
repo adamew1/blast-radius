@@ -14,7 +14,7 @@ from datetime import datetime, timezone
 
 from ..analyze import analyze_position
 from ..config import ARTIFACTS, MANUAL, ROOT, load_config
-from ..sources import morpho, pendle
+from ..sources import defillama, morpho, pendle
 from ..sources.cache import RAW_DIR
 
 
@@ -150,7 +150,8 @@ def run_scan(resume: bool = True) -> dict:
     cfg = load_config()["scan_config"]
     started = time.monotonic()
     positions, meta = universe(cfg)
-    fingerprint = hashlib.sha256(json.dumps(dict(positions=positions, cfg=cfg), sort_keys=True).encode()
+    risk_inputs = dict(protocols=defillama.protocols(), hacks=defillama.hacks())
+    fingerprint = hashlib.sha256(json.dumps(dict(positions=positions, cfg=cfg, risk_inputs=risk_inputs), sort_keys=True).encode()
                                  + (MANUAL / "dependencies.yaml").read_bytes()
                                  + b"".join((ROOT / file).read_bytes() for file in (
                                      "blast_radius/scan/runner.py", "blast_radius/analyze.py",
