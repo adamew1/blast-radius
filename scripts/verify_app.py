@@ -46,9 +46,10 @@ def main():
                           | set(ROOT.glob("data/manual/*.yaml")) | set(ROOT.glob("data/backtest/*.yaml"))
                           | {ROOT / "config.yaml"})
     report["source_sha256"] = {
-        str(path.relative_to(ROOT)).replace("\\", "/"): hashlib.sha256(path.read_bytes()).hexdigest()
+        str(path.relative_to(ROOT)).replace("\\", "/"): hashlib.sha256(path.read_text(encoding="utf-8").encode("utf-8")).hexdigest()
         for path in source_files
     }
+    report["source_hash_normalization"] = "UTF-8 text with line endings normalized to LF"
     cases = [
         ("Home", "/", "💥 Blast Radius", 0),
         ("Position", "/Position", "Position risk & dependency look-through", 2),

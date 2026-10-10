@@ -104,9 +104,10 @@
     "blast_radius/sources/morpho.py": "df3036ecdc143a9d516341b8a4b8700d3a97c31a7db4f6d86729fafa9e08782f",
     "blast_radius/sources/pendle.py": "9dea3dfb6fc4b0c8466352e7acfc9038618d79b930f5d5e949122d63c3e63f9d",
     "config.yaml": "e05f8f03b94502f6781ff5a0b61ae1d9887d78c93b9e1fbc834cbddd1ece4088",
-    "data/backtest/events.yaml": "47c5bac2ec29ed193d00f4d545638b22836ea0f7a6f1147e5015424271f0117b",
+    "data/backtest/events.yaml": "7f6bfc46372f12f1df65de99da8b5d655a9bbfaa0f1b13e71b2a75ccde6f5d15",
     "data/backtest/signal_rule.yaml": "55d014d36dd59bc66ee3c12caf4db0172eef5e55ac30378493d2e9bc7b2aa50d",
     "data/manual/dependencies.yaml": "58d95dc364b5391abba7898f3ff80736b2c5b63d5e97b3de795a68ed3656d180"
   },
-  "status": "passed"
+  "status": "passed",
+  "source_hash_normalization": "UTF-8 text with line endings normalized to LF"
 }
