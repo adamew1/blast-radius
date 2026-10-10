@@ -10,12 +10,24 @@
 Blast Radius
 
 ### Tagline (one line)
-Find hidden DeFi dependencies, simulate failure propagation, and compare stay/exit decisions — with historical misses, false alarms and Ethereum coverage shown openly.
+Ten positions. One hidden bet. Discover shared DeFi dependencies, simulate their failure, and compute the cheapest feasible protection under snapshot liquidity constraints.
 
 ### Description (paste into the BUIDL body)
 On-chain positions carry risk that lives in their **dependencies** — the settlement chain, the underlying yield source and its issuer, the oracle, the AMM that prices and exits it, and the lending markets that hold it as collateral. When one of these fails, a portfolio manager doesn't just need an alert; they need to know **how the failure propagates to their position** and whether the expected loss justifies exiting despite slippage.
 
-**Blast Radius** is a working Python engine + Streamlit dashboard that does exactly this:
+**Blast Radius** is an interactive portfolio fire drill: **DISCOVER → ATTACK → COLLAPSE → RESCUE → PROVE**.
+
+Click **Find My Weakest Point** on a real cached $10M book. The graph reveals **wstETH shared by a Pendle position and four Morpho vaults**, then lets a judge attack any dependency and vary severity. The reveal and ranking are computed from the dependency graph; the highlighted result is not hardcoded. A separate issuer scenario exposes the same five positions' Lido dependency.
+
+The deterministic engine avoids compounding alternate paths to the same claim, sums separate funded vault allocations, and estimates supplier losses from incremental aggregate collateral shortfall. An interactive graph shows actual propagation paths and inspectable financial meaning. This is conditional scenario loss, separate from probability-weighted expected loss.
+
+**Build Rescue Plan** selects reductions on a 5% grid with mixed-integer optimization. It uses 80 captured Pendle quotes, RPC-verified token decimals, funded Morpho allocations, and market capacities shared across vaults. Judges set a loss limit, lock a position and rerun. Impossible targets are explicitly infeasible. Withdrawals are feasible under snapshot bounds; withdrawal queues and future execution are not certified.
+
+Under the stated frozen wstETH scenario: **$2,311,622 conditional loss → $498,866 accounted loss** at a $500,000 limit, for **$21,753 economic protection cost**. The plan's break-even probability of this exact scenario over thirty days is **1.19%**, not an empirically estimated probability. Execution cost, assumed conversion reserve, foregone yield and released capital are displayed separately. Protection occurs before the hypothetical failure, with released capital assumed converted to external cash.
+
+**Show Me the Evidence** distinguishes API observations, sourced manual mappings, cached RPC observations and modelling assumptions. Download a source-hashed receipt and independently recompute the plan. The complete experience runs offline, with a native-control fallback and browser-recorded demonstration evidence.
+
+The preserved research pages additionally provide:
 
 1. **Recursive dependency discovery** — a Pendle PT or Morpho vault is unwrapped layer by layer from cached DefiLlama / Pendle / Morpho data. Issuer, some oracle and backing links come from a sourced manual map, labelled in the UI.
 2. **Monte-Carlo failure propagation** — base-rate incident probabilities and severity priors propagate up the graph to give Expected Loss, CVaR-95 and the dominant risk path. Each dependency type uses a flat coefficient (oracle **0.70**); **LLTV is displayed in labels only**, with no liquidation threshold wired into propagation.

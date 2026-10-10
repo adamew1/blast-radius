@@ -1,0 +1,1 @@
+{"meta": {"method": "POST", "url": "https://ethereum-rpc.publicnode.com", "label": "fire_drill_decimals:0xecfafdc7741323a945a163ed068b5a3c43483957"}, "data": {"jsonrpc": "2.0", "id": 1, "result": "0x0000000000000000000000000000000000000000000000000000000000000006"}, "cached_at": 1791669053.2777846}

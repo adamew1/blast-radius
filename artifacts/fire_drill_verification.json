@@ -1,0 +1,47 @@
+{
+  "verified_at": "2026-10-10T22:16:39.949459+00:00",
+  "url": "http://localhost:8501",
+  "offline": true,
+  "interactions": [
+    "Clean launch from frozen evidence",
+    "Automatic ranking reveals wstETH across five positions",
+    "Failure propagates over actual dependency paths",
+    "Clicking a canonical node selects a different dependency",
+    "Least-cost rescue independently verified within target",
+    "Before and after transform actual retained exposures",
+    "Lock challenge reports infeasibility honestly",
+    "Evidence exposes provenance, assumptions and source bundle",
+    "Downloaded receipt recomputes independently",
+    "Zero severity gives zero loss and invalidates stale rescue",
+    "Reset restores a clean demonstration",
+    "Native-control fallback computes a rescue",
+    "Preserved offline research page: Position",
+    "Preserved offline research page: Portfolio",
+    "Preserved offline research page: Replay_Stream",
+    "Preserved offline research page: Track_Record",
+    "Preserved offline research page: Market_Scan",
+    "Preserved methodology and expected-loss analysis"
+  ],
+  "external_requests": [],
+  "js_errors": [],
+  "screenshots": [
+    "artifacts/screenshots/FireDrill_initial.png",
+    "artifacts/screenshots/FireDrill_discovery.png",
+    "artifacts/screenshots/FireDrill_collapse.png",
+    "artifacts/screenshots/FireDrill_rescue.png",
+    "artifacts/screenshots/FireDrill_locked.png",
+    "artifacts/screenshots/FireDrill_proof.png"
+  ],
+  "source_sha256": {
+    "blast_radius/fire_drill/evidence.py": "bb80d89dda3bcdfbf837f25baefae7bfd4ba0b42f9ccae43d49bbf1d7c4c7788",
+    "blast_radius/fire_drill/execution.py": "96c443a9da18a7a61e1bf502ab487f5ea9d12cc4b31c47b222fdf43073b444a7",
+    "blast_radius/fire_drill/model.py": "67187f0d6e5d3282e84772fd7a3e7053681db5ebeb5b18c72fd92c6b844d3ca9",
+    "blast_radius/fire_drill/optimize.py": "4138f3d556f1b243c11a847e7b8a1a1fa68ee7fb76e970fb122792b39152b39c",
+    "blast_radius/fire_drill/presentation.py": "74f14eafe79923d7a59d922c14d54c091fd7e56297a79d1b17ad848c5b1cf045",
+    "blast_radius/fire_drill/__init__.py": "59949d688b2128df41b957103046f8f350df82d755341ba264e70d5ba75cbd20",
+    "app/components/terminal/terminal.css": "cf26aca842aec82bb7edefa7169e63a576ca82bbe426faa762a0c5493b21bc30",
+    "app/components/terminal/terminal.js": "ab7265830b0371e126be249aa8f4aeb28895310176cb1e23fbc386948afec4ad"
+  },
+  "video": "artifacts/demo_video/page@927ac692f324bce4ca70ee948ec7441a.webm",
+  "status": "passed"
+}

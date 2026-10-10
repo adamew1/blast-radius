@@ -1,0 +1,2997 @@
+{
+  "discovery_seconds": 0.12803229999553878,
+  "ranking": [
+    {
+      "id": "chain:ethereum",
+      "label": "Ethereum",
+      "kind": "chain",
+      "positions": 10,
+      "loss_usd": 10000000.0,
+      "affected_capital_usd": 10000000.0,
+      "exposure_concentration": 1.0,
+      "conditional_loss_pct": 1.0
+    },
+    {
+      "id": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "label": "wstETH",
+      "kind": "token",
+      "positions": 5,
+      "loss_usd": 2311622.1407796084,
+      "affected_capital_usd": 5000000.0,
+      "exposure_concentration": 0.5,
+      "conditional_loss_pct": 0.23116221407796084
+    },
+    {
+      "id": "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+      "label": "ETH",
+      "kind": "token",
+      "positions": 6,
+      "loss_usd": 2254945.387966915,
+      "affected_capital_usd": 6000000.0,
+      "exposure_concentration": 0.6,
+      "conditional_loss_pct": 0.2254945387966915
+    },
+    {
+      "id": "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+      "label": "stETH",
+      "kind": "token",
+      "positions": 5,
+      "loss_usd": 2139511.7078207685,
+      "affected_capital_usd": 5000000.0,
+      "exposure_concentration": 0.5,
+      "conditional_loss_pct": 0.21395117078207684
+    },
+    {
+      "id": "issuer:lido",
+      "label": "Lido",
+      "kind": "issuer",
+      "positions": 5,
+      "loss_usd": 1967401.2748619285,
+      "affected_capital_usd": 5000000.0,
+      "exposure_concentration": 0.5,
+      "conditional_loss_pct": 0.19674012748619285
+    },
+    {
+      "id": "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "label": "cbBTC",
+      "kind": "token",
+      "positions": 5,
+      "loss_usd": 1448224.5884300903,
+      "affected_capital_usd": 5000000.0,
+      "exposure_concentration": 0.5,
+      "conditional_loss_pct": 0.14482245884300904
+    },
+    {
+      "id": "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+      "label": "Morpho USDC/cbBTC @86%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 1317481.0290604285,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.13174810290604286
+    },
+    {
+      "id": "oracle:manual:Chainlink wstETH/ETH",
+      "label": "Chainlink wstETH/ETH",
+      "kind": "oracle",
+      "positions": 5,
+      "loss_usd": 1278959.5430265686,
+      "affected_capital_usd": 5000000.0,
+      "exposure_concentration": 0.5,
+      "conditional_loss_pct": 0.12789595430265685
+    },
+    {
+      "id": "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+      "label": "sUSDS",
+      "kind": "token",
+      "positions": 3,
+      "loss_usd": 1147779.3753838036,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.11477793753838036
+    },
+    {
+      "id": "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+      "label": "reUSD",
+      "kind": "token",
+      "positions": 2,
+      "loss_usd": 1123928.8304891682,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.11239288304891681
+    },
+    {
+      "id": "issuer:coinbase",
+      "label": "Coinbase",
+      "kind": "issuer",
+      "positions": 5,
+      "loss_usd": 1105629.0111721582,
+      "affected_capital_usd": 5000000.0,
+      "exposure_concentration": 0.5,
+      "conditional_loss_pct": 0.11056290111721581
+    },
+    {
+      "id": "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+      "label": "USDS",
+      "kind": "token",
+      "positions": 3,
+      "loss_usd": 1088655.0087776992,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.10886550087776992
+    },
+    {
+      "id": "issuer:sky",
+      "label": "Sky (formerly MakerDAO)",
+      "kind": "issuer",
+      "positions": 3,
+      "loss_usd": 1029530.6421715948,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.10295306421715948
+    },
+    {
+      "id": "issuer:re",
+      "label": "Re Protocol",
+      "kind": "issuer",
+      "positions": 2,
+      "loss_usd": 1008397.409674438,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.10083974096744379
+    },
+    {
+      "id": "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+      "label": "sUSDe",
+      "kind": "token",
+      "positions": 2,
+      "loss_usd": 954481.6989115096,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.09544816989115096
+    },
+    {
+      "id": "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a",
+      "label": "Oracle 0xA6D6950c\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 922236.7203422999,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.09222367203422999
+    },
+    {
+      "id": "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+      "label": "USDe",
+      "kind": "token",
+      "positions": 2,
+      "loss_usd": 906729.0292635256,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.09067290292635256
+    },
+    {
+      "id": "issuer:ethena",
+      "label": "Ethena",
+      "kind": "issuer",
+      "positions": 2,
+      "loss_usd": 858976.3596155415,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.08589763596155416
+    },
+    {
+      "id": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+      "label": "Morpho WETH/wstETH @96%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 821061.7559500505,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.08210617559500505
+    },
+    {
+      "id": "oracle:manual:Sky SSR / Chainlink sUSDS",
+      "label": "Sky SSR / Chainlink sUSDS",
+      "kind": "oracle",
+      "positions": 3,
+      "loss_usd": 793033.1757471771,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.07930331757471772
+    },
+    {
+      "id": "oracle:manual:Sky PSM (hardcoded $1)",
+      "label": "Sky PSM (hardcoded $1)",
+      "kind": "oracle",
+      "positions": 3,
+      "loss_usd": 751646.1191229041,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.07516461191229042
+    },
+    {
+      "id": "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+      "label": "WBTC",
+      "kind": "token",
+      "positions": 3,
+      "loss_usd": 709851.8245530693,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.07098518245530692
+    },
+    {
+      "id": "oracle:0xbd60a6770b27e084e8617335dde769241b0e71d8",
+      "label": "Oracle 0xbD60A677\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 698549.4241926804,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.06985494241926804
+    },
+    {
+      "id": "oracle:manual:Chainlink/Redstone USDe",
+      "label": "Chainlink/Redstone USDe",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 634538.8122700165,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.06345388122700166
+    },
+    {
+      "id": "token:ethereum:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+      "label": "USD3",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 570570.0208183553,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.05705700208183553
+    },
+    {
+      "id": "issuer:wbtc_custody",
+      "label": "WBTC custody (BitGo / BiT Global)",
+      "kind": "issuer",
+      "positions": 3,
+      "loss_usd": 566599.3924392045,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.05665993924392045
+    },
+    {
+      "id": "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b",
+      "label": "Morpho USDT/PT-sUSDS-26NOV2026 @92%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 509104.5291071642,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.05091045291071642
+    },
+    {
+      "id": "issuer:threejane",
+      "label": "3Jane",
+      "kind": "issuer",
+      "positions": 1,
+      "loss_usd": 498919.19496354664,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.049891919496354666
+    },
+    {
+      "id": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+      "label": "Morpho USDT/wstETH @86%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 492839.9080898309,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.04928399080898309
+    },
+    {
+      "id": "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc",
+      "label": "Pendle sUSDS pool",
+      "kind": "amm",
+      "positions": 2,
+      "loss_usd": 387874.2812124766,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.038787428121247663
+    },
+    {
+      "id": "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+      "label": "Pendle reUSD pool",
+      "kind": "amm",
+      "positions": 2,
+      "loss_usd": 384031.2604457489,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.038403126044574895
+    },
+    {
+      "id": "lmkt:morpho:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+      "label": "Morpho USDC/WBTC @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 370480.36016681447,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.03704803601668145
+    },
+    {
+      "id": "lmkt:morpho:0xf8c5aa31ea6b2a068a9eddb46dd110cae57bf0f12be9583a3f9a818effecba89",
+      "label": "Morpho USDC/PT-USD3-17DEC2026 @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 359781.8361546272,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.03597818361546272
+    },
+    {
+      "id": "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf",
+      "label": "Oracle 0x3464a61A\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 356373.1703750149,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.03563731703750149
+    },
+    {
+      "id": "amm:pendle:0x34280882267ffa6383b363e278b027be083bbe3b",
+      "label": "Pendle wstETH pool",
+      "kind": "amm",
+      "positions": 1,
+      "loss_usd": 350000.0,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.035
+    },
+    {
+      "id": "amm:pendle:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+      "label": "Pendle sUSDe pool",
+      "kind": "amm",
+      "positions": 1,
+      "loss_usd": 350000.0,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.035
+    },
+    {
+      "id": "oracle:0x95db30fab9a3754e42423000df27732cb2396992",
+      "label": "Oracle 0x95DB30fA\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 344987.93566288165,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.03449879356628816
+    },
+    {
+      "id": "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99",
+      "label": "Morpho USDT/WBTC @86%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 341892.96641778335,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.03418929664177833
+    },
+    {
+      "id": "lmkt:morpho:0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7",
+      "label": "Morpho USDC/USD3 @92%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 329779.86194858013,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.03297798619485801
+    },
+    {
+      "id": "token:ethereum:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+      "label": "USD3 PT",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 328760.9360927757,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.032876093609277575
+    },
+    {
+      "id": "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+      "label": "Morpho USDT/cbBTC @86%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 322357.7169487813,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.03223577169487813
+    },
+    {
+      "id": "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca",
+      "label": "Morpho USDT/PT-reUSD-10DEC2026 @92%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 321810.18691282184,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.03218101869128218
+    },
+    {
+      "id": "oracle:0xdddd770badd886df3864029e4b377b5f6a2b6b83",
+      "label": "Oracle 0xDddd770B\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 259336.25211677008,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.025933625211677008
+    },
+    {
+      "id": "oracle:0xe5e6ec063e63a9d0c6ac041d0ad2bd03f7f08d72",
+      "label": "Oracle 0xe5E6Ec06\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 251847.28530823902,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.025184728530823902
+    },
+    {
+      "id": "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef",
+      "label": "Oracle 0x008bF4B1\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 239325.07649244828,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.023932507649244827
+    },
+    {
+      "id": "oracle:0x68b4c2b2b2e245ab54a3bd55dfd5a9d84f029c06",
+      "label": "Oracle 0x68b4c2B2\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 230845.90336400608,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.023084590336400607
+    },
+    {
+      "id": "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2",
+      "label": "Oracle 0x9F983115\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 225650.40186414687,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.022565040186414687
+    },
+    {
+      "id": "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0",
+      "label": "Oracle 0x217d6DdC\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 225267.13083897525,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.022526713083897525
+    },
+    {
+      "id": "lmkt:morpho:0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e",
+      "label": "Morpho USDC/OETH @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 223353.0704894956,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.022335307048949562
+    },
+    {
+      "id": "lmkt:morpho:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+      "label": "Morpho USDC/WETH @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 205697.07020326023,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.02056970702032602
+    },
+    {
+      "id": "token:ethereum:0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3",
+      "label": "OETH",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 201482.56481640146,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.020148256481640144
+    },
+    {
+      "id": "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+      "label": "WETH",
+      "kind": "token",
+      "positions": 2,
+      "loss_usd": 187936.84016230406,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.018793684016230404
+    },
+    {
+      "id": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+      "label": "Morpho WETH/wstETH @94%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 176865.99289663575,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.017686599289663575
+    },
+    {
+      "id": "token:ethereum:0xdc169abe56461a2e0c034da431ac2a3ebf596094",
+      "label": "sUSDS PT",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 164266.091886219,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.016426609188621898
+    },
+    {
+      "id": "oracle:0xe8adff9117151fb5ad7313873780b87cc56eedb0",
+      "label": "Oracle 0xE8aDfF91\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 156347.14934264694,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.015634714934264694
+    },
+    {
+      "id": "issuer:origin",
+      "label": "Origin Protocol",
+      "kind": "issuer",
+      "positions": 1,
+      "loss_usd": 154869.98012815582,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.015486998012815582
+    },
+    {
+      "id": "token:ethereum:0xecfafdc7741323a945a163ed068b5a3c43483957",
+      "label": "reUSD PT",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 147856.58372759758,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.014785658372759757
+    },
+    {
+      "id": "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580",
+      "label": "Oracle 0x0F948CBa\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 146388.63443672014,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.014638863443672014
+    },
+    {
+      "id": "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+      "label": "weETH",
+      "kind": "token",
+      "positions": 2,
+      "loss_usd": 122305.14610677917,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.012230514610677918
+    },
+    {
+      "id": "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2",
+      "label": "eETH",
+      "kind": "token",
+      "positions": 2,
+      "loss_usd": 111257.54245446477,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.011125754245446477
+    },
+    {
+      "id": "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510",
+      "label": "Morpho USDT/WBTC @86%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 109125.95419543122,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.010912595419543121
+    },
+    {
+      "id": "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f",
+      "label": "Oracle 0xe087AD7F\u2026",
+      "kind": "oracle",
+      "positions": 3,
+      "loss_usd": 106417.63897453256,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.010641763897453256
+    },
+    {
+      "id": "issuer:etherfi",
+      "label": "ether.fi",
+      "kind": "issuer",
+      "positions": 2,
+      "loss_usd": 100209.93880215038,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.010020993880215039
+    },
+    {
+      "id": "lmkt:morpho:0xc2c53d2b868e163da71de14a5113cc2743fc9b5ad7488334720ed2846566a8f6",
+      "label": "Morpho USDT/weETH @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 95836.96689452113,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.009583696689452113
+    },
+    {
+      "id": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+      "label": "Morpho USDC/wstETH @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 92954.01722777606,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.009295401722777605
+    },
+    {
+      "id": "lmkt:morpho:0x1e9d614631a7df0ec07fb05b2c8cb2491575fd1a63a33bf187a6afb295a4fc64",
+      "label": "Morpho USDC/PT-reUSD-10DEC2026 @92%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 89949.99999999999,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.008994999999999998
+    },
+    {
+      "id": "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4",
+      "label": "Oracle 0xf1561bC4\u2026",
+      "kind": "oracle",
+      "positions": 3,
+      "loss_usd": 85624.68561957461,
+      "affected_capital_usd": 3000000.0,
+      "exposure_concentration": 0.3,
+      "conditional_loss_pct": 0.008562468561957462
+    },
+    {
+      "id": "lmkt:morpho:0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99",
+      "label": "Morpho USDC/siUSD @92%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 72106.93119014642,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0072106931190146425
+    },
+    {
+      "id": "oracle:0x631bea187ae9d90b76ccf91aa8f5e3ee1cdc0f87",
+      "label": "Oracle 0x631bEa18\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 67085.8768261648,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.006708587682616479
+    },
+    {
+      "id": "token:ethereum:0xdbdc1ef57537e34680b898e1febd3d68c7389bcb",
+      "label": "siUSD",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 65221.39536121162,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.006522139536121162
+    },
+    {
+      "id": "token:ethereum:0x48f9e38f3070ad8945dfeae3fa70987722e3d89c",
+      "label": "iUSD",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 60754.35047541166,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.006075435047541166
+    },
+    {
+      "id": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+      "label": "Morpho USDT/wstETH @86%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 59071.181307270446,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.005907118130727045
+    },
+    {
+      "id": "lmkt:morpho:0xa6a4c1f15490a1ff39d9de3a366b408dd5647a436d8b179726d3e0562aff1292",
+      "label": "Morpho USDT/weETH @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 56368.1605978348,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0056368160597834805
+    },
+    {
+      "id": "issuer:infinifi",
+      "label": "infiniFi",
+      "kind": "issuer",
+      "positions": 1,
+      "loss_usd": 56287.30558961171,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.005628730558961171
+    },
+    {
+      "id": "oracle:manual:Redstone/Chainlink weETH",
+      "label": "Redstone/Chainlink weETH",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 56019.52419289277,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.005601952419289277
+    },
+    {
+      "id": "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+      "label": "Morpho USDT/sUSDS @96%",
+      "kind": "lending_market",
+      "positions": 2,
+      "loss_usd": 53382.1683853001,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.00533821683853001
+    },
+    {
+      "id": "oracle:0xd2cc46b9b2d761502ef933320ecf0268ec0dfa6d",
+      "label": "Oracle 0xd2cC46b9\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 50474.8518331025,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.00504748518331025
+    },
+    {
+      "id": "lmkt:morpho:0x9105a5447f3eecdf768f04da12d580a878106e2e6b234312db2ee0f304539e35",
+      "label": "Morpho USDT/reUSD @92%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 49399.11904007931,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.004939911904007931
+    },
+    {
+      "id": "amm:pendle:0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+      "label": "Pendle USD3 pool",
+      "kind": "amm",
+      "positions": 1,
+      "loss_usd": 44732.065824519974,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.004473206582451998
+    },
+    {
+      "id": "oracle:0xa3a7a3cefee206f9d7fe00ec3c83324ed4228411",
+      "label": "Oracle 0xa3A7A3ce\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 39457.712418484356,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.003945771241848435
+    },
+    {
+      "id": "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79",
+      "label": "Oracle 0x0C426d17\u2026",
+      "kind": "oracle",
+      "positions": 2,
+      "loss_usd": 37367.51786971007,
+      "affected_capital_usd": 2000000.0,
+      "exposure_concentration": 0.2,
+      "conditional_loss_pct": 0.003736751786971007
+    },
+    {
+      "id": "oracle:0xa66a4f03fd8031973f8c7718904ce32385f54e70",
+      "label": "Oracle 0xA66a4F03\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 34579.38332805552,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.003457938332805552
+    },
+    {
+      "id": "lmkt:morpho:0x973e9dd45799efe8775417bcc420a3ab84a583587b2108985746e2fe201d0c83",
+      "label": "Morpho USDC/YFI @77%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 13559.430687183443,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0013559430687183442
+    },
+    {
+      "id": "lmkt:morpho:0xb7843fe78e7e7fd3106a1b939645367967d1f986c2e45edb8932ad1896450877",
+      "label": "Morpho USDT/XAUt @77%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 13551.816829850985,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0013551816829850984
+    },
+    {
+      "id": "lmkt:morpho:0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+      "label": "Morpho USDC/WBTC @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 13195.025261103947,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0013195025261103948
+    },
+    {
+      "id": "token:ethereum:0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+      "label": "YFI",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 12321.184629240457,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0012321184629240458
+    },
+    {
+      "id": "token:ethereum:0x68749665ff8d2d112fa859aa293f07a622782f38",
+      "label": "XAUt",
+      "kind": "token",
+      "positions": 1,
+      "loss_usd": 11412.487017278116,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0011412487017278116
+    },
+    {
+      "id": "oracle:0x637060c43e0bf6ab68ab59e7ad72cee45ce84ad5",
+      "label": "Oracle 0x637060c4\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 9491.601481028409,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0009491601481028409
+    },
+    {
+      "id": "oracle:0xc7d1fe3fbe90e8f755250ca3ce4d2ae50873d9dc",
+      "label": "Oracle 0xc7d1FE3f\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 9486.271780895688,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0009486271780895688
+    },
+    {
+      "id": "lmkt:morpho:0xdc5333039bcf15f1237133f74d5806675d83d9cf19cfd4cfdd9be674842651bf",
+      "label": "Morpho USDT/sUSDe @92%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 5560.711801655508,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0005560711801655508
+    },
+    {
+      "id": "oracle:0xe47e36457d0cf83a74ae1e45382b7a044f7abd99",
+      "label": "Oracle 0xE47E3645\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 3892.4982611588553,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.00038924982611588554
+    },
+    {
+      "id": "lmkt:morpho:0x3758a9e2abbd67b5621f23ec482608f2f98b3c792874661ce49df7843aadcfd2",
+      "label": "Morpho USDT/WETH @86%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 3429.550420625738,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0003429550420625738
+    },
+    {
+      "id": "lmkt:morpho:0x12dbf4937132ff2c6445212519295ce9afbee3c765ba626af5b197fe6c3941a0",
+      "label": "Morpho WETH/cbBTC @92%",
+      "kind": "lending_market",
+      "positions": 1,
+      "loss_usd": 2072.2511533136403,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.00020722511533136404
+    },
+    {
+      "id": "oracle:0x998eaa364282ad9ac33f934e97bef3d660389366",
+      "label": "Oracle 0x998Eaa36\u2026",
+      "kind": "oracle",
+      "positions": 1,
+      "loss_usd": 1450.575807319548,
+      "affected_capital_usd": 1000000.0,
+      "exposure_concentration": 0.1,
+      "conditional_loss_pct": 0.0001450575807319548
+    }
+  ],
+  "cases": [
+    {
+      "dependency": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "locks": [],
+      "stress": {
+        "model_version": "single-shock-aggregate-recovery-v1",
+        "dependency_id": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "severity": 1.0,
+        "aum_usd": 10000000.0,
+        "affected_capital_usd": 5000000.0,
+        "exposed_positions": 5,
+        "loss_usd": 2311622.1407796084,
+        "positions": [
+          {
+            "id": "pt-susds",
+            "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.048851889219318156,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+              "pos:pt-susds": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "pt-susde",
+            "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.05011032284498129,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Chainlink/Redstone USDe": 0.0,
+              "issuer:ethena": 0.0,
+              "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+              "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+              "amm:pendle:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e": 0.0,
+              "pos:pt-susde": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "pt-wsteth",
+            "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+            "size_usd": 1000000,
+            "fraction": 0.95,
+            "loss_usd": 950000.0,
+            "exposed": true,
+            "apy": 0.02131308793230202,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+              "amm:pendle:0x34280882267ffa6383b363e278b027be083bbe3b": 0.0,
+              "pos:pt-wsteth": 0.95
+            },
+            "flows": [
+              {
+                "parent": "pos:pt-wsteth",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.95,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.95,
+                "root_loss_fraction": 0.9500000000000001,
+                "impact_usd": 950000.0000000001
+              }
+            ]
+          },
+          {
+            "id": "pt-reusd",
+            "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.11790084743447493,
+            "node_losses": {
+              "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+              "chain:ethereum": 0.0,
+              "issuer:re": 0.0,
+              "lmkt:morpho:0x1e9d614631a7df0ec07fb05b2c8cb2491575fd1a63a33bf187a6afb295a4fc64": 0.0,
+              "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+              "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+              "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+              "pos:pt-reusd": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "smokehouse-usdt",
+            "label": "Morpho Smokehouse USDT",
+            "size_usd": 1000000,
+            "fraction": 0.09723827272699792,
+            "loss_usd": 97238.27272699792,
+            "exposed": true,
+            "apy": 0.028921676417622874,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "oracle:manual:Chainlink/Redstone USDe": 0.0,
+              "issuer:ethena": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 0.0,
+              "issuer:etherfi": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "issuer:re": 0.0,
+              "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+              "oracle:manual:Redstone/Chainlink weETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+              "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+              "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+              "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+              "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+              "oracle:0xe47e36457d0cf83a74ae1e45382b7a044f7abd99": 0.0,
+              "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+              "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+              "oracle:0xa66a4f03fd8031973f8c7718904ce32385f54e70": 0.0,
+              "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+              "oracle:0x631bea187ae9d90b76ccf91aa8f5e3ee1cdc0f87": 0.0,
+              "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+              "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+              "token:ethereum:0xdc169abe56461a2e0c034da431ac2a3ebf596094": 0.0,
+              "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+              "token:ethereum:0xecfafdc7741323a945a163ed068b5a3c43483957": 0.0,
+              "lmkt:morpho:0x3758a9e2abbd67b5621f23ec482608f2f98b3c792874661ce49df7843aadcfd2": 0.0,
+              "lmkt:morpho:0xdc5333039bcf15f1237133f74d5806675d83d9cf19cfd4cfdd9be674842651bf": 0.0,
+              "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+              "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.8052347304058194,
+              "lmkt:morpho:0x9105a5447f3eecdf768f04da12d580a878106e2e6b234312db2ee0f304539e35": 0.0,
+              "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+              "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+              "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.8084518184995707,
+              "lmkt:morpho:0xc2c53d2b868e163da71de14a5113cc2743fc9b5ad7488334720ed2846566a8f6": 0.0,
+              "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+              "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+              "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+              "pos:smokehouse-usdt": 0.09723827272699792
+            },
+            "flows": [
+              {
+                "parent": "pos:smokehouse-usdt",
+                "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "fraction_at_parent": 0.07130567629325216,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.08820027942492657,
+                "root_loss_fraction": 0.07130567629325216,
+                "impact_usd": 71305.67629325215
+              },
+              {
+                "parent": "pos:smokehouse-usdt",
+                "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "fraction_at_parent": 0.025932596433745757,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.03220501482924903,
+                "root_loss_fraction": 0.025932596433745757,
+                "impact_usd": 25932.596433745755
+              },
+              {
+                "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.8084518184995707,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.07130567629325216,
+                "impact_usd": 71305.67629325215
+              },
+              {
+                "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.8052347304058194,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.025932596433745757,
+                "impact_usd": 25932.596433745755
+              }
+            ]
+          },
+          {
+            "id": "steakhouse-usdt",
+            "label": "Morpho Steakhouse USDT",
+            "size_usd": 1000000,
+            "fraction": 0.34885944956117587,
+            "loss_usd": 348859.4495611759,
+            "exposed": true,
+            "apy": 0.023851756724270715,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "issuer:etherfi": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+              "oracle:manual:Redstone/Chainlink weETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xc7d1fe3fbe90e8f755250ca3ce4d2ae50873d9dc": 0.0,
+              "token:ethereum:0x68749665ff8d2d112fa859aa293f07a622782f38": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+              "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xa3a7a3cefee206f9d7fe00ec3c83324ed4228411": 0.0,
+              "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+              "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+              "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+              "lmkt:morpho:0xb7843fe78e7e7fd3106a1b939645367967d1f986c2e45edb8932ad1896450877": 0.0,
+              "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.8052352762470074,
+              "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+              "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+              "lmkt:morpho:0xa6a4c1f15490a1ff39d9de3a366b408dd5647a436d8b179726d3e0562aff1292": 0.0,
+              "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+              "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+              "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.8086846699993759,
+              "pos:steakhouse-usdt": 0.34885944956117587
+            },
+            "flows": [
+              {
+                "parent": "pos:steakhouse-usdt",
+                "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "fraction_at_parent": 0.3272258645755482,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.4046396286649043,
+                "root_loss_fraction": 0.3272258645755482,
+                "impact_usd": 327225.8645755482
+              },
+              {
+                "parent": "pos:steakhouse-usdt",
+                "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "fraction_at_parent": 0.02163358498562767,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.02686616647802142,
+                "root_loss_fraction": 0.02163358498562767,
+                "impact_usd": 21633.58498562767
+              },
+              {
+                "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.8086846699993759,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.3272258645755482,
+                "impact_usd": 327225.8645755482
+              },
+              {
+                "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.8052352762470074,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.02163358498562767,
+                "impact_usd": 21633.58498562767
+              }
+            ]
+          },
+          {
+            "id": "steakhouse-eth",
+            "label": "Morpho Steakhouse ETH",
+            "size_usd": 1000000,
+            "fraction": 0.831715351943742,
+            "loss_usd": 831715.351943742,
+            "exposed": true,
+            "apy": 0.014975826129284659,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 0.0,
+              "issuer:coinbase": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "oracle:0x998eaa364282ad9ac33f934e97bef3d660389366": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0xbd60a6770b27e084e8617335dde769241b0e71d8": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+              "lmkt:morpho:0x12dbf4937132ff2c6445212519295ce9afbee3c765ba626af5b197fe6c3941a0": 0.0,
+              "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d": 0.8563795224049955,
+              "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e": 0.8285015499596828,
+              "pos:steakhouse-eth": 0.831715351943742
+            },
+            "flows": [
+              {
+                "parent": "pos:steakhouse-eth",
+                "child": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+                "fraction_at_parent": 0.6802509374172357,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.8210617559500506,
+                "root_loss_fraction": 0.6802509374172359,
+                "impact_usd": 680250.9374172358
+              },
+              {
+                "parent": "pos:steakhouse-eth",
+                "child": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+                "fraction_at_parent": 0.15146441452650625,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.17686599289663577,
+                "root_loss_fraction": 0.15146441452650625,
+                "impact_usd": 151464.41452650624
+              },
+              {
+                "parent": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.8285015499596828,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.6802509374172359,
+                "impact_usd": 680250.9374172358
+              },
+              {
+                "parent": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.8563795224049955,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.15146441452650625,
+                "impact_usd": 151464.41452650624
+              }
+            ]
+          },
+          {
+            "id": "gauntlet-usdc-prime",
+            "label": "Morpho Gauntlet USDC Prime",
+            "size_usd": 1000000,
+            "fraction": 0.08380906654769274,
+            "loss_usd": 83809.06654769274,
+            "exposed": true,
+            "apy": 0.04263485362878478,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+              "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+              "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+              "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0xdddd770badd886df3864029e4b377b5f6a2b6b83": 0.0,
+              "lmkt:morpho:0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1": 0.0,
+              "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8": 0.9016185534222326,
+              "lmkt:morpho:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd": 0.0,
+              "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+              "lmkt:morpho:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49": 0.0,
+              "pos:gauntlet-usdc-prime": 0.08380906654769274
+            },
+            "flows": [
+              {
+                "parent": "pos:gauntlet-usdc-prime",
+                "child": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+                "fraction_at_parent": 0.08380906654769274,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.09295401722777606,
+                "root_loss_fraction": 0.08380906654769274,
+                "impact_usd": 83809.06654769274
+              },
+              {
+                "parent": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.9016185534222326,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.08380906654769274,
+                "impact_usd": 83809.06654769274
+              }
+            ]
+          },
+          {
+            "id": "hakutora-usdc",
+            "label": "Morpho Hakutora USDC",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.03812320797997496,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+              "pos:hakutora-usdc": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "yearn-og-usdc",
+            "label": "Morpho Yearn OG USDC",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.08007933832861278,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "issuer:infinifi": 0.0,
+              "issuer:threejane": 0.0,
+              "token:ethereum:0x48f9e38f3070ad8945dfeae3fa70987722e3d89c": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:origin": 0.0,
+              "token:ethereum:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc": 0.0,
+              "amm:pendle:0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e": 0.0,
+              "oracle:0x637060c43e0bf6ab68ab59e7ad72cee45ce84ad5": 0.0,
+              "token:ethereum:0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e": 0.0,
+              "oracle:0xd2cc46b9b2d761502ef933320ecf0268ec0dfa6d": 0.0,
+              "token:ethereum:0xdbdc1ef57537e34680b898e1febd3d68c7389bcb": 0.0,
+              "oracle:0xe8adff9117151fb5ad7313873780b87cc56eedb0": 0.0,
+              "token:ethereum:0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3": 0.0,
+              "oracle:0x68b4c2b2b2e245ab54a3bd55dfd5a9d84f029c06": 0.0,
+              "oracle:0xe5e6ec063e63a9d0c6ac041d0ad2bd03f7f08d72": 0.0,
+              "token:ethereum:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d": 0.0,
+              "lmkt:morpho:0x973e9dd45799efe8775417bcc420a3ab84a583587b2108985746e2fe201d0c83": 0.0,
+              "lmkt:morpho:0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99": 0.0,
+              "lmkt:morpho:0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e": 0.0,
+              "lmkt:morpho:0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7": 0.0,
+              "lmkt:morpho:0xf8c5aa31ea6b2a068a9eddb46dd110cae57bf0f12be9583a3f9a818effecba89": 0.0,
+              "pos:yearn-og-usdc": 0.0
+            },
+            "flows": []
+          }
+        ]
+      },
+      "plan": {
+        "status": "optimal",
+        "optimal": true,
+        "target_met": true,
+        "audit": {
+          "verified": true,
+          "avoided_loss_usd": 1828365.4196865163,
+          "residual_loss_usd": 483256.7210930921,
+          "execution_usd": 12209.301547936047,
+          "conversion_usd": 3400.0,
+          "carry_usd": 6144.063842222045,
+          "protection_cost_usd": 21753.36539015809,
+          "capital_sold_usd": 3400000.0,
+          "capital_released_usd": 3384390.698452064,
+          "accounted_loss_usd": 498866.02264102816,
+          "meets_limit": true,
+          "break_even_probability": 0.011897712107182507,
+          "market_use": [
+            {
+              "market": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+              "used_usd": 1000000.0,
+              "capacity_usd": 2578916.9400449498
+            },
+            {
+              "market": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+              "used_usd": 800000.0,
+              "capacity_usd": 4646991.458766231
+            },
+            {
+              "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+              "used_usd": 1000000.0,
+              "capacity_usd": 15049741.619556101
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "gauntlet-usdc-prime",
+            "label": "Morpho Gauntlet USDC Prime",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "hakutora-usdc",
+            "label": "Morpho Hakutora USDC",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-reusd",
+            "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-susde",
+            "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-susds",
+            "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-wsteth",
+            "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+            "fraction": 0.6,
+            "notional_usd": 600000.0,
+            "execution_usd": 11649.301547936047,
+            "conversion_usd": 600.0,
+            "carry_usd": 1051.0563911820175,
+            "source": "e3b1ce7bf3c509ab92a4",
+            "avoided_loss_usd": 570000.0
+          },
+          {
+            "id": "smokehouse-usdt",
+            "label": "Morpho Smokehouse USDT",
+            "fraction": 0.8,
+            "notional_usd": 800000.0,
+            "execution_usd": 160.0,
+            "conversion_usd": 800.0,
+            "carry_usd": 1901.6992712957508,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 77790.61818159834
+          },
+          {
+            "id": "steakhouse-eth",
+            "label": "Morpho Steakhouse ETH",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 1230.8898188453143,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 831715.351943742
+          },
+          {
+            "id": "steakhouse-usdt",
+            "label": "Morpho Steakhouse USDT",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 1960.418360898963,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 348859.4495611759
+          },
+          {
+            "id": "yearn-og-usdc",
+            "label": "Morpho Yearn OG USDC",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          }
+        ],
+        "withdrawals": [
+          {
+            "position": "smokehouse-usdt",
+            "market": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+            "amount_usd": 800000.0
+          },
+          {
+            "position": "steakhouse-eth",
+            "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+            "amount_usd": 1000000.0
+          },
+          {
+            "position": "steakhouse-usdt",
+            "market": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+            "amount_usd": 1000000.0
+          }
+        ],
+        "loss_limit_usd": 500000,
+        "locks": [],
+        "mode": "protect",
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_gap": 0.0
+      },
+      "stress_seconds": 0.0013118000060785562,
+      "solve_seconds": 0.04218969999055844
+    },
+    {
+      "dependency": "issuer:lido",
+      "locks": [],
+      "stress": {
+        "model_version": "single-shock-aggregate-recovery-v1",
+        "dependency_id": "issuer:lido",
+        "severity": 1.0,
+        "aum_usd": 10000000.0,
+        "affected_capital_usd": 5000000.0,
+        "exposed_positions": 5,
+        "loss_usd": 1967401.2748619285,
+        "positions": [
+          {
+            "id": "pt-susds",
+            "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.048851889219318156,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+              "pos:pt-susds": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "pt-susde",
+            "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.05011032284498129,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Chainlink/Redstone USDe": 0.0,
+              "issuer:ethena": 0.0,
+              "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+              "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+              "amm:pendle:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e": 0.0,
+              "pos:pt-susde": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "pt-wsteth",
+            "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+            "size_usd": 1000000,
+            "fraction": 0.855,
+            "loss_usd": 855000.0,
+            "exposed": true,
+            "apy": 0.02131308793230202,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "amm:pendle:0x34280882267ffa6383b363e278b027be083bbe3b": 0.0,
+              "pos:pt-wsteth": 0.855
+            },
+            "flows": [
+              {
+                "parent": "pos:pt-wsteth",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.855,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.95,
+                "root_loss_fraction": 0.855,
+                "impact_usd": 855000.0
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.855,
+                "impact_usd": 855000.0
+              }
+            ]
+          },
+          {
+            "id": "pt-reusd",
+            "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.11790084743447493,
+            "node_losses": {
+              "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+              "chain:ethereum": 0.0,
+              "issuer:re": 0.0,
+              "lmkt:morpho:0x1e9d614631a7df0ec07fb05b2c8cb2491575fd1a63a33bf187a6afb295a4fc64": 0.0,
+              "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+              "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+              "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+              "pos:pt-reusd": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "smokehouse-usdt",
+            "label": "Morpho Smokehouse USDT",
+            "size_usd": 1000000,
+            "fraction": 0.06880387026904564,
+            "loss_usd": 68803.87026904564,
+            "exposed": true,
+            "apy": 0.028921676417622874,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "oracle:manual:Chainlink/Redstone USDe": 0.0,
+              "issuer:ethena": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "issuer:etherfi": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "issuer:re": 0.0,
+              "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+              "oracle:manual:Redstone/Chainlink weETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+              "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+              "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+              "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+              "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+              "oracle:0xe47e36457d0cf83a74ae1e45382b7a044f7abd99": 0.0,
+              "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+              "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "oracle:0xa66a4f03fd8031973f8c7718904ce32385f54e70": 0.0,
+              "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+              "oracle:0x631bea187ae9d90b76ccf91aa8f5e3ee1cdc0f87": 0.0,
+              "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+              "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+              "token:ethereum:0xdc169abe56461a2e0c034da431ac2a3ebf596094": 0.0,
+              "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+              "token:ethereum:0xecfafdc7741323a945a163ed068b5a3c43483957": 0.0,
+              "lmkt:morpho:0x3758a9e2abbd67b5621f23ec482608f2f98b3c792874661ce49df7843aadcfd2": 0.0,
+              "lmkt:morpho:0xdc5333039bcf15f1237133f74d5806675d83d9cf19cfd4cfdd9be674842651bf": 0.0,
+              "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+              "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.6540501098029845,
+              "lmkt:morpho:0x9105a5447f3eecdf768f04da12d580a878106e2e6b234312db2ee0f304539e35": 0.0,
+              "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+              "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+              "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.5412701308322223,
+              "lmkt:morpho:0xc2c53d2b868e163da71de14a5113cc2743fc9b5ad7488334720ed2846566a8f6": 0.0,
+              "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+              "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+              "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+              "pos:smokehouse-usdt": 0.06880387026904564
+            },
+            "flows": [
+              {
+                "parent": "pos:smokehouse-usdt",
+                "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "fraction_at_parent": 0.04774017678376857,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.08820027942492657,
+                "root_loss_fraction": 0.04774017678376857,
+                "impact_usd": 47740.17678376858
+              },
+              {
+                "parent": "pos:smokehouse-usdt",
+                "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "fraction_at_parent": 0.02106369348527707,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.03220501482924903,
+                "root_loss_fraction": 0.02106369348527707,
+                "impact_usd": 21063.69348527707
+              },
+              {
+                "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.5412701308322223,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.04774017678376857,
+                "impact_usd": 47740.17678376858
+              },
+              {
+                "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.6540501098029845,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.02106369348527707,
+                "impact_usd": 21063.69348527707
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.06880387026904564,
+                "impact_usd": 68803.87026904564
+              }
+            ]
+          },
+          {
+            "id": "steakhouse-usdt",
+            "label": "Morpho Steakhouse USDT",
+            "size_usd": 1000000,
+            "fraction": 0.23669614202007655,
+            "loss_usd": 236696.14202007654,
+            "exposed": true,
+            "apy": 0.023851756724270715,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "issuer:etherfi": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+              "oracle:manual:Redstone/Chainlink weETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xc7d1fe3fbe90e8f755250ca3ce4d2ae50873d9dc": 0.0,
+              "token:ethereum:0x68749665ff8d2d112fa859aa293f07a622782f38": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xa3a7a3cefee206f9d7fe00ec3c83324ed4228411": 0.0,
+              "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+              "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+              "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+              "lmkt:morpho:0xb7843fe78e7e7fd3106a1b939645367967d1f986c2e45edb8932ad1896450877": 0.0,
+              "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.6540413573552611,
+              "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+              "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+              "lmkt:morpho:0xa6a4c1f15490a1ff39d9de3a366b408dd5647a436d8b179726d3e0562aff1292": 0.0,
+              "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+              "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+              "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.5415301480797953,
+              "pos:steakhouse-usdt": 0.23669614202007655
+            },
+            "flows": [
+              {
+                "parent": "pos:steakhouse-usdt",
+                "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "fraction_at_parent": 0.219124558029859,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.4046396286649043,
+                "root_loss_fraction": 0.219124558029859,
+                "impact_usd": 219124.558029859
+              },
+              {
+                "parent": "pos:steakhouse-usdt",
+                "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "fraction_at_parent": 0.017571583990217545,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.02686616647802142,
+                "root_loss_fraction": 0.017571583990217545,
+                "impact_usd": 17571.583990217547
+              },
+              {
+                "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.5415301480797953,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.219124558029859,
+                "impact_usd": 219124.558029859
+              },
+              {
+                "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.6540413573552611,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.017571583990217545,
+                "impact_usd": 17571.583990217547
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.23669614202007655,
+                "impact_usd": 236696.14202007654
+              }
+            ]
+          },
+          {
+            "id": "steakhouse-eth",
+            "label": "Morpho Steakhouse ETH",
+            "size_usd": 1000000,
+            "fraction": 0.7398062230406958,
+            "loss_usd": 739806.2230406958,
+            "exposed": true,
+            "apy": 0.014975826129284659,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "issuer:coinbase": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "oracle:0x998eaa364282ad9ac33f934e97bef3d660389366": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0xbd60a6770b27e084e8617335dde769241b0e71d8": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "lmkt:morpho:0x12dbf4937132ff2c6445212519295ce9afbee3c765ba626af5b197fe6c3941a0": 0.0,
+              "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d": 0.7625955310047433,
+              "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e": 0.736764321181957,
+              "pos:steakhouse-eth": 0.7398062230406958
+            },
+            "flows": [
+              {
+                "parent": "pos:steakhouse-eth",
+                "child": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+                "fraction_at_parent": 0.6049290072710046,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.8210617559500506,
+                "root_loss_fraction": 0.6049290072710046,
+                "impact_usd": 604929.0072710046
+              },
+              {
+                "parent": "pos:steakhouse-eth",
+                "child": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+                "fraction_at_parent": 0.1348772157696911,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.17686599289663577,
+                "root_loss_fraction": 0.1348772157696911,
+                "impact_usd": 134877.2157696911
+              },
+              {
+                "parent": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.736764321181957,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.6049290072710046,
+                "impact_usd": 604929.0072710046
+              },
+              {
+                "parent": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.7625955310047433,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.1348772157696911,
+                "impact_usd": 134877.2157696911
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.7398062230406958,
+                "impact_usd": 739806.2230406958
+              }
+            ]
+          },
+          {
+            "id": "gauntlet-usdc-prime",
+            "label": "Morpho Gauntlet USDC Prime",
+            "size_usd": 1000000,
+            "fraction": 0.06709503953211071,
+            "loss_usd": 67095.0395321107,
+            "exposed": true,
+            "apy": 0.04263485362878478,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+              "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+              "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0xdddd770badd886df3864029e4b377b5f6a2b6b83": 0.0,
+              "lmkt:morpho:0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1": 0.0,
+              "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8": 0.7218089280391176,
+              "lmkt:morpho:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd": 0.0,
+              "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+              "lmkt:morpho:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49": 0.0,
+              "pos:gauntlet-usdc-prime": 0.06709503953211071
+            },
+            "flows": [
+              {
+                "parent": "pos:gauntlet-usdc-prime",
+                "child": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+                "fraction_at_parent": 0.06709503953211071,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.09295401722777606,
+                "root_loss_fraction": 0.06709503953211071,
+                "impact_usd": 67095.0395321107
+              },
+              {
+                "parent": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.7218089280391176,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.06709503953211071,
+                "impact_usd": 67095.0395321107
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.06709503953211071,
+                "impact_usd": 67095.0395321107
+              }
+            ]
+          },
+          {
+            "id": "hakutora-usdc",
+            "label": "Morpho Hakutora USDC",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.03812320797997496,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+              "pos:hakutora-usdc": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "yearn-og-usdc",
+            "label": "Morpho Yearn OG USDC",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.08007933832861278,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "issuer:infinifi": 0.0,
+              "issuer:threejane": 0.0,
+              "token:ethereum:0x48f9e38f3070ad8945dfeae3fa70987722e3d89c": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:origin": 0.0,
+              "token:ethereum:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc": 0.0,
+              "amm:pendle:0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e": 0.0,
+              "oracle:0x637060c43e0bf6ab68ab59e7ad72cee45ce84ad5": 0.0,
+              "token:ethereum:0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e": 0.0,
+              "oracle:0xd2cc46b9b2d761502ef933320ecf0268ec0dfa6d": 0.0,
+              "token:ethereum:0xdbdc1ef57537e34680b898e1febd3d68c7389bcb": 0.0,
+              "oracle:0xe8adff9117151fb5ad7313873780b87cc56eedb0": 0.0,
+              "token:ethereum:0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3": 0.0,
+              "oracle:0x68b4c2b2b2e245ab54a3bd55dfd5a9d84f029c06": 0.0,
+              "oracle:0xe5e6ec063e63a9d0c6ac041d0ad2bd03f7f08d72": 0.0,
+              "token:ethereum:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d": 0.0,
+              "lmkt:morpho:0x973e9dd45799efe8775417bcc420a3ab84a583587b2108985746e2fe201d0c83": 0.0,
+              "lmkt:morpho:0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99": 0.0,
+              "lmkt:morpho:0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e": 0.0,
+              "lmkt:morpho:0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7": 0.0,
+              "lmkt:morpho:0xf8c5aa31ea6b2a068a9eddb46dd110cae57bf0f12be9583a3f9a818effecba89": 0.0,
+              "pos:yearn-og-usdc": 0.0
+            },
+            "flows": []
+          }
+        ]
+      },
+      "plan": {
+        "status": "optimal",
+        "optimal": true,
+        "target_met": true,
+        "audit": {
+          "verified": true,
+          "avoided_loss_usd": 1489502.3650607723,
+          "residual_loss_usd": 477898.90980115626,
+          "execution_usd": 12049.301547936047,
+          "conversion_usd": 2600.0,
+          "carry_usd": 4242.364570926295,
+          "protection_cost_usd": 18891.66611886234,
+          "capital_sold_usd": 2600000.0,
+          "capital_released_usd": 2585350.698452064,
+          "accounted_loss_usd": 492548.2113490923,
+          "meets_limit": true,
+          "break_even_probability": 0.01268320652722935,
+          "market_use": [
+            {
+              "market": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+              "used_usd": 1000000.0,
+              "capacity_usd": 2578916.9400449498
+            },
+            {
+              "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+              "used_usd": 1000000.0,
+              "capacity_usd": 15049741.619556101
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "gauntlet-usdc-prime",
+            "label": "Morpho Gauntlet USDC Prime",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "hakutora-usdc",
+            "label": "Morpho Hakutora USDC",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-reusd",
+            "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-susde",
+            "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-susds",
+            "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-wsteth",
+            "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+            "fraction": 0.6,
+            "notional_usd": 600000.0,
+            "execution_usd": 11649.301547936047,
+            "conversion_usd": 600.0,
+            "carry_usd": 1051.0563911820175,
+            "source": "e3b1ce7bf3c509ab92a4",
+            "avoided_loss_usd": 513000.0
+          },
+          {
+            "id": "smokehouse-usdt",
+            "label": "Morpho Smokehouse USDT",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "steakhouse-eth",
+            "label": "Morpho Steakhouse ETH",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 1230.8898188453143,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 739806.2230406958
+          },
+          {
+            "id": "steakhouse-usdt",
+            "label": "Morpho Steakhouse USDT",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 1960.418360898963,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 236696.14202007654
+          },
+          {
+            "id": "yearn-og-usdc",
+            "label": "Morpho Yearn OG USDC",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          }
+        ],
+        "withdrawals": [
+          {
+            "position": "steakhouse-eth",
+            "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+            "amount_usd": 1000000.0
+          },
+          {
+            "position": "steakhouse-usdt",
+            "market": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+            "amount_usd": 1000000.0
+          }
+        ],
+        "loss_limit_usd": 500000,
+        "locks": [],
+        "mode": "protect",
+        "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+        "mip_gap": 0.0
+      },
+      "stress_seconds": 0.0014351999998325482,
+      "solve_seconds": 0.025356700003612787
+    },
+    {
+      "dependency": "issuer:lido",
+      "locks": [
+        "pt-wsteth"
+      ],
+      "stress": {
+        "model_version": "single-shock-aggregate-recovery-v1",
+        "dependency_id": "issuer:lido",
+        "severity": 1.0,
+        "aum_usd": 10000000.0,
+        "affected_capital_usd": 5000000.0,
+        "exposed_positions": 5,
+        "loss_usd": 1967401.2748619285,
+        "positions": [
+          {
+            "id": "pt-susds",
+            "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.048851889219318156,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+              "pos:pt-susds": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "pt-susde",
+            "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.05011032284498129,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Chainlink/Redstone USDe": 0.0,
+              "issuer:ethena": 0.0,
+              "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+              "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+              "amm:pendle:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e": 0.0,
+              "pos:pt-susde": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "pt-wsteth",
+            "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+            "size_usd": 1000000,
+            "fraction": 0.855,
+            "loss_usd": 855000.0,
+            "exposed": true,
+            "apy": 0.02131308793230202,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "amm:pendle:0x34280882267ffa6383b363e278b027be083bbe3b": 0.0,
+              "pos:pt-wsteth": 0.855
+            },
+            "flows": [
+              {
+                "parent": "pos:pt-wsteth",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.855,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.95,
+                "root_loss_fraction": 0.855,
+                "impact_usd": 855000.0
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.855,
+                "impact_usd": 855000.0
+              }
+            ]
+          },
+          {
+            "id": "pt-reusd",
+            "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.11790084743447493,
+            "node_losses": {
+              "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+              "chain:ethereum": 0.0,
+              "issuer:re": 0.0,
+              "lmkt:morpho:0x1e9d614631a7df0ec07fb05b2c8cb2491575fd1a63a33bf187a6afb295a4fc64": 0.0,
+              "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+              "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+              "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+              "pos:pt-reusd": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "smokehouse-usdt",
+            "label": "Morpho Smokehouse USDT",
+            "size_usd": 1000000,
+            "fraction": 0.06880387026904564,
+            "loss_usd": 68803.87026904564,
+            "exposed": true,
+            "apy": 0.028921676417622874,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "oracle:manual:Chainlink/Redstone USDe": 0.0,
+              "issuer:ethena": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "issuer:etherfi": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "issuer:re": 0.0,
+              "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+              "oracle:manual:Redstone/Chainlink weETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+              "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+              "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+              "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+              "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+              "oracle:0xe47e36457d0cf83a74ae1e45382b7a044f7abd99": 0.0,
+              "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+              "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "oracle:0xa66a4f03fd8031973f8c7718904ce32385f54e70": 0.0,
+              "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+              "oracle:0x631bea187ae9d90b76ccf91aa8f5e3ee1cdc0f87": 0.0,
+              "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+              "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+              "token:ethereum:0xdc169abe56461a2e0c034da431ac2a3ebf596094": 0.0,
+              "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+              "token:ethereum:0xecfafdc7741323a945a163ed068b5a3c43483957": 0.0,
+              "lmkt:morpho:0x3758a9e2abbd67b5621f23ec482608f2f98b3c792874661ce49df7843aadcfd2": 0.0,
+              "lmkt:morpho:0xdc5333039bcf15f1237133f74d5806675d83d9cf19cfd4cfdd9be674842651bf": 0.0,
+              "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+              "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.6540501098029845,
+              "lmkt:morpho:0x9105a5447f3eecdf768f04da12d580a878106e2e6b234312db2ee0f304539e35": 0.0,
+              "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+              "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+              "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.5412701308322223,
+              "lmkt:morpho:0xc2c53d2b868e163da71de14a5113cc2743fc9b5ad7488334720ed2846566a8f6": 0.0,
+              "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+              "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+              "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+              "pos:smokehouse-usdt": 0.06880387026904564
+            },
+            "flows": [
+              {
+                "parent": "pos:smokehouse-usdt",
+                "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "fraction_at_parent": 0.04774017678376857,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.08820027942492657,
+                "root_loss_fraction": 0.04774017678376857,
+                "impact_usd": 47740.17678376858
+              },
+              {
+                "parent": "pos:smokehouse-usdt",
+                "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "fraction_at_parent": 0.02106369348527707,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.03220501482924903,
+                "root_loss_fraction": 0.02106369348527707,
+                "impact_usd": 21063.69348527707
+              },
+              {
+                "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.5412701308322223,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.04774017678376857,
+                "impact_usd": 47740.17678376858
+              },
+              {
+                "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.6540501098029845,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.02106369348527707,
+                "impact_usd": 21063.69348527707
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.06880387026904564,
+                "impact_usd": 68803.87026904564
+              }
+            ]
+          },
+          {
+            "id": "steakhouse-usdt",
+            "label": "Morpho Steakhouse USDT",
+            "size_usd": 1000000,
+            "fraction": 0.23669614202007655,
+            "loss_usd": 236696.14202007654,
+            "exposed": true,
+            "apy": 0.023851756724270715,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+              "issuer:sky": 0.0,
+              "issuer:etherfi": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+              "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+              "oracle:manual:Redstone/Chainlink weETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xc7d1fe3fbe90e8f755250ca3ce4d2ae50873d9dc": 0.0,
+              "token:ethereum:0x68749665ff8d2d112fa859aa293f07a622782f38": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+              "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xa3a7a3cefee206f9d7fe00ec3c83324ed4228411": 0.0,
+              "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+              "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+              "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+              "lmkt:morpho:0xb7843fe78e7e7fd3106a1b939645367967d1f986c2e45edb8932ad1896450877": 0.0,
+              "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.6540413573552611,
+              "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+              "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+              "lmkt:morpho:0xa6a4c1f15490a1ff39d9de3a366b408dd5647a436d8b179726d3e0562aff1292": 0.0,
+              "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+              "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+              "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.5415301480797953,
+              "pos:steakhouse-usdt": 0.23669614202007655
+            },
+            "flows": [
+              {
+                "parent": "pos:steakhouse-usdt",
+                "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "fraction_at_parent": 0.219124558029859,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.4046396286649043,
+                "root_loss_fraction": 0.219124558029859,
+                "impact_usd": 219124.558029859
+              },
+              {
+                "parent": "pos:steakhouse-usdt",
+                "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "fraction_at_parent": 0.017571583990217545,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.02686616647802142,
+                "root_loss_fraction": 0.017571583990217545,
+                "impact_usd": 17571.583990217547
+              },
+              {
+                "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.5415301480797953,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.219124558029859,
+                "impact_usd": 219124.558029859
+              },
+              {
+                "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.6540413573552611,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.017571583990217545,
+                "impact_usd": 17571.583990217547
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.23669614202007655,
+                "impact_usd": 236696.14202007654
+              }
+            ]
+          },
+          {
+            "id": "steakhouse-eth",
+            "label": "Morpho Steakhouse ETH",
+            "size_usd": 1000000,
+            "fraction": 0.7398062230406958,
+            "loss_usd": 739806.2230406958,
+            "exposed": true,
+            "apy": 0.014975826129284659,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "issuer:coinbase": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "oracle:0x998eaa364282ad9ac33f934e97bef3d660389366": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0xbd60a6770b27e084e8617335dde769241b0e71d8": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "lmkt:morpho:0x12dbf4937132ff2c6445212519295ce9afbee3c765ba626af5b197fe6c3941a0": 0.0,
+              "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d": 0.7625955310047433,
+              "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e": 0.736764321181957,
+              "pos:steakhouse-eth": 0.7398062230406958
+            },
+            "flows": [
+              {
+                "parent": "pos:steakhouse-eth",
+                "child": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+                "fraction_at_parent": 0.6049290072710046,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.8210617559500506,
+                "root_loss_fraction": 0.6049290072710046,
+                "impact_usd": 604929.0072710046
+              },
+              {
+                "parent": "pos:steakhouse-eth",
+                "child": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+                "fraction_at_parent": 0.1348772157696911,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.17686599289663577,
+                "root_loss_fraction": 0.1348772157696911,
+                "impact_usd": 134877.2157696911
+              },
+              {
+                "parent": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.736764321181957,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.6049290072710046,
+                "impact_usd": 604929.0072710046
+              },
+              {
+                "parent": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.7625955310047433,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.1348772157696911,
+                "impact_usd": 134877.2157696911
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.7398062230406958,
+                "impact_usd": 739806.2230406958
+              }
+            ]
+          },
+          {
+            "id": "gauntlet-usdc-prime",
+            "label": "Morpho Gauntlet USDC Prime",
+            "size_usd": 1000000,
+            "fraction": 0.06709503953211071,
+            "loss_usd": 67095.0395321107,
+            "exposed": true,
+            "apy": 0.04263485362878478,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:lido": 1.0,
+              "issuer:wbtc_custody": 0.0,
+              "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.9,
+              "oracle:manual:Chainlink wstETH/ETH": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+              "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+              "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+              "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 0.9,
+              "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+              "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+              "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "oracle:0xdddd770badd886df3864029e4b377b5f6a2b6b83": 0.0,
+              "lmkt:morpho:0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1": 0.0,
+              "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8": 0.7218089280391176,
+              "lmkt:morpho:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd": 0.0,
+              "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+              "lmkt:morpho:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49": 0.0,
+              "pos:gauntlet-usdc-prime": 0.06709503953211071
+            },
+            "flows": [
+              {
+                "parent": "pos:gauntlet-usdc-prime",
+                "child": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+                "fraction_at_parent": 0.06709503953211071,
+                "rule": "disjoint funded allocation",
+                "coefficient": 0.09295401722777606,
+                "root_loss_fraction": 0.06709503953211071,
+                "impact_usd": 67095.0395321107
+              },
+              {
+                "parent": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+                "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "fraction_at_parent": 0.7218089280391176,
+                "rule": "incremental aggregate collateral shortfall / market supply",
+                "coefficient": null,
+                "root_loss_fraction": 0.06709503953211071,
+                "impact_usd": 67095.0395321107
+              },
+              {
+                "parent": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+                "child": "issuer:lido",
+                "fraction_at_parent": 0.9,
+                "rule": "strongest overlapping channel",
+                "coefficient": 0.9,
+                "root_loss_fraction": 0.06709503953211071,
+                "impact_usd": 67095.0395321107
+              }
+            ]
+          },
+          {
+            "id": "hakutora-usdc",
+            "label": "Morpho Hakutora USDC",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.03812320797997496,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "issuer:coinbase": 0.0,
+              "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+              "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+              "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+              "pos:hakutora-usdc": 0.0
+            },
+            "flows": []
+          },
+          {
+            "id": "yearn-og-usdc",
+            "label": "Morpho Yearn OG USDC",
+            "size_usd": 1000000,
+            "fraction": 0.0,
+            "loss_usd": 0.0,
+            "exposed": false,
+            "apy": 0.08007933832861278,
+            "node_losses": {
+              "chain:ethereum": 0.0,
+              "issuer:infinifi": 0.0,
+              "issuer:threejane": 0.0,
+              "token:ethereum:0x48f9e38f3070ad8945dfeae3fa70987722e3d89c": 0.0,
+              "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+              "issuer:origin": 0.0,
+              "token:ethereum:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc": 0.0,
+              "amm:pendle:0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e": 0.0,
+              "oracle:0x637060c43e0bf6ab68ab59e7ad72cee45ce84ad5": 0.0,
+              "token:ethereum:0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e": 0.0,
+              "oracle:0xd2cc46b9b2d761502ef933320ecf0268ec0dfa6d": 0.0,
+              "token:ethereum:0xdbdc1ef57537e34680b898e1febd3d68c7389bcb": 0.0,
+              "oracle:0xe8adff9117151fb5ad7313873780b87cc56eedb0": 0.0,
+              "token:ethereum:0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3": 0.0,
+              "oracle:0x68b4c2b2b2e245ab54a3bd55dfd5a9d84f029c06": 0.0,
+              "oracle:0xe5e6ec063e63a9d0c6ac041d0ad2bd03f7f08d72": 0.0,
+              "token:ethereum:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d": 0.0,
+              "lmkt:morpho:0x973e9dd45799efe8775417bcc420a3ab84a583587b2108985746e2fe201d0c83": 0.0,
+              "lmkt:morpho:0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99": 0.0,
+              "lmkt:morpho:0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e": 0.0,
+              "lmkt:morpho:0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7": 0.0,
+              "lmkt:morpho:0xf8c5aa31ea6b2a068a9eddb46dd110cae57bf0f12be9583a3f9a818effecba89": 0.0,
+              "pos:yearn-og-usdc": 0.0
+            },
+            "flows": []
+          }
+        ]
+      },
+      "plan": {
+        "status": "infeasible",
+        "optimal": true,
+        "target_met": false,
+        "audit": {
+          "verified": true,
+          "avoided_loss_usd": 1112401.2748619285,
+          "residual_loss_usd": 855000.0,
+          "execution_usd": 800.0,
+          "conversion_usd": 4000.0,
+          "carry_usd": 9072.666813695592,
+          "protection_cost_usd": 13872.666813695592,
+          "capital_sold_usd": 4000000.0,
+          "capital_released_usd": 3995200.0,
+          "accounted_loss_usd": 859800.0,
+          "meets_limit": false,
+          "break_even_probability": 0.012470919556809632,
+          "market_use": [
+            {
+              "market": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+              "used_usd": 311740.7813006857,
+              "capacity_usd": 4646991.458766231
+            },
+            {
+              "market": "0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+              "used_usd": 688259.2186993143,
+              "capacity_usd": 688259.2186993143
+            },
+            {
+              "market": "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+              "used_usd": 68501.75394584668,
+              "capacity_usd": 1235328.4562730743
+            },
+            {
+              "market": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+              "used_usd": 927263.9880266557,
+              "capacity_usd": 927263.9880266557
+            },
+            {
+              "market": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+              "used_usd": 1984.5777747845855,
+              "capacity_usd": 3215832.1979704276
+            },
+            {
+              "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+              "used_usd": 1000000.0,
+              "capacity_usd": 15049741.619556101
+            },
+            {
+              "market": "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+              "used_usd": 2249.680252712946,
+              "capacity_usd": 99079.27536651606
+            },
+            {
+              "market": "0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+              "used_usd": 1000000.0,
+              "capacity_usd": 28787716.86235627
+            }
+          ]
+        },
+        "actions": [
+          {
+            "id": "gauntlet-usdc-prime",
+            "label": "Morpho Gauntlet USDC Prime",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 3504.234544831626,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 67095.0395321107
+          },
+          {
+            "id": "hakutora-usdc",
+            "label": "Morpho Hakutora USDC",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-reusd",
+            "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-susde",
+            "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-susds",
+            "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "pt-wsteth",
+            "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          },
+          {
+            "id": "smokehouse-usdt",
+            "label": "Morpho Smokehouse USDT",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 2377.1240891196885,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 68803.87026904564
+          },
+          {
+            "id": "steakhouse-eth",
+            "label": "Morpho Steakhouse ETH",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 1230.8898188453143,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 739806.2230406958
+          },
+          {
+            "id": "steakhouse-usdt",
+            "label": "Morpho Steakhouse USDT",
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 1960.418360898963,
+            "source": "cached Morpho funded allocations and market liquidity",
+            "avoided_loss_usd": 236696.14202007654
+          },
+          {
+            "id": "yearn-og-usdc",
+            "label": "Morpho Yearn OG USDC",
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold",
+            "avoided_loss_usd": 0.0
+          }
+        ],
+        "withdrawals": [
+          {
+            "position": "gauntlet-usdc-prime",
+            "market": "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+            "amount_usd": 68501.75394584668
+          },
+          {
+            "position": "gauntlet-usdc-prime",
+            "market": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+            "amount_usd": 927263.9880266557
+          },
+          {
+            "position": "gauntlet-usdc-prime",
+            "market": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+            "amount_usd": 1984.5777747845855
+          },
+          {
+            "position": "gauntlet-usdc-prime",
+            "market": "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+            "amount_usd": 2249.680252712946
+          },
+          {
+            "position": "smokehouse-usdt",
+            "market": "0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+            "amount_usd": 1000000.0
+          },
+          {
+            "position": "steakhouse-eth",
+            "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+            "amount_usd": 1000000.0
+          },
+          {
+            "position": "steakhouse-usdt",
+            "market": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+            "amount_usd": 311740.7813006857
+          },
+          {
+            "position": "steakhouse-usdt",
+            "market": "0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+            "amount_usd": 688259.2186993143
+          }
+        ],
+        "loss_limit_usd": 500000,
+        "locks": [
+          "pt-wsteth"
+        ],
+        "mode": "minimum_loss",
+        "message": "Target is below attainable snapshot protection",
+        "mip_gap": 0.0,
+        "minimum_attainable_proved": true
+      },
+      "stress_seconds": 0.0014041999966138974,
+      "solve_seconds": 0.016301299998303875
+    }
+  ],
+  "quote_options_available": 80,
+  "cash_conversion_bps_assumed": 10,
+  "gas_bps_assumed": 2,
+  "data_classification": "frozen API, manual mapping and RPC observations; modelled hypothetical loss"
+}

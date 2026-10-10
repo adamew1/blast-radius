@@ -1,4 +1,33 @@
-# 💥 Blast Radius
+# Blast Radius — Ten Positions. One Hidden Bet.
+
+**Discover → Attack → Collapse → Rescue → Prove.** An interactive portfolio fire drill for the Belem Capital DeFi Risk Dependency Challenge.
+
+The new landing experience automatically ranks shared dependencies in a real cached $10M, ten-position book. Its computed weakest shared dependency is **wstETH across five positions**: a Pendle position and four Morpho vaults. Click any discovered dependency, change the shock severity, and inspect the actual paths that transmit the modelled loss. Then find the least-cost protection within captured quote and shared market-liquidity bounds.
+
+![Interactive portfolio fire drill](artifacts/screenshots/FireDrill_collapse.png)
+
+The frozen wstETH scenario produces **$2,311,622 conditional loss**. With a **$500,000 accounted-loss limit**, the discrete optimizer finds **$498,866 accounted loss** at **$21,753 economic cost** (execution, conversion reserve and thirty-day foregone carry). These are hypothetical pre-failure calculations, not predictions or executed returns. The break-even probability of this exact scenario over thirty days is **1.19%**, not an empirically estimated probability. Generated figures and all actions: [`artifacts/fire_drill.json`](artifacts/fire_drill.json).
+
+The new deterministic engine treats alternate paths through the same claim as overlapping, adds separate funded vault allocations, and estimates lending loss from incremental aggregate collateral shortfall. It does **not** reuse independent-event survival to compound one shared event. Recovery assumptions, coefficient assumptions, unknown collateral and omitted loan-asset issuer risk are exposed. The original Monte Carlo expected-loss research remains available in the sidebar and is a separate model.
+
+**Execution evidence:** 80 captured Pendle candidate quotes, RPC-verified token decimals (PT-reUSD has **6**, not 18), and Morpho funded allocations with shared market capacities. No failed quote becomes an invented fill. Snapshot liquidity bounds do not certify withdrawal queues or future execution. Two-basis-point gas and ten-basis-point cash-conversion reserves are assumptions. Released capital is assumed transferred to external cash before failure.
+
+```powershell
+.venv/Scripts/python.exe -m streamlit run app/Home.py
+# Native-control fallback: http://localhost:8501/?fallback=1
+.venv/Scripts/python.exe -m unittest discover -s tests -v
+.venv/Scripts/python.exe scripts/build_fire_drill_artifacts.py
+.venv/Scripts/python.exe scripts/verify_receipt.py
+.venv/Scripts/python.exe scripts/verify_fire_drill.py --record
+```
+
+The presentation forces offline operation. `scripts/capture_fire_drill.py` is the explicit, read-only network capture step; it never submits transactions. The evidence drawer exports a receipt containing source hashes, candidates, constraints, actions and independently recomputed totals. Verify any downloaded receipt with `scripts/verify_receipt.py <path>`.
+
+See [`DEMO.md`](DEMO.md) for the two-minute story. No framework migration, new ML, wallet access or automatic trading is required.
+
+---
+
+## Preserved expected-loss research
 
 **What is the blast radius of a DeFi position when one of its hidden dependencies fails — and is the expected loss from staying high enough to justify exiting despite slippage?**
 
