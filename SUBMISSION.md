@@ -2,7 +2,7 @@
 
 **Event:** BSA EPFL · The Hackathon — **Belem Capital track** (DeFi Risk Dependency Challenge)
 **Submit at:** https://dorahacks.io/hackathon/bsa-the-hackathon/build
-**Hard requirement:** a public Git repo link (fill in after pushing). Demo video is recommended, not required.
+**Repository:** verify the submitted branch and attach the local demo recording. Online submission requirements were not independently accessible during the audit.
 
 ---
 
@@ -17,13 +17,13 @@ On-chain positions carry risk that lives in their **dependencies** — the settl
 
 **Blast Radius** is an interactive portfolio fire drill: **DISCOVER → ATTACK → COLLAPSE → RESCUE → PROVE**.
 
-Click **Find My Weakest Point** on a real cached $10M book. The graph reveals **wstETH shared by a Pendle position and four Morpho vaults**, then lets a judge attack any dependency and vary severity. The reveal and ranking are computed from the dependency graph; the highlighted result is not hardcoded. A separate issuer scenario exposes the same five positions' Lido dependency.
+Click **Find My Weakest Point** on an illustrative $10M allocation to real instruments. The graph reveals **wstETH shared by a Pendle position and four Morpho vaults**, then lets a judge attack any dependency and vary severity. The reveal and ranking are computed from the dependency graph; the highlighted result is not hardcoded. A separate issuer scenario exposes the same five positions' Lido dependency.
 
-The deterministic engine avoids compounding alternate paths to the same claim, sums separate funded vault allocations, and estimates supplier losses from incremental aggregate collateral shortfall. An interactive graph shows actual propagation paths and inspectable financial meaning. This is conditional scenario loss, separate from probability-weighted expected loss.
+The final audit corrected PT claims to transmit underlying mark changes one-for-one at a fixed discount factor. The deterministic engine avoids compounding alternate paths to the same claim, sums separate funded vault allocations, and estimates supplier losses from incremental aggregate collateral shortfall. An interactive graph shows actual propagation paths and inspectable financial meaning. This is conditional scenario loss, separate from probability-weighted expected loss.
 
 **Build Rescue Plan** selects reductions on a 5% grid with mixed-integer optimization. It uses 80 captured Pendle quotes, RPC-verified token decimals, funded Morpho allocations, and market capacities shared across vaults. Judges set a loss limit, lock a position and rerun. Impossible targets are explicitly infeasible. Withdrawals are feasible under snapshot bounds; withdrawal queues and future execution are not certified.
 
-Under the stated frozen wstETH scenario: **$2,311,622 conditional loss → $498,866 accounted loss** at a $500,000 limit, for **$21,753 economic protection cost**. The plan's break-even probability of this exact scenario over thirty days is **1.19%**, not an empirically estimated probability. Execution cost, assumed conversion reserve, foregone yield and released capital are displayed separately. Protection occurs before the hypothetical failure, with released capital assumed converted to external cash.
+Under the stated frozen wstETH scenario: **$2,361,622 conditional loss → $499,000 accounted loss** at a $500,000 limit, for **$22,370 economic protection cost**. The plan's break-even probability of this exact scenario over thirty days is **1.19%**, not an empirically estimated probability. Execution cost, assumed conversion reserve, foregone yield and released capital are displayed separately. Protection occurs before the hypothetical failure, with released capital assumed converted to external cash.
 
 **Show Me the Evidence** distinguishes API observations, sourced manual mappings, cached RPC observations and modelling assumptions. Download a source-hashed receipt and independently recompute the plan. The complete experience runs offline, with a native-control fallback and browser-recorded demonstration evidence.
 
@@ -31,7 +31,7 @@ The preserved research pages additionally provide:
 
 1. **Recursive dependency discovery** — a Pendle PT or Morpho vault is unwrapped layer by layer from cached DefiLlama / Pendle / Morpho data. Issuer, some oracle and backing links come from a sourced manual map, labelled in the UI.
 2. **Monte-Carlo failure propagation** — base-rate incident probabilities and severity priors propagate up the graph to give Expected Loss, CVaR-95 and the dominant risk path. Each dependency type uses a flat coefficient (oracle **0.70**); **LLTV is displayed in labels only**, with no liquidation threshold wired into propagation.
-3. **A real stay/exit decision** — expected loss over the horizon is compared against the real cost of exiting (Pendle price-impact quotes / Morpho withdrawable liquidity) to return STAY / REDUCE / EXIT with a plain-English reason.
+3. **A research stay/exit comparison** — expected loss over the horizon is compared against frozen exact-size quoted output / funded liquidity bounds and assumed reserves to return STAY / REDUCE / EXIT with a plain-English reason.
 
 **Portfolio mode** finds dependencies shared across a book of 10 positions ("5 of 10 depend on Lido"), shows a position×dependency exposure heatmap, and ranks actions.
 
@@ -106,4 +106,4 @@ Python · Streamlit · NetworkX · Plotly · scikit-learn · NumPy/SciPy. Free A
 https://github.com/adamew1/blast-radius
 
 ### Judging fit
-Dependency discovery (recursive, on real data), impact estimation (Monte-Carlo propagation with CVaR + attribution), decision usefulness (STAY/REDUCE/EXIT with the dominant path and real exit cost), working demo on real data (Stream replay + live positions, offline-reproducible).
+Dependency discovery (recursive, on real data), impact estimation (Monte-Carlo propagation with CVaR + attribution), decision usefulness (STAY/REDUCE/EXIT with the dominant path and supported exit evidence), working demo on real data (recorded fire drill + preserved research, offline-reproducible).

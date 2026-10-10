@@ -1,0 +1,305 @@
+{
+  "status": "PASS",
+  "audited_at": "2026-10-10T22:46:59.269637+00:00",
+  "method": "Independent Decimal raw-data reconstruction; no product financial imports; exhaustive grid enumeration",
+  "superseded_original_headlines": {
+    "totals": {
+      "conditional_loss_usd": 2311622.1407796084,
+      "accounted_loss_usd": 498866.02264102834,
+      "economic_protection_cost_usd": 21753.365390158036,
+      "capital_released_usd": 3384390.698452064
+    },
+    "arithmetic": "PASS",
+    "financial_review": "FAIL: unsupported 5% recovery on worthless PT underlying; corrected in v2"
+  },
+  "totals": {
+    "loss_usd": 2361622.1407796084,
+    "residual_loss_usd": 481047.33927469066,
+    "execution_usd": 15252.512441001652,
+    "conversion_usd": 2700.0,
+    "carry_usd": 4417.540636123297,
+    "protection_cost_usd": 22370.05307712495,
+    "capital_sold_usd": 2700000.0,
+    "capital_released_usd": 2682047.487558998,
+    "accounted_loss_usd": 498999.8517156923,
+    "avoided_loss_usd": 1880574.8015049177,
+    "break_even_probability": 0.01189532746010606
+  },
+  "per_position_loss_usd": {
+    "pt-susds": 0.0,
+    "pt-susde": 0.0,
+    "pt-wsteth": 1000000.0,
+    "pt-reusd": 0.0,
+    "smokehouse-usdt": 97238.27272699791,
+    "steakhouse-usdt": 348859.44956117583,
+    "steakhouse-eth": 831715.3519437419,
+    "gauntlet-usdc-prime": 83809.06654769274,
+    "hakutora-usdc": 0.0,
+    "yearn-og-usdc": 0.0
+  },
+  "market_calculations": [
+    {
+      "position": "smokehouse-usdt",
+      "market": "0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 1906781.1758107434,
+      "vault_assets_usd": 21618765.702820003,
+      "market_supply_usd": 150449845.7626378,
+      "market_debt_usd": 121631451.39978446,
+      "market_collateral_usd": 401974437.00153834,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 71305.67629325215
+    },
+    {
+      "position": "smokehouse-usdt",
+      "market": "0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 696232.6700493785,
+      "vault_assets_usd": 21618765.702820003,
+      "market_supply_usd": 3533840.1617627433,
+      "market_debt_usd": 2845570.8299542796,
+      "market_collateral_usd": 5342622.841271608,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 25932.596433745755
+    },
+    {
+      "position": "steakhouse-usdt",
+      "market": "0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 33106610.575910702,
+      "vault_assets_usd": 81817519.17167608,
+      "market_supply_usd": 150472609.0808425,
+      "market_debt_usd": 121684892.2184862,
+      "market_collateral_usd": 401994379.40984434,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 327225.86457554816
+    },
+    {
+      "position": "steakhouse-usdt",
+      "market": "0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 2198123.090884959,
+      "vault_assets_usd": 81817519.17167608,
+      "market_supply_usd": 3533798.1408388335,
+      "market_debt_usd": 2845538.9221395194,
+      "market_collateral_usd": 5342887.894857902,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 21633.584985627673
+    },
+    {
+      "position": "steakhouse-eth",
+      "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 19988467.44502992,
+      "vault_assets_usd": 24344657.7558606,
+      "market_supply_usd": 87754388.54414189,
+      "market_debt_usd": 72704646.92458579,
+      "market_collateral_usd": 80503444.18123387,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 680250.9374172357
+    },
+    {
+      "position": "steakhouse-eth",
+      "market": "0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 4305742.06571907,
+      "vault_assets_usd": 24344657.7558606,
+      "market_supply_usd": 23278248.460391697,
+      "market_debt_usd": 19935015.298935063,
+      "market_collateral_usd": 21831270.5342231,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 151464.41452650627
+    },
+    {
+      "position": "gauntlet-usdc-prime",
+      "market": "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+      "collateral": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
+      "allocation_usd": 2044650.4836488676,
+      "vault_assets_usd": 21996364.919211853,
+      "market_supply_usd": 12556518.522998013,
+      "market_debt_usd": 11321190.066724937,
+      "market_collateral_usd": 22577828.91736418,
+      "collateral_shock": 1.0,
+      "position_loss_usd": 83809.06654769274
+    }
+  ],
+  "actions": {
+    "pt-wsteth": 0.7,
+    "steakhouse-eth": 1.0,
+    "steakhouse-usdt": 1.0
+  },
+  "enumerated_combinations": 4084101,
+  "relaxed_minimum_economic_cost_usd": 22370.053077124954,
+  "locked_minimum_lower_bound_usd": 1004800.0,
+  "independently_verified_quotes": 80,
+  "used_evidence_interval_utc": [
+    "2026-10-10T18:01:08.382596+00:00",
+    "2026-10-10T21:51:16.615617+00:00"
+  ],
+  "quote_retrieval_interval_utc": [
+    "2026-10-10T21:49:04.561142+00:00",
+    "2026-10-10T21:51:16.615617+00:00"
+  ],
+  "marks": [
+    {
+      "asset": "0xdc169abe56461a2e0c034da431ac2a3ebf596094",
+      "price_updated_at": "2026-10-10T21:48:30.150Z",
+      "retrieved_at": "2026-10-10T21:48:58.840239+00:00"
+    },
+    {
+      "asset": "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+      "price_updated_at": "2026-10-10T21:48:45.006Z",
+      "retrieved_at": "2026-10-10T21:49:01.670583+00:00"
+    },
+    {
+      "asset": "0xb195b618ea52b77cb2a58846f452f59f8dfa9390",
+      "price_updated_at": "2026-10-10T21:48:45.006Z",
+      "retrieved_at": "2026-10-10T21:49:16.920058+00:00"
+    },
+    {
+      "asset": "0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+      "price_updated_at": "2026-10-10T21:48:45.006Z",
+      "retrieved_at": "2026-10-10T21:49:18.176358+00:00"
+    },
+    {
+      "asset": "0xb253eff1104802b97ac7e3ac9fdd73aece295a2c",
+      "price_updated_at": "2026-10-10T21:50:15.027Z",
+      "retrieved_at": "2026-10-10T21:50:24.699222+00:00"
+    },
+    {
+      "asset": "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "price_updated_at": "2026-10-10T21:50:15.027Z",
+      "retrieved_at": "2026-10-10T21:50:27.293335+00:00"
+    },
+    {
+      "asset": "0xecfafdc7741323a945a163ed068b5a3c43483957",
+      "price_updated_at": "2026-10-10T21:50:30.491Z",
+      "retrieved_at": "2026-10-10T21:50:52.830605+00:00"
+    },
+    {
+      "asset": "0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+      "price_updated_at": "2026-10-10T21:50:30.491Z",
+      "retrieved_at": "2026-10-10T21:50:54.079803+00:00"
+    }
+  ],
+  "economic_sensitivity": [
+    {
+      "assumed_probability": 0.0,
+      "expected_net_benefit_usd": -22370.05307712495
+    },
+    {
+      "assumed_probability": 0.005,
+      "expected_net_benefit_usd": -12967.179069600363
+    },
+    {
+      "assumed_probability": 0.02,
+      "expected_net_benefit_usd": 15241.442952973404
+    }
+  ],
+  "economic_scope": "Least economic cost conditional on an explicit stress mandate; plan-versus-hold break-even, not an unconstrained expected-return optimum or estimated scenario probability",
+  "source_hashes": {
+    "data/raw/032dc289ee9fa4569c24.json": "f14471b8638fbc78133a00e20225886a2046c049247b5084439c9cb1642320b3",
+    "data/raw/05bd94ed5cfef7e2c3aa.json": "ab0d57df9c03f62de24f8f840a2af7720a81ba63726cebf74e95a5551dd06406",
+    "data/raw/06929c745bfece5dbbb7.json": "0be61bc3c17c4c959e53172b13a8c2b7ee95745171deb2c4b8eedd095df086b8",
+    "data/raw/09290d954b1bf91c862a.json": "d2c6e2d8535cd6569989307ee84d01d956aadd8b96b4246c01a73c2ca1b24400",
+    "data/raw/0e1156283ad8d82e5113.json": "df81431e068261cd0bc93504307c40ce7609798da6486698c0fb52cb3563d9ac",
+    "data/raw/0f6214a3aab7d54032a4.json": "8a906b3fe3919f97b5d009b17d93ccd532463af1c7f954b4110b0a6225be9a23",
+    "data/raw/0f8a0dedd69a00876194.json": "9ef721a71205d2d796da51dc95e2e1cc03161724c3f9e039cfdbd74f8a1d4ee7",
+    "data/raw/10738731d318943c60c4.json": "6090897ef11d23f8e403cfda4673e8dba3d0f6a527b71ac44bd4fed20cc6cea7",
+    "data/raw/13460af48ca27312afd7.json": "45ecaf9c04ccaacd17c011fd59d0084a0f8305789c8b14d75e13f52f9ad51805",
+    "data/raw/15047bef662cb7b6d89a.json": "12e436199d834f2f4d4bb2300152a0767020ee52d94465ae8e24c546e7df021e",
+    "data/raw/179fe1cd1b6621ff0dbf.json": "9d07281d6cc494db90b9d111e4a6d9b5768e7659783191f62b410fd71eb92766",
+    "data/raw/196a958aeee0ea37ae66.json": "7149c1f00e64c3edc83164b772c89510825b059aef9711566a4a0b00522c3976",
+    "data/raw/19a268fdeb500772e25b.json": "8a4cfcd74ba37d8821a7abec32947e9da4249caa5d09db70dc96440c9b4c2b02",
+    "data/raw/1e145dc4ef1dc17aeda6.json": "67e7e694a8587a2d99dd24a8767f4844a9e4f40ae406ece49b2036212626b5ef",
+    "data/raw/2286909c6ceaabd01f04.json": "5168fc33188f675f2a087cdc7e69190a25ec681cfc6271bd4a0102ee8ea4af89",
+    "data/raw/2816d61ef21b56f4784d.json": "556c95f41fc8612a39249c57ea1b1a4a12253efcdf716f606d105b1587bd4be1",
+    "data/raw/28cc4b5be34662bef9f6.json": "1c3202c00d2e54768de0fdf630423af602cad1927dd363592beb69671f75c703",
+    "data/raw/28ef55b614bc743de02d.json": "89bb28013d465b23e304df3a4ec37fde6adc9535a4d5a63d377e7a135d2f083a",
+    "data/raw/2eec7b9bd7d22d7effc2.json": "e35b817141d9d9175f8175e7cd38808860b17c3b7112d4a0f6ed47a6c7316268",
+    "data/raw/2fe82be8bf6547af3f52.json": "f26c1492668fcd76101c6eb781346928bdab7e5cc8f5c11f83b05b5c2e552abc",
+    "data/raw/36faabbf36ddfde8b100.json": "c2611121747eb0dad45b6d1440a1b84ae6cc71099338c18100aa2a98168f2fc0",
+    "data/raw/38fd734dbb8803605e51.json": "421adf0d03e564abdb8a5ab682f769446e30c1c202bedb894d468d52112fa918",
+    "data/raw/3b84de097931e8792cf7.json": "9436dc98cc296ab72e1d630522f58fa895662521c39718b1ab5c498e0e574c9a",
+    "data/raw/3e10bf249e5a3a342bce.json": "86c3629642734117865a6435f4ab698f6e5415ad3825bb0593deb39161777c57",
+    "data/raw/41e368eb9d8a3c3edf9d.json": "57235def2baf5bad39880aca7385d36c061f1aa767d9d61a6abedcfe45d07b0a",
+    "data/raw/44ad554afd4a71fa5c4e.json": "ed917f0c540ed04852cec6c8b48d87539741242e75c0100ce998d626d0cb9667",
+    "data/raw/47efa11f04eaccf879d6.json": "b8ebb7e60f80a6f6bfdfd8ec513cf542bbb4c4b8408f8814169436e0eef885e1",
+    "data/raw/49f5fbfef4a7299de002.json": "3c5f0a9a4a6b90454a3139d0446b893ff674f4d0f57547d4d7f4e95c7e114669",
+    "data/raw/4c114c464b7c752df635.json": "fa396776bbd1b5129468481ee59266dfeb43ea9a63e6a91956ec2693ac7afa69",
+    "data/raw/4c5ff8573176a53dd48f.json": "19d7c19e29186bee448ff221731dd313c1059be21fd998529a44ad70ea3e3f31",
+    "data/raw/4f2f66fb6f17b135be6c.json": "1e74d3041c473a1cd3c168de47d373c0bc9d66f438648d9bf5b88362ef26bac6",
+    "data/raw/4f90b0798d27dd20f1c7.json": "2b9da7134b29fb03136fc82abc3e79117b72d5fabc48d8e0f269d458b037d157",
+    "data/raw/51a6bfb2e6cd74f2e1cb.json": "1719178c2ccc2b01aae7b5ee55b0e30aea75ebec538dd64b3654ed5c73558b86",
+    "data/raw/54ac38ca1a587e05edac.json": "ec548d569963f433a5fad93c82d7365987fa42385dbf44c76e0845ac4ffc3bfc",
+    "data/raw/58dcbcae2fb007e3867d.json": "6724b2a46a9456b4f5a63857274c1e6a2463dea27c5300caba5041f79ad55720",
+    "data/raw/618ff498c8ee78df7aed.json": "88064b2b4109b6e6213d272f77351371bc081d12145b2d4e0365fbb5ab177e6e",
+    "data/raw/6294787e29b3cda7ad0f.json": "1f01193771b1d9d6fc20cf2ba8b902c8c3bad6a060b62e509eb3a7d8b218631d",
+    "data/raw/62d3c99e7b4eeaec9a70.json": "a99ddd463423fa50cb74f4006a5ffb32cf2502e95dc9bfafe0832104f9c31278",
+    "data/raw/6812d0d298dab300f242.json": "03f7f6036f663d222a7df681e4f699a250ebf13c136659613d21113e059fef5c",
+    "data/raw/69a02e3ea7b4bf76f3e1.json": "c41acf8a63407d8759847d4559b6014b31adad6454e10765e8743f7649152dcc",
+    "data/raw/6ad2253bd014bca416f8.json": "b66bb4f8d567b240ce59465276792b36412f9b0849941da54c8e5ba6189a9c62",
+    "data/raw/70c0da57a5994546da73.json": "a5ff5daa9a623dc65f16d395b5c78d75ebb85d316903b51d948ec592bc5a4cd9",
+    "data/raw/7411dfe28263ea36d2be.json": "648b7acc575f182a92e493bd68cd828a773607f5b1b914a9c41ce420e2825f15",
+    "data/raw/7938308afaa3eb40bb01.json": "fc7845dabc269e2cc855450694c39c42bbb85e8d214269c805ab313b198a6da5",
+    "data/raw/800e9dd8ed9a0f57260e.json": "6c169de320f1c8c27a355fe404d0fd6dd95d5db6c6d5ad1ec2f7515c9bb3bf1c",
+    "data/raw/813202790cbda0a8d7dd.json": "b164a3366d8d541503f4db851e5c80b0d900c2a0d47e467c10629248598c93b0",
+    "data/raw/867fa023de68e0c0fd97.json": "167aa682197e2aa71827c128b419170ad6d4add5e9a5aa1a1b589dbe2827ec18",
+    "data/raw/875d3a7e3a814e573356.json": "3227bd26421ddcf3cfddc555195ae6c0f82f45d0ad663472a66bc3293ce89ce8",
+    "data/raw/8967c23dbb7ab6a23e18.json": "7db68ec76bf92109bab0e3248d669da0d7efc40efe39a1b7eaf9159e200d05b5",
+    "data/raw/89b9b06099998155fb2d.json": "26ccc4b39af89a9672e0288f47b17879919513e737914610bcab466d6fa846ff",
+    "data/raw/8e9514166b4da357c1e4.json": "a9f0b1535044174c30fc109d5556629d9792b55b14389e4deea6734e42c8677a",
+    "data/raw/8f461308900e5691db5d.json": "d24749aa1e94603d6129b93507253097e122aefd1cd2fb8b5b3d5fca3a604915",
+    "data/raw/9565a1d8f3ce83039e9c.json": "fc435da3aff94533d2dc8722b9896c24edfc4b54787009de05987c16bf9cbfd6",
+    "data/raw/9855e8d92e53dcd8749f.json": "9bc7fd15c385e414a78e455f4406c80bbccd8d93cca9511923d27cf56283c39c",
+    "data/raw/99b749f638558b6b29f0.json": "97bde90fa4d69f23433c9f0465c0c577903e31e45ffd64cf3dcdc61c8cc5d0ca",
+    "data/raw/9ae4f5870e1a6aba94bc.json": "17df8e4372bd8aa77c6b1e5eb13977f0ac104737c5c4f1f1ff58767ba1042e72",
+    "data/raw/9c5ed0f5f2655bf39c49.json": "bf374651e0977906e82ba037826bbcf419145a4457a08bdab3640a8195bfd3ed",
+    "data/raw/9dc36834ae137cfc2c0d.json": "2886d9229be317737d9246564972360eadaa5d86bf21916a6eca9a58f350c9bf",
+    "data/raw/9fc4d2062c5bc06a8559.json": "fcec60840bceb2d2b0a07d3a13f1d61425b8da39258e44d37a0998988936edfa",
+    "data/raw/a02e84b69e574b47b11f.json": "f2ec33799af3099ac8f1a47a70c077d29c408b3491ea577337deb04c7a4a8bc3",
+    "data/raw/a292b5732f3d14f73a46.json": "51e4adc18cea1959d0513ee791557b61827a4d3cda9217218dda2b86eb5584bc",
+    "data/raw/a8a5cf1e06de51662516.json": "26b8c60af10ee7f6d69ccf31cf2595189e2e9fa5b04ef5ba1efc88044a775248",
+    "data/raw/a8cabc60d759173fbde2.json": "ea8035df9a3f51234ddb2d061f33c85028f3246f49096f9d298d143015b63e0b",
+    "data/raw/a9d5159239af6031b6d3.json": "3c945d0f268543861a6630293e63c6525f8d9b3e54c971b7d3909bdbbd0e257c",
+    "data/raw/ab9d731edd8d882ff6e1.json": "e827ed589a82988524f96b33fdce15c2666f43ecd475f22f82de329dbdb11b25",
+    "data/raw/acab98dfecd541da0f6f.json": "aae47081c76f328d75bab9be81bb9c5ee0a366d0814631f7f89abfa3c21da638",
+    "data/raw/ad0ac0e32e60b240789d.json": "3419b16b38f86d6d7ce54ed96a88bdead201f506ebed74a0837db335ee63f9e6",
+    "data/raw/adabd0575ceda4226df7.json": "0587ed2097eaec4512e1ef0bbb90a0237dff5203e7de183ef7ffd29df17b3236",
+    "data/raw/adc4331a5484c1f3443d.json": "e1dbdfef3278e7e53bbd1739587f5860c5528d97c07ae1b7decde12b195ec517",
+    "data/raw/af9d64d2821d27b62b9a.json": "4249150072de7f886349a4dbc8e7fe99ed3046fd981ebe122dae14522ef91960",
+    "data/raw/afae5128434acb342301.json": "baa3a5721eac4b3f614649bb9f09b83c6829c6246fe2bfcdc7b1bfa0fbbd894a",
+    "data/raw/b05142b91b0660ee4f91.json": "5ece5b2f7176605dd9cb8044a191e88848c302afcb90f7cd23e992aeeee6bc47",
+    "data/raw/b062abe86f416a34a7f9.json": "0ebc30e8f3b1ce0c78f2ed39f635aa005bd2a2d8e5e25d2ff5b805f3953d0273",
+    "data/raw/b32d4e98c4ef92f58e5d.json": "a8c1759d001de151ba8a7ebc53018c15d67a1a89c2184f82f08950a18c3d9a56",
+    "data/raw/b5211ff644dbaf1145c3.json": "a270f98902a6637d2e81c9c60443e910dda7cca17f0224a94874e973d7ff0c5c",
+    "data/raw/b808d196689290a1ba1b.json": "f3f8f81eab8db43424f47e5494058c6049b2aa3d81536e41779f6995f599acce",
+    "data/raw/bbf18710bf6828899306.json": "42df0e800fc9a7cf760215f642965dfa8a1cd7288465f839c1931e74ea958066",
+    "data/raw/c5eb58ae349176c81139.json": "6c337b8f4c3c240c1f179baa38d92a32e8316048f2d2b169acbefde919a6597c",
+    "data/raw/c61831e2420e1be2be14.json": "294e4d0c907c6f979e22fe90d8751007368b684a99155f3b2d6183a1a1235ac9",
+    "data/raw/c8ecebe9fd18a7a91846.json": "b2b9fd26af53dd28916b8b96286cfec428bf9b7759e437efebb927821828b9c8",
+    "data/raw/ce47c6e4f07fa73aba2f.json": "1cc0f9cf0380a3f516d50dcde3cd1795b2c36c9153f7abe1fcb9fe9237001c84",
+    "data/raw/cf801a6657f1bce696cb.json": "0fc5e2c3c6f89e60290d64e487c8fef8e472202079f34d52e31c72cc5cfdf35f",
+    "data/raw/d06a4fd512c8795583d3.json": "c0e46aa8c2028c0555da218dd3ff8301f5556d3c9832b9fe7e09ef145e93930e",
+    "data/raw/d0888cf809f726e081be.json": "125d1fef2c1db146f73265ae73e08881ade370775089353cb36b872095da0db8",
+    "data/raw/d2906e425300c09165cb.json": "726995c9ff8dc1fefc22aebef9e67ef365a897b2fdbdc658c99d7671b89a6eb2",
+    "data/raw/d2dde3c44cf6f3e5079d.json": "19f1a362448ac7cb2d0bcbff4d582197f4f1a87306c14bf35ed4e3b8183694a6",
+    "data/raw/d4d8d6c205fddc18ab12.json": "0a9eb93d7da568f94a22ad74d1615d70670d4875498d613da87ec0f9ae50edc4",
+    "data/raw/d579e79358d6e9c19b3a.json": "f14d13a3ab01f4a8ace0b01af410d797aea197d5547936c1e5c702336e0703bf",
+    "data/raw/db8ae3a7909b4910fcf6.json": "11044211e6c655081ef7eb730fc050ebbc3553db57852d614d20c4ca091e562b",
+    "data/raw/de49b13d6f64122d582d.json": "8ce34df98bb4c1187b2fa5b25cb25079c621bc707f41067f35e653a5d5a9b90d",
+    "data/raw/df35705d96d2d8aabee8.json": "4c2bb41a24abf5130f892bf26bf6b6cd09a125db795a6bf43b917280b8bb8bef",
+    "data/raw/dfa50a3627c918f0c746.json": "9b3a3a4115e9ca55d97589988c0182b282070d13a963edba05ee2df9baf282cc",
+    "data/raw/e3b1ce7bf3c509ab92a4.json": "4080761c44f786552a141856a27e1123b8db82d78557ec9ac88b0365b8c04f6d",
+    "data/raw/e6b993aa412fb224d60f.json": "85c70d3ecd9d66687d4dbb8f80e7c0de1d41eb12bbae72f5f5f2093bfdb81d8f",
+    "data/raw/ea20c0c7ab09c8132935.json": "4f7dea38e03836df436b76bb2ad073bf868010db2a0ad01d5e3e618ba54d044c",
+    "data/raw/eae97db70b82e3a6365f.json": "6de757d01e633d3f0ee82e3fb69413f7e4dbbdfda8a72bf04418797a4876c627",
+    "data/raw/f097f8b641c8d3b983a9.json": "e282687e321c242179e7e20957ab4aef9bed0819c9dc713f0e5dfa3b9f204f50",
+    "data/raw/f2b11bfab80fdbbebf51.json": "0d2b735e2a4f09722668e6b7cfdb3cc30a8e178e3deafa55da639905219320a6",
+    "data/raw/f34acdc5608cfadf8981.json": "d174e0d212e44c02f4ba9fdbc31d9a37a19faa124218501d469ddac8cb81a0cd",
+    "data/raw/f66c95cf4aed43aee895.json": "0628e90d121cfd8efb17c53e3ed323aa1e98377d3d6362c74cc1489cc45e261a",
+    "data/raw/fab1e3cb33407fe6eaad.json": "22474c3f160e0bfd9484a9bc609e346c5748600a7b274ed1c78631ca87ddec79",
+    "data/raw/fc434d12b7a30f80ca2c.json": "9443c2784afecabe6b44b074eb451619de0b57cf8ef49250fd3b6ae4c1bf2917",
+    "data/raw/ffb3aab30747ccbb2673.json": "9bf8419e3f29b7b0a94d209d562bfddc182b972a7538a3aeb037b720fd75c227"
+  }
+}

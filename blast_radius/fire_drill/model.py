@@ -68,8 +68,15 @@ def stress_graph(g: DependencyGraph, dependency_id: str, severity: float,
         for child in sorted(g.children(nid)):
             e = g.edge(nid, child)
             coefficient = pass_through(e.dep_type)
+            # PT redemption is denominated in its underlying. A generic backing
+            # haircut would manufacture residual value after a worthless claim.
+            # The deterministic model holds the PT discount factor fixed, so its
+            # USD mark scales one-for-one with the underlying mark.
+            pt_claim = e.dep_type == "backing" and (n.meta.get("pt") or n.meta.get("is_pendle_pt"))
+            if pt_claim:
+                coefficient = 1.0
             contribution = losses[child] * coefficient * e.exposure_pct / 100
-            rule = "strongest overlapping channel"
+            rule = "PT underlying-denominated claim, fixed discount factor" if pt_claim else "strongest overlapping channel"
             # Funded allocations are separate claims. Use exact API weights,
             # rather than rounded graph labels or the generic collateral haircut.
             if nid == g.root_id and child in allocation and total_assets > 0:

@@ -1,15 +1,15 @@
 {
-  "created_at": "2026-10-10T22:15:55.491418+00:00",
-  "model_version": "single-shock-aggregate-recovery-v1",
+  "created_at": "2026-10-10T22:43:40.405976+00:00",
+  "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
   "classification": "hypothetical pre-failure protection using frozen evidence",
   "scenario": {
-    "model_version": "single-shock-aggregate-recovery-v1",
+    "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
     "dependency_id": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
     "severity": 1.0,
     "aum_usd": 10000000.0,
     "affected_capital_usd": 5000000.0,
     "exposed_positions": 5,
-    "loss_usd": 2311622.1407796084,
+    "loss_usd": 2361622.1407796084,
     "positions": [
       {
         "id": "pt-susds",
@@ -56,8 +56,8 @@
         "id": "pt-wsteth",
         "label": "Pendle PT-wstETH \u00b7 2027-12-30",
         "size_usd": 1000000,
-        "fraction": 0.95,
-        "loss_usd": 950000.0,
+        "fraction": 1.0,
+        "loss_usd": 1000000.0,
         "exposed": true,
         "apy": 0.02131308793230202,
         "node_losses": {
@@ -68,17 +68,17 @@
           "oracle:manual:Chainlink wstETH/ETH": 0.0,
           "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
           "amm:pendle:0x34280882267ffa6383b363e278b027be083bbe3b": 0.0,
-          "pos:pt-wsteth": 0.95
+          "pos:pt-wsteth": 1.0
         },
         "flows": [
           {
             "parent": "pos:pt-wsteth",
             "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
-            "fraction_at_parent": 0.95,
-            "rule": "strongest overlapping channel",
-            "coefficient": 0.95,
-            "root_loss_fraction": 0.9500000000000001,
-            "impact_usd": 950000.0000000001
+            "fraction_at_parent": 1.0,
+            "rule": "PT underlying-denominated claim, fixed discount factor",
+            "coefficient": 1.0,
+            "root_loss_fraction": 1.0,
+            "impact_usd": 1000000.0
           }
         ]
       },
@@ -469,27 +469,22 @@
     "target_met": true,
     "audit": {
       "verified": true,
-      "avoided_loss_usd": 1828365.4196865163,
-      "residual_loss_usd": 483256.7210930921,
-      "execution_usd": 12209.301547936047,
-      "conversion_usd": 3400.0,
-      "carry_usd": 6144.063842222045,
-      "protection_cost_usd": 21753.36539015809,
-      "capital_sold_usd": 3400000.0,
-      "capital_released_usd": 3384390.698452064,
-      "accounted_loss_usd": 498866.02264102816,
+      "avoided_loss_usd": 1880574.801504918,
+      "residual_loss_usd": 481047.3392746905,
+      "execution_usd": 15252.5124410016,
+      "conversion_usd": 2700.0,
+      "carry_usd": 4417.540636123298,
+      "protection_cost_usd": 22370.053077124896,
+      "capital_sold_usd": 2700000.0,
+      "capital_released_usd": 2682047.487558998,
+      "accounted_loss_usd": 498999.8517156921,
       "meets_limit": true,
-      "break_even_probability": 0.011897712107182507,
+      "break_even_probability": 0.01189532746010603,
       "market_use": [
         {
           "market": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
           "used_usd": 1000000.0,
           "capacity_usd": 2578916.9400449498
-        },
-        {
-          "market": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
-          "used_usd": 800000.0,
-          "capacity_usd": 4646991.458766231
         },
         {
           "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
@@ -557,24 +552,24 @@
       {
         "id": "pt-wsteth",
         "label": "Pendle PT-wstETH \u00b7 2027-12-30",
-        "fraction": 0.6,
-        "notional_usd": 600000.0,
-        "execution_usd": 11649.301547936047,
-        "conversion_usd": 600.0,
-        "carry_usd": 1051.0563911820175,
-        "source": "e3b1ce7bf3c509ab92a4",
-        "avoided_loss_usd": 570000.0
+        "fraction": 0.7,
+        "notional_usd": 700000.0,
+        "execution_usd": 14852.5124410016,
+        "conversion_usd": 700.0,
+        "carry_usd": 1226.2324563790203,
+        "source": "8f461308900e5691db5d",
+        "avoided_loss_usd": 700000.0
       },
       {
         "id": "smokehouse-usdt",
         "label": "Morpho Smokehouse USDT",
-        "fraction": 0.8,
-        "notional_usd": 800000.0,
-        "execution_usd": 160.0,
-        "conversion_usd": 800.0,
-        "carry_usd": 1901.6992712957508,
-        "source": "cached Morpho funded allocations and market liquidity",
-        "avoided_loss_usd": 77790.61818159834
+        "fraction": 0.0,
+        "notional_usd": 0.0,
+        "execution_usd": 0.0,
+        "conversion_usd": 0.0,
+        "carry_usd": 0.0,
+        "source": "hold",
+        "avoided_loss_usd": 0.0
       },
       {
         "id": "steakhouse-eth",
@@ -611,11 +606,6 @@
       }
     ],
     "withdrawals": [
-      {
-        "position": "smokehouse-usdt",
-        "market": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
-        "amount_usd": 800000.0
-      },
       {
         "position": "steakhouse-eth",
         "market": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
@@ -6477,19 +6467,55 @@
       "data/manual/dependencies.yaml": "58d95dc364b5391abba7898f3ff80736b2c5b63d5e97b3de795a68ed3656d180",
       "data/book/sample_book.json": "df3e14077d98e83ea27467543599282e9e9c80e1fee90a7b0e685d7501f81f43",
       "data/fire_drill/execution.json": "96aab7c310dd311aa51ad5923ecc19ddaef31890015865206c3011e9716d6a50",
-      "blast_radius/fire_drill/__init__.py": "59949d688b2128df41b957103046f8f350df82d755341ba264e70d5ba75cbd20",
-      "blast_radius/fire_drill/evidence.py": "bb80d89dda3bcdfbf837f25baefae7bfd4ba0b42f9ccae43d49bbf1d7c4c7788",
-      "blast_radius/fire_drill/execution.py": "96c443a9da18a7a61e1bf502ab487f5ea9d12cc4b31c47b222fdf43073b444a7",
-      "blast_radius/fire_drill/model.py": "67187f0d6e5d3282e84772fd7a3e7053681db5ebeb5b18c72fd92c6b844d3ca9",
-      "blast_radius/fire_drill/optimize.py": "4138f3d556f1b243c11a847e7b8a1a1fa68ee7fb76e970fb122792b39152b39c",
-      "blast_radius/fire_drill/presentation.py": "74f14eafe79923d7a59d922c14d54c091fd7e56297a79d1b17ad848c5b1cf045",
+      "blast_radius/__init__.py": "cda7cab1222a81ace69adce64f0c44a4eae602fbeb2b58759ea2d64df48d75e6",
+      "blast_radius/analyze.py": "88989a5c1a56bab697ce83cb2b4383c57d1f7e38976956b051a19036de540c2f",
+      "blast_radius/backtest/__init__.py": "5ec54aa39956a2fbd4cce198b8776ba72714585615bb8a88f42f56e3ef557c6c",
+      "blast_radius/backtest/controls.py": "5bf4470f0f4e64b96dda77a6e4bf7b64ae6a46aa7a796a84fdde51f45a648418",
+      "blast_radius/backtest/graph.py": "8d2c8b609c091cc99b69a5dd62b6ca0aa53e6e7fe36b2c4b2a66efcf0565a247",
+      "blast_radius/backtest/library.py": "c688bdda61dc7f6bf8f3c20fac7d9e382999fd5a203db7c9c300f9fa854f0e2b",
+      "blast_radius/backtest/prices.py": "8e4a3e93a70be03828c31aa3c82128fdc5dc544f5f8999c0a63cfef162e51d23",
+      "blast_radius/backtest/runner.py": "4d2982d697285f9add298f857457c9c9d1a101a37973f7b0850c3ad19ba56b5d",
+      "blast_radius/config.py": "9ad99d1fcd1d8d5440e545e874fe9bd6350df23d19655d0f4872355a853780d6",
       "blast_radius/discovery/__init__.py": "6d282aecfd75fb937d29bab136fd2d815b6db435c1bbc460042cea9a11239bcb",
       "blast_radius/discovery/engine.py": "842d60154118fb1785da7b47a190e4b005c9ac4a79ef2cb4420a9f173707180f",
       "blast_radius/discovery/graph.py": "92e907f64a830841fdffc591d7093ddc1e7813ad7ffe10447e1fce3de1f82272",
-      "blast_radius/discovery/resolvers.py": "bd4b59b3de4382b25d6d03501c12b0e608e3c1e2778686b64b8636aaae790a97"
+      "blast_radius/discovery/resolvers.py": "845af579baa452eacf18fc16ba1e5a334791c7bfe628d3c7d49dbab976b628f6",
+      "blast_radius/fire_drill/__init__.py": "2db6386d96a1ee42c72e4c762d29bf34128cbe588fe407a3d1f97a55a8236004",
+      "blast_radius/fire_drill/evidence.py": "702d666ae81edaf4d528f4312ce91b3fe4c3b0eb9c2ee3234b5a3a9de35df87d",
+      "blast_radius/fire_drill/execution.py": "96c443a9da18a7a61e1bf502ab487f5ea9d12cc4b31c47b222fdf43073b444a7",
+      "blast_radius/fire_drill/model.py": "ec5457ffd48977dbc057f212b0a54dc92eb5fcb0245e9a2cb7b7a396ab9999fc",
+      "blast_radius/fire_drill/optimize.py": "4138f3d556f1b243c11a847e7b8a1a1fa68ee7fb76e970fb122792b39152b39c",
+      "blast_radius/fire_drill/presentation.py": "74f14eafe79923d7a59d922c14d54c091fd7e56297a79d1b17ad848c5b1cf045",
+      "blast_radius/models/__init__.py": "ae511b294642c840f6fe8a2ecef5f6540286ac6d01e9557cc2ea50fcccb009c0",
+      "blast_radius/models/evaluation.py": "9232a96ec5d6ae5b62b9b0a2ed63845083e2eee80723e261197cbde308578d78",
+      "blast_radius/models/incidents.py": "f05957c7ab8aba880b66c8d784434f4507736a365bef92fad4fdf8c640463e90",
+      "blast_radius/models/passthrough.py": "908145f6cb85f47ab2017f8dd258dad6c6baceb06afd51d2583d4b2e0bd6e6e8",
+      "blast_radius/models/severity.py": "289b3fa04f0aa8e1b3395def27fe46dac2c43b7c14276f2fc774082e7dbf32bb",
+      "blast_radius/portfolio/__init__.py": "f51dc543bdd3fc3c884ec2fe93945546c0b68219b035db4d5724ea30f74c4d35",
+      "blast_radius/portfolio/book.py": "201af8412ea82b662e7f2b54f8adeb823ab42a59793de45721965675bb342c6b",
+      "blast_radius/replay/__init__.py": "e92e53c3c869b944bb05c5969e1fdb08a8f80407f69bc333d04c481d84fb06e1",
+      "blast_radius/replay/stream.py": "11eccf68bc306a99a52ae1245de06c630b549c5d9d8edd7ce7c30215c2781e3d",
+      "blast_radius/risk/__init__.py": "9f6426db6b46b494bb994175cd86ce6716fcfb49ffa67241e04be1765f75f19b",
+      "blast_radius/risk/decision.py": "c944bdd60a1bbbbe867218c742ab8f7c06f9f16fac6280c835961cf8786b1f8a",
+      "blast_radius/risk/exit_cost.py": "06353d2a3c327085ac78a5d29d9e776c42b8e72fba5dbc30bb2f192ff81c87d6",
+      "blast_radius/risk/propagate.py": "61faea77ceef47e905e108c2d5f5664dc8bd1a16b38e802c467a240f22989e1e",
+      "blast_radius/scan/__init__.py": "fde7b4dd8b73a5cef10f6d6c5c0b6b9f1496cb48845437f2355f110e96f683f9",
+      "blast_radius/scan/runner.py": "4c2133f25789b05ed32313f6f102c0dc77a095d7f2b891f8c380d6df0029e1e4",
+      "blast_radius/sources/__init__.py": "9117ccb5008f11da318fe7bba3e6db65f59aab914990204f23fa6a2fe55a9801",
+      "blast_radius/sources/cache.py": "0650aa3c19a021c8431fd298460a5780babfd93f7a524c6d61f3b21fa532cf8c",
+      "blast_radius/sources/defillama.py": "a381a4a351ee5f79798ec7c7024755b288d6ed2a52e4af7b5efa126c2fad232f",
+      "blast_radius/sources/morpho.py": "df3036ecdc143a9d516341b8a4b8700d3a97c31a7db4f6d86729fafa9e08782f",
+      "blast_radius/sources/pendle.py": "9dea3dfb6fc4b0c8466352e7acfc9038618d79b930f5d5e949122d63c3e63f9d",
+      "config.yaml": "e05f8f03b94502f6781ff5a0b61ae1d9887d78c93b9e1fbc834cbddd1ece4088",
+      ".streamlit/config.toml": "1cf196b1602a6f1193b6277c81681bdd69dc42e759bb1c82e5bfe4c3afb2f1ee"
     },
+    "presentation_evidence_window_utc": [
+      "2026-10-10T18:01:08.382596+00:00",
+      "2026-10-10T21:51:16.615617+00:00"
+    ],
+    "timestamp_semantics": "cached_at is local retrieval time; price_updated_at is provider mark time; manual maps have file hashes, not an observation timestamp; captures are not synchronized",
     "hash_normalization": "UTF-8 text with line endings normalized to LF",
-    "bundle_sha256": "a170bd7f2ff280d96b857d777def18cc18940ebf7aca012ca874d30bcab0a3cc"
+    "bundle_sha256": "07037d35ca883ebd4d65ac1529bf7ea91397002a746c3a5ef152618151d31a93"
   },
   "assumptions": [
     "One hypothetical intrinsic shock; scenario loss is not probability-weighted expected loss.",
@@ -6502,7 +6528,14 @@
     "Released capital is assumed transferred to external cash; conversion reserve is 10 bps and gas reserve is 2 bps, both assumptions.",
     "Remaining claims retain snapshot exposure proportions; market feedback, cash-transfer risk and FX movements are outside this model.",
     "Foregone carry uses nonnegative snapshot APY times 30/365; no reinvestment return is assumed.",
-    "API observations and sourced manual mappings are distinguished from cached RPC observations; none are labelled live."
+    "API observations and sourced manual mappings are distinguished from cached RPC observations; none are labelled live.",
+    "The $10M book is an illustrative allocation to real instruments, not an observed wallet or managed fund.",
+    "Evidence is a composite of individually timestamped captures, not an atomic block-aligned snapshot. Quote bundle captured_at is assembly time.",
+    "Manual token-level oracle names are hypotheses about integrations, not verified deployed oracle contracts; market oracle addresses come from Morpho API observations.",
+    "Discovery omits zero-funded and dust collateral allocations below the rounded 0.1% vault threshold. Missing paths are not evidence of safety.",
+    "Aggregate recovery can understate borrower-level shortfalls at partial shocks; it pools collateral and excludes liquidation incentives and timing. It is modelled economic impairment, not a vault share-price forecast.",
+    "PT claims pass underlying USD mark changes one-for-one at a fixed discount factor; a worthless underlying leaves no invented PT recovery. Other generic transmission coefficients remain assumptions.",
+    "The optimizer minimizes protection cost subject to a manager-selected stress mandate. Plan-versus-hold break-even is not a marginal threshold or a globally optimal expected-return trading policy."
   ],
   "coefficients": {
     "chain": 1.0,
@@ -6510,7 +6543,8 @@
     "backing": 0.95,
     "collateral": 0.85,
     "oracle": 0.7,
-    "liquidity": 0.35
+    "liquidity": 0.35,
+    "pt_underlying_claim_override": 1.0
   },
   "receipt_schema": "blast-radius-decision-v1"
 }

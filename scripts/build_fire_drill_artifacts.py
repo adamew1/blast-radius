@@ -25,7 +25,8 @@ def main():
     bundle = load_execution()
     execution = exit_options(b, bundle)
     cases = []
-    for dependency, locks in ((shared[0]["id"], []), ("issuer:lido", []), ("issuer:lido", ["pt-wsteth"])):
+    for dependency, locks in ((shared[0]["id"], []), (shared[0]["id"], ["pt-wsteth"]),
+                              ("issuer:lido", []), ("issuer:lido", ["pt-wsteth"])):
         start = time.perf_counter()
         stress = stress_book(b, dependency)
         stress_seconds = time.perf_counter() - start

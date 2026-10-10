@@ -23,8 +23,11 @@ def main():
     output.mkdir(exist_ok=True)
     report={"verified_at":datetime.now(timezone.utc).isoformat(),"url":args.url,
             "offline":True,"interactions":[],"external_requests":[],"js_errors":[],"screenshots":[]}
+    source_files = sorted((ROOT/"blast_radius").rglob("*.py")) + sorted((ROOT/"app").rglob("*.py"))
+    source_files += sorted((ROOT/"app/components/terminal").glob("*"))
+    source_files += [ROOT/".streamlit/config.toml"]
     report["source_sha256"]={str(p.relative_to(ROOT)).replace("\\","/"):hashlib.sha256(p.read_text(encoding="utf-8").encode()).hexdigest()
-                            for folder in ("blast_radius/fire_drill","app/components/terminal") for p in (ROOT/folder).glob("*") if p.is_file()}
+                            for p in source_files if p.is_file()}
     with sync_playwright() as pw:
         browser=pw.chromium.launch(headless=True)
         config={"viewport":{"width":1500,"height":1100},"accept_downloads":True}
@@ -77,8 +80,16 @@ def main():
         page.get_by_role("button",name="BUILD RESCUE PLAN").click()
         page.get_by_role("region",name="Rescue comparison").wait_for()
         expect(page.locator(".status")).to_contain_text("OPTIMAL")
+        expect(page.get_by_role("region",name="Rescue comparison")).to_contain_text("$499,000")
+        expect(page.get_by_role("region",name="Rescue comparison")).to_contain_text("$2,682,047")
+        expect(page.get_by_role("region",name="Rescue comparison")).to_contain_text("1.19%")
         checked("Least-cost rescue independently verified within target")
         shot("rescue",".rescue-panel")
+        page.locator("#probability").fill("0.5")
+        expect(page.locator("#expected-benefit")).to_contain_text("-$12,967")
+        page.locator("#probability").fill("2")
+        expect(page.locator("#expected-benefit")).to_contain_text("$15,241")
+        checked("Economic comparison changes sign around the plan break-even assumption")
         page.get_by_role("button",name="Before",exact=True).click()
         expect(page.get_by_role("button",name="Before",exact=True)).to_have_class("on")
         page.get_by_role("button",name="After rescue",exact=True).click()
@@ -87,11 +98,22 @@ def main():
         page.locator('.lock input[value="pt-wsteth"]').check()
         page.get_by_role("button",name="BUILD RESCUE PLAN").click()
         expect(page.locator(".status")).to_contain_text("TARGET INFEASIBLE")
+        expect(page.locator(".status")).to_contain_text("$1,004,800")
         checked("Lock challenge reports infeasibility honestly")
         shot("locked",".rescue-panel")
         page.get_by_role("button",name="Show Me the Evidence").click()
         page.get_by_role("heading",name="Show Me the Evidence",exact=True).wait_for()
         checked("Evidence exposes provenance, assumptions and source bundle")
+        page.get_by_role("tab",name="Quotes & liquidity").click()
+        expect(page.get_by_text("Pendle: value quoted output once",exact=False)).to_be_visible()
+        page.get_by_role("tab",name="Model & receipt").click()
+        expect(page.get_by_text("The $10M book is an illustrative allocation",exact=False)).to_be_visible()
+        expect(page.locator('[data-testid="stJson"]').filter(has_text="pt_underlying_claim_override").last).to_be_visible()
+        page.get_by_role("tab",name="Dependencies & coefficients").click()
+        pt_evidence=page.locator('[data-testid="stExpander"]').filter(has_text="Pendle PT-wstETH").first
+        pt_evidence.locator("summary").click()
+        expect(pt_evidence.locator('[data-testid="stJson"]')).to_contain_text("coefficient_assumption")
+        checked("Inspected quote provenance, model assumptions and actual dependency evidence")
         shot("proof",".proof-inline")
         with page.expect_download() as download:
             page.get_by_role("button",name="Download decision receipt").click()
@@ -110,8 +132,16 @@ def main():
         checked("Reset restores a clean demonstration")
         page.goto(args.url+"/?fallback=1")
         page.get_by_role("heading",name="Blast Radius — Break My Portfolio").wait_for()
+        page.get_by_role("button",name="Find My Weakest Point",exact=True).click()
         page.get_by_role("button",name="BUILD RESCUE PLAN").click()
+        expect(page.locator('[data-testid="stJson"]').first).to_contain_text("optimal")
         checked("Native-control fallback computes a rescue")
+        page.get_by_role("combobox",name="Lock positions").fill("pt-wsteth")
+        page.get_by_role("option",name="pt-wsteth",exact=True).click()
+        page.keyboard.press("Escape")
+        page.get_by_role("button",name="BUILD RESCUE PLAN").click()
+        expect(page.locator('[data-testid="stJson"]').first).to_contain_text("infeasible")
+        checked("Native-control fallback reproduces the locked-position infeasibility")
         # Keep research smoke checks in this same frozen/no-external-network context.
         for path, heading in (("Position","Position risk & dependency look-through"),
                               ("Portfolio","Portfolio — shared dependencies & ranked actions"),

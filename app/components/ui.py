@@ -46,7 +46,8 @@ def metric_row(decision: dict) -> None:
     c[0].metric("Exp. loss", pct(decision["el"]), help="Monte-Carlo mean loss over the horizon")
     c[1].metric("CVaR-95", pct(decision["cvar95"]), help="Mean loss in the worst 5% of paths")
     c[2].metric("Carry", pct(decision["carry"]), help="Yield earned over the horizon")
-    c[3].metric("Exit cost", pct(decision["exit_cost"], 3), help="Slippage + fees to unwind now")
+    c[3].metric("Exit cost", pct(decision["exit_cost"], 3) if decision.get("exit_available", True) else "Unavailable",
+                help="Captured quote valuation plus assumed reserves; future execution is not guaranteed")
     delta = decision["net_stay"]
     c[4].metric("Net (stay)", pct(delta), delta=pct(delta),
                 help="Carry minus expected loss (expected P&L if you hold)")

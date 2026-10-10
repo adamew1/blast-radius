@@ -19,12 +19,14 @@ cfg = load_config()
 positions = cfg["positions"]
 
 st.title("Position risk & dependency look-through")
+st.caption("Research model with assumed incident priors; not calibrated to the fire-drill shock probability. "
+           "Execution uses frozen exact-size quotes or funded liquidity bounds. Unsupported exits require REVIEW.")
 
 # ---------------- controls ----------------
 with st.sidebar:
     st.header("Position")
     labels = [p["label"] for p in positions]
-    pick = st.selectbox("Choose a live position", labels)
+    pick = st.selectbox("Choose a snapshot instrument", labels)
     pos = dict(next(p for p in positions if p["label"] == pick))
     pos["size_usd"] = st.number_input("Position size (USD)", 10_000, 50_000_000,
                                       int(pos.get("size_usd", 500_000)), step=50_000)
@@ -69,7 +71,7 @@ shares = {nid: (c / risk.el if risk.el else 0.0) for nid, c in risk.node_contrib
 sm = res["summary"]
 st.caption(
     f"{sm['nodes']} nodes · {sm['edges']} edges · "
-    f"{sm['by_source'].get('api', 0)} live-API / {sm['by_source'].get('manual', 0)} manual edges · "
+    f"{sm['by_source'].get('api', 0)} cached-API / {sm['by_source'].get('manual', 0)} manual edges · "
     f"layers: {' → '.join(k for k in ['chain','issuer','oracle','token','amm','lending_market'] if k in sm['by_kind'])}"
 )
 st.plotly_chart(build_figure(g, node_shares=shares), use_container_width=True)

@@ -26,7 +26,10 @@ def decide(g, res: RiskResult, exit_info: dict, apy: float, horizon_months: floa
     net_stay = carry - el
     tail_bad = res.cvar95 > tail_tolerance
 
-    if el - carry > exit_cost:
+    available = exit_info.get("available", True)
+    if not available:
+        verdict = "REVIEW"
+    elif el - carry > exit_cost:
         verdict = "EXIT"
     elif net_stay >= 0 and not tail_bad:
         verdict = "STAY"
@@ -37,9 +40,12 @@ def decide(g, res: RiskResult, exit_info: dict, apy: float, horizon_months: floa
     dominant = contribs[0] if contribs else None
     path = _dominant_path(g, dominant["node"]) if dominant else ""
 
-    reason = _explain(verdict, carry, el, exit_cost, res, dominant, path, horizon_months, tail_bad)
+    reason = (_explain(verdict, carry, el, exit_cost, res, dominant, path, horizon_months, tail_bad)
+              if available else "**REVIEW:** no supported exit at this exact size. "
+              + exit_info.get("detail", "Execution evidence unavailable")
+              + " Expected-loss estimates are research outputs; no stay/exit recommendation is issued.")
     return {
-        "verdict": verdict, "carry": carry, "el": el, "cvar95": res.cvar95,
+        "verdict": verdict, "carry": carry, "el": el, "cvar95": res.cvar95, "exit_available": available,
         "exit_cost": exit_cost, "net_stay": net_stay, "horizon_months": horizon_months,
         "dominant": dominant, "dominant_path": path, "top_contributors": contribs,
         "reason": reason, "tail_bad": tail_bad,

@@ -71,8 +71,9 @@ payload = {
     "state": {k: state[k] for k in defaults if k != "last_event"}, "revision": revision,
     "ack": state.last_event,
     "snapshot": bundle.get("captured_at", "missing quote bundle"),
+    "snapshot_window": manifest["presentation_evidence_window_utc"],
     "bundle_hash": manifest["bundle_sha256"], "assumptions": ASSUMPTIONS,
-    "coefficients": PASS_THROUGH, "opaque_positions": opaque,
+    "coefficients": {**PASS_THROUGH, "pt_underlying_claim_override": 1.0}, "opaque_positions": opaque,
     "positions": book.positions,
     "sources": [{k: r[k] for k in ("path", "source", "cached_at", "label", "sha256")}
                 for r in manifest["sources"] if "morpho" in (r.get("label") or "") or
@@ -160,7 +161,9 @@ else:
 
 if state.evidence:
     st.subheader("Show Me the Evidence")
-    st.caption("Frozen API observations + sourced manual mappings + cached RPC decimals. No live-data claim.")
+    st.caption("Illustrative $10M allocation to real instruments. Composite captures: "
+               + " to ".join(manifest["presentation_evidence_window_utc"])
+               + ". Retrieval times and provider mark times differ; manual mappings are versioned files.")
     a, b, c = st.tabs(["Dependencies & coefficients", "Quotes & liquidity", "Model & receipt"])
     with a:
         st.write("Selected dependency", selected)
@@ -172,7 +175,10 @@ if state.evidence:
                     paths = list(nx.all_simple_paths(g.g, g.root_id, state.dependency))
                     for path in paths:
                         st.write(" → ".join(g.node(n).label for n in path))
-                        st.json([{**vars(g.edge(u, v)), "coefficient_assumption": PASS_THROUGH.get(g.edge(u,v).dep_type),
+                        st.json([{**vars(g.edge(u, v)), "coefficient_assumption":
+                                  (1.0 if g.edge(u,v).dep_type == "backing" and
+                                   (g.node(u).meta.get("pt") or g.node(u).meta.get("is_pendle_pt"))
+                                   else PASS_THROUGH.get(g.edge(u,v).dep_type)),
                                   "child_metadata": g.node(v).meta} for u, v in zip(path, path[1:])])
         st.json(manifest)
     with b:
@@ -185,7 +191,7 @@ if state.evidence:
     with c:
         for assumption in ASSUMPTIONS:
             st.write("• " + assumption)
-        st.json(PASS_THROUGH)
+        st.json({**PASS_THROUGH, "pt_underlying_claim_override": 1.0})
     st.download_button("Download decision receipt", json.dumps(receipt(stress, execution, state.plan, manifest, bundle), indent=2),
                        file_name="blast-radius-decision.json", mime="application/json")
 

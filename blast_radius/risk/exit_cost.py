@@ -1,20 +1,16 @@
-"""Real exit-cost estimation.
-
-Pendle PT: the Pendle SDK swap quote returns a genuine `priceImpact` for unwinding the exact
-position size back to the underlying; exit cost = |priceImpact| + the pool fee. We also build
-a price-impact curve across sizes so the UI can show how exit cost grows with size.
-
-Morpho vault: the supplier exits by withdrawing the loan asset, which is bounded by the
-vault's currently-available liquidity (sum of per-market `liquidityAssetsUsd`). Within that,
-exit is ~gas; a shortfall must wait for borrowers to repay or be force-sold, which we charge
-as an illiquidity penalty.
-"""
+"""Research costs from audited frozen evidence; unavailable sizes never imply fills."""
 from __future__ import annotations
 
-from ..sources import morpho, pendle
+from ..fire_drill.execution import load_execution
+from ..sources import morpho
 
-_GAS_BPS = 0.0002            # ~2bps round-trip gas/slippage floor
-_ILLIQUIDITY_PENALTY = 0.02  # 2% haircut on the portion that exceeds available liquidity
+_GAS_RESERVE = .0002
+_CONVERSION_RESERVE = .001
+
+
+def unavailable(method, detail):
+    return {"cost_pct": 0.0, "available": False, "method": method, "detail": detail,
+            "curve": []}  # placeholder never used to issue a decision
 
 
 def exit_cost(position: dict) -> dict:
@@ -22,59 +18,42 @@ def exit_cost(position: dict) -> dict:
         return _pendle_exit(position)
     if position["kind"] == "morpho_vault":
         return _morpho_exit(position)
-    return {"cost_pct": _GAS_BPS, "method": "unknown", "detail": "default gas floor"}
+    return unavailable("unsupported", "No supported execution evidence")
 
 
 def _pendle_exit(position: dict) -> dict:
-    cid, market = position.get("chain_id", 1), position["market"]
-    m = next((x for x in pendle.markets_active(cid)["markets"]
-              if x["address"].lower() == market.lower()), None)
-    if not m:
-        return {"cost_pct": _GAS_BPS, "method": "pendle", "detail": "market not found"}
-    fee = (m.get("details") or {}).get("feeRate") or 0.0
-    pt_px = list(pendle.assets_prices([m["pt"]], cid)["prices"].values())[0]
+    record = next((r for r in load_execution()["positions"].values()
+                   if r["position"]["market"].lower() == position["market"].lower()
+                   and r["position"]["chain_id"] == position.get("chain_id", 1)), None)
+    if record is None:
+        return unavailable("frozen Pendle quotes", "No captured market quotes")
     size = position.get("size_usd", 0)
-
-    def quote(notional: float) -> float | None:
-        wei = int((notional / pt_px) * 1e18)
-        try:
-            q = pendle.swap_quote(market, m["pt"], m["underlyingAsset"], wei, cid)
-        except Exception:
-            return None  # size exceeds pool liquidity / router can't fill -> no quote
-        return (q.get("data") or {}).get("priceImpact")
-
-    pi = quote(size)
-    curve = []
-    for mult in (0.5, 1, 2, 5, 10):
-        p = quote(size * mult)
-        if p is not None:
-            curve.append({"size_usd": size * mult, "price_impact": abs(p), "cost_pct": abs(p) + fee})
-    if pi is None:
-        # position itself exceeds available liquidity: exit cost is at least the deepest quote,
-        # bumped for the unfillable remainder.
-        deepest = max((c["cost_pct"] for c in curve), default=0.03)
-        return {"cost_pct": max(deepest, 0.03), "price_impact": None, "fee": fee,
-                "method": "pendle price-impact",
-                "detail": f"${size:,.0f} exceeds instantly-routable liquidity; exit is illiquid",
-                "curve": curve, "pt_price": pt_px}
-    cost = abs(pi) + fee
-    return {"cost_pct": cost, "price_impact": abs(pi), "fee": fee, "method": "pendle price-impact",
-            "detail": f"Pendle SDK swap quote at ${size:,.0f}", "curve": curve, "pt_price": pt_px}
+    valid = [q for q in record["options"] if q["available"]]
+    q = next((q for q in valid if abs(q["notional_usd"] - size) < .01), None)
+    if q is None or size <= 0:
+        return unavailable("frozen Pendle quotes", "No captured quote for this exact size; no extrapolated fill")
+    reserve = _GAS_RESERVE + _CONVERSION_RESERVE
+    return {"available": True, "cost_pct": q["mark_shortfall_usd"] / size + reserve,
+            "price_impact": abs(q["reported_price_impact"]), "fee": 0.0,
+            "method": "frozen quoted output + assumed gas/conversion reserves",
+            "detail": "Captured amountOut valued once; reported pool fee already included. "
+                      "Conversion to external cash is assumed, not quoted. No future fill guarantee.",
+            "curve": [{"size_usd": v["notional_usd"], "price_impact": abs(v["reported_price_impact"]),
+                       "cost_pct": v["mark_shortfall_usd"] / v["notional_usd"] + reserve} for v in valid],
+            "pt_price": record["input_asset"]["price_usd"], "raw_cache_key": q["raw_cache_key"]}
 
 
 def _morpho_exit(position: dict) -> dict:
     v = morpho.vault_by_address(position["vault"], position.get("chain_id", 1))
     size = position.get("size_usd", 0)
-    withdrawable = 0.0
-    for a in ((v.get("state") or {}).get("allocation") or []):
-        withdrawable += ((a.get("market") or {}).get("state") or {}).get("liquidityAssetsUsd") or 0.0
-    if size <= withdrawable:
-        return {"cost_pct": _GAS_BPS, "method": "morpho withdrawable liquidity",
-                "detail": f"${withdrawable:,.0f} instantly withdrawable ≥ ${size:,.0f} position",
+    withdrawable = sum(min(a.get("supplyAssetsUsd") or 0,
+                          max(0, ((a.get("market") or {}).get("state") or {}).get("liquidityAssetsUsd") or 0))
+                       for a in (v.get("state") or {}).get("allocation", []))
+    if size > withdrawable or size <= 0:
+        return {**unavailable("Morpho snapshot bound", "Exact exit exceeds funded snapshot liquidity; no assumed fill"),
                 "withdrawable_usd": withdrawable}
-    shortfall = (size - withdrawable) / size
-    cost = _GAS_BPS + shortfall * _ILLIQUIDITY_PENALTY
-    return {"cost_pct": cost, "method": "morpho withdrawable liquidity",
-            "detail": f"only ${withdrawable:,.0f} of ${size:,.0f} instantly withdrawable; "
-                      f"{shortfall:.0%} waits for repayment (≈{_ILLIQUIDITY_PENALTY:.0%} haircut)",
+    return {"available": True, "cost_pct": _GAS_RESERVE + _CONVERSION_RESERVE,
+            "method": "Morpho funded snapshot liquidity + assumed reserves",
+            "detail": f"${withdrawable:,.0f} funded liquidity bound; withdrawal queue not certified. "
+                      "2 bps gas and 10 bps external-cash conversion are assumptions.",
             "withdrawable_usd": withdrawable}

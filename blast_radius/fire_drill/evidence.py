@@ -21,6 +21,13 @@ ASSUMPTIONS = [
     "Remaining claims retain snapshot exposure proportions; market feedback, cash-transfer risk and FX movements are outside this model.",
     "Foregone carry uses nonnegative snapshot APY times 30/365; no reinvestment return is assumed.",
     "API observations and sourced manual mappings are distinguished from cached RPC observations; none are labelled live.",
+    "The $10M book is an illustrative allocation to real instruments, not an observed wallet or managed fund.",
+    "Evidence is a composite of individually timestamped captures, not an atomic block-aligned snapshot. Quote bundle captured_at is assembly time.",
+    "Manual token-level oracle names are hypotheses about integrations, not verified deployed oracle contracts; market oracle addresses come from Morpho API observations.",
+    "Discovery omits zero-funded and dust collateral allocations below the rounded 0.1% vault threshold. Missing paths are not evidence of safety.",
+    "Aggregate recovery can understate borrower-level shortfalls at partial shocks; it pools collateral and excludes liquidation incentives and timing. It is modelled economic impairment, not a vault share-price forecast.",
+    "PT claims pass underlying USD mark changes one-for-one at a fixed discount factor; a worthless underlying leaves no invented PT recovery. Other generic transmission coefficients remain assumptions.",
+    "The optimizer minimizes protection cost subject to a manager-selected stress mandate. Plan-versus-hold break-even is not a marginal threshold or a globally optimal expected-return trading policy.",
 ]
 
 
@@ -39,11 +46,16 @@ def source_manifest() -> dict:
         path = ROOT / name
         if path.exists():
             files[name] = hashlib.sha256(path.read_text(encoding="utf-8").encode("utf-8")).hexdigest()
-    code = sorted((ROOT / "blast_radius/fire_drill").glob("*.py"))
-    code += sorted((ROOT / "blast_radius/discovery").glob("*.py"))
+    code = sorted((ROOT / "blast_radius").rglob("*.py"))
+    code += [ROOT / "config.yaml", ROOT / ".streamlit/config.toml"]
     for path in code:
         files[str(path.relative_to(ROOT)).replace("\\", "/")] = hashlib.sha256(path.read_text(encoding="utf-8").encode()).hexdigest()
+    times = [r["cached_at"] for r in records if isinstance(r.get("cached_at"), (int, float))
+             and ((r.get("label") or "").startswith(("pendle_active:", "morpho_vault:", "fire_drill_")))]
     payload = {"sources": records, "files": files,
+               "presentation_evidence_window_utc": [datetime.fromtimestamp(t, timezone.utc).isoformat()
+                                                     for t in (min(times), max(times))] if times else [],
+               "timestamp_semantics": "cached_at is local retrieval time; price_updated_at is provider mark time; manual maps have file hashes, not an observation timestamp; captures are not synchronized",
                "hash_normalization": "UTF-8 text with line endings normalized to LF"}
     payload["bundle_sha256"] = hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()
     return payload
@@ -54,5 +66,5 @@ def receipt(stress: dict, execution: dict, plan: dict | None, manifest: dict, bu
             "classification": "hypothetical pre-failure protection using frozen evidence",
             "scenario": stress, "plan": plan, "exit_candidates": execution,
             "quote_bundle": bundle, "evidence": manifest, "assumptions": ASSUMPTIONS,
-            "coefficients": PASS_THROUGH,
+            "coefficients": {**PASS_THROUGH, "pt_underlying_claim_override": 1.0},
             "receipt_schema": "blast-radius-decision-v1"}
