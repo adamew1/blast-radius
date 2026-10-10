@@ -1,0 +1,112 @@
+{
+  "verified_at": "2026-10-10T21:02:00.651952+00:00",
+  "app_commit": "a9a1072dc0a7a7449a2395fe8c925256fb36afdd",
+  "offline": true,
+  "browser": "local Playwright Chromium (MCP unavailable)",
+  "artifacts": {
+    "events": 8,
+    "non_development_crises": 2,
+    "positions": 37,
+    "contracts": "passed"
+  },
+  "pages": [
+    {
+      "name": "Home",
+      "path": "/",
+      "charts": 0,
+      "exceptions": 0,
+      "screenshot": "artifacts/screenshots/Home.png"
+    },
+    {
+      "name": "Position",
+      "path": "/Position",
+      "charts": 2,
+      "exceptions": 0,
+      "screenshot": "artifacts/screenshots/Position.png"
+    },
+    {
+      "name": "Portfolio",
+      "path": "/Portfolio",
+      "charts": 1,
+      "exceptions": 0,
+      "screenshot": "artifacts/screenshots/Portfolio.png"
+    },
+    {
+      "name": "Replay",
+      "path": "/Replay_Stream",
+      "charts": 2,
+      "exceptions": 0,
+      "screenshot": "artifacts/screenshots/Replay.png"
+    },
+    {
+      "name": "Track_Record",
+      "path": "/Track_Record",
+      "charts": 8,
+      "exceptions": 0,
+      "screenshot": "artifacts/screenshots/Track_Record.png"
+    },
+    {
+      "name": "Market_Scan",
+      "path": "/Market_Scan",
+      "charts": 1,
+      "exceptions": 0,
+      "screenshot": "artifacts/screenshots/Market_Scan.png"
+    }
+  ],
+  "interactions": [
+    "Position what-if toggle renders forced-shock results",
+    "Position selector renders Smokehouse USDT",
+    "Replay slider navigates to Nov 1 and Nov 7",
+    "Six-page sidebar navigation returns to Home"
+  ],
+  "external_requests": [],
+  "source_sha256": {
+    "app/components/__init__.py": "ab3d96363c808e9c1172df87b50d27dd5ede8d354ce3cd5909d331d25f58f6a4",
+    "app/components/graphviz.py": "1026710e8cdf1c64842f9c8ae526161657843319caced883aa842d986f418e61",
+    "app/components/ui.py": "0bbab4064d314a33b1d08122c7fd23d202ac37fb028dd3473acc070c48534a52",
+    "app/Home.py": "8cc73f7a6ea58d312342d4715ecdec28f4348d30ae8cef203223f9ef94628b35",
+    "app/pages/1_Position.py": "d3b546059e11c0295abf962967fefa854ba2a8ef254708ecf034eeb8b32d4098",
+    "app/pages/2_Portfolio.py": "3ec5150f4c9b67b48de21be3f3e01f644ccdad38ea34126f94a1175522ebffb3",
+    "app/pages/3_Replay_Stream.py": "e6304c1d7bdfac7d8ebc1cf573c8cbcd15b2b4479cc09018b993b9d40ea4d613",
+    "app/pages/4_Track_Record.py": "fa09f7bd6d72c21e239768c8e6eefe52c54b922fec7c72e6a156d84d1522317e",
+    "app/pages/5_Market_Scan.py": "8100bea5f8a54cf566616b0429a285e635a43cb9b3db23f77b99c07fd82e3b45",
+    "blast_radius/__init__.py": "cda7cab1222a81ace69adce64f0c44a4eae602fbeb2b58759ea2d64df48d75e6",
+    "blast_radius/analyze.py": "88989a5c1a56bab697ce83cb2b4383c57d1f7e38976956b051a19036de540c2f",
+    "blast_radius/backtest/__init__.py": "5ec54aa39956a2fbd4cce198b8776ba72714585615bb8a88f42f56e3ef557c6c",
+    "blast_radius/backtest/controls.py": "5bf4470f0f4e64b96dda77a6e4bf7b64ae6a46aa7a796a84fdde51f45a648418",
+    "blast_radius/backtest/graph.py": "8d2c8b609c091cc99b69a5dd62b6ca0aa53e6e7fe36b2c4b2a66efcf0565a247",
+    "blast_radius/backtest/library.py": "c688bdda61dc7f6bf8f3c20fac7d9e382999fd5a203db7c9c300f9fa854f0e2b",
+    "blast_radius/backtest/prices.py": "8e4a3e93a70be03828c31aa3c82128fdc5dc544f5f8999c0a63cfef162e51d23",
+    "blast_radius/backtest/runner.py": "4d2982d697285f9add298f857457c9c9d1a101a37973f7b0850c3ad19ba56b5d",
+    "blast_radius/config.py": "9ad99d1fcd1d8d5440e545e874fe9bd6350df23d19655d0f4872355a853780d6",
+    "blast_radius/discovery/__init__.py": "6d282aecfd75fb937d29bab136fd2d815b6db435c1bbc460042cea9a11239bcb",
+    "blast_radius/discovery/engine.py": "842d60154118fb1785da7b47a190e4b005c9ac4a79ef2cb4420a9f173707180f",
+    "blast_radius/discovery/graph.py": "92e907f64a830841fdffc591d7093ddc1e7813ad7ffe10447e1fce3de1f82272",
+    "blast_radius/discovery/resolvers.py": "bd4b59b3de4382b25d6d03501c12b0e608e3c1e2778686b64b8636aaae790a97",
+    "blast_radius/models/__init__.py": "ae511b294642c840f6fe8a2ecef5f6540286ac6d01e9557cc2ea50fcccb009c0",
+    "blast_radius/models/evaluation.py": "9232a96ec5d6ae5b62b9b0a2ed63845083e2eee80723e261197cbde308578d78",
+    "blast_radius/models/incidents.py": "f05957c7ab8aba880b66c8d784434f4507736a365bef92fad4fdf8c640463e90",
+    "blast_radius/models/passthrough.py": "908145f6cb85f47ab2017f8dd258dad6c6baceb06afd51d2583d4b2e0bd6e6e8",
+    "blast_radius/models/severity.py": "289b3fa04f0aa8e1b3395def27fe46dac2c43b7c14276f2fc774082e7dbf32bb",
+    "blast_radius/portfolio/__init__.py": "f51dc543bdd3fc3c884ec2fe93945546c0b68219b035db4d5724ea30f74c4d35",
+    "blast_radius/portfolio/book.py": "201af8412ea82b662e7f2b54f8adeb823ab42a59793de45721965675bb342c6b",
+    "blast_radius/replay/__init__.py": "e92e53c3c869b944bb05c5969e1fdb08a8f80407f69bc333d04c481d84fb06e1",
+    "blast_radius/replay/stream.py": "11eccf68bc306a99a52ae1245de06c630b549c5d9d8edd7ce7c30215c2781e3d",
+    "blast_radius/risk/__init__.py": "9f6426db6b46b494bb994175cd86ce6716fcfb49ffa67241e04be1765f75f19b",
+    "blast_radius/risk/decision.py": "51a2ae92ea28682bdc1d89d400b344d8e22ad2f01892c7883d6787aa13d2ee2f",
+    "blast_radius/risk/exit_cost.py": "f38a67553ab78bdbb0bbddc1aee29464bdd9f40920bb801d7e65a1e37473f9a8",
+    "blast_radius/risk/propagate.py": "61faea77ceef47e905e108c2d5f5664dc8bd1a16b38e802c467a240f22989e1e",
+    "blast_radius/scan/__init__.py": "fde7b4dd8b73a5cef10f6d6c5c0b6b9f1496cb48845437f2355f110e96f683f9",
+    "blast_radius/scan/runner.py": "4c2133f25789b05ed32313f6f102c0dc77a095d7f2b891f8c380d6df0029e1e4",
+    "blast_radius/sources/__init__.py": "9117ccb5008f11da318fe7bba3e6db65f59aab914990204f23fa6a2fe55a9801",
+    "blast_radius/sources/cache.py": "0650aa3c19a021c8431fd298460a5780babfd93f7a524c6d61f3b21fa532cf8c",
+    "blast_radius/sources/defillama.py": "a381a4a351ee5f79798ec7c7024755b288d6ed2a52e4af7b5efa126c2fad232f",
+    "blast_radius/sources/morpho.py": "df3036ecdc143a9d516341b8a4b8700d3a97c31a7db4f6d86729fafa9e08782f",
+    "blast_radius/sources/pendle.py": "9dea3dfb6fc4b0c8466352e7acfc9038618d79b930f5d5e949122d63c3e63f9d",
+    "config.yaml": "e05f8f03b94502f6781ff5a0b61ae1d9887d78c93b9e1fbc834cbddd1ece4088",
+    "data/backtest/events.yaml": "47c5bac2ec29ed193d00f4d545638b22836ea0f7a6f1147e5015424271f0117b",
+    "data/backtest/signal_rule.yaml": "55d014d36dd59bc66ee3c12caf4db0172eef5e55ac30378493d2e9bc7b2aa50d",
+    "data/manual/dependencies.yaml": "58d95dc364b5391abba7898f3ff80736b2c5b63d5e97b3de795a68ed3656d180"
+  },
+  "status": "passed"
+}

@@ -16,6 +16,51 @@ chains:
     source: "https://defillama.com/chain/Ethereum"
 
 issuers:
+  wbtc_custody:
+    name: "WBTC custody (BitGo / BiT Global)"
+    kind: "custodial wrapped BTC"
+    risk_category: "Wrapped BTC (custodial)"
+    source: "https://www.wbtc.network/about"
+  apyx:
+    name: "Apyx"
+    kind: "preferred-share backed synthetic dollar"
+    risk_category: "Synthetic Dollar"
+    source: "https://apyx-labs.github.io/evm-contracts/"
+  infinifi:
+    name: "infiniFi"
+    kind: "fractional-reserve yield protocol"
+    risk_category: "Yield"
+    source: "https://docs.infinifi.xyz/risk-disclosures"
+  re:
+    name: "Re Protocol"
+    kind: "reinsurance / tranche issuer"
+    risk_category: "Yield"
+    source: "https://docs.re.xyz/products/smart-contracts"
+  threejane:
+    name: "3Jane"
+    kind: "credit / tranche issuer"
+    risk_category: "Lending"
+    source: "https://docs.3jane.xyz/usd3-susd3/suppliers"
+  strata:
+    name: "Strata"
+    kind: "risk-tranching protocol"
+    risk_category: "Yield"
+    source: "https://docs.strata.markets/technical-documentation/contracts-details"
+  sierra:
+    name: "Sierra"
+    kind: "RWA / DeFi yield token issuer"
+    risk_category: "Yield"
+    source: "https://docs.sierra.money/building-with-sierra/blockchain-addresses"
+  usdd:
+    name: "USDD protocol"
+    kind: "collateral-backed stablecoin"
+    risk_category: "CDP stablecoin"
+    source: "https://docs.usdd.io/introduction/collateral-asset-contract-addresses"
+  origin:
+    name: "Origin Protocol"
+    kind: "liquid staking"
+    risk_category: "Liquid Staking"
+    source: "https://docs.originprotocol.com/registry/contracts/oeth-registry"
   sky:
     name: "Sky (formerly MakerDAO)"
     kind: "CDP / stablecoin issuer"
@@ -157,7 +202,7 @@ tokens:
     symbol: "WBTC"
     kind: "wrapper"
     peg: null
-    issuer: "tether"   # WBTC custody (BitGo); placeholder issuer, flagged
+    issuer: "wbtc_custody"
     risk_category: "Wrapped BTC (custodial)"
     source: "https://wbtc.network"
   "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf":
@@ -183,3 +228,104 @@ tokens:
     risk_category: "Stablecoin (fiat)"
     oracle: {name: "Chainlink USDT/USD", source: "https://data.chain.link"}
     source: "https://tether.to"
+
+  # Scan expansion: sourced identities and wrappers; terminal issuers are the declared
+  # stopping depth. Off-chain reserves, strategies and tranche waterfalls are NOT complete.
+  "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a":
+    symbol: "apyUSD"
+    kind: "wrapper"
+    wraps: "0x98a878b1cd98131b271883b390f68d2c90674665"
+    backing_share: 100
+    issuer: "apyx"
+    risk_category: "Yield (savings)"
+    source: "https://apyx-labs.github.io/evm-contracts/"
+  "0x98a878b1cd98131b271883b390f68d2c90674665":
+    symbol: "apxUSD"
+    kind: "stablecoin"
+    issuer: "apyx"
+    risk_category: "Synthetic Dollar"
+    source: "https://docs.apyx.fi/technical-overview/protocol-contracts-overview"
+    note: "Issuer identified; preferred-share reserve issuers and weights not mapped."
+  "0xdbdc1ef57537e34680b898e1febd3d68c7389bcb":
+    symbol: "siUSD"
+    kind: "wrapper"
+    wraps: "0x48f9e38f3070ad8945dfeae3fa70987722e3d89c"
+    backing_share: 100
+    issuer: "infinifi"
+    risk_category: "Yield (savings)"
+    source: "https://docs.infinifi.xyz/dev-docs/tokens/staked-token"
+  "0x48f9e38f3070ad8945dfeae3fa70987722e3d89c":
+    symbol: "iUSD"
+    kind: "stablecoin"
+    issuer: "infinifi"
+    risk_category: "Yield"
+    source: "https://docs.infinifi.xyz/dev-docs/contracts"
+    note: "Issuer identified; dynamic liquid/illiquid farm allocations not mapped."
+  "0x5086bf358635b81d8c47c66d1c8b9e567db70c72":
+    symbol: "reUSD"
+    kind: "wrapper"
+    issuer: "re"
+    risk_category: "Yield"
+    source: "https://docs.re.xyz/products/smart-contracts"
+    note: "Senior reinsurance tranche; reserves, counterparties and waterfall not modelled."
+  "0xddc0f880ff6e4e22e4b74632fbb43ce4df6ccc5a":
+    symbol: "reUSDe"
+    kind: "wrapper"
+    issuer: "re"
+    risk_category: "Yield"
+    source: "https://docs.re.xyz/products/smart-contracts"
+    note: "Mezzanine reinsurance tranche; not assumed to be a 100% sUSDe wrapper."
+  "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc":
+    symbol: "USD3"
+    kind: "wrapper"
+    issuer: "threejane"
+    risk_category: "Lending"
+    source: "https://docs.3jane.xyz/developers/addresses"
+    note: "3Jane senior credit tranche, distinct from Reserve's token of the same ticker."
+  "0xf689555121e529ff0463e191f9bd9d1e496164a7":
+    symbol: "sUSD3"
+    kind: "wrapper"
+    issuer: "threejane"
+    risk_category: "Lending"
+    source: "https://docs.3jane.xyz/developers/addresses"
+    note: "Junior credit tranche; shared issuer only, no invented senior/junior loss factor."
+  "0x3d7d6fdf07ee548b939a80edbc9b2256d0cdc003":
+    symbol: "srUSDe"
+    kind: "wrapper"
+    wraps: "0x4c9edd5852cd905f086c759e8383e09bff1e68b3"
+    backing_share: 100
+    estimated: true
+    issuer: "strata"
+    risk_category: "Yield"
+    source: "https://docs.strata.markets/markets/ethena-usde/srusde"
+    note: "Estimated equivalent USDe exposure; senior protection / CDO waterfall not modelled."
+  "0xbceb5f6877d979ec621ae694da1102cb95691ad3":
+    symbol: "SIERRA"
+    kind: "wrapper"
+    issuer: "sierra"
+    risk_category: "Yield"
+    source: "https://docs.sierra.money/building-with-sierra/blockchain-addresses"
+    note: "Native Ethereum SIERRA; USDC/OpenTrade reserve weights not inferred."
+  "0xc5d6a7b61d18afa11435a889557b068bb9f29930":
+    symbol: "sUSDD"
+    kind: "wrapper"
+    wraps: "0x4f8e5de400de08b164e7421b3ee387f461becd1a"
+    backing_share: 100
+    issuer: "usdd"
+    risk_category: "Yield (savings)"
+    source: "https://docs.usdd.io/introduction/collateral-asset-contract-addresses"
+  "0x4f8e5de400de08b164e7421b3ee387f461becd1a":
+    symbol: "USDD"
+    kind: "stablecoin"
+    issuer: "usdd"
+    risk_category: "CDP stablecoin"
+    source: "https://docs.usdd.io/introduction/collateral-asset-contract-addresses"
+  "0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3":
+    symbol: "OETH"
+    kind: "lst"
+    wraps: "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    backing_share: 100
+    issuer: "origin"
+    risk_category: "Liquid Staking"
+    source: "https://docs.originprotocol.com/registry/contracts/oeth-registry"
+    note: "ETH-equivalent backing; staking strategies and validator operators not enumerated."

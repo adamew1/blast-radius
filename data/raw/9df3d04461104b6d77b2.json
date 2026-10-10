@@ -1,0 +1,1 @@
+{"meta": {"method": "GET", "url": "https://coins.llama.fi/chart/coingecko:alchemix-eth", "params": {"start": 1723507200, "span": 450, "period": "4h"}, "label": "chart:coingecko:alchemix-eth"}, "data": {"coins": {}}, "cached_at": 1791663278.1520138}

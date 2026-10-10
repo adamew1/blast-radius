@@ -26,6 +26,10 @@ st.set_page_config(page_title="Replay · Stream Finance", page_icon="💥", layo
 
 st.title("Replay — Stream Finance → Elixir deUSD contagion")
 st.caption("November 2025 · real DefiLlama price series · reconstructed dependency structure (sourced)")
+st.caption("Development case: the rule was built knowing this outcome. Nov 1–3 REDUCE follows "
+           "from zero carry (APY=0): any positive expected loss makes net_stay negative; EXIT "
+           "requires clearing the assumed 1% exit cost. The 99.7% hero figure is a gross daily "
+           "price comparison before transaction costs, not an executed trade.")
 
 snap = load_snapshot()
 data = compute_frames()

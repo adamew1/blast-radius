@@ -1,0 +1,145 @@
+# ==========================================================================================
+# EVENT LIBRARY — real, documented upstream->downstream contagions with usable DefiLlama data.
+# Original library was declared before the first run. Selection used data availability,
+# quality and visible historical breaks. This is retrospective, not a prospective holdout.
+# Exposure percentages below are frozen assumptions/estimates, not archived reserve measurements.
+# Source URLs establish qualitative mechanisms; they do not verify the numerical shares.
+#
+# Each event: the UPSTREAM asset is the hidden dependency that broke first; the DOWNSTREAM asset
+# is what a fund actually held. exposure_pct is the downstream's share of value depending on the
+# upstream; where it is an estimate (no clean on-chain figure) estimated:true and a source is
+# given. denom: 'eth' means the asset is ETH-pegged, so its peg deviation is measured vs ETH
+# (coingecko:ethereum) to remove USD/market-price contamination.
+#
+# EXCLUDED after the probe (documented honesty): Euler->agEUR (no priceable upstream — the EUL
+# token is not the hack; EUR/USD FX contaminates agEUR's USD price); Renzo ezETH & Usual USD0++
+# (no separate downstream token price series — self-referential); Balancer Nov-2025 -> osETH/
+# wstETH (ETH-denominated moves could not be separated from the simultaneous Nov-2025 market
+# crash); GHO (did not exist in Mar-2023); pETH/msETH (no DefiLlama series).
+# ==========================================================================================
+
+denom_keys:
+  eth: "coingecko:ethereum"
+
+events:
+  # ---- Trigger 1: USDC depeg after Silicon Valley Bank, 11 Mar 2023 (one hidden dependency,
+  #      five "safe dollars" that broke in sympathy — the core Blast Radius thesis). ----
+  - id: usdc_svb_dai
+    name: "USDC depeg (SVB) -> MakerDAO DAI"
+    date: "2023-03-11"
+    trigger: "USDC / SVB (Mar 2023)"
+    cohort: retrospective
+    dep_type: backing
+    exposure_pct: 51
+    estimated: true
+    exposure_source: "MakerDAO PSM held ~50% of DAI collateral in USDC at the SVB moment — https://makerburn.com/#/collateral"
+    upstream: {label: "USDC", price_key: "coingecko:usd-coin", denom: usd, kind: stablecoin}
+    downstream: {label: "DAI", price_key: "coingecko:dai", denom: usd}
+    sources:
+      - "https://vote.makerdao.com/executive/template-executive-vote-emergency-parameter-changes-march-11-2023"
+      - "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes"
+
+  - id: usdc_svb_frax
+    name: "USDC depeg (SVB) -> Frax FRAX"
+    date: "2023-03-11"
+    trigger: "USDC / SVB (Mar 2023)"
+    cohort: retrospective
+    dep_type: backing
+    exposure_pct: 90
+    estimated: true
+    exposure_source: "FRAX collateral (~92% ratio) was overwhelmingly USDC via Curve AMOs/treasury — https://docs.frax.finance/"
+    upstream: {label: "USDC", price_key: "coingecko:usd-coin", denom: usd, kind: stablecoin}
+    downstream: {label: "FRAX", price_key: "coingecko:frax", denom: usd}
+    sources:
+      - "https://docs.frax.finance/"
+      - "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes"
+
+  - id: usdc_svb_alusd
+    name: "USDC depeg (SVB) -> Alchemix alUSD"
+    date: "2023-03-11"
+    trigger: "USDC / SVB (Mar 2023)"
+    cohort: retrospective
+    dep_type: backing
+    exposure_pct: 40
+    estimated: true
+    exposure_source: "alUSD backed by yield-bearing DAI/USDC/USDT deposits + alUSD3CRV liquidity — https://alchemix-finance.gitbook.io/"
+    upstream: {label: "USDC", price_key: "coingecko:usd-coin", denom: usd, kind: stablecoin}
+    downstream: {label: "alUSD", price_key: "coingecko:alchemix-usd", denom: usd}
+    sources:
+      - "https://alchemix-finance.gitbook.io/"
+
+  - id: usdc_svb_usdd
+    name: "USDC depeg (SVB) -> Tron USDD"
+    date: "2023-03-11"
+    trigger: "USDC / SVB (Mar 2023)"
+    cohort: retrospective
+    dep_type: backing
+    exposure_pct: 25
+    estimated: true
+    exposure_source: "TRON DAO Reserve backing included a USDC/USDT tranche alongside TRX/BTC — https://usdd.io/"
+    upstream: {label: "USDC", price_key: "coingecko:usd-coin", denom: usd, kind: stablecoin}
+    downstream: {label: "USDD", price_key: "coingecko:usdd", denom: usd}
+    sources:
+      - "https://usdd.io/"
+
+  - id: usdc_svb_mim
+    name: "USDC depeg (SVB) -> Abracadabra MIM"
+    date: "2023-03-11"
+    trigger: "USDC / SVB (Mar 2023)"
+    cohort: retrospective
+    dep_type: liquidity
+    exposure_pct: 40
+    estimated: true
+    exposure_source: "MIM peg leans on the MIM-3CRV Curve pool whose 3CRV leg is ~1/3 USDC — https://abracadabra.money/"
+    upstream: {label: "USDC", price_key: "coingecko:usd-coin", denom: usd, kind: stablecoin}
+    downstream: {label: "MIM", price_key: "coingecko:magic-internet-money", denom: usd}
+    sources:
+      - "https://abracadabra.money/"
+
+  # ---- Trigger 2: Curve/Vyper reentrancy exploit, 30 Jul 2023. CRV is a PROXY for Curve-
+  #      ecosystem stress (the exploit drained the alETH Curve pool and tanked CRV together).
+  #      alETH is measured vs ETH to remove the concurrent ETH price move. ----
+  - id: curve_vyper_aleth
+    name: "Curve/Vyper exploit -> Alchemix alETH (vs ETH)"
+    date: "2023-07-30"
+    trigger: "Curve/Vyper (Jul 2023)"
+    cohort: retrospective
+    dep_type: liquidity
+    exposure_pct: 80
+    estimated: true
+    exposure_source: "alETH peg depended on its Curve pool, drained in the Vyper reentrancy; CRV is a proxy for Curve stress — https://rekt.news/curve-vyper-rekt/"
+    upstream: {label: "CRV (Curve stress proxy)", price_key: "coingecko:curve-dao-token", denom: usd, kind: volatile}
+    downstream: {label: "alETH", price_key: "coingecko:alchemix-eth", denom: eth}
+    sources:
+      - "https://rekt.news/curve-vyper-rekt/"
+
+  # ---- Development case: Stream Finance -> Elixir deUSD/sdeUSD, Nov 2025 (the rule's params
+  #      were set on this; reported separately and EXCLUDED from the primary headline). ----
+  - id: stream_deusd
+    name: "Stream xUSD -> Elixir deUSD [DEV CASE]"
+    date: "2025-11-04"
+    trigger: "Stream / Elixir (Nov 2025)"
+    cohort: development
+    dep_type: backing
+    exposure_pct: 65
+    estimated: true
+    exposure_source: "~65% of deUSD backing was a loan to Stream Finance (collateralised by xUSD) — reconstructed in data/replay/stream_snapshot.yaml"
+    upstream: {label: "xUSD", price_key: "coingecko:staked-stream-usd", denom: usd, kind: stablecoin}
+    downstream: {label: "deUSD", price_key: "coingecko:elixir-deusd", denom: usd}
+    sources:
+      - "https://www.elixir.xyz/"
+      - "data/replay/stream_snapshot.yaml (sourced reconstruction)"
+
+  - id: stream_sdeusd
+    name: "Stream xUSD -> Elixir sdeUSD [DEV CASE]"
+    date: "2025-11-04"
+    trigger: "Stream / Elixir (Nov 2025)"
+    cohort: development
+    dep_type: backing
+    exposure_pct: 65
+    estimated: true
+    exposure_source: "sdeUSD is the staked wrapper of deUSD; inherits the ~65% Stream exposure — data/replay/stream_snapshot.yaml"
+    upstream: {label: "xUSD", price_key: "coingecko:staked-stream-usd", denom: usd, kind: stablecoin}
+    downstream: {label: "sdeUSD", price_key: "ethereum:0x5c5b196abe0d54485975d1ec29617d42d9198326", denom: usd}
+    sources:
+      - "data/replay/stream_snapshot.yaml (sourced reconstruction)"

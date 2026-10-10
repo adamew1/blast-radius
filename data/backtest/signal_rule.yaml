@@ -1,0 +1,47 @@
+# ==========================================================================================
+# FROZEN SIGNAL RULE — declared BEFORE any event was run. Nothing here is chosen from results.
+# ==========================================================================================
+# The six signal parameters under rule: are INHERITED UNCHANGED from the Stream replay.
+# Reference, data-window and scoring settings were declared for this retrospective evaluation.
+# (blast_radius/replay/stream.py), which was built before this backtest existed. Because that
+# replay was tuned with knowledge of the Stream outcome, the Stream event is the labelled
+# "development case": we report every headline metric WITH and WITHOUT Stream and make the
+# WITHOUT-Stream figure the primary headline. The other events are retrospective historical
+# cases, selected for usable prices and visible breaks. They are NOT a prospective holdout.
+# Scoring audit: same-bar signals are misses, observations bucket to interval END, event
+# references freeze before decisions, and aggregate savings include missed exits. These are
+# evaluation corrections, not changes to the frozen signal parameters below.
+#
+# The rule, applied identically to every event:
+#   1. Build a 2-node dependency graph: position(downstream holding) --dep_type,exposure--> upstream.
+#   2. At each timestamp, force the UPSTREAM shock = max(0, 1 - price/reference), gated below
+#      shock_gate_pct (same as the replay). Reference = median of the pre_event window.
+#   3. Run the EXACT existing engine: propagate() + decide() with exit_cost_pct and zero carry.
+#   4. Signal time = first timestamp decide() returns EXIT.
+# No thresholds are tuned after seeing results; pass-through coefficients come unchanged from
+# blast_radius/models/passthrough.py.
+
+rule:
+  exit_cost_pct: 0.01        # assumed 1% unwind slippage (replay's worked example)
+  apy: 0.0                   # zero carry (replay assumption): EXIT reduces to EL > exit_cost
+  horizon_months: 0.5        # "ride out the next ~2 weeks or not" (replay)
+  shock_gate_pct: 0.01       # ignore upstream deviations below 1% (replay)
+  n_paths: 5000              # Monte-Carlo paths (replay)
+  seed: 7                    # (replay)
+
+data:
+  granularity: "4h"          # finest resolution DefiLlama returns for the oldest (2023) events
+  window_pre_days: 10        # fetch start = event - 10d
+  window_post_days: 21       # fetch covers event + 21d (enough to measure the 14d outcome)
+
+reference:
+  pre_event_median_days: 7   # event reference = median price over the 7 days before the event
+  control_rolling_median_days: 7   # control windows use a rolling 7-day median (same shape)
+
+outcome:
+  break_threshold_pct: 5     # a "downstream break" = downstream falls >5% below its reference
+  outcome_window_days: 14    # worst downstream price is measured within 14 days of the signal
+  position_usd: 1000000      # $1M position for the $-loss-avoided figures
+
+controls:
+  year: 2024                 # false-alarm control windows: all of 2024 (no event overlaps)

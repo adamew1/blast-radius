@@ -10,7 +10,7 @@ from .risk.propagate import propagate
 
 def analyze_position(position: dict, horizon_months: float | None = None,
                      n_paths: int | None = None, seed: int | None = None,
-                     force: dict | None = None) -> dict:
+                     force: dict | None = None, exit_info: dict | None = None) -> dict:
     cfg = load_config()
     H = horizon_months or cfg.get("horizon_months", 12)
     mc = cfg.get("monte_carlo", {})
@@ -19,7 +19,7 @@ def analyze_position(position: dict, horizon_months: float | None = None,
     g = build_graph(position)
     res = propagate(g, H, n_paths=n_paths or mc.get("n_paths", 20000),
                     seed=seed if seed is not None else mc.get("seed", 42), force=force)
-    ex = exit_cost(position)
+    ex = exit_info if exit_info is not None else exit_cost(position)
     apy = g.node(g.root_id).meta.get("apy", 0.0)
     dec = decide(g, res, ex, apy, H, tail_tolerance=dec_cfg.get("tail_tolerance", 0.15))
 

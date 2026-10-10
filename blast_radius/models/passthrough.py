@@ -2,12 +2,12 @@
 
 A directed edge (parent -> child) carries a pass-through coefficient c in [0,1] for its
 dependency type. The fraction of the parent's value hit by a child losing `s` of its value
-is roughly  c * (exposure_pct/100) * s, with type-specific rules layered on top (an oracle
-failure only triggers a loss on the parent lending market if the induced mispricing crosses
-the LLTV; AMM/liquidity drains convert into exit-cost rather than full mark-to-market).
+is roughly c * (exposure_pct/100) * s. Production propagation uses flat per-type coefficients:
+oracle=0.70, liquidity=0.35. LLTV is displayed in labels only. The liquidation_loss helper
+below is unused; wiring a calibrated LLTV rule into propagation remains future work.
 
-Defaults are documented below; Phase 3 calibrates `backing`, `liquidity` and the oracle/LLTV
-rule against the real Nov-2025 incidents (Stream xUSD -> Elixir deUSD, Balancer).
+Defaults are modelling assumptions informed by a small set of incidents, not a statistically
+validated calibration. Separate exit-cost calculations estimate slippage and liquidity.
 """
 from __future__ import annotations
 
