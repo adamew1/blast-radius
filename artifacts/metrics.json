@@ -1,0 +1,39 @@
+{
+  "model_name": "HistGradientBoosting (sklearn)",
+  "panel": {
+    "rows_total": 15350,
+    "train_rows": 5199,
+    "test_rows": 10151,
+    "train_positives": 107,
+    "test_positives": 96,
+    "test_prevalence": 0.00946
+  },
+  "split": {
+    "train_years": "<= 2023",
+    "test_years": "> 2023"
+  },
+  "features": [
+    "cat_code",
+    "n_chains",
+    "log_tvl",
+    "age_years",
+    "audits",
+    "prior_incidents"
+  ],
+  "model": {
+    "roc_auc": 0.6654,
+    "pr_auc": 0.0176,
+    "brier": 0.009435
+  },
+  "baseline_category_rate": {
+    "roc_auc": 0.6274,
+    "pr_auc": 0.0182,
+    "brier": 0.009816
+  },
+  "verdict": "model beats baseline",
+  "notes": [
+    "Heavy class imbalance: incidents are rare per protocol-year (see test_positives).",
+    "TVL feature is current, not point-in-time (mild look-ahead) \u2014 documented limitation.",
+    "Base-rate priors remain the live backbone; this model is reported for transparency."
+  ]
+}
