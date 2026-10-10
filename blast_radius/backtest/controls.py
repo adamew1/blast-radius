@@ -50,7 +50,14 @@ def false_alarm_test(pair: dict) -> dict:
     run = _decider(g, rule)
 
     exit_ts: list[int] = []
-    for t in ts:
+    # Require a full reference window and a full observed 14-day follow-up. Do not call
+    # late-December episodes false alarms merely because January is absent from cache.
+    past_steps = range(1, ref_days * DAY // sec + 1)
+    future_steps = range(1, out["outcome_window_days"] * DAY // sec + 1)
+    eligible = [t for t in ts if t in up and t in dn and
+                all(t-k*sec in up and t-k*sec in dn for k in past_steps) and
+                all(t+k*sec in dn for k in future_steps)]
+    for t in eligible:
         ref = _rolling_ref(up, t, ref_days)
         if not ref:
             continue
@@ -76,12 +83,15 @@ def false_alarm_test(pair: dict) -> dict:
         if not broke:
             false_alarms += 1
 
-    days_covered = (ts[-1] - ts[0]) / DAY if len(ts) > 1 else 0
-    pair_years = round(days_covered / 365.0, 2)
+    days_covered = len(eligible) * sec / DAY
+    pair_years = days_covered / 365.0
     return {
         "id": pair["id"], "pair": f"{pair['upstream']['label']}->{pair['downstream']['label']}",
         "upstream_kind": pair["upstream"].get("kind", "unknown"),
-        "available": True, "year": year, "pair_years": pair_years,
+        "available": bool(pair_years), "year": year, "pair_years": pair_years,
+        "evaluation_days": days_covered,
+        "right_censored_days": out["outcome_window_days"],
+        "coverage_note": "Only timestamps with complete aligned reference and downstream follow-up windows count; missing intervals are not calm observations.",
         "n_exit_episodes": len(episodes), "false_alarms": false_alarms,
         "false_alarms_per_pair_year": round(false_alarms / pair_years, 2) if pair_years else None,
     }

@@ -7,6 +7,7 @@ is divided by the ETH/USD series so an ETH-pegged asset's peg deviation is measu
 from __future__ import annotations
 
 import datetime as dt
+import math
 
 from ..sources import defillama
 from .library import denom_keys, load_rule
@@ -30,7 +31,7 @@ _CHUNK = 450
 
 
 def _raw_series(key: str, start: int, span: int, period: str) -> dict[int, float]:
-    """{bucket_ts: price}, last sample per bucket. Auto-chunks spans over the API cap."""
+    """{bucket_end: price}; never make an observation available before its timestamp."""
     sec = _SEC[period]
     out: dict[int, float] = {}
     offset = 0
@@ -39,13 +40,14 @@ def _raw_series(key: str, start: int, span: int, period: str) -> dict[int, float
         raw = defillama.chart(key, start=start + offset * sec, span=this, period=period)
         pts = ((raw.get("coins") or {}).get(key) or {}).get("prices", [])
         for p in pts:
-            out[round(p["timestamp"] / sec) * sec] = p["price"]
+            out[math.ceil(p["timestamp"] / sec) * sec] = p["price"]
         offset += this
     return out
 
 
 def _nearest(series: dict[int, float], ts: int, sec: int) -> float | None:
-    for d in (0, sec, -sec, 2 * sec, -2 * sec):
+    # As-of denominator only; never borrow a future ETH observation.
+    for d in (0, -sec, -2 * sec):
         if ts + d in series:
             return series[ts + d]
     return None
@@ -70,14 +72,15 @@ def load_leg(price_key: str, denom: str, start: int, span: int, period: str) -> 
     return _denominate(s, denom, start, span, period)
 
 
-def forward_fill(series: dict[int, float], ts_list: list[int]) -> dict[int, float]:
-    """Carry the last known price forward across the full timestamp grid."""
+def forward_fill(series: dict[int, float], ts_list: list[int], max_age: int = 8 * 3600) -> dict[int, float]:
+    """As-of alignment; gaps longer than two 4h observations stay missing."""
     out: dict[int, float] = {}
-    last = None
+    last = last_ts = None
     for ts in ts_list:
         if ts in series:
             last = series[ts]
-        if last is not None:
+            last_ts = ts
+        if last is not None and ts - last_ts <= max_age:
             out[ts] = last
     return out
 
@@ -106,7 +109,7 @@ def event_window(event: dict) -> dict:
                       start, span, period)
     dn_raw = load_leg(event["downstream"]["price_key"], event["downstream"].get("denom", "usd"),
                       start, span, period)
-    ts = sorted(set(up_raw) | set(dn_raw))
+    ts = list(range(start, ev + post * DAY + sec, sec))
     up = forward_fill(up_raw, ts)
     dn = forward_fill(dn_raw, ts)
 
@@ -114,5 +117,9 @@ def event_window(event: dict) -> dict:
     ref_lo = ev - ref_days * DAY
     up_ref = median([up[t] for t in ts if ref_lo <= t < ev and t in up])
     dn_ref = median([dn[t] for t in ts if ref_lo <= t < ev and t in dn])
-    return {"period": period, "sec": sec, "ts": ts, "up": up, "dn": dn,
+    if up_ref is None or dn_ref is None:
+        raise ValueError(f"Missing pre-event reference for {event['id']}")
+    # Freeze references at the declared event date; do not score earlier decisions using
+    # a reference containing observations that were then still in the future.
+    return {"period": period, "sec": sec, "ts": [t for t in ts if t >= ev], "up": up, "dn": dn,
             "up_ref": up_ref, "dn_ref": dn_ref, "event_ts": ev}

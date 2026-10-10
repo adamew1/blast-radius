@@ -1,7 +1,8 @@
 # ==========================================================================================
 # EVENT LIBRARY — real, documented upstream->downstream contagions with usable DefiLlama data.
-# Declared before running (see signal_rule.yaml). Selection was decided by scripts/probe_data.py
-# on data availability + quality, NOT on backtest results.
+# Original library was declared before the first run. Selection used data availability,
+# quality and visible historical breaks. This is retrospective, not a prospective holdout.
+# Exposure percentages below are assumptions/estimates, not archived reserve measurements.
 #
 # Each event: the UPSTREAM asset is the hidden dependency that broke first; the DOWNSTREAM asset
 # is what a fund actually held. exposure_pct is the downstream's share of value depending on the
@@ -26,7 +27,7 @@ events:
     name: "USDC depeg (SVB) -> MakerDAO DAI"
     date: "2023-03-11"
     trigger: "USDC / SVB (Mar 2023)"
-    cohort: out_of_sample
+    cohort: retrospective
     dep_type: backing
     exposure_pct: 51
     estimated: true
@@ -41,7 +42,7 @@ events:
     name: "USDC depeg (SVB) -> Frax FRAX"
     date: "2023-03-11"
     trigger: "USDC / SVB (Mar 2023)"
-    cohort: out_of_sample
+    cohort: retrospective
     dep_type: backing
     exposure_pct: 90
     estimated: true
@@ -56,7 +57,7 @@ events:
     name: "USDC depeg (SVB) -> Alchemix alUSD"
     date: "2023-03-11"
     trigger: "USDC / SVB (Mar 2023)"
-    cohort: out_of_sample
+    cohort: retrospective
     dep_type: backing
     exposure_pct: 40
     estimated: true
@@ -70,7 +71,7 @@ events:
     name: "USDC depeg (SVB) -> Tron USDD"
     date: "2023-03-11"
     trigger: "USDC / SVB (Mar 2023)"
-    cohort: out_of_sample
+    cohort: retrospective
     dep_type: backing
     exposure_pct: 25
     estimated: true
@@ -84,7 +85,7 @@ events:
     name: "USDC depeg (SVB) -> Abracadabra MIM"
     date: "2023-03-11"
     trigger: "USDC / SVB (Mar 2023)"
-    cohort: out_of_sample
+    cohort: retrospective
     dep_type: liquidity
     exposure_pct: 40
     estimated: true
@@ -101,7 +102,7 @@ events:
     name: "Curve/Vyper exploit -> Alchemix alETH (vs ETH)"
     date: "2023-07-30"
     trigger: "Curve/Vyper (Jul 2023)"
-    cohort: out_of_sample
+    cohort: retrospective
     dep_type: liquidity
     exposure_pct: 80
     estimated: true

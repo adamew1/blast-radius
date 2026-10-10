@@ -5,8 +5,11 @@
 # (blast_radius/replay/stream.py), which was built before this backtest existed. Because that
 # replay was tuned with knowledge of the Stream outcome, the Stream event is the labelled
 # "development case": we report every headline metric WITH and WITHOUT Stream and make the
-# WITHOUT-Stream figure the primary headline. All other events (2023 USDC/Curve) pre-date the
-# Stream replay and could not have informed these values — they are genuinely out-of-sample.
+# WITHOUT-Stream figure the primary headline. The other events are retrospective historical
+# cases, selected for usable prices and visible breaks. They are NOT a prospective holdout.
+# Scoring audit: same-bar signals are misses, observations bucket to interval END, event
+# references freeze before decisions, and aggregate savings include missed exits. These are
+# evaluation corrections, not changes to the frozen signal parameters below.
 #
 # The rule, applied identically to every event:
 #   1. Build a 2-node dependency graph: position(downstream holding) --dep_type,exposure--> upstream.

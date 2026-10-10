@@ -22,11 +22,11 @@ def shock_from(up_px: float | None, up_ref: float | None, gate: float) -> float:
 
 
 def _decider(g, rule: dict):
-    """Memoised decide() over rounded shock (collapses the many zero-shock calm steps)."""
+    """Memoised decide() over the exact shock (zero-shock calm steps share one result)."""
     cache: dict[float, dict] = {}
 
     def run(shock: float) -> dict:
-        k = round(shock, 4)
+        k = shock
         if k not in cache:
             force = {UPSTREAM_ID: {"prob": 1.0, "severity": k}} if k > 0 else None
             res = propagate(g, rule["horizon_months"], n_paths=rule["n_paths"],
@@ -54,6 +54,8 @@ def run_event(event: dict) -> dict:
     rows = []
     for t in ts:
         up_px, dn_px = up.get(t), dn.get(t)
+        if up_px is None or dn_px is None:
+            continue
         shock = shock_from(up_px, up_ref, gate)
         d = run(shock)
         if d["verdict"] == "EXIT" and signal_ts is None:
@@ -64,7 +66,7 @@ def run_event(event: dict) -> dict:
     # downstream break = first timestamp the downstream is >5% below its reference
     break_ts = next((t for t in ts if dn.get(t) is not None and dn_ref and dn[t] < brk * dn_ref), None)
 
-    hit = bool(signal_ts is not None and break_ts is not None and signal_ts <= break_ts)
+    hit = bool(signal_ts is not None and break_ts is not None and signal_ts < break_ts)
     lead_hours = round((break_ts - signal_ts) / 3600.0, 1) if hit else None
 
     anchor = signal_ts or break_ts or win["event_ts"]
@@ -77,14 +79,16 @@ def run_event(event: dict) -> dict:
     dn_brk = dn.get(break_ts) if break_ts else None
     ec = rule["exit_cost_pct"]
 
-    def loss_usd(px):
-        return POSITION_USD * (1.0 - px / dn_ref) + ec * POSITION_USD if (px and dn_ref) else None
+    def loss_usd(px, fee=ec):
+        return POSITION_USD * (1.0 - px * (1 - fee) / dn_ref) if (px and dn_ref) else None
 
     # loss avoided by exiting on signal vs riding the position to its worst point in 14 days
     loss_avoided_vs_hold = None
     if dn_sig and worst and dn_ref:
         loss_avoided_vs_hold = POSITION_USD * (dn_sig * (1 - ec) - worst) / dn_ref
-    tool_loss = loss_usd(dn_sig)
+    # A missed exit must affect the headline. With no EXIT, mark the held position at
+    # the observed worst in the same 14-day outcome window, with no invented exit fee.
+    tool_loss = loss_usd(dn_sig) if dn_sig else loss_usd(worst, fee=0)
     naive_loss = loss_usd(dn_brk)
     saved_vs_naive = (naive_loss - tool_loss) if (tool_loss is not None and naive_loss is not None) else None
 
@@ -99,6 +103,9 @@ def run_event(event: dict) -> dict:
         "signal_ts": signal_ts, "signal_date": date_of(signal_ts) if signal_ts else None,
         "break_ts": break_ts, "break_date": date_of(break_ts) if break_ts else None,
         "hit": hit, "lead_hours": lead_hours,
+        "simultaneous": signal_ts is not None and signal_ts == break_ts,
+        "granularity": win["period"], "lead_resolution_hours": win["sec"] / 3600,
+        "tool_valuation": "exit proceeds" if dn_sig else "held at observed worst-14d mark (not realized)",
         "dn_at_signal": _r(dn_sig), "dn_at_break": _r(dn_brk), "dn_worst_14d": _r(worst),
         "loss_avoided_vs_hold_usd": _ri(loss_avoided_vs_hold),
         "tool_realized_loss_usd": _ri(tool_loss), "naive_realized_loss_usd": _ri(naive_loss),
