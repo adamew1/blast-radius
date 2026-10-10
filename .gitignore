@@ -9,4 +9,6 @@ dist/
 .DS_Store
 .streamlit/secrets.toml
 *.log
+.playwright-mcp/
+artifacts/*.pkl
 # NOTE: data/raw/ IS committed on purpose so the demo runs offline from cache.
