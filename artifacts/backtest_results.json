@@ -214,8 +214,8 @@
       "downstream": "DAI",
       "denom": "usd",
       "sources": [
-        "https://www.coindesk.com/business/2023/03/11/dai-usdc-depeg-svb/",
-        "https://forum.makerdao.com/ (USDC/SVB emergency response, Mar 2023)"
+        "https://vote.makerdao.com/executive/template-executive-vote-emergency-parameter-changes-march-11-2023",
+        "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes"
       ],
       "up_ref": 1.000877,
       "dn_ref": 1.0,
@@ -638,7 +638,7 @@
       "denom": "usd",
       "sources": [
         "https://docs.frax.finance/",
-        "https://www.coindesk.com/business/2023/03/11/"
+        "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes"
       ],
       "up_ref": 1.000877,
       "dn_ref": 1.0,
@@ -2757,7 +2757,7 @@
       "downstream": "deUSD",
       "denom": "usd",
       "sources": [
-        "https://www.elixir.xyz/ (deUSD risk disclosures)",
+        "https://www.elixir.xyz/",
         "data/replay/stream_snapshot.yaml (sourced reconstruction)"
       ],
       "up_ref": 1.263194,

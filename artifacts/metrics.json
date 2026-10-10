@@ -30,7 +30,7 @@
     "pr_auc": 0.0182,
     "brier": 0.009816
   },
-  "verdict": "model beats baseline",
+  "verdict": "Model edges out the base rate on ROC-AUC and Brier, not PR-AUC; base-rate priors remain the production backbone",
   "notes": [
     "Heavy class imbalance: incidents are rare per protocol-year (see test_positives).",
     "TVL feature is current, not point-in-time (mild look-ahead) \u2014 documented limitation.",

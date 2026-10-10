@@ -21,6 +21,7 @@ import numpy as np  # noqa: E402
 
 from blast_radius.config import ARTIFACTS  # noqa: E402
 from blast_radius.sources import defillama  # noqa: E402
+from blast_radius.models.evaluation import comparison_text
 
 YEARS = [2021, 2022, 2023, 2024, 2025]
 TRAIN_MAX = 2023
@@ -127,6 +128,7 @@ def main():
         ],
     }
     ARTIFACTS.mkdir(exist_ok=True)
+    metrics["verdict"] = comparison_text(metrics["model"], metrics["baseline_category_rate"])
     (ARTIFACTS / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")
     import pickle
     (ARTIFACTS / "incident_model.pkl").write_bytes(pickle.dumps({"clf": clf, "cat_code": cat_code,

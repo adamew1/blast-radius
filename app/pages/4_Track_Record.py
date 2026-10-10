@@ -170,7 +170,8 @@ with st.expander("Method, parameters & sources (nothing tuned on results)"):
         f"{data['split']['y2024_2025']['events_caught']}/{data['split']['y2024_2025']['events_total']}.\n"
         f"- **Limitations:** exposure shares are estimated (labelled), price granularity is 4h "
         f"(the finest DefiLlama returns for 2023), the USDC family shares one trigger, and CRV is a "
-        f"proxy for Curve-ecosystem stress.")
+        f"proxy for Curve-ecosystem stress. Source URLs establish qualitative dependencies; "
+        f"they do not verify historical numerical exposure shares.")
     for note in data.get("scoring_notes", []):
         st.write("• " + note)
     st.caption("Cached spot prices and assumed execution costs cannot establish executable exits. "

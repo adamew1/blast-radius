@@ -1,7 +1,8 @@
 # ==========================================================================================
 # FROZEN SIGNAL RULE — declared BEFORE any event was run. Nothing here is chosen from results.
 # ==========================================================================================
-# Every parameter below is INHERITED UNCHANGED from the existing Stream Finance replay
+# The six signal parameters under rule: are INHERITED UNCHANGED from the Stream replay.
+# Reference, data-window and scoring settings were declared for this retrospective evaluation.
 # (blast_radius/replay/stream.py), which was built before this backtest existed. Because that
 # replay was tuned with knowledge of the Stream outcome, the Stream event is the labelled
 # "development case": we report every headline metric WITH and WITHOUT Stream and make the

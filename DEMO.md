@@ -7,7 +7,7 @@ positions whose real risk is hidden in their *dependencies* — settlement chain
 source & issuer, oracle, AMM liquidity, lending markets. When one fails, flagging the incident
 isn't enough; you need to know **how it propagates to your position** and whether the expected
 loss justifies exiting despite slippage. Scroll down: the methodology and the **honest** model
-evaluation (the base rate isn't beaten — we say so).
+evaluation (the model improves ROC-AUC/Brier, not PR-AUC; base-rate priors remain the backbone).
 
 **0:25 — Position (live look-through).** Open **Position → Pendle PT-sUSDS**. The dependency graph
 is built live: the **5 layers fall out** — Ethereum chain, the Pendle AMM, sUSDS → USDS → **Sky**
@@ -21,12 +21,13 @@ verdict flips to **EXIT**.
 **heatmap** shows which positions are exposed to which dependency, and the **ranked actions**
 table gives an EXIT/REDUCE/STAY call each, worst risk-adjusted first.
 
-**1:25 — Replay: Stream Finance (the proof, on real prices).** Open **Replay**. You hold \$1M of
+**1:25 — Replay: Stream Finance (the development case).** Open **Replay**. You hold \$1M of
 Elixir **sdeUSD**. Slide to **Nov 4, 2025**: Stream discloses its \$93M loss, **xUSD breaks to
 \$0.95** — but sdeUSD is *still \$1.07*. Blast Radius already says **EXIT**, because it saw the
 upstream break and knew deUSD was 65% backed by Stream. Slide to **Nov 7**: sdeUSD collapses to
 ~\$0.01. **Exiting on the Nov-4 signal avoids a 99.7% loss — 3 days before the asset visibly
-broke.** All from real DefiLlama prices.
+broke.** This is a gross daily-price comparison before exit costs, built knowing the outcome.
 
-**1:55 — Close.** Dependency discovery, impact propagation, and a defensible stay/exit decision —
-on real data, with assumptions and limitations stated openly.
+**1:55 — Track Record / Market Scan.** Show the primary numbers excluding Stream, misses and
+overall false alarms, then the Ethereum scan and opaque share. Use `artifacts/pitch.txt` for
+current numbers and caveats. Do not call six pairs six independent crises.

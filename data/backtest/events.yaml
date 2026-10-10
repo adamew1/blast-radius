@@ -2,7 +2,8 @@
 # EVENT LIBRARY — real, documented upstream->downstream contagions with usable DefiLlama data.
 # Original library was declared before the first run. Selection used data availability,
 # quality and visible historical breaks. This is retrospective, not a prospective holdout.
-# Exposure percentages below are assumptions/estimates, not archived reserve measurements.
+# Exposure percentages below are frozen assumptions/estimates, not archived reserve measurements.
+# Source URLs establish qualitative mechanisms; they do not verify the numerical shares.
 #
 # Each event: the UPSTREAM asset is the hidden dependency that broke first; the DOWNSTREAM asset
 # is what a fund actually held. exposure_pct is the downstream's share of value depending on the
@@ -35,8 +36,8 @@ events:
     upstream: {label: "USDC", price_key: "coingecko:usd-coin", denom: usd, kind: stablecoin}
     downstream: {label: "DAI", price_key: "coingecko:dai", denom: usd}
     sources:
-      - "https://www.coindesk.com/business/2023/03/11/dai-usdc-depeg-svb/"
-      - "https://forum.makerdao.com/ (USDC/SVB emergency response, Mar 2023)"
+      - "https://vote.makerdao.com/executive/template-executive-vote-emergency-parameter-changes-march-11-2023"
+      - "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes"
 
   - id: usdc_svb_frax
     name: "USDC depeg (SVB) -> Frax FRAX"
@@ -51,7 +52,7 @@ events:
     downstream: {label: "FRAX", price_key: "coingecko:frax", denom: usd}
     sources:
       - "https://docs.frax.finance/"
-      - "https://www.coindesk.com/business/2023/03/11/"
+      - "https://www.circle.com/pressroom/3-3-billion-of-usdc-reserve-risk-removed-dollar-de-peg-closes"
 
   - id: usdc_svb_alusd
     name: "USDC depeg (SVB) -> Alchemix alUSD"
@@ -126,7 +127,7 @@ events:
     upstream: {label: "xUSD", price_key: "coingecko:staked-stream-usd", denom: usd, kind: stablecoin}
     downstream: {label: "deUSD", price_key: "coingecko:elixir-deusd", denom: usd}
     sources:
-      - "https://www.elixir.xyz/ (deUSD risk disclosures)"
+      - "https://www.elixir.xyz/"
       - "data/replay/stream_snapshot.yaml (sourced reconstruction)"
 
   - id: stream_sdeusd

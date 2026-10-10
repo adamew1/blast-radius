@@ -35,7 +35,7 @@ positions:
     label: "Morpho Smokehouse USDT"
     chain: ethereum
     chain_id: 1
-    vault: "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484"     # 22 markets, layered PT/LST collateral
+    vault: "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484"     # cached snapshot: 12 funded markets rendered (22 raw allocations)
     size_usd: 500000
 
 # Historical replay — verified coin keys (see plan). Baselines noted where not 1.0.
