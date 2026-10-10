@@ -38,7 +38,7 @@ Everything is cached to `data/raw/`, so the demo is reproducible offline. See `D
 Python · Streamlit · NetworkX · Plotly · scikit-learn · NumPy/SciPy. Free APIs: DefiLlama, Pendle v2, Morpho Blue GraphQL. No API keys, CPU-only.
 
 ### Repo
-<PASTE PUBLIC REPO URL HERE AFTER PUSH>
+https://github.com/adamew1/blast-radius
 
 ### Judging fit
 Dependency discovery (recursive, on real data), impact estimation (Monte-Carlo propagation with CVaR + attribution), decision usefulness (STAY/REDUCE/EXIT with the dominant path and real exit cost), working demo on real data (Stream replay + live positions, offline-reproducible).
