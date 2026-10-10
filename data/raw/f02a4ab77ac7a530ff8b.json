@@ -1,0 +1,1 @@
+{"meta": {"method": "GET", "url": "https://api-v2.pendle.finance/core/v1/1/assets/prices", "params": {"addresses": "0xecfafdc7741323a945a163ed068b5a3c43483957"}, "label": "pendle_prices"}, "data": {"prices": {"0xecfafdc7741323a945a163ed068b5a3c43483957": 0.9819866202018345}, "total": 2566, "skip": 0}, "cached_at": 1791657556.7506404}

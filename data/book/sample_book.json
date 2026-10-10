@@ -1,0 +1,95 @@
+{
+  "name": "Sample book \u2014 10 positions ($1M each)",
+  "positions": [
+    {
+      "id": "pt-susds",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x9c560ebaf78e596cbcc27411d633a74d628dd7dc",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-susde",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-wsteth",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x34280882267ffa6383b363e278b027be083bbe3b",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-reusd",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+      "size_usd": 1000000
+    },
+    {
+      "id": "smokehouse-usdt",
+      "kind": "morpho_vault",
+      "label": "Morpho Smokehouse USDT",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484",
+      "size_usd": 1000000
+    },
+    {
+      "id": "steakhouse-usdt",
+      "kind": "morpho_vault",
+      "label": "Morpho Steakhouse USDT",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+      "size_usd": 1000000
+    },
+    {
+      "id": "steakhouse-eth",
+      "kind": "morpho_vault",
+      "label": "Morpho Steakhouse ETH",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xBEEf050ecd6a16c4e7bfFbB52Ebba7846C4b8cD4",
+      "size_usd": 1000000
+    },
+    {
+      "id": "gauntlet-usdc-prime",
+      "kind": "morpho_vault",
+      "label": "Morpho Gauntlet USDC Prime",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+      "size_usd": 1000000
+    },
+    {
+      "id": "hakutora-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Hakutora USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+      "size_usd": 1000000
+    },
+    {
+      "id": "yearn-og-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Yearn OG USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xF9bdDd4A9b3A45f980e11fDDE96e16364dDBEc49",
+      "size_usd": 1000000
+    }
+  ]
+}

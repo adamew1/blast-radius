@@ -37,16 +37,27 @@ def _pendle_exit(position: dict) -> dict:
 
     def quote(notional: float) -> float | None:
         wei = int((notional / pt_px) * 1e18)
-        q = pendle.swap_quote(market, m["pt"], m["underlyingAsset"], wei, cid)
+        try:
+            q = pendle.swap_quote(market, m["pt"], m["underlyingAsset"], wei, cid)
+        except Exception:
+            return None  # size exceeds pool liquidity / router can't fill -> no quote
         return (q.get("data") or {}).get("priceImpact")
 
-    pi = quote(size) or 0.0
-    cost = abs(pi) + fee
+    pi = quote(size)
     curve = []
     for mult in (0.5, 1, 2, 5, 10):
         p = quote(size * mult)
         if p is not None:
             curve.append({"size_usd": size * mult, "price_impact": abs(p), "cost_pct": abs(p) + fee})
+    if pi is None:
+        # position itself exceeds available liquidity: exit cost is at least the deepest quote,
+        # bumped for the unfillable remainder.
+        deepest = max((c["cost_pct"] for c in curve), default=0.03)
+        return {"cost_pct": max(deepest, 0.03), "price_impact": None, "fee": fee,
+                "method": "pendle price-impact",
+                "detail": f"${size:,.0f} exceeds instantly-routable liquidity; exit is illiquid",
+                "curve": curve, "pt_price": pt_px}
+    cost = abs(pi) + fee
     return {"cost_pct": cost, "price_impact": abs(pi), "fee": fee, "method": "pendle price-impact",
             "detail": f"Pendle SDK swap quote at ${size:,.0f}", "curve": curve, "pt_price": pt_px}
 
