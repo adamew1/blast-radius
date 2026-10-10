@@ -134,4 +134,8 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    # Keep the historical report contracts and run the expanded presentation,
+    # fallback and research-page checks for the new landing experience.
+    contracts()
+    from scripts.verify_fire_drill import main as verify_current_app
+    verify_current_app()

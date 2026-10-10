@@ -159,7 +159,7 @@ def resolve_morpho_vault(g: DependencyGraph, pos: Node, ctx: Context, position: 
     total = state.get("totalAssetsUsd") or 0.0
     pos.meta.update({
         "risk_category": "Lending", "protocol": f"Morpho · {v.get('name')}",
-        "apy": state.get("netApy") or state.get("apy") or 0.0,
+        "apy": state["netApy"] if state.get("netApy") is not None else (state.get("apy") or 0.0),
         "asset": (v.get("asset") or {}).get("symbol"),
         "tvl_usd": total, "n_markets": len(state.get("allocation") or []),
     })

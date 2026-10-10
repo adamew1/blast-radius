@@ -1,230 +1,126 @@
-# 💥 Blast Radius
+# Blast Radius — Ten Positions. One Hidden Bet.
 
-**What is the blast radius of a DeFi position when one of its hidden dependencies fails — and is the expected loss from staying high enough to justify exiting despite slippage?**
+**Belem Capital · DeFi Risk Dependency Challenge**
 
-Blast Radius is a Python engine + Streamlit dashboard for the BSA EPFL × **Belem Capital** *DeFi Risk Dependency Challenge*. It discovers dependencies, propagates failures with Monte-Carlo, and returns a **STAY / REDUCE / EXIT** call — illustrated by the **Stream Finance → Elixir deUSD** collapse and evaluated retrospectively on selected historical pairs, including misses and false alarms.
+You think you own ten independent investments. What if five are secretly the same bet?
 
-> *Belem's brief:* "Build a working risk system that, for an on-chain position, automatically discovers its hidden dependencies … estimates the economic impact if a dependency fails and shows how the incident propagates … and answers the portfolio manager's real question: is the expected loss from staying high enough to justify exiting despite slippage and execution costs?"
+Blast Radius discovers shared DeFi dependencies, lets you stress them, and prices the cheapest reductions that meet a portfolio manager's risk mandate. Every headline is reproducible from frozen evidence. The $10M allocation is illustrative; the instruments, protocol API responses and captured swap quotes are real.
 
-Market inputs are **real cached data** (DefiLlama, Pendle, Morpho), so the demo is **offline and reproducible**. Exposure estimates, risk priors, execution assumptions and manual/reconstructed links are modelling inputs, labelled with sources and limitations.
+![A shared dependency propagates through the portfolio](artifacts/screenshots/FireDrill_collapse.png)
 
----
+**DISCOVER → ATTACK → COLLAPSE → RESCUE → PROVE**
 
-## The hero result (Replay tab) — real Nov-2025 prices
+- **Find My Weakest Point:** recursively discover and canonically deduplicate dependencies; rank shared points by conditional damage. The bundled book reveals **wstETH under five positions**, a Pendle PT and four Morpho vaults. The result is computed, not selected in advance. Ethereum is excluded from the shared-point reveal because settlement-chain exposure is trivial; it remains selectable.
+- **Attack and collapse:** select any discovered dependency and vary its intrinsic shock from 0–100%. Actual contributing paths animate; inspectors explain their exposure and attributed loss. Animation conveys causal order, not incident time.
+- **Build Rescue Plan:** minimize execution costs, a conversion reserve and thirty-day foregone carry on a 5% grid, respecting available quotes, funded claims, shared market liquidity and position locks. Infeasible and unresolved results are distinguished.
+- **Show Me the Evidence:** inspect contracts, markets, allocation balances, coefficients, raw source records and timestamps. Download a decision receipt and reproduce its calculations offline.
 
-You hold **$1,000,000 of Elixir sdeUSD**, a yield-bearing dollar trading at peg. Underneath, **~65% of deUSD's backing was a loan to Stream Finance**, collateralised by Stream's xUSD. Blast Radius discovers that hidden chain and watches the **upstream** asset:
+## Independently audited result
 
-- **Nov 1–3:** xUSD at peg → **REDUCE** because **APY=0**: any positive EL makes `net_stay = -EL < 0`, so STAY is unavailable; EXIT requires EL to clear the assumed 1% unwind cost. This is not evidence of a pre-break prediction.
-- **Nov 4:** Stream discloses a ~$93M loss and freezes xUSD; **xUSD breaks to $0.95** — but deUSD/sdeUSD are *still at peg ($1.07)*. Blast Radius flips to **EXIT**.
-- **Nov 7:** deUSD and sdeUSD collapse to **~$0.01**.
+For a hypothetical **100% intrinsic wstETH shock** and a **$500,000 accounted-loss limit**:
 
-The replay's **99.7% avoided-price-loss figure** compares the Nov-4 sdeUSD price with the last daily price, **before execution costs**. It is not an executed return. The daily replay labels a three-day lead. **Stream is the development case**, built knowing its outcome; Track Record uses a common 4h series and a simpler two-node graph, so its timings and cost-adjusted scores differ.
+| Quantity | USD |
+|---|---:|
+| Original conditional scenario loss | 2,361,622.14 |
+| Residual conditional loss after reductions | 481,047.34 |
+| Execution/mark shortfall including assumed gas reserve | 15,252.51 |
+| Assumed external-cash conversion reserve | 2,700.00 |
+| **Accounted loss: residual + execution + conversion** | **498,999.85** |
+| Thirty-day foregone carry | 4,417.54 |
+| **Economic protection cost: execution + conversion + carry** | **22,370.05** |
+| Gross capital sold | 2,700,000.00 |
+| **Net capital released: sold − execution − conversion** | **2,682,047.49** |
 
-![Stream Finance replay — real prices; xUSD (red) breaks first, the EXIT signal fires, then deUSD/sdeUSD collapse 3 days later](docs/replay-prices.png)
+Reduce PT-wstETH **70%**, Steakhouse ETH **100%** and Steakhouse USDT **100%**. Seven positions remain untouched. Lock PT-wstETH and the same $500,000 target becomes infeasible: minimum accounted loss is **$1,004,800** under the model and captured candidate set.
 
----
+The final audit corrected a critical financial assumption: a PT claim on a worthless underlying cannot retain an unsupported 5% recovery. PT loss now follows the underlying one-for-one at a fixed discount factor. **The earlier $2.31M / $498,866 / $21,753 / $3.38M headlines are superseded.**
 
-## What it does (Home + five pages)
+An independent script reconstructs the numbers from raw data with Decimal arithmetic, without importing the application's financial engine. It enumerates **4,084,101** combinations across the five affected positions. Its relaxed minimum equals the independently liquidity-verified plan, proving the stated grid optimum. [Independent audit](artifacts/judge_independent_audit.json) · [Final readiness report](JUDGE_READINESS.md).
 
-| Tab | What you see |
-|---|---|
-| **Position** | Input a live position → interactive **dependency graph** (live-API vs manual edges) coloured by risk → per-node risk table → loss histogram → **STAY/REDUCE/EXIT** verdict with a plain-English reason → **what-if** panel that forces any dependency to fail and re-propagates. |
-| **Portfolio** | A book of up to 10 positions → **shared-dependency detection** ("5 of 10 depend on Lido") → position×dependency **exposure heatmap** → ranked actions by carry-minus-loss. |
-| **Replay: Stream Finance** | Day-by-day replay on real prices: timeline slider, per-day verdict + narrative, %-of-peg chart with the EXIT-signal marker, and the daily dependency-graph state. |
-| **Track Record** | Every selected pair, including misses, same-bar signals, control-window false alarms, and the separate Stream development case. |
-| **Market Scan** | Qualifying Ethereum vaults/markets; issuer/token/oracle exposures, EL-minus-carry ranking, opaque positions and coverage boundaries. |
+## Does protection make economic sense?
 
-Live look-through of a Pendle PT-sUSDS position — the 5 layers (settlement chain, Pendle AMM, underlying→issuer, oracle, lending market) fall out of generic recursion; node colour = share of expected loss, dashed edges = sourced manual facts:
+The manager supplies the stress limit; it is a risk-policy constraint, not an estimated probability. The mixed-integer program minimizes:
 
-![Dependency look-through of a Pendle PT position](docs/position-graph.png)
+`execution + conversion reserve + nonnegative snapshot APY × sold notional × 30/365`
 
----
+subject to:
 
-## Architecture
+`residual conditional loss + execution + conversion reserve ≤ manager's limit`
 
-```mermaid
-flowchart LR
-  P["Position<br/>Pendle PT · Morpho vault"] --> E["Discovery Engine<br/>recursive look-through"]
-  subgraph SRC["Real data (cached to data/raw/)"]
-    D[("DefiLlama<br/>protocols · hacks · prices")]
-    PE[("Pendle<br/>PT/SY/underlying · liquidity · price-impact")]
-    M[("Morpho<br/>allocations · LLTV · oracle · utilization")]
-    MM[("Manual map<br/>issuers · oracles · backing — sourced")]
-  end
-  E --- D & PE & M & MM
-  E --> G["Dependency Graph<br/>typed edges: backing · collateral · oracle · liquidity · chain · issuer"]
-  G --> MOD["Risk models<br/>incident probability · loss severity · loss pass-through"]
-  MOD --> MC["Monte-Carlo propagation<br/>Expected Loss · CVaR-95 · risk contribution"]
-  MC --> DEC{"Decision<br/>carry vs expected loss vs exit cost"}
-  DEC --> UI["Streamlit<br/>Position · Portfolio · Replay · Track Record · Market Scan"]
-```
+and one available candidate per position, locks, vault claims and shared liquidity resources. Optimality is proved over available discrete candidates, not arbitrary continuous trade sizes.
 
----
+The economic decision question is answered explicitly **for this plan versus holding**, under a binary scenario assumption:
 
-## Methodology
+`expected net benefit = assumed scenario probability × conditional loss avoided − economic protection cost`
 
-### 1. Recursive look-through discovery (`blast_radius/discovery/`)
-A position is the graph root. Per-kind resolvers expand it into typed dependency edges, then the engine recurses over token nodes until it reaches base assets or the settlement chain. **The 5-layer Pendle example falls out of generic recursion — it is not hard-coded.**
-- **Pendle PT** → settlement chain, the Pendle **AMM** (exit venue), the **underlying** (SY→asset), and the **lending markets that hold the PT as collateral** (contagion channel) with their **oracles** and **LLTV**.
-- **Morpho vault** → each allocated **market** (with LLTV, utilization, oracle address) → **collateral token** → which recurses (a PT collateral unwraps into *its* underlying and AMM; a wrapper into its backing → issuer).
-- Each edge carries a **dependency type**, an **exposure %** (allocation share / backing share), and its **data source**. Facts the APIs don't expose (some oracles, off-chain issuers, backing) come from a small **manual map** with a source URL per entry and render as **dashed "manual" edges**.
+This plan avoids **$1,880,574.80** of conditional damage. Its thirty-day break-even scenario probability is **1.189533%**. At an assumed **0.5%**, expected net benefit is **−$12,967.18**; at **2%**, it is **+$15,241.44**. The interface accepts a judge's probability assumption and shows both signs.
 
-### 2. Risk models (`blast_radius/models/`)
-- **Incident probability** — base-rate hazard per DefiLlama **category** and per hack **classification** from the real `/hacks` dataset joined to `/protocols`; stablecoin-like classes blend a documented **depeg prior** (because depegs aren't "hacks"). A gradient-boosting panel model is trained and evaluated honestly (below).
-- **Loss severity** — Beta per risk category; the means are informed by the **empirical loss/TVL distribution per classification** computed from `/hacks`.
-- **Loss pass-through** — a **flat coefficient per dependency type**, multiplied by exposure share. Oracle edges use **0.70**, liquidity edges **0.35**. **LLTV is shown in labels only**; `liquidation_loss()` exists but is never called by propagation. Wiring LLTV into the edge factor remains future work. Coefficients are assumptions informed by a small set of incidents.
+**The system does not estimate that scenario probability.** The threshold applies to the whole plan, not every marginal reduction. This is least-cost protection for a specified mandate plus an economic comparison; it is not an unconstrained expected-return optimum or a claim that investors should sell today. Foregone carry is a full-horizon approximation; cash earns zero, and other scenarios and risk preferences are outside this comparison.
 
-### 3. Monte-Carlo propagation (`blast_radius/risk/propagate.py`)
-Each Monte-Carlo path samples one shock per canonical node and propagates it **up** the graph with a *multiplicative survival* rule bounded in [0,1]. A shared dependency can still affect multiple downstream branches; this is not a joint reserve or liquidation simulator. Outputs: **loss distribution, Expected Loss, CVaR-95**, and per-node contributions. Scan exposure uses the **maximum transmission over paths** once per dependency per position.
+Preserved research pages compare Monte Carlo expected loss with carry and supported exit costs using explicit incident priors. Those priors do not establish the probability of this wstETH scenario. The separate research model compounds independent node shocks and must not be treated as the same numerical model.
 
-### 4. Exit cost & decision (`blast_radius/risk/`)
-- **Exit cost** is real: Pendle PT uses the **SDK swap price-impact** at the position size (with a size→impact curve); a Morpho vault uses **withdrawable liquidity** (and an illiquidity penalty beyond it).
-- **Decision:** compare the expected net P&L of holding (`carry − expected loss`) against the cost of exiting; **EXIT** when expected loss beats carry by more than the exit cost, **STAY** when carry covers the loss and the tail is tolerable, **REDUCE** otherwise (including a fat **CVaR-95** tail). The reason names the dominant risk path.
+## Evidence and financial limits
 
----
+The presentation uses composite captures from **2026-10-10 18:01:08 to 21:51:16 UTC**. Pendle quote responses were retrieved **21:49:04–21:51:16 UTC**. Each response has its own retrieval time; asset marks have separate provider update times. These are not synchronized observations at one block. The quote bundle's `captured_at` is assembly time, not the age of every underlying observation.
 
-## Model evaluation (reported honestly)
+| Classification | Evidence | Boundary |
+|---|---|---|
+| Protocol API observations | Pendle active markets/PT underlying; Morpho funded allocations, debt, supply, collateral and liquidity; 80 Pendle quotes | Protocol-reported state, not independently replayed storage proofs or guaranteed future fills |
+| Cached RPC observations | Eight input/output token decimals at Ethereum block `0x18f3e5b` | PT-reUSD has **6** decimals; block timestamp independently re-fetched as **21:48:47 UTC** |
+| Sourced manual relationships | Wrapper backing and issuer links with documentation URLs | Versioned file hashes, not invented observation dates or complete reserve proofs |
+| Integration hypotheses | Manual token-level oracle names | Not verified deployed integrations; actual Morpho market oracle addresses are separately API-observed |
+| Modelling assumptions | Transmission coefficients, recovery, conversion, gas and carry | Hypothetical inputs; not measured failure outcomes or observed trade costs |
 
-Incident model: a gradient-boosting classifier on a **15,350-row protocol×year panel** (2021–2025), time-split (train ≤ 2023, test 2024–25), isotonic-calibrated. Test prevalence **0.95%** (96 positive protocol-years) — severe class imbalance, as expected.
+Important financial boundaries:
 
-| Model | ROC-AUC | PR-AUC | Brier |
-|---|---|---|---|
-| Gradient-boosting panel | 0.6654 | 0.0176 | 0.009435 |
-| **Category base-rate (baseline)** | 0.6274 | **0.0182** | 0.009816 |
+- Alternate paths through one claim use the strongest supported channel; separate funded allocations add. Dependency columns and sequential edge attributions are not additive dollars at risk.
+- Lending losses use the **incremental aggregate collateral shortfall divided by supply**. At partial shocks, pooling can understate borrower-level losses and omits liquidation incentives, timing and market feedback. The result models economic impairment, not the timing of vault share-price recognition.
+- PT claims transmit underlying USD mark changes **one-for-one**, holding the discount factor fixed. Generic issuer, wrapper, oracle and liquidity coefficients remain disclosed assumptions; they do not describe legal recoveries.
+- **PT exits return the underlying token, including wstETH.** Rescue requires conversion to external cash **before** failure. The **10 bps conversion reserve** is assumed; a second-leg cash quote is not provided. The **2 bps gas reserve** is also assumed. Leaving proceeds in wstETH would preserve its risk.
+- Quote `amountOut` is valued at its captured output mark; its reported fee is already included. The **1% slippage tolerance is not a guaranteed fill price**. A worse fill can breach the target's $1,000.15 quoted buffer. No transaction is submitted.
+- Morpho bounds use funded allocations and shared market capacity, counted once. Withdrawal queues, pauses, future liquidity and executable transactions are not certified. Residual vault exposure proportions are assumed unchanged after reductions.
+- Dust below the rounded 0.1% allocation threshold and zero-funded collateral are omitted. Two positions contain unresolved collateral. Loan-asset issuer risk, complete backing, tranche waterfalls, feedback and FX are incomplete.
+- Source hashes establish reproducibility and detect local changes; they are not signatures or attestations from data providers.
 
-The model **edges out the base rate on ROC-AUC and Brier, not PR-AUC; base-rate priors remain the production backbone**. Values come from `artifacts/metrics.json`. Current TVL, audits, chain counts and protocol metadata introduce look-ahead/survivorship limitations; this is not a fully point-in-time panel. Regenerate with `python scripts/train_incident_model.py`, then `python scripts/update_reports.py`.
+The [final audit](JUDGE_READINESS.md) explains these boundaries and the critical corrections made to the older research exit adapter.
 
-**Pass-through calibration (real Nov-2025 incidents, small sample stated openly):** on Nov 7, Stream xUSD had lost ~87% and deUSD ~99%; with ~65% Stream-backed, the "fundamental" deUSD loss ≈ 0.65 × 0.87 ≈ 57% but the market overshot to ~99% — an overshoot factor of **≈1.7×** in a confidence-run. Our `backing` pass-through (0.95) is deliberately conservative against that panic overshoot.
+## Run and reproduce
 
----
-
-<!-- BEGIN COMPUTED REPORTS -->
-## Track record
-
-Excluding Stream: **2/6 advance catches**, **4 misses**
-(including 3 same-bar signals), **6h median lead** among catches,
-and **$94,535 saved versus a naive 5% price-watcher** on $1M per pair.
-Savings include every pair, including late exits. If no EXIT fires, the held position is valued
-at its observed worst-14d mark, an unrealized valuation. Both exit strategies assume 1% cost on sale proceeds.
-
-Including the Stream development pairs: **4/8 catches**,
-**36h median lead**, **$1,878,696 saved vs naive**.
-Controls exclude Stream (no comparable 2024 data): **2.285 false alarms per pair-year**,
-from **4 alarms over 1.750 observed pair-years**.
-The descriptive stablecoin/CRV breakdown was added after observing controls:
-0.000 vs
-33.953 alarms per pair-year.
-Missing intervals and incomplete 7-day-reference/14-day-follow-up windows are excluded, not treated as calm.
-
-**Limits:** six non-development pairs share **2 distinct crises**;
-selection was retrospective for data availability and visible breaks, not prospective holdout validation.
-All exposure shares are estimated; CRV is a volatile stress proxy, not the exploited pool itself.
-Prices use **4h buckets**, as-of alignment and bounded forward-fill; lead times and assumed exit
-prices are uncertain within that sampling interval. The model's risk priors are current, not
-historical point-in-time estimates. **Stream is the development case**; no ML early-warning
-benchmark is claimed (`rule_vs_ml: null`). Parameters, every pair and sources:
-[`artifacts/backtest_results.json`](artifacts/backtest_results.json).
-
-## Market scan
-
-**$435,998,291 gross TVL + AMM liquidity** across **37 positions**:
-12 listed Ethereum Morpho V1 vaults ≥ $10M and
-25 active Pendle markets ≥ $1M liquidity. Cached universe:
-45 listed vaults and 47 active markets;
-all qualifying positions analysed, 0 failures.
-
-Largest shared issuer dependency: **Lido — $51,532,121 transmission-weighted
-notional across 8 positions**. Top-three issuer concentration index:
-**29.1%**, using a capped sum of dominant-path transmissions
-per position. Whole-position mapping coverage is **52.5%** to declared
-issuer/base-asset depth; **47.5% opaque** (21/37
-positions have no unmapped discovered token).
-
-**Limits:** Ethereum only, listed V1 vaults/active markets only, thresholded cached snapshots.
-Gross TVL plus pool liquidity can count the same economic capital twice. Transmission-weighted
-notionals are model exposures, not unique dollars at risk; dependency columns are not additive.
-Manual mappings do not establish complete reserves, validator operators, off-chain counterparties
-or tranche waterfalls. Morpho discovery follows funded collateral, excluding loan-asset issuer
-risk and idle/dust allocations. Scan ranking is EL minus carry; Pendle scan exit costs are assumed,
-not executable quotes for entire pools. Source-cache dates, coverage and full results:
-[`artifacts/market_scan.json`](artifacts/market_scan.json).
-
-<!-- END COMPUTED REPORTS -->
-
-## Data sources (all free, no API key)
-- **DefiLlama** — `/protocols` (catalog, category, chains, TVL, audits, listedAt), `/protocol/{slug}` (TVL history), `/hacks` (1,299 incidents), `coins.llama.fi` current/historical/`chart` prices.
-- **Pendle** `api-v2.pendle.finance` — `/v1/{chain}/markets/active`, `/v2/.../data`, `/v2/sdk/.../swap` (real price-impact), `/v1/.../assets/prices`.
-- **Morpho** `blue-api.morpho.org/graphql` — vault allocations, markets, collateral, LLTV, oracle address, utilization (current + historical).
-- **Manual map** (`data/manual/dependencies.yaml`) — issuers / oracles / backing the APIs don't expose; **one source URL per entry**, labelled "manual" in the UI.
-- **Replay** (`data/replay/stream_snapshot.yaml`) — the contagion *structure* is reconstructed from sourced post-mortems (The Block, Pharos, BlockEden, CoinDesk) and labelled "reconstructed"; the *price series* are real DefiLlama data.
-
-Every response is cached to `data/raw/` (committed) so the demo runs offline. `python refresh_cache.py` rebuilds the cache.
-
----
-
-## Assumptions & limitations (openly)
-- **Incident base rates** use documented depeg priors for stablecoin-like classes that `/hacks` under-counts; flagged as priors in the UI.
-- **Severity loss/TVL** uses *current* protocol TVL as a denominator (post-incident) — a rough approximation, stated.
-- **Pass-through** is calibrated on a **small sample** (n≈3 real 2025 events); we expose sensitivity rather than claim precision, and linear multiplicative transmission understates panic overshoot.
-- **Incident ML model** improves ROC-AUC and Brier, not PR-AUC, under 0.95% prevalence — base-rate priors remain the backbone.
-- Manual mappings reach declared issuer/base-asset depth; a known issuer does not establish complete reserves. Unmapped tokens remain opaque. Morpho loan-asset issuer risk is outside the collateral graph.
-- Research tooling for a hackathon — **not financial advice**.
-
----
-
-## How to run
-
-```bash
-python -m venv .venv
-.venv/Scripts/pip install -e .          # macOS/Linux: .venv/bin/pip
-python refresh_cache.py                 # one network run to build data/raw/ (optional; cache is committed)
-./run.ps1                               # Windows   (macOS/Linux: ./run.sh)
-```
-`run.ps1` launches the dashboard from cached data. For a strict offline demo: `set BLAST_RADIUS_OFFLINE=1` (PowerShell: `$env:BLAST_RADIUS_OFFLINE=1`) before launching.
-
-**Demo positions** (cached API snapshot): a Pendle **PT-sUSDS** PT and the **Morpho Smokehouse USDT** vault (**12 funded markets rendered**, from 22 raw allocations after idle/dust filtering). A 10-position sample book is in `data/book/sample_book.json`.
-
-Recompute from the committed cache:
+Python 3.11+; the audited environment uses Python 3.13. Install dependencies once with internet, then presentation and reproduction run offline.
 
 ```powershell
-$env:BLAST_RADIUS_OFFLINE = "1"
-.venv/Scripts/python.exe scripts/run_backtest.py
-.venv/Scripts/python.exe scripts/run_market_scan.py --restart
-.venv/Scripts/python.exe scripts/update_reports.py
-.venv/Scripts/python.exe -m unittest discover -s tests -v
+python -m venv .venv
+.venv/Scripts/python.exe -m pip install -e .
+.venv/Scripts/python.exe -m streamlit run app/Home.py --browser.gatherUsageStats false
 ```
 
-`--restart` recomputes analyses using the cached snapshot; it does not refresh market data. Checkpoints resume only when the universe, configuration, mapping and analysis-code fingerprints match.
+Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. The main app forces `BLAST_RADIUS_OFFLINE=1`; no CDN, wallet, key or network request is required during the demo.
 
-Offline Chromium verification covers all six pages, the Position shock toggle and vault selector,
-Replay dates, and sidebar navigation. Results and source hashes are in
-[`artifacts/verification.json`](artifacts/verification.json), with screenshots in
-[`artifacts/screenshots/`](artifacts/screenshots/). To repeat with the offline app running,
-install the optional development tools, then run:
+```powershell
+.venv/Scripts/python.exe -m unittest discover -s tests -v
+.venv/Scripts/python.exe scripts/build_fire_drill_artifacts.py
+.venv/Scripts/python.exe scripts/audit_judge_readiness.py
+.venv/Scripts/python.exe scripts/verify_receipt.py
+```
+
+Thirty-one tests cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, liquidity, locks, exhaustive small-case optimization, honest solver statuses, tampering, decimals and execution availability. Source manifests hash all Python model code and configuration with LF-normalized UTF-8 text.
+
+Optional browser rehearsal, after installing `playwright` and Chromium once:
 
 ```powershell
 .venv/Scripts/python.exe -m pip install playwright
 $env:PLAYWRIGHT_BROWSERS_PATH = "$PWD/.playwright-mcp/browsers"
 .venv/Scripts/python.exe -m playwright install chromium
-.venv/Scripts/python.exe scripts/verify_app.py
+.venv/Scripts/python.exe scripts/verify_fire_drill.py --record
+.venv/Scripts/python.exe scripts/record_demo.py
 ```
 
----
+Browser verification blocks external requests and exercises discovery, propagation, rescue, economics, locks, infeasibility, evidence, receipt download, reset, native fallback and preserved research pages.
 
-## Repo structure
-```
-blast_radius/
-  sources/     defillama · pendle · morpho (cache-through clients)
-  discovery/   graph · resolvers · engine (recursive look-through)
-  models/      incidents · severity · passthrough
-  risk/        propagate (Monte-Carlo) · exit_cost · decision
-  portfolio/   book (shared deps + ranking)
-  replay/      stream (Nov-2025 replay)
-  backtest/    frozen rule, historical pairs, prices, controls, scoring
-  scan/        universe, resumable analysis, dollar exposures
-app/           Home + Position · Portfolio · Replay · Track Record · Market Scan
-scripts/       probe_data.py · run_backtest.py · run_market_scan.py · update_reports.py
-data/          raw/ (cache) · manual/ · replay/ · book/ · backtest/
-```
+## Two-minute pitch and fallback
 
-MIT licensed. Built with Claude Code.
+[Exact pitch and click cues](DEMO.md) · [120-second MP4 demonstration](artifacts/demo_video/blast-radius-two-minute.mp4) · [Original browser recording](artifacts/demo_video/blast-radius-two-minute.webm) · [Screenshots](artifacts/screenshots) · [Browser verification](artifacts/fire_drill_verification.json).
+
+If the custom component fails, open **http://localhost:8501/?fallback=1**; native controls use the same Python calculations. If the application cannot run, play the local MP4 file; the original WebM is also retained. If video playback fails, use the six `FireDrill_*.png` screenshots with the pitch and independent audit. These are labelled recorded evidence, not a live run.
+
+The frontend is a local JavaScript/SVG Streamlit v2 component. Python, NetworkX and SciPy/HiGHS implement discovery, deterministic stress and mixed-integer optimization. Original Position, Portfolio, Replay, Track Record and Market Scan research is preserved in the sidebar. [Archived research documentation](docs/RESEARCH_README.md) retains previous work; the current audit supersedes its older execution claims.

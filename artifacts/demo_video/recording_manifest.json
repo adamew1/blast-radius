@@ -1,0 +1,43 @@
+{
+  "recorded_at": "2026-10-10T22:47:32.222864+00:00",
+  "url": "http://localhost:8501",
+  "external_requests": [],
+  "js_errors": [],
+  "stages": [
+    {
+      "title": "THE ILLUSION",
+      "at_seconds": 0.0
+    },
+    {
+      "title": "DISCOVER",
+      "at_seconds": 12.52
+    },
+    {
+      "title": "ATTACK \u2192 COLLAPSE",
+      "at_seconds": 30.43
+    },
+    {
+      "title": "RESCUE",
+      "at_seconds": 50.44
+    },
+    {
+      "title": "CHALLENGE",
+      "at_seconds": 81.03
+    },
+    {
+      "title": "PROVE",
+      "at_seconds": 95.45
+    }
+  ],
+  "caption_classification": "editorial; no financial values injected",
+  "story_duration_seconds": 120.08,
+  "video": "artifacts/demo_video/blast-radius-two-minute.webm",
+  "video_sha256": "3d37257dbb068dff724590855b2df5bcbadae9e85cb6b69f01a55a0e7051a89a",
+  "status": "PASS",
+  "mp4_export": {
+    "path": "artifacts/demo_video/blast-radius-two-minute.mp4",
+    "sha256": "1688e57d0abc498f8c6224e083515098a7f8166c054cf3760055b19033a0e066",
+    "duration_seconds": 120.0,
+    "edit": "remove 2.68 seconds of application-launch pre-roll; encode 120 seconds H264/yuv420p; financial output unchanged"
+  }
+}

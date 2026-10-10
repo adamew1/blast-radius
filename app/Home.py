@@ -1,129 +1,202 @@
-"""Blast Radius — Streamlit entry point (landing page)."""
-import pathlib
+"""Blast Radius — an evidence-backed portfolio fire drill."""
+from __future__ import annotations
+
+import json
+import os
+from pathlib import Path
 import sys
 
-sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1]))  # repo root on path
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+os.environ["BLAST_RADIUS_OFFLINE"] = "1"
 
-import json  # noqa: E402
+import streamlit as st
 
-import pandas as pd  # noqa: E402
-import streamlit as st  # noqa: E402
+from app.components.terminal import render_terminal
+from blast_radius.fire_drill.evidence import ASSUMPTIONS, receipt, source_manifest
+from blast_radius.fire_drill.execution import exit_options, load_execution
+from blast_radius.fire_drill.model import discover, prepare, stress_book
+from blast_radius.fire_drill.optimize import plan_rescue
+from blast_radius.fire_drill.presentation import network
+from blast_radius.models.passthrough import PASS_THROUGH
+from blast_radius.portfolio.book import load_book
 
-from blast_radius import __version__  # noqa: E402
-from blast_radius.config import ARTIFACTS  # noqa: E402
-from blast_radius.models.evaluation import comparison_text
-
-st.set_page_config(page_title="Blast Radius", page_icon="💥", layout="wide")
-
-st.title("💥 Blast Radius")
-st.subheader("What is the blast radius of a DeFi position when one of its hidden dependencies fails?")
-
-st.markdown(
-    """
-For an on-chain position, Blast Radius:
-
-1. **Discovers hidden dependencies** — recursively unwraps a position to its settlement chain,
-   underlying yield source & issuer, oracle, liquidity venue / AMM, and any lending market
-   holding it as collateral.
-2. **Propagates failure** — Monte-Carlo simulates incidents at each dependency and traces how the
-   loss flows *up* the stack to your position (expected loss, CVaR-95, dominant risk path).
-3. **Answers stay or exit** — compares expected loss from holding against the real cost of exiting
-   (slippage / price impact) and returns a **STAY / REDUCE / EXIT** call with a plain-English reason.
-"""
-)
-
-st.info(
-    "Use the pages in the sidebar → **Position** (single position), **Portfolio** (a book of up to 10), "
-    "**Replay: Stream Finance** (the development case), **Track Record** (including misses and "
-    "false alarms), and **Market Scan** (Ethereum snapshot and mapping coverage).",
-    icon="👈",
-)
-
-cols = st.columns(3)
-cols[0].metric("Dependency discovery", "recursive look-through")
-cols[1].metric("Impact", "Monte-Carlo propagation")
-cols[2].metric("Decision", "STAY / REDUCE / EXIT")
-
-bt_path, scan_path = ARTIFACTS / "backtest_results.json", ARTIFACTS / "market_scan.json"
-if bt_path.exists() and scan_path.exists():
-    bt = json.loads(bt_path.read_text(encoding="utf-8"))
-    scan = json.loads(scan_path.read_text(encoding="utf-8"))
-    h = bt["headline"]["without_stream"]
-    st.subheader("Historical checks & Ethereum coverage")
-    cc = st.columns(4)
-    cc[0].metric("Advance catches, excluding Stream", f"{h['events_caught']}/{h['events_total']}")
-    cc[1].metric("False alarms / observed pair-year", str(bt["false_alarms"]["per_pair_year"]))
-    cc[2].metric("Gross TVL + liquidity scanned", f"\\${scan['total_scanned_usd']/1e6:.1f}M")
-    cc[3].metric("Mapped to declared depth", f"{scan['coverage']['fully_looked_through_pct']:.1f}%")
-    st.caption(f"{h['misses']} misses across {bt['n_triggers_out_of_sample']} non-development crises; "
-               "retrospectively selected pairs and estimated exposures. Stream is the development case. "
-               "Scan capital can overlap, and mapped issuers do not imply complete reserve look-through.")
-    st.page_link("pages/4_Track_Record.py", label="Track Record — every pair and control window")
-    st.page_link("pages/5_Market_Scan.py", label="Market Scan — concentrations and opaque positions")
-
-st.divider()
-st.subheader("Methodology & model evaluation (reported honestly)")
+st.set_page_config(page_title="Blast Radius · Portfolio Fire Drill", page_icon="◈", layout="wide",
+                   initial_sidebar_state="collapsed")
+st.markdown("""<style>
+[data-testid=stAppViewContainer]{background:#080d16;color:#e7edf5}
+[data-testid=stHeader]{background:transparent;height:2.5rem}
+.block-container{padding:2.2rem 1.8rem 2rem;max-width:1800px}
+[data-testid=stSidebar]{background:#101925}
+[data-testid=stMain] a{color:#50d9c4}
+[data-testid=stMain] h1,[data-testid=stMain] h2,[data-testid=stMain] h3{color:#e7edf5}
+[data-testid=stMain] [data-testid=stCaptionContainer]{color:#8fa3ba}
+[data-testid=stMain] button{border-radius:8px}
+@media(max-width:800px){.block-container{padding:2rem .5rem}}
+</style>""", unsafe_allow_html=True)
 
 
-@st.cache_data(show_spinner=False)
-def _severity_table():
-    from blast_radius.models.severity import empirical_severity_table
-    return empirical_severity_table()
+@st.cache_resource
+def prepared():
+    return prepare(load_book()["positions"])
 
 
-@st.cache_data(show_spinner=False)
-def _category_table():
-    from blast_radius.models.incidents import category_table
-    return category_table()
+@st.cache_data
+def inputs():
+    book = prepared()
+    bundle = load_execution()
+    return discover(book), exit_options(book, bundle), source_manifest(), bundle
 
 
-mcol1, mcol2 = st.columns(2)
-with mcol1.expander("① Incident probability — model vs base-rate baseline", expanded=True):
-    mp = ARTIFACTS / "metrics.json"
-    if mp.exists():
-        m = json.loads(mp.read_text(encoding="utf-8"))
-        st.caption(f"{m['model_name']} on a {m['panel']['rows_total']:,}-row protocol×year panel "
-                   f"(/hacks + /protocols). Time split: train {m['split']['train_years']}, "
-                   f"test {m['split']['test_years']} · test positives {m['panel']['test_positives']} "
-                   f"(prevalence {m['panel']['test_prevalence']*100:.2f}%).")
-        st.dataframe(pd.DataFrame([
-            {"": "Gradient-boosting model", **m["model"]},
-            {"": "Category base-rate (baseline)", **m["baseline_category_rate"]},
-        ]), hide_index=True, use_container_width=True)
-        st.info(comparison_text(m["model"], m["baseline_category_rate"]) + ".")
-        st.caption("TVL, audits, chain counts and the protocol catalog are current rather than "
-                   "point-in-time features. This retrospective panel has look-ahead and survivorship limitations.")
-    else:
-        st.write("Run `python scripts/train_incident_model.py` to generate metrics.")
+book = prepared()
+ranking, execution, manifest, bundle = inputs()
+defaults = dict(revealed=False, attacked=False, dependency="issuer:lido", severity=1.0,
+                loss_limit=500000.0, locks=[], plan=None, baseline=None, evidence=False,
+                before_after="after", last_event=None)
+for k, v in defaults.items():
+    if k not in st.session_state:
+        st.session_state[k] = v
+state = st.session_state
+stress = stress_book(book, state.dependency, state.severity)
+selected = next(r for r in ranking if r["id"] == state.dependency)
+shared = [r for r in ranking if r["positions"] > 1 and r["kind"] != "chain"]
+opaque = [p["id"] for p in book.positions if any(n.meta.get("unmapped") for n in book.graphs[p["id"]].nodes())]
+revision = f"{state.dependency}:{state.severity}:{','.join(state.locks)}:{state.loss_limit}"
+payload = {
+    "ranking": ranking, "shared": shared, "selected": selected,
+    "stress": stress, "execution_summary": {"available_options": sum(len(v)-1 for v in execution["options"].values()),
+                                             "unavailable_options": len(execution["unavailable"])},
+    "network": network(book, ranking, stress, state.revealed, state.attacked,
+                       state.plan if state.before_after == "after" else None),
+    "state": {k: state[k] for k in defaults if k != "last_event"}, "revision": revision,
+    "ack": state.last_event,
+    "snapshot": bundle.get("captured_at", "missing quote bundle"),
+    "snapshot_window": manifest["presentation_evidence_window_utc"],
+    "bundle_hash": manifest["bundle_sha256"], "assumptions": ASSUMPTIONS,
+    "coefficients": {**PASS_THROUGH, "pt_underlying_claim_override": 1.0}, "opaque_positions": opaque,
+    "positions": book.positions,
+    "sources": [{k: r[k] for k in ("path", "source", "cached_at", "label", "sha256")}
+                for r in manifest["sources"] if "morpho" in (r.get("label") or "") or
+                "fire_drill" in (r.get("label") or "")],
+    "quote_bundle": bundle,
+}
 
-with mcol2.expander("② Loss severity by incident class (from /hacks)", expanded=True):
-    st.caption("Empirical loss per hack classification. loss/TVL uses current TVL as a rough "
-               "denominator (documented approximation); it informs the severity priors.")
-    df = pd.DataFrame(_severity_table()[:8])
-    df["median_loss_usd"] = df["median_loss_usd"].map(lambda x: f"${x:,.0f}")
-    st.dataframe(df, hide_index=True, use_container_width=True)
+fallback = st.query_params.get("fallback") == "1"
+if fallback:
+    st.title("Blast Radius — Break My Portfolio")
+    st.caption("Native controls · frozen evidence · same Python stress and optimization engines")
+    if st.button("Find My Weakest Point"):
+        state.revealed = True
+        state.dependency = shared[0]["id"]
+        state.plan = None
+        st.rerun()
+    options = [r["id"] for r in ranking]
+    dep = st.selectbox("Dependency", options, index=options.index(state.dependency),
+                       format_func=lambda nid: next(r["label"] for r in ranking if r["id"] == nid))
+    severity = st.slider("Failure severity", 0, 100, int(state.severity * 100))
+    if dep != state.dependency or severity / 100 != state.severity:
+        state.dependency, state.severity, state.plan = dep, severity / 100, None
+        state.attacked = state.revealed = True
+        st.rerun()
+    c = st.columns(3)
+    c[0].metric("Portfolio", f"${stress['aum_usd']:,.0f}")
+    c[1].metric("Scenario loss", f"${stress['loss_usd']:,.0f}")
+    c[2].metric("Positions exposed", stress["exposed_positions"])
+    import plotly.graph_objects as go
+    graph = payload["network"]
+    layout = {n["id"]: (n["column"], n.get("row", i)) for i, n in enumerate(graph["nodes"])}
+    fig = go.Figure()
+    for e in graph["edges"]:
+        a, b = layout[e["parent"]], layout[e["child"]]
+        fig.add_trace(go.Scatter(x=[a[0], b[0]], y=[a[1], b[1]], mode="lines",
+                                 line={"color": "#ef6574" if e["active"] else "#33455c"}, showlegend=False))
+    fig.add_trace(go.Scatter(x=[layout[n["id"]][0] for n in graph["nodes"]],
+                             y=[layout[n["id"]][1] for n in graph["nodes"]], mode="markers+text",
+                             text=[n["label"] for n in graph["nodes"]], textposition="top center"))
+    fig.update_layout(template="plotly_dark", height=600, showlegend=False)
+    st.plotly_chart(fig, width="stretch")
+    limit = st.number_input("Maximum accounted scenario loss", min_value=0.0, value=float(state.loss_limit))
+    locks = st.multiselect("Lock positions", [p["id"] for p in book.positions], default=state.locks)
+    if limit != state.loss_limit or locks != state.locks:
+        state.loss_limit, state.locks, state.plan = limit, locks, None
+    if st.button("BUILD RESCUE PLAN"):
+        state.plan = plan_rescue(stress, execution, state.loss_limit, state.locks)
+    if state.plan:
+        st.json(state.plan)
+    state.evidence = st.checkbox("Show Me the Evidence", value=state.evidence)
+else:
+    result = render_terminal(payload)
+    event = result.action
+    if event and event.get("nonce") != state.last_event:
+        state.last_event = event.get("nonce")
+        kind = event.get("type")
+        if kind == "reset":
+            for k, v in defaults.items():
+                state[k] = v
+        elif kind == "discover":
+            state.revealed, state.dependency = True, shared[0]["id"]
+            state.plan, state.baseline = None, None
+        elif kind == "select" and event.get("id") in {r["id"] for r in ranking}:
+            state.dependency = event["id"]
+            state.revealed = True
+            state.plan, state.baseline = None, None
+        elif kind == "severity":
+            state.severity = max(0, min(1, float(event["value"])))
+            state.plan, state.baseline = None, None
+        elif kind == "attack":
+            state.revealed = state.attacked = True
+            state.plan, state.baseline = None, None
+        elif kind == "rescue" and event.get("revision") == revision:
+            state.loss_limit = max(0, float(event["limit"]))
+            state.locks = sorted(set(event.get("locks", [])) & {p["id"] for p in book.positions})
+            state.attacked = state.revealed = True
+            state.plan = plan_rescue(stress, execution, state.loss_limit, state.locks)
+            state.baseline = plan_rescue(stress, execution, state.loss_limit, state.locks, mode="exit_affected")
+            state.before_after = "after"
+        elif kind == "view":
+            state.before_after = "before" if event.get("value") == "before" else "after"
+        elif kind == "evidence":
+            state.evidence = not state.evidence
+        st.rerun()
 
-with st.expander("③ Loss pass-through calibration (real Nov-2025 incidents)"):
-    st.markdown(
-        "- **Stream xUSD → Elixir deUSD:** on Nov 7, xUSD had lost ~87% and deUSD ~99%. With "
-        "~65% of deUSD's backing exposed to Stream, the 'fundamental' loss ≈ 0.65 × 0.87 ≈ 57%; "
-        "the market overshot to ~99% (an overshoot factor ≈ **1.7×** in a confidence-run). Our "
-        "`backing` pass-through (0.95) is deliberately conservative vs this panic overshoot.\n"
-        "- **Oracle:** a flat per-edge pass-through of **0.70**. LLTV is shown in labels; "
-        "the liquidation helper is not called by propagation.\n"
-        "- **AMM / liquidity:** flat pass-through **0.35** in propagation; "
-        "the Position page separately estimates exit price impact.\n"
-        "- Small-sample calibration (n≈3 documented 2025 events) — stated openly; priors + "
-        "sensitivity, not false precision.")
+if state.evidence:
+    st.subheader("Show Me the Evidence")
+    st.caption("Illustrative $10M allocation to real instruments. Composite captures: "
+               + " to ".join(manifest["presentation_evidence_window_utc"])
+               + ". Retrieval times and provider mark times differ; manual mappings are versioned files.")
+    a, b, c = st.tabs(["Dependencies & coefficients", "Quotes & liquidity", "Model & receipt"])
+    with a:
+        st.write("Selected dependency", selected)
+        for p in book.positions:
+            g = book.graphs[p["id"]]
+            if g.has_node(state.dependency):
+                with st.expander(p["label"]):
+                    import networkx as nx
+                    paths = list(nx.all_simple_paths(g.g, g.root_id, state.dependency))
+                    for path in paths:
+                        st.write(" → ".join(g.node(n).label for n in path))
+                        st.json([{**vars(g.edge(u, v)), "coefficient_assumption":
+                                  (1.0 if g.edge(u,v).dep_type == "backing" and
+                                   (g.node(u).meta.get("pt") or g.node(u).meta.get("is_pendle_pt"))
+                                   else PASS_THROUGH.get(g.edge(u,v).dep_type)),
+                                  "child_metadata": g.node(v).meta} for u, v in zip(path, path[1:])])
+        st.json(manifest)
+    with b:
+        st.caption("Pendle: value quoted output once; reported fees are already included. RPC-verified decimals. "
+                   "Morpho: funded allocation and shared-market bounds, not withdrawal-queue certification.")
+        st.json(bundle)
+        st.json(execution)
+        if state.plan:
+            st.json(state.plan.get("audit", {}))
+    with c:
+        for assumption in ASSUMPTIONS:
+            st.write("• " + assumption)
+        st.json({**PASS_THROUGH, "pt_underlying_claim_override": 1.0})
+    st.download_button("Download decision receipt", json.dumps(receipt(stress, execution, state.plan, manifest, bundle), indent=2),
+                       file_name="blast-radius-decision.json", mime="application/json")
 
-with st.expander("④ Incident base rates by DefiLlama category"):
-    st.caption("Annual per-protocol hazard and 12-month probability, from /hacks joined to "
-               "/protocols. 'prior:depeg' rows blend a documented depeg prior for stablecoin-like "
-               "classes that /hacks under-counts.")
-    st.dataframe(pd.DataFrame(_category_table()).head(14), hide_index=True, use_container_width=True)
-
-st.divider()
-st.caption(
-    f"Blast Radius v{__version__} · real data from DefiLlama, Pendle & Morpho (cached to disk). "
-    "Manual/reconstructed facts are labelled in the UI. Research tool, not financial advice."
-)
+with st.sidebar:
+    st.caption("RESEARCH & REPRODUCTION")
+    st.write("The presentation runs from frozen evidence. Research pages preserve the original expected-loss analysis.")
+    st.link_button("Native-control fallback", "/?fallback=1")
+    st.caption("Run: .venv/Scripts/python.exe -m streamlit run app/Home.py")
