@@ -1,0 +1,27 @@
+# Blast Radius configuration. Demo positions are finalized in Phase 1 after caching live data.
+
+horizon_months: 12            # risk horizon for expected-loss / decision
+
+monte_carlo:
+  n_paths: 20000
+  seed: 42
+
+decision:
+  # REDUCE when expected loss is comparable to exit cost; EXIT when it clearly dominates.
+  exit_multiple: 1.5          # EXIT if EL >= exit_multiple * exit_cost
+  stay_multiple: 0.7          # STAY if EL <= stay_multiple * exit_cost; between -> REDUCE
+
+# Demo positions (placeholders; real IDs written by refresh_cache.py in Phase 1).
+positions: []
+
+# Historical replay — verified coin keys (see plan). Baselines noted where not 1.0.
+replay:
+  stream:
+    title: "Stream Finance collapse — November 2025"
+    window:
+      start: "2025-11-01"
+      span: 18               # days
+    coins:
+      xUSD: "coingecko:staked-stream-usd"      # baseline ~1.26 (staked/yield-accrued)
+      deUSD: "coingecko:elixir-deusd"
+      sdeUSD: "ethereum:0x5C5b196aBE0d54485975D1Ec29617D42D9198326"

@@ -1,0 +1,289 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - banner [ref=e6]:
+      - generic [ref=e7]:
+        - generic [ref=e8]:
+          - link [ref=e9] [cursor=pointer]:
+            - /url: /
+            - img "DoraHacks" [ref=e11]
+          - list [ref=e12]:
+            - listitem [ref=e13]:
+              - generic [ref=e14] [cursor=pointer]
+            - listitem [ref=e20]:
+              - link "Builds" [ref=e21] [cursor=pointer]:
+                - /url: /build
+            - listitem [ref=e22]:
+              - link "Hackathons" [ref=e23] [cursor=pointer]:
+                - /url: /hackathon
+            - listitem [ref=e24]:
+              - link "find a team" [ref=e25] [cursor=pointer]:
+                - /url: /home/team
+                - text: find a team
+                - generic [aria-hidden] [ref=e26]: →
+        - generic [ref=e27]:
+          - button [ref=e29] [cursor=pointer]
+          - link [ref=e33] [cursor=pointer]:
+            - /url: /buidl-ai
+          - generic [ref=e42] [cursor=pointer]
+          - link "Log in" [ref=e47] [cursor=pointer]:
+            - /url: /login
+    - generic [ref=e50]:
+      - generic [ref=e53]:
+        - generic [ref=e58]:
+          - paragraph [ref=e59]: Prize Pool
+          - paragraph [ref=e62]:
+            - generic [ref=e63]: 5,700 USD
+        - generic [ref=e65]:
+          - generic [ref=e66]:
+            - generic [ref=e67]:
+              - generic [ref=e70] [cursor=pointer]:
+                - generic [ref=e71]: event timeline
+                - generic [ref=e74]: 15 hours left for submission
+              - generic [ref=e81]:
+                - generic [ref=e82]: Upcoming
+                - generic [ref=e87]:
+                  - generic [ref=e88]: Submission
+                  - generic [ref=e92]: 2026/10/10 09:00
+                - generic [ref=e93]:
+                  - generic [ref=e94]: Deadline
+                  - generic [ref=e98]: 2026/10/11 09:00
+            - generic [ref=e99]:
+              - generic [ref=e100] [cursor=pointer]: "--"
+              - generic [ref=e111]:
+                - paragraph [ref=e112]: EPFL
+                - paragraph [ref=e113]: BC building, Chemin Alan Turing, 1015 Ecublens, Switzerland
+            - generic [ref=e114]:
+              - generic [ref=e115]: Hackathon Tags
+              - generic [ref=e122]:
+                - generic [ref=e123]: Blockchain
+                - generic [ref=e124]: AI
+                - generic [ref=e125]: Crypto
+                - generic [ref=e126]: Switzerland
+                - generic [ref=e127]: Solidity
+                - generic [ref=e128]: Wallet
+            - generic [ref=e129]:
+              - generic [ref=e130]: Platform technology
+              - generic [ref=e138]:
+                - generic [ref=e139]: EVM
+                - generic [ref=e141]: MoveVM
+                - generic [ref=e143]: Solana
+                - generic [ref=e145]: Wallets
+                - generic [ref=e147]: Risk
+            - generic [ref=e148]:
+              - generic [ref=e149]: Submission Requirements
+              - generic [ref=e155]: GitHub/Gitlab/Bitbucket Link Required
+          - generic [ref=e161]:
+            - link "BSA - EPFL" [ref=e162] [cursor=pointer]:
+              - /url: /org/3152/hackathon
+            - button "Message" [ref=e165] [cursor=pointer]
+        - heading "BSA - EPFL | The Hackathon" [level=1] [ref=e170]
+        - generic [ref=e172]:
+          - button "Submit Build" [ref=e174] [cursor=pointer]
+          - button "Register" [ref=e175] [cursor=pointer]
+      - generic [ref=e176]:
+        - list [ref=e182]:
+          - link "Details" [ref=e183] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/detail
+          - link "Builds" [ref=e185] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/build
+          - link "Hackers 6" [ref=e187] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/hackers
+            - generic [ref=e188]: Hackers
+            - generic [ref=e189]: "6"
+          - link "Join a Team" [ref=e191] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/team
+          - link "Tracks" [ref=e193] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/tracks
+          - link "Ask Question" [ref=e195] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/qa
+        - generic [ref=e201]:
+          - generic [ref=e203]:
+            - paragraph [ref=e204]: Outline
+            - list [ref=e205]:
+              - listitem [ref=e206]:
+                - link "Belem Capital Track" [ref=e207] [cursor=pointer]:
+                  - /url: "#belem-capital-track"
+              - listitem [ref=e208]:
+                - link "Swissquote Track" [ref=e209] [cursor=pointer]:
+                  - /url: "#swissquote-track"
+          - generic [ref=e210]:
+            - generic [ref=e211]:
+              - heading "Belem Capital Track" [level=1] [ref=e212]
+              - heading [level=2] [ref=e213]:
+                - strong [ref=e214]: Prize Pool
+              - list [ref=e215]:
+                - listitem [ref=e216]:
+                  - strong [ref=e217]: "1st Prize:"
+                  - strong [ref=e218]: $1,200 USD
+                - listitem [ref=e219]:
+                  - strong [ref=e220]: "2nd Prize:"
+                  - strong [ref=e221]: $600 USD
+                - listitem [ref=e222]:
+                  - strong [ref=e223]: "3rd Prize:"
+                  - strong [ref=e224]: $300 USD
+              - heading [level=2] [ref=e225]:
+                - strong [ref=e226]: The Belem Capital Prize 🏆
+              - paragraph [ref=e227]:
+                - text: In the
+                - strong [ref=e228]: DeFi Risk Dependency Challenge
+                - text: ", we want teams to build a working risk system that can automatically uncover the hidden dependencies behind an on-chain position and quantify what happens when one of those dependencies fails."
+              - paragraph [ref=e229]: A single DeFi position may rely on multiple layers,including the settlement chain, underlying assets or yield sources, oracles, liquidity venues, lending markets, and other protocols, so the goal is to turn this complex dependency graph into a clear, defensible risk signal that a portfolio manager can actually use.
+              - paragraph [ref=e230]:
+                - text: "Your prototype should identify dependencies, estimate the potential economic impact of a security incident, market disruption, or technical failure, and ultimately help answer the real decision:"
+                - strong [ref=e231]: is the expected loss from staying in the position high enough to justify exiting despite slippage and execution costs?
+              - paragraph [ref=e232]: You are free to use graph analysis, simulations, statistical models, agent-based approaches, or any other methodology, across EVM, Solana, Canton, Tempo, or other ecosystems with the emphasis being on sound reasoning, accurate dependency discovery, defensible impact estimation, and a working implementation using real data.
+              - paragraph [ref=e233]:
+                - text: The strongest submissions will go beyond simply flagging that an incident occurred. They should explain
+                - strong [ref=e234]: how that incident propagates through the position's dependency stack and what the resulting portfolio impact could be
+                - text: . As illustrated by the Pendle PT example in the challenge brief, even one portfolio position can depend on five distinct layers, from the settlement chain and underlying yield source through the oracle, AMM market, and lending venue.
+              - heading [level=3] [ref=e235]:
+                - strong [ref=e236]: What we expect
+              - paragraph [ref=e237]:
+                - text: Build a
+                - strong [ref=e238]: working prototype
+                - text: ", not just an architecture or slide deck. It should operate on real data and produce an output that a risk or portfolio manager could realistically act on. Projects will be judged on"
+                - strong [ref=e239]: dependency discovery (30%)
+                - text: ","
+                - strong [ref=e240]: impact estimation (30%)
+                - text: ","
+                - strong [ref=e241]: "decision usefulness: stay or exit, and why (25%)"
+                - text: ", and the quality of the"
+                - strong [ref=e242]: working demo on real data (15%)
+                - text: .
+              - paragraph [ref=e243]:
+                - text: More informations
+                - link "here" [ref=e244] [cursor=pointer]:
+                  - /url: https://drive.google.com/file/d/1EdpG5Cc-IRRKWB-3NlP5Z4UAeTHzeC5z/view
+                - text: .
+            - generic [ref=e245]:
+              - heading "Swissquote Track" [level=1] [ref=e246]
+              - heading [level=2] [ref=e247]:
+                - strong [ref=e248]: Prize Pool
+              - list [ref=e249]:
+                - listitem [ref=e250]:
+                  - strong [ref=e251]: "1st Prize:"
+                  - strong [ref=e252]: $1,800 USD
+                - listitem [ref=e253]:
+                  - strong [ref=e254]: "2nd Prize:"
+                  - strong [ref=e255]: $1,100 USD
+                - listitem [ref=e256]:
+                  - strong [ref=e257]: "3rd Prize:"
+                  - strong [ref=e258]: $700 USD
+              - heading [level=2] [ref=e259]:
+                - strong [ref=e260]: The Swissquote Wallet Prize 🏆
+              - paragraph [ref=e261]:
+                - text: In the
+                - strong [ref=e262]: Swissquote Wallet Challenge
+                - text: ", we want teams to build the self-custody wallet Swissquote could realistically launch for its clients. The goal is to give users full control of their crypto and keys while preserving the security, simplicity, compliance, and user experience they expect from a Swiss bank. Today, clients who want self-custody must withdraw their assets to an external wallet and leave the Swissquote ecosystem. Your challenge is to create a better alternative:"
+                - strong [ref=e263]: their keys, their control, while remaining one step away from their Swissquote account.
+              - paragraph [ref=e264]:
+                - text: Your prototype should demonstrate the complete wallet lifecycle, from
+                - strong [ref=e265]: wallet creation to authentication, transaction signing, loss of access, and recovery
+                - text: . Teams must make and defend a clear custody model, define a credible threat model, design the wallet architecture, explain where keys or key shares live, and show how users authenticate securely before signing transactions. The recovery mechanism should protect legitimate users without creating an easy path for attackers or giving Swissquote unintended control over client funds. At minimum, your demo must sign and send a real transaction to a blockchain, with testnet deployments fully accepted.
+              - paragraph [ref=e266]:
+                - text: You are free to explore approaches such as
+                - strong [ref=e267]: MPC or threshold signatures, passkeys and WebAuthn, smart contract accounts using ERC-4337, seed phrases, or split-backup systems such as Shamir or SLIP-39
+                - text: . Use established cryptographic libraries and SDKs rather than implementing your own cryptography. Parts that cannot realistically be built during the hackathon, such as banking infrastructure, compliance providers, or key-share servers, may be mocked as long as the distinction is clearly documented and the system architecture remains credible.
+              - paragraph [ref=e268]: "Bonus points if your project:"
+              - list [ref=e269]:
+                - listitem [ref=e270]:
+                  - text: implements
+                  - strong [ref=e271]: gasless transactions
+                  - text: ", so users can transfer assets such as USDC without first acquiring the network's native gas token"
+                - listitem [ref=e272]:
+                  - text: enables
+                  - strong [ref=e273]: compliant dApp interaction
+                  - text: ", such as approved dApp lists, sanctions screening, transaction simulation, or additional checks for high-value transactions"
+                - listitem [ref=e274]: provides a recovery flow that can distinguish a legitimate user from an attacker who has compromised their phone or email
+                - listitem [ref=e275]: creates a strong business case for Swissquote through revenue, client retention, new users, or lower operational costs
+                - listitem [ref=e276]: addresses Swiss regulatory considerations around custody and wallet ownership verification in a technically credible way
+              - heading [level=2] [ref=e277]:
+                - strong [ref=e278]: How we will judge
+              - paragraph [ref=e279]:
+                - text: Projects will be evaluated on
+                - strong [ref=e280]: technical implementation (35 points)
+                - text: ","
+                - strong [ref=e281]: security and custody design (20 points)
+                - text: ","
+                - strong [ref=e282]: legal feasibility (15 points)
+                - text: ","
+                - strong [ref=e283]: business case (15 points)
+                - text: ", and"
+                - strong [ref=e284]: user experience and pitch (15 points)
+                - text: . Teams can earn up to
+                - strong [ref=e285]: 20 additional bonus points
+                - text: for well-executed gasless transactions and compliant dApp interaction, provided the core
+                - strong [ref=e286]: create → sign → recover
+                - text: experience works end to end.
+    - contentinfo [ref=e287]:
+      - generic [ref=e289]:
+        - generic [ref=e290]:
+          - link [ref=e291] [cursor=pointer]:
+            - /url: /
+            - img "DoraHacks" [ref=e293]
+          - generic [ref=e294]:
+            - heading "FOLLOW US" [level=3] [ref=e295]
+            - generic [ref=e296]:
+              - link [ref=e297] [cursor=pointer]:
+                - /url: https://twitter.com/DoraHacks
+              - link [ref=e300] [cursor=pointer]:
+                - /url: https://www.instagram.com/dorahacks/
+              - link [ref=e303] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/dorahacks/
+              - link [ref=e306] [cursor=pointer]:
+                - /url: https://www.facebook.com/DoraHacksGlobalHack/
+        - generic [ref=e309]:
+          - generic [ref=e310]:
+            - heading "About" [level=3] [ref=e311]
+            - generic [ref=e312]:
+              - link "Dora Research Blog" [ref=e313] [cursor=pointer]:
+                - /url: https://research.dorahacks.io/
+              - link "DoraHacks Blog" [ref=e315] [cursor=pointer]:
+                - /url: /blog
+              - link "Dora Factory" [ref=e317] [cursor=pointer]:
+                - /url: https://dorafactory.org/
+          - generic [ref=e319]:
+            - heading "Resources" [level=3] [ref=e320]
+            - generic [ref=e321]:
+              - link "Host a Hackathon" [ref=e322] [cursor=pointer]:
+                - /url: https://dorahacks.io/blog/guides/how-to-create-a-hackathon/
+              - link "Binance Live ↗" [ref=e324] [cursor=pointer]:
+                - /url: https://www.binance.com/en/live/u/24985985
+              - link "YouTube ↗" [ref=e326] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCApW8piYNP4T10kgenp0Mjg
+          - generic [ref=e328]:
+            - heading "Contact us" [level=3] [ref=e329]
+            - generic [ref=e330]:
+              - button "Report Issue" [ref=e331] [cursor=pointer]
+              - button "Message" [ref=e333] [cursor=pointer]
+              - link "Telegram ↗" [ref=e335] [cursor=pointer]:
+                - /url: https://t.me/dorahacksofficial
+              - link "Discord ↗" [ref=e337] [cursor=pointer]:
+                - /url: https://discord.gg/gKT5DsWwQ5
+              - link "Email ↗" [ref=e339] [cursor=pointer]:
+                - /url: mailto:hi@dorahacks.com
+      - generic [ref=e343]:
+        - paragraph [ref=e344]: © 2026 DoraHacks. All rights reserved.
+        - generic [ref=e345]:
+          - generic [ref=e346]:
+            - button "Color scheme" [ref=e347] [cursor=pointer]
+            - button "Color scheme" [ref=e350] [cursor=pointer]
+            - button "Color scheme" [ref=e353] [cursor=pointer]
+          - generic [ref=e356]:
+            - link "Code of conduct" [ref=e357] [cursor=pointer]:
+              - /url: /legal/code-of-conduct
+            - generic [ref=e358]: "|"
+            - link "Privacy policy" [ref=e359] [cursor=pointer]:
+              - /url: /legal/privacy
+            - generic [ref=e360]: "|"
+            - link "Terms of service" [ref=e361] [cursor=pointer]:
+              - /url: /legal/terms
+  - generic [ref=e362]:
+    - generic:
+      - generic:
+        - generic: 
+        - generic: 
+        - generic: 
+        - generic: 
+    - generic: 
+    - generic [ref=e363] [cursor=pointer]: Share

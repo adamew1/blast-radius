@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/
+.DS_Store
+.streamlit/secrets.toml
+*.log
+# NOTE: data/raw/ IS committed on purpose so the demo runs offline from cache.

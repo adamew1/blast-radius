@@ -1,0 +1,285 @@
+- generic [ref=f3e3]:
+  - generic [ref=f3e4]:
+    - banner [ref=f3e6]:
+      - generic [ref=f3e7]:
+        - generic [ref=f3e8]:
+          - link [ref=f3e9] [cursor=pointer]:
+            - /url: /
+            - img "DoraHacks" [ref=f3e11]
+          - list [ref=f3e12]:
+            - listitem [ref=f3e13]:
+              - generic [ref=f3e14] [cursor=pointer]
+            - listitem [ref=f3e20]:
+              - link "Builds" [ref=f3e21] [cursor=pointer]:
+                - /url: /build
+            - listitem [ref=f3e22]:
+              - link "Hackathons" [ref=f3e23] [cursor=pointer]:
+                - /url: /hackathon
+            - listitem [ref=f3e24]:
+              - link "find a team" [ref=f3e25] [cursor=pointer]:
+                - /url: /home/team
+                - text: find a team
+                - generic [aria-hidden] [ref=f3e26]: →
+        - generic [ref=f3e27]:
+          - button [ref=f3e29] [cursor=pointer]
+          - link [ref=f3e33] [cursor=pointer]:
+            - /url: /buidl-ai
+          - generic [ref=f3e42] [cursor=pointer]
+          - link "Log in" [ref=f3e47] [cursor=pointer]:
+            - /url: /login
+    - generic [ref=f3e53]:
+      - link "← Back to Blog" [ref=f3e54] [cursor=pointer]:
+        - /url: /blog/news
+      - generic [ref=f3e55]: New
+      - article [ref=f3e57]:
+        - heading "What Does a Good Hackathon Submission Look Like?" [level=1] [ref=f3e58]
+        - img "What Does a Good Hackathon Submission Look Like?" [ref=f3e59]
+        - generic [ref=f3e60]:
+          - paragraph [ref=f3e61]:
+            - text: You've spent hours(maybe days) building something you're proud of. But a strong project doesn't guarantee a strong submission.
+            - strong [ref=f3e62]: The way you present your work matters just as much as the work itself
+            - text: . Judges review dozens or even hundreds of submissions, and the ones that stand out are
+            - strong [ref=f3e63]: clear, complete, and easy to evaluate
+            - text: .
+          - paragraph [ref=f3e64]: This guide covers what separates winning submissions from forgettable ones.
+          - heading "0. Before Everything, Read the Requirements Carefully" [level=2] [ref=f3e65]
+          - paragraph [ref=f3e66]:
+            - text: This sounds obvious, but it's where many hackers stumble. Before you start writing your submission,
+            - strong [ref=f3e67]: read the hackathon's submission requirements thoroughly
+            - text: . Understand what's mandatory, what's optional, and what format is expected.
+          - paragraph [ref=f3e68]: This step ensures your submission is eligible for initial review before actual judging even begins. Missing a required field, exceeding a word limit, or submitting in the wrong format can disqualify you before a judge ever sees your work. Reading carefully saves time for both you and the organizers — and prevents the frustration of being eliminated on a technicality.
+          - figure [ref=f3e69]:
+            - link "Example of Submission Requirements from AWS AI Vibe Coding Hackathon" [ref=f3e71] [cursor=pointer]:
+              - /url: https://dorahacks.io/hackathon/awsvibecoding/detail?ref=dorahacks.io#-submission-requirements
+          - heading "1. Show the Work, Not the Hype" [level=2] [ref=f3e72]
+          - paragraph [ref=f3e73]: A clear presentation of your project is essential. Judges want to understand what you built, why it matters, and how it works. They don't want to wade through vague marketing language to find the substance.
+          - paragraph [ref=f3e74]:
+            - text: If you're unsure what to write, try the
+            - strong [ref=f3e75]: "3W1H model: What is the problem you want to solve? Why does it matter? Who is it for? How does it work?"
+            - text: Answer these questions directly and concisely. Alternatively, use a question-answer format to structure your submission around the key things judges need to know. (Want some examples? Explore those winner projects at
+            - link "dorahacks.io" [ref=f3e76] [cursor=pointer]:
+              - /url: http://dorahacks.io/?ref=dorahacks.io
+            - text: from
+            - link "the AWS Vibe Coding Hackathon" [ref=f3e77] [cursor=pointer]:
+              - /url: https://dorahacks.io/hackathon/awsvibecoding/winner?ref=dorahacks.io
+            - text: and
+            - link "Somnia Data Stream Hackathon" [ref=f3e78] [cursor=pointer]:
+              - /url: https://dorahacks.io/hackathon/somnia-datastreams/winner?ref=dorahacks.io
+            - text: .)
+          - paragraph [ref=f3e79]:
+            - text: Avoid stuffing your submission with empty, grandiose claims like "this is a
+            - strong [ref=f3e80]: revolutionary
+            - text: application of AI" or "a
+            - strong [ref=f3e81]: paradigm-shifting
+            - text: solution." Whether your project is revolutionary isn't for you to decide - that's for users, the market, and the judges to determine. Let your work speak for itself. Describe what you actually built, the problem it solves, and what makes your approach interesting. Substance beats buzzwords every time.
+          - figure [ref=f3e82]:
+            - emphasis [ref=f3e84]: An example of a project without clear presentation, what problem it solves and how to solve it.
+          - heading "2. Highlight What Makes Your Project Stand Out" [level=2] [ref=f3e85]
+          - paragraph [ref=f3e86]: Judges see many submissions tackling similar problems. What makes yours different? Don't bury your most innovative or useful features in a wall of text — lead with them.
+          - paragraph [ref=f3e87]: Identify the core insight or approach that sets your project apart. Maybe it's a clever technical solution, an underserved use case you're addressing, or an unusually polished user experience for a hackathon project. Whatever it is, make it prominent in your submission. If a judge only reads your first two paragraphs, they should already understand what makes your project worth attention.
+          - paragraph [ref=f3e88]: "Think about it from the judge's perspective: after reviewing fifty submissions, what will they remember about yours? Give them something specific to hold onto."
+          - figure [ref=f3e89]
+          - heading "3. Make Your Eligibility Obvious, Especially for Sponsor Prizes" [level=2] [ref=f3e90]
+          - paragraph [ref=f3e91]:
+            - strong [ref=f3e92]: Many hackathons require participants to use specific technologies, tools, APIs, or platforms
+            - text: . If the rules mandate using a particular sponsor's API or building on a specific blockchain, make it crystal clear in your submission how you're using it.
+          - figure [ref=f3e93]:
+            - link "Example of sponsor challenges in a hackathon on dorahacks.io" [ref=f3e95] [cursor=pointer]:
+              - /url: https://dorahacks.io/hackathon/awsvibecoding/bounties?ref=dorahacks.io
+          - paragraph [ref=f3e96]: This becomes even more important when sponsor prizes are involved. Sponsors often offer separate prize pools for the best projects using their tools, and they're specifically looking for submissions that showcase their technology well. If you want to be considered for these prizes, don't make sponsors hunt for evidence of integration. Dedicate a section of your submission to explaining how you used their tool, what it enabled you to build, and why it was essential to your project.
+          - paragraph [ref=f3e97]: Don't assume judges will dig through your code to verify eligibility. Spell it out explicitly in your project description. Include screenshots, code snippets, or documentation showing the required technology in action. Even a brilliant idea won't win if it doesn't meet the eligibility criteria — and you'll miss out on sponsor prizes if reviewers can't quickly confirm your integration.
+          - separator [ref=f3e98]
+          - 'heading "Case Study: ForestGuard Agent" [level=2] [ref=f3e99]'
+          - paragraph [ref=f3e100]:
+            - text: To see these principles in action, let’s check out
+            - link "ForestGuard Agent" [ref=f3e101] [cursor=pointer]:
+              - /url: https://dorahacks.io/buidl/36215/?ref=dorahacks.io
+            - text: ", a winner from the"
+            - link "AWS Global Vibe Coding Hackathon 2025." [ref=f3e102] [cursor=pointer]:
+              - /url: https://dorahacks.io/hackathon/awsvibecoding/detail?ref=dorahacks.io
+          - figure [ref=f3e103]
+          - paragraph [ref=f3e104]:
+            - strong [ref=f3e105]: Lead with clarity, not buzzwords.
+            - text: "The project description opens with a concrete explanation: the system \"detects, verifies, and reports deforestation events in real time\" using satellite imagery, drone data, and community-submitted photos. No vague promises about \"leveraging AI\", just a clear statement of what it does."
+          - paragraph [ref=f3e106]:
+            - strong [ref=f3e107]: Show how things actually work.
+            - text: "Rather than claiming \"multi-agent intelligence\" and moving on, the team breaks down five distinct agents: Vision, Verifier, Geolocation, Packager, and Notification - each with a defined function and output. A judge reading this knows exactly what happens at every step of the pipeline."
+          - paragraph [ref=f3e108]:
+            - strong [ref=f3e109]: Make sponsor tool usage explicit.
+            - text: The team mentions "Amazon Q Developer + Kiro IDE" for agent orchestration, directly connecting their work to the hackathon's AWS sponsorship. This small detail signals eligibility and intentionality.
+          - paragraph [ref=f3e110]:
+            - strong [ref=f3e111]: Be specific about your tech stack.
+            - text: "The description lists concrete tools: React.js and Tailwind for frontend, FastAPI and Celery for backend, PostgreSQL for the database, PyTorch for ML. There's no ambiguity about what was built versus what was imagined."
+          - paragraph [ref=f3e112]:
+            - text: "The lesson:"
+            - strong [ref=f3e113]: specificity builds credibility.
+            - text: When judges can trace exactly how your system works, they trust that you actually built it.
+          - separator [ref=f3e114]
+          - heading "4. Make Everything You Submit Functional" [level=2] [ref=f3e115]
+          - paragraph [ref=f3e116]: Some hackers submit every detail as required but forget to check whether those details actually work. Your GitHub repo is private. Your demo website throws an error. Your video link is broken. The social media account you listed has been suspended. The email address has a typo.
+          - paragraph [ref=f3e117]: "These accidents happen, but they're entirely avoidable. Before you hit submit, verify everything:"
+          - list [ref=f3e118]:
+            - listitem [ref=f3e119]: Is your repository public or accessible to reviewers?
+            - listitem [ref=f3e120]: Does your demo site load correctly?
+            - listitem [ref=f3e121]: Do all your links work?
+            - listitem [ref=f3e122]: Is your video viewable without special permissions?
+            - listitem [ref=f3e123]: Are your contact details accurate and active?
+          - paragraph [ref=f3e124]: Judges can only evaluate what they can see. A broken link or inaccessible repo doesn't just make you look careless — it might mean your project never gets reviewed at all. Take ten minutes to test every link and asset before submitting.
+          - figure [ref=f3e125]
+          - separator [ref=f3e126]
+          - heading "5. Embrace the Outcome and Keep Building" [level=2] [ref=f3e127]
+          - paragraph [ref=f3e128]: Hackathons are competitions, and competitions have winners and losers. You might pour your heart into a project and walk away with nothing. It stings, but it's completely normal.
+          - paragraph [ref=f3e129]: What separates successful hackers from frustrated ones is how they respond. If you don't win, ask yourself what you learned. Did you gain new skills? Make interesting connections? Identify weaknesses in your project you can fix?
+          - paragraph [ref=f3e130]:
+            - text: If your idea makes sense, keep building. Many successful projects didn't win their first hackathon but improved through iteration and eventually found their moment. On platforms like
+            - link "DoraHacks" [ref=f3e131] [cursor=pointer]:
+              - /url: https://dorahacks.io/?ref=dorahacks.io
+            - text: ", new hackathons launch regularly, and you can easily enter with an existing project that you've continued to develop."
+          - paragraph [ref=f3e132]: Sharpen your skills, keep updating your work, and don't lose sight of why you're building in the first place. If you're solving a real problem and making consistent progress, opportunities will find you.
+          - figure [ref=f3e133]
+          - separator [ref=f3e134]
+          - heading "About DoraHacks" [level=3] [ref=f3e135]
+          - paragraph [ref=f3e136]:
+            - link "DoraHacks" [ref=f3e137] [cursor=pointer]:
+              - /url: https://dorahacks.io/?ref=dorahacks.io
+            - text: is the leading global hackathon community and open source developer incentive platform. DoraHacks provides toolkits for anyone to organize hackathons and fund early-stage ecosystem startups.
+          - paragraph [ref=f3e138]:
+            - link "DoraHacks" [ref=f3e139] [cursor=pointer]:
+              - /url: https://dorahacks.io/?ref=dorahacks.io
+            - text: creates a global hacker movement in Web3, AI, Quantum Computing and Space Tech. So far, more than 30,000 startup teams from the DoraHacks community have received over $92M in funding, and a large number of open source communities, companies and tech ecosystems are actively using DoraHacks together with its BUIDL AI capabilities for organizing hackathons and funding open source initiatives.
+          - paragraph [ref=f3e140]:
+            - link "Website" [ref=f3e141] [cursor=pointer]:
+              - /url: https://dorahacks.io/?ref=dorahacks.io
+            - text: ｜
+            - link "Twitter" [ref=f3e142] [cursor=pointer]:
+              - /url: https://twitter.com/DoraHacks?ref=dorahacks.io
+            - text: ｜
+            - link "Discord" [ref=f3e143] [cursor=pointer]:
+              - /url: https://discord.gg/gKT5DsWwQ5?ref=dorahacks.io
+            - text: ｜
+            - link "Telegram" [ref=f3e144] [cursor=pointer]:
+              - /url: https://t.me/dorahacksofficial?ref=dorahacks.io
+            - text: ｜
+            - link "Binance Live" [ref=f3e145] [cursor=pointer]:
+              - /url: https://www.binance.com/en/live/u/24985985?ref=dorahacks.io
+            - text: ｜
+            - link "Youtube" [ref=f3e146] [cursor=pointer]:
+              - /url: https://www.youtube.com/c/DoraHacksGlobal?ref=dorahacks.io
+      - complementary [ref=f3e147]:
+        - generic [ref=f3e149]:
+          - generic [ref=f3e150]:
+            - generic [ref=f3e151]:
+              - heading "Category" [level=5] [ref=f3e152]
+              - link "News" [ref=f3e153] [cursor=pointer]:
+                - /url: /blog/news
+            - generic [ref=f3e154]:
+              - heading "Published on" [level=5] [ref=f3e155]
+              - generic [ref=f3e156]: 2026/01/31
+          - generic [ref=f3e157]:
+            - heading "Share to" [level=5] [ref=f3e158]
+            - generic [ref=f3e159]:
+              - button "Share to X" [ref=f3e160] [cursor=pointer]
+              - button "Share to Telegram" [ref=f3e163] [cursor=pointer]
+              - button "Copy link" [ref=f3e166] [cursor=pointer]
+          - generic [ref=f3e169]:
+            - heading "Related" [level=5] [ref=f3e170]
+            - generic [ref=f3e171]:
+              - link "DoraHacks Hackathon Newsletter, October, 2026 I 2026-10-07" [ref=f3e172] [cursor=pointer]:
+                - /url: /blog/news/dora-hackathons
+                - generic [ref=f3e176]:
+                  - heading "DoraHacks Hackathon Newsletter, October, 2026 I" [level=4] [ref=f3e178]
+                  - generic [ref=f3e179]: 2026-10-07
+              - link "Better Gates, Better Codes, Better Randomness 2026-06-19" [ref=f3e180] [cursor=pointer]:
+                - /url: /blog/news/quantum-progress-6-18-2026
+                - generic [ref=f3e184]:
+                  - heading "Better Gates, Better Codes, Better Randomness" [level=4] [ref=f3e186]
+                  - generic [ref=f3e187]: 2026-06-19
+              - link "The Rules of Hackathon Rule-Making 2026-04-05" [ref=f3e188] [cursor=pointer]:
+                - /url: /blog/news/hackathon-rules
+                - generic [ref=f3e192]:
+                  - heading "The Rules of Hackathon Rule-Making" [level=4] [ref=f3e194]
+                  - generic [ref=f3e195]: 2026-04-05
+    - contentinfo [ref=f3e196]:
+      - generic [ref=f3e198]:
+        - generic [ref=f3e199]:
+          - link [ref=f3e200] [cursor=pointer]:
+            - /url: /
+            - img "DoraHacks" [ref=f3e202]
+          - generic [ref=f3e203]:
+            - heading "FOLLOW US" [level=3] [ref=f3e204]
+            - generic [ref=f3e205]:
+              - link [ref=f3e206] [cursor=pointer]:
+                - /url: https://twitter.com/DoraHacks
+              - link [ref=f3e209] [cursor=pointer]:
+                - /url: https://www.instagram.com/dorahacks/
+              - link [ref=f3e212] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/dorahacks/
+              - link [ref=f3e215] [cursor=pointer]:
+                - /url: https://www.facebook.com/DoraHacksGlobalHack/
+        - generic [ref=f3e218]:
+          - generic [ref=f3e219]:
+            - heading "About" [level=3] [ref=f3e220]
+            - generic [ref=f3e221]:
+              - link "Dora Research Blog" [ref=f3e222] [cursor=pointer]:
+                - /url: https://research.dorahacks.io/
+              - link "DoraHacks Blog" [ref=f3e224] [cursor=pointer]:
+                - /url: /blog
+              - link "Dora Factory" [ref=f3e226] [cursor=pointer]:
+                - /url: https://dorafactory.org/
+          - generic [ref=f3e228]:
+            - heading "Resources" [level=3] [ref=f3e229]
+            - generic [ref=f3e230]:
+              - link "Host a Hackathon" [ref=f3e231] [cursor=pointer]:
+                - /url: https://dorahacks.io/blog/guides/how-to-create-a-hackathon/
+              - link "Binance Live ↗" [ref=f3e233] [cursor=pointer]:
+                - /url: https://www.binance.com/en/live/u/24985985
+              - link "YouTube ↗" [ref=f3e235] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCApW8piYNP4T10kgenp0Mjg
+          - generic [ref=f3e237]:
+            - heading "Contact us" [level=3] [ref=f3e238]
+            - generic [ref=f3e239]:
+              - button "Report Issue" [ref=f3e240] [cursor=pointer]
+              - button "Message" [ref=f3e242] [cursor=pointer]
+              - link "Telegram ↗" [ref=f3e244] [cursor=pointer]:
+                - /url: https://t.me/dorahacksofficial
+              - link "Discord ↗" [ref=f3e246] [cursor=pointer]:
+                - /url: https://discord.gg/gKT5DsWwQ5
+              - link "Email ↗" [ref=f3e248] [cursor=pointer]:
+                - /url: mailto:hi@dorahacks.com
+      - generic [ref=f3e252]:
+        - paragraph [ref=f3e253]: © 2026 DoraHacks. All rights reserved.
+        - generic [ref=f3e254]:
+          - generic [ref=f3e255]:
+            - button "Color scheme" [ref=f3e256] [cursor=pointer]
+            - button "Color scheme" [ref=f3e259] [cursor=pointer]
+            - button "Color scheme" [ref=f3e262] [cursor=pointer]
+          - generic [ref=f3e265]:
+            - link "Code of conduct" [ref=f3e266] [cursor=pointer]:
+              - /url: /legal/code-of-conduct
+            - generic [ref=f3e267]: "|"
+            - link "Privacy policy" [ref=f3e268] [cursor=pointer]:
+              - /url: /legal/privacy
+            - generic [ref=f3e269]: "|"
+            - link "Terms of service" [ref=f3e270] [cursor=pointer]:
+              - /url: /legal/terms
+    - generic [ref=f3e273]:
+      - paragraph [ref=f3e275]:
+        - text: We use cookies to improve your experience and ensure the proper functioning of our website. By visiting the website, you agree to our
+        - link "Cookie Policy" [ref=f3e276] [cursor=pointer]:
+          - /url: /legal/cookie
+        - text: and
+        - link "Privacy Policy" [ref=f3e277] [cursor=pointer]:
+          - /url: /legal/privacy
+        - text: .
+      - generic [ref=f3e278]:
+        - button "I agree!" [ref=f3e279] [cursor=pointer]
+        - button "Reject" [ref=f3e280] [cursor=pointer]
+  - generic [ref=f3e281]:
+    - generic:
+      - generic:
+        - generic: 
+        - generic: 
+        - generic: 
+        - generic: 
+    - generic: 
+    - generic [ref=f3e282] [cursor=pointer]: Share

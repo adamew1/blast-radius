@@ -1,0 +1,10 @@
+streamlit>=1.40
+plotly>=5.24
+networkx>=3.4
+pandas>=2.2
+numpy>=2.1
+scipy>=1.14
+scikit-learn>=1.5
+requests>=2.32
+PyYAML>=6.0
+eth-utils>=5.0

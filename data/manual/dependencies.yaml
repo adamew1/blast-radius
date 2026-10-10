@@ -1,0 +1,12 @@
+# Manual dependency facts that the public APIs do NOT expose (oracles for some assets,
+# off-chain issuers/custodians, backing composition). EVERY entry carries a source URL and
+# renders in the UI with a "manual" badge so nothing is presented as if it were fetched live.
+#
+# Keyed by lowercase token symbol or contract address. Populated during Phase 1/2.
+
+tokens: {}
+# Example shape (filled in Phase 2):
+# wsteth:
+#   issuer: {name: "Lido", kind: issuer, source: "https://lido.fi"}
+#   oracle: {name: "Chainlink wstETH/ETH", address: "0x...", source: "https://data.chain.link"}
+#   backing: [{asset: "stETH", share_pct: 100, source: "https://lido.fi/scorecard"}]

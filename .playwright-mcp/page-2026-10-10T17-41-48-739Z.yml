@@ -1,0 +1,256 @@
+- generic [ref=f1e3]:
+  - generic [ref=f1e4]:
+    - banner [ref=f1e6]:
+      - generic [ref=f1e7]:
+        - generic [ref=f1e8]:
+          - link [ref=f1e9] [cursor=pointer]:
+            - /url: /
+            - img "DoraHacks" [ref=f1e11]
+          - list [ref=f1e12]:
+            - listitem [ref=f1e13]:
+              - generic [ref=f1e14] [cursor=pointer]
+            - listitem [ref=f1e20]:
+              - link "Builds" [ref=f1e21] [cursor=pointer]:
+                - /url: /build
+            - listitem [ref=f1e22]:
+              - link "Hackathons" [ref=f1e23] [cursor=pointer]:
+                - /url: /hackathon
+            - listitem [ref=f1e24]:
+              - link "find a team" [ref=f1e25] [cursor=pointer]:
+                - /url: /home/team
+                - text: find a team
+                - generic [aria-hidden] [ref=f1e26]: →
+        - generic [ref=f1e27]:
+          - button [ref=f1e29] [cursor=pointer]
+          - link [ref=f1e33] [cursor=pointer]:
+            - /url: /buidl-ai
+          - generic [ref=f1e42] [cursor=pointer]
+          - link "Log in" [ref=f1e47] [cursor=pointer]:
+            - /url: /login
+    - generic [ref=f1e50]:
+      - generic [ref=f1e53]:
+        - generic [ref=f1e58]:
+          - paragraph [ref=f1e59]: Prize Pool
+          - paragraph [ref=f1e62]:
+            - generic [ref=f1e63]: 5 700 USD
+        - generic [ref=f1e65]:
+          - generic [ref=f1e66]:
+            - generic [ref=f1e67]:
+              - generic [ref=f1e70] [cursor=pointer]:
+                - generic [ref=f1e71]: event timeline
+                - generic [ref=f1e74]: 15 hours left for submission
+              - generic [ref=f1e81]:
+                - generic [ref=f1e82]: Upcoming
+                - generic [ref=f1e87]:
+                  - generic [ref=f1e88]: Submission
+                  - generic [ref=f1e92]: 2026/10/10 11:00
+                - generic [ref=f1e93]:
+                  - generic [ref=f1e94]: Deadline
+                  - generic [ref=f1e98]: 2026/10/11 11:00
+            - generic [ref=f1e99]:
+              - generic [ref=f1e100] [cursor=pointer]: Lausanne, Vaud, Switzerland
+              - generic [ref=f1e111]:
+                - paragraph [ref=f1e112]: EPFL
+                - paragraph [ref=f1e113]: BC building, Chemin Alan Turing, 1015 Ecublens, Switzerland
+            - generic [ref=f1e114]:
+              - generic [ref=f1e115]: Hackathon Tags
+              - generic [ref=f1e122]:
+                - generic [ref=f1e123]: Blockchain
+                - generic [ref=f1e124]: AI
+                - generic [ref=f1e125]: Crypto
+                - generic [ref=f1e126]: Switzerland
+                - generic [ref=f1e127]: Solidity
+                - generic [ref=f1e128]: Wallet
+            - generic [ref=f1e129]:
+              - generic [ref=f1e130]: Platform technology
+              - generic [ref=f1e138]:
+                - generic [ref=f1e139]: EVM
+                - generic [ref=f1e141]: MoveVM
+                - generic [ref=f1e143]: Solana
+                - generic [ref=f1e145]: Wallets
+                - generic [ref=f1e147]: Risk
+            - generic [ref=f1e148]:
+              - generic [ref=f1e149]: Submission Requirements
+              - generic [ref=f1e155]: GitHub/Gitlab/Bitbucket Link Required
+          - generic [ref=f1e161]:
+            - link "BSA - EPFL" [ref=f1e162] [cursor=pointer]:
+              - /url: /org/3152/hackathon
+            - button "Message" [ref=f1e165] [cursor=pointer]
+        - heading "BSA - EPFL | The Hackathon" [level=1] [ref=f1e170]
+        - generic [ref=f1e172]:
+          - button "Submit Build" [ref=f1e174] [cursor=pointer]
+          - button "Register" [ref=f1e175] [cursor=pointer]
+      - generic [ref=f1e176]:
+        - list [ref=f1e182]:
+          - link "Details" [ref=f1e183] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/detail
+          - link "Builds" [ref=f1e185] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/build
+          - link "Hackers 6" [ref=f1e187] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/hackers
+            - generic [ref=f1e188]: Hackers
+            - generic [ref=f1e189]: "6"
+          - link "Join a Team" [ref=f1e191] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/team
+          - link "Tracks" [ref=f1e193] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/tracks
+          - link "Ask Question" [ref=f1e195] [cursor=pointer]:
+            - /url: /hackathon/bsa-the-hackathon/qa
+        - generic [ref=f1e201]:
+          - generic [ref=f1e203]:
+            - paragraph [ref=f1e204]: Outline
+            - list [ref=f1e205]:
+              - listitem [ref=f1e206]:
+                - link "The Hackathon 🔒" [ref=f1e207] [cursor=pointer]:
+                  - /url: "#the-hackathon-"
+              - listitem [ref=f1e208]:
+                - link "Prizepool" [ref=f1e209] [cursor=pointer]:
+                  - /url: "#prizepool"
+              - listitem [ref=f1e210]:
+                - link "Food 🍕" [ref=f1e211] [cursor=pointer]:
+                  - /url: "#food-"
+              - listitem [ref=f1e212]:
+                - link "Telegram" [ref=f1e213] [cursor=pointer]:
+                  - /url: "#telegram"
+              - listitem [ref=f1e214]:
+                - link "Sponsors" [ref=f1e215] [cursor=pointer]:
+                  - /url: "#sponsors"
+              - listitem [ref=f1e216]:
+                - link "Register link" [ref=f1e217] [cursor=pointer]:
+                  - /url: "#register-link"
+          - generic [ref=f1e218]:
+            - generic [ref=f1e219]:
+              - heading [level=1] [ref=f1e220]:
+                - text: The Hackathon
+                - strong [ref=f1e221]: 🔒
+              - paragraph [ref=f1e222]:
+                - text: Get ready for a
+                - strong [ref=f1e223]: 33-hour hackathon
+                - text: in
+                - link "BC Building" [ref=f1e224] [cursor=pointer]:
+                  - /url: https://plan.epfl.ch/?room==BC
+                - text: ", hosted by the"
+                - strong [ref=f1e225]: Blockchain Student Association - EPFL
+                - text: "!"
+              - paragraph [ref=f1e226]: This event is your chance to build innovative solutions in risk management and blockchain infrastructure for institutions across multiple exciting tracks, powered by industry-leading sponsors . 💡
+              - paragraph [ref=f1e227]:
+                - strong [ref=f1e228]: "Teams : You can hack solo. Max 5 persons per team. We recommend 3."
+            - generic [ref=f1e229]:
+              - heading "Prizepool" [level=1] [ref=f1e230]
+              - heading [level=2] [ref=f1e231]:
+                - strong [ref=f1e232]: 5,700 $ in prizes!
+            - generic [ref=f1e233]:
+              - heading "Food 🍕" [level=1] [ref=f1e234]
+              - paragraph [ref=f1e235]:
+                - strong [ref=f1e236]: Food & snacks provided all weekend
+                - text: to fuel your creativity
+            - generic [ref=f1e237]:
+              - heading "Telegram" [level=1] [ref=f1e238]
+              - paragraph [ref=f1e239]:
+                - text: Join the hackathon’s telegram group
+                - link "here" [ref=f1e240] [cursor=pointer]:
+                  - /url: ​https://t.me/+_SbE3kmjcYM0NGU0
+                - text: "!"
+            - generic [ref=f1e241]:
+              - heading [level=1] [ref=f1e242]:
+                - strong [ref=f1e243]: Sponsors
+              - paragraph [ref=f1e244]:
+                - strong [ref=f1e245]:
+                  - link "Belem Capital" [ref=f1e246] [cursor=pointer]:
+                    - /url: https://www.belemcapital.com/
+              - paragraph [ref=f1e247]:
+                - strong [ref=f1e248]:
+                  - link "Swissquote" [ref=f1e249] [cursor=pointer]:
+                    - /url: https://www.swissquote.ch
+            - generic [ref=f1e250]:
+              - heading [level=1] [ref=f1e251]:
+                - strong [ref=f1e252]: Register link
+              - heading [level=2] [ref=f1e253]:
+                - strong [ref=f1e254]:
+                  - text: Register for the hackathon on Luma
+                  - link "here!" [ref=f1e255] [cursor=pointer]:
+                    - /url: https://luma.com/d5gqew38
+    - contentinfo [ref=f1e256]:
+      - generic [ref=f1e258]:
+        - generic [ref=f1e259]:
+          - link [ref=f1e260] [cursor=pointer]:
+            - /url: /
+            - img "DoraHacks" [ref=f1e262]
+          - generic [ref=f1e263]:
+            - heading "FOLLOW US" [level=3] [ref=f1e264]
+            - generic [ref=f1e265]:
+              - link [ref=f1e266] [cursor=pointer]:
+                - /url: https://twitter.com/DoraHacks
+              - link [ref=f1e269] [cursor=pointer]:
+                - /url: https://www.instagram.com/dorahacks/
+              - link [ref=f1e272] [cursor=pointer]:
+                - /url: https://www.linkedin.com/company/dorahacks/
+              - link [ref=f1e275] [cursor=pointer]:
+                - /url: https://www.facebook.com/DoraHacksGlobalHack/
+        - generic [ref=f1e278]:
+          - generic [ref=f1e279]:
+            - heading "About" [level=3] [ref=f1e280]
+            - generic [ref=f1e281]:
+              - link "Dora Research Blog" [ref=f1e282] [cursor=pointer]:
+                - /url: https://research.dorahacks.io/
+              - link "DoraHacks Blog" [ref=f1e284] [cursor=pointer]:
+                - /url: /blog
+              - link "Dora Factory" [ref=f1e286] [cursor=pointer]:
+                - /url: https://dorafactory.org/
+          - generic [ref=f1e288]:
+            - heading "Resources" [level=3] [ref=f1e289]
+            - generic [ref=f1e290]:
+              - link "Host a Hackathon" [ref=f1e291] [cursor=pointer]:
+                - /url: https://dorahacks.io/blog/guides/how-to-create-a-hackathon/
+              - link "Binance Live ↗" [ref=f1e293] [cursor=pointer]:
+                - /url: https://www.binance.com/en/live/u/24985985
+              - link "YouTube ↗" [ref=f1e295] [cursor=pointer]:
+                - /url: https://www.youtube.com/channel/UCApW8piYNP4T10kgenp0Mjg
+          - generic [ref=f1e297]:
+            - heading "Contact us" [level=3] [ref=f1e298]
+            - generic [ref=f1e299]:
+              - button "Report Issue" [ref=f1e300] [cursor=pointer]
+              - button "Message" [ref=f1e302] [cursor=pointer]
+              - link "Telegram ↗" [ref=f1e304] [cursor=pointer]:
+                - /url: https://t.me/dorahacksofficial
+              - link "Discord ↗" [ref=f1e306] [cursor=pointer]:
+                - /url: https://discord.gg/gKT5DsWwQ5
+              - link "Email ↗" [ref=f1e308] [cursor=pointer]:
+                - /url: mailto:hi@dorahacks.com
+      - generic [ref=f1e312]:
+        - paragraph [ref=f1e313]: © 2026 DoraHacks. All rights reserved.
+        - generic [ref=f1e314]:
+          - generic [ref=f1e315]:
+            - button "Color scheme" [ref=f1e316] [cursor=pointer]
+            - button "Color scheme" [ref=f1e319] [cursor=pointer]
+            - button "Color scheme" [ref=f1e322] [cursor=pointer]
+          - generic [ref=f1e325]:
+            - link "Code of conduct" [ref=f1e326] [cursor=pointer]:
+              - /url: /legal/code-of-conduct
+            - generic [ref=f1e327]: "|"
+            - link "Privacy policy" [ref=f1e328] [cursor=pointer]:
+              - /url: /legal/privacy
+            - generic [ref=f1e329]: "|"
+            - link "Terms of service" [ref=f1e330] [cursor=pointer]:
+              - /url: /legal/terms
+    - generic [ref=f1e333]:
+      - paragraph [ref=f1e335]:
+        - text: We use cookies to improve your experience and ensure the proper functioning of our website. By visiting the website, you agree to our
+        - link "Cookie Policy" [ref=f1e336] [cursor=pointer]:
+          - /url: /legal/cookie
+        - text: and
+        - link "Privacy Policy" [ref=f1e337] [cursor=pointer]:
+          - /url: /legal/privacy
+        - text: .
+      - generic [ref=f1e338]:
+        - button "I agree!" [ref=f1e339] [cursor=pointer]
+        - button "Reject" [ref=f1e340] [cursor=pointer]
+  - generic [ref=f1e341]:
+    - generic:
+      - generic:
+        - generic: 
+        - generic: 
+        - generic: 
+        - generic: 
+    - generic: 
+    - generic [ref=f1e342] [cursor=pointer]: Share
