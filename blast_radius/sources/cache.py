@@ -23,6 +23,13 @@ RAW_DIR.mkdir(parents=True, exist_ok=True)
 DEFAULT_TIMEOUT = 40
 
 
+def _pace() -> None:
+    """Optional polite delay on live misses only (zero cost on cache hits)."""
+    delay = float(os.environ.get("BLAST_RADIUS_HTTP_DELAY", "0"))
+    if delay > 0:
+        time.sleep(delay)
+
+
 def _offline() -> bool:
     return os.environ.get("BLAST_RADIUS_OFFLINE", "0") == "1"
 
@@ -67,6 +74,7 @@ def cached_get(
             return hit
     if _offline():
         raise RuntimeError(f"OFFLINE: no cache for GET {url} params={params} (key={key})")
+    _pace()
     r = requests.get(url, params=params, headers=headers, timeout=DEFAULT_TIMEOUT)
     r.raise_for_status()
     data = r.json()
@@ -88,6 +96,7 @@ def cached_post(
             return hit
     if _offline():
         raise RuntimeError(f"OFFLINE: no cache for POST {url} (key={key})")
+    _pace()
     r = requests.post(url, json=json_body, headers=headers, timeout=DEFAULT_TIMEOUT)
     r.raise_for_status()
     data = r.json()
@@ -99,3 +108,18 @@ def cache_stats() -> dict:
     files = list(RAW_DIR.glob("*.json"))
     return {"dir": str(RAW_DIR), "files": len(files),
             "bytes": sum(f.stat().st_size for f in files)}
+
+
+def cached_text(url: str) -> str:
+    """Cache primary-source documentation alongside JSON API evidence."""
+    key = _key("GET_TEXT", url)
+    hit = _read(key)
+    if hit is not None:
+        return hit
+    if _offline():
+        raise RuntimeError(f"OFFLINE: no cached text for {url}")
+    _pace()
+    response = requests.get(url, timeout=DEFAULT_TIMEOUT)
+    response.raise_for_status()
+    _write(key, {"method": "GET_TEXT", "url": url, "label": "manual_map_evidence"}, response.text)
+    return response.text

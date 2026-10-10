@@ -97,7 +97,8 @@ def resolve_pendle_pt(g: DependencyGraph, pos: Node, ctx: Context, position: dic
     m = next((x for x in markets if x["address"].lower() == market.lower()), None)
     if not m:
         return []
-    md = (pendle.market_data(market, cid) or {})
+    # Scans supply the cached universe snapshot; avoid a redundant per-market request.
+    md = {} if position.get("market_snapshot") else (pendle.market_data(market, cid) or {})
     details = m.get("details") or {}
     pos.meta.update({
         "risk_category": "Yield",
@@ -151,7 +152,7 @@ def resolve_pendle_pt(g: DependencyGraph, pos: Node, ctx: Context, position: dic
 
 def resolve_morpho_vault(g: DependencyGraph, pos: Node, ctx: Context, position: dict) -> list[str]:
     cid = position.get("chain_id", 1)
-    v = morpho.vault_by_address(position["vault"], cid)
+    v = position.get("vault_snapshot") or morpho.vault_by_address(position["vault"], cid)
     if not v:
         return []
     state = v.get("state") or {}
@@ -189,6 +190,8 @@ def resolve_morpho_vault(g: DependencyGraph, pos: Node, ctx: Context, position: 
                         note=f"{expo:.1f}% of vault supplied to this market"))
         # collateral token (recurses: PT -> underlying -> issuer, or wrapper -> backing -> issuer)
         ctok = _add_token_node(g, (collat.get("address") or "").lower(), ctx)
+        if not g.node(ctok).meta.get("mapped"):
+            g.node(ctok).label = collat.get("symbol") or g.node(ctok).label
         g.add_edge(Edge(lmkt_id, ctok, dep_type="collateral", exposure_pct=100.0, source="api:morpho"))
         recurse.append(ctok)
         _add_market_oracle(g, lmkt_id, {"marketId": mk["marketId"],
@@ -215,6 +218,9 @@ def resolve_token(g: DependencyGraph, node: Node, ctx: Context) -> list[str]:
         return [und]
 
     mt = _manual_token(addr)
+    if mt.get("opaque"):
+        node.meta["unmapped"] = True
+    node.meta["estimated"] = bool(mt.get("estimated"))
     # issuer
     if mt.get("issuer"):
         iss = _manual_issuer(mt["issuer"])

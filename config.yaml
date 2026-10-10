@@ -10,6 +10,17 @@ decision:
   # Compare expected net P&L of holding (carry - expected loss) against the cost of exiting.
   tail_tolerance: 0.15        # CVaR-95 above this forces at least REDUCE even if the mean is fine
 
+# Snapshot scan universe; gross vault deposits + AMM liquidity, not unique capital.
+scan_config:
+  chain_id: 1
+  morpho_min_tvl_usd: 10000000
+  morpho_first: 200
+  pendle_min_liquidity_usd: 1000000
+  horizon_months: 12
+  n_paths: 20000
+  seed: 42
+  live_miss_delay_seconds: 0.35
+
 # Demo positions (finalized in Phase 1 from live data).
 positions:
   - id: pt-susds
