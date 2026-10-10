@@ -20,6 +20,8 @@ You hold **$1,000,000 of Elixir sdeUSD**, a yield-bearing dollar trading at peg.
 
 **Exiting on the Nov-4 signal (at $1.07) avoids a 99.7% loss** — three days before the asset you held visibly broke. A price-watcher staring at sdeUSD's own price only reacts on Nov 7, after the drop. The avoided-loss number is computed from the **real sdeUSD price series**, never assumed.
 
+![Stream Finance replay — real prices; xUSD (red) breaks first, the EXIT signal fires, then deUSD/sdeUSD collapse 3 days later](docs/replay-prices.png)
+
 ---
 
 ## What it does (three tabs)
@@ -29,6 +31,10 @@ You hold **$1,000,000 of Elixir sdeUSD**, a yield-bearing dollar trading at peg.
 | **Position** | Input a live position → interactive **dependency graph** (live-API vs manual edges) coloured by risk → per-node risk table → loss histogram → **STAY/REDUCE/EXIT** verdict with a plain-English reason → **what-if** panel that forces any dependency to fail and re-propagates. |
 | **Portfolio** | A book of up to 10 positions → **shared-dependency detection** ("5 of 10 depend on Lido") → position×dependency **exposure heatmap** → ranked actions by carry-minus-loss. |
 | **Replay: Stream Finance** | Day-by-day replay on real prices: timeline slider, per-day verdict + narrative, %-of-peg chart with the EXIT-signal marker, and the daily dependency-graph state. |
+
+Live look-through of a Pendle PT-sUSDS position — the 5 layers (settlement chain, Pendle AMM, underlying→issuer, oracle, lending market) fall out of generic recursion; node colour = share of expected loss, dashed edges = sourced manual facts:
+
+![Dependency look-through of a Pendle PT position](docs/position-graph.png)
 
 ---
 
