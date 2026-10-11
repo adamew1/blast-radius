@@ -111,15 +111,17 @@ For the previously verified scope, click **Load $1M Hakutora live example**, the
 
 Live acquisition retrieves all eight admitted Morpho vaults when direct PT positions need lending-contagion discovery. Morpho-only books retrieve their selected vaults and every funded market used by those vaults. Each shared lending market uses one canonical observation. Pendle metadata and timestamped market data are retrieved where the graph requires them. The receipt records the vault discovery scope; this is not a complete Morpho scan. User allocations are hypothetical USD amounts, not imported wallet balances.
 
+Morpho risk valuations use integer native balances and one timestamped USD price per token per run. Provider display USD fields can use inconsistent cached marks; they are preserved as evidence, rather than used to reconcile token balances. Native supply minus debt must equal liquidity within one base unit, and vault allocations must reconcile within integer rounding. The unchanged financial validator then checks the derived USD values. Missing amounts, decimals, prices or price timestamps reject the run. Risk-token prices use the selected risk window; they are separate from the execution marks below.
+
 The default quote grid requests four exact trades per selected PT (25%, 50%, 75%, 100%). The optional 5% grid requests twenty. These are subsets of the existing optimizer's candidate grid; optimality applies only to available candidates. Input tokens are rounded down to integer units, and sold notional uses that actual token amount at the fresh input mark. Outputs are never scaled or extrapolated. USD marks use Pendle provider timestamps; token decimals are checked against fresh timestamped Ethereum RPC observations. Partial quote failures remove only those sizes; no valid quote for a selected PT means risk-only analysis. Risk-only capture can also be selected explicitly.
 
 The strict live standard and command-line default remain **15 minutes for provider risk states and risk-observation skew**. At the user's request, the Live interface now opens with **Maximum risk-data age = 60 minutes**, applying that window to both age and timestamp spread. Select **15** for strict validation. Data outside the strict standard is prominently labelled **delayed risk observations**, including any indicative rescue and the receipt classification; passing the wider policy is not certification of fresh live data. Changing this setting invalidates the displayed analysis and requires a new fetch. Both the selected policy and the strict-standard result are recorded in the receipt.
 
-**USD marks, quote request times and the RPC block still expire after 2 minutes**, with **15 seconds of future-clock tolerance**. HTTP connect/read timeouts are 3.05/12 seconds with a 180-second capture budget. Limits are application policy, not provider guarantees. Missing provider timestamps, inconsistent balances, allocations that do not reconcile, inactive markets, errors and risk data outside the selected window reject analysis. Stale execution data blocks optimization while validated risk analysis remains available. Freshness is checked on each action, after solving and on a 15-second UI timer. An API outage or 429 never silently loads snapshot data; the user selects the explicit offline fallback.
+**Execution USD marks, quote request times and the RPC block still expire after 2 minutes**, with **15 seconds of future-clock tolerance**. HTTP connect/read timeouts are 3.05/12 seconds with a 180-second capture budget. Limits are application policy, not provider guarantees. Missing provider timestamps, inconsistent native balances, allocations that do not reconcile, inactive markets, errors and risk data outside the selected window reject analysis. Stale execution data blocks optimization while validated risk analysis remains available. Freshness is checked on each action, after solving and on a 15-second UI timer. An API outage or 429 never silently loads snapshot data; the user selects the explicit offline fallback.
 
 Manual wrapper/issuer relationships, token-level oracle hypotheses, transmission coefficients, aggregate recovery, residual exposure proportions, gas and cash conversion remain disclosed mappings or assumptions. Unknown collateral blocks rescue calculation. **No executable rescue plan is claimed:** the cash-conversion leg is unquoted and Morpho withdrawal queues, permissions and transactions are uncertified. Quotes are indicative observations, not guaranteed fills. Data is asynchronous, not atomic or fully live end to end. See the [pre-implementation feasibility review and API limitations](docs/LIVE_DATA_LIMITS.md).
 
-Each capture and decision saves a self-contained receipt under `artifacts/live/` and offers a download. It embeds exact HTTP requests/responses, individual retrieval times, provider freshness checks, quote sizes, mappings, catalog, assumptions and model hashes. Replay reconstructs graphs, losses and candidates offline and audits any plan at the original decision time:
+Each capture and decision saves a self-contained receipt under `artifacts/live/` and offers a download. It embeds exact HTTP requests/responses, individual retrieval times, provider freshness checks, quote sizes, mappings, catalog, assumptions and model hashes. New `blast-radius-native-live-v2` receipts also record the normalization ledger and adapter source hash; original v1 receipts remain replayable. Replay reconstructs graphs, losses and candidates offline and audits any plan at the original decision time:
 
 ```powershell
 .venv/Scripts/python.exe scripts/verify_receipt.py artifacts/live/<receipt-sha256>.json
@@ -136,7 +138,7 @@ Receipts detect local changes but are not provider signatures. Historical replay
 .venv/Scripts/python.exe scripts/verify_receipt.py
 ```
 
-Seventy-five tests include the original 47 financial regressions and 28 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
+All 89 tests passed after the native-unit correction, including the original 47 financial regressions and 42 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The new cases also test native units, inconsistent display USD marks, price expiry, adapter replay and the actual Live button. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
 
 Reproduce the modified-book audit separately:
 
@@ -187,7 +189,8 @@ flowchart LR
 `sources` captures data; `discovery` expands claims into a directed graph;
 `fire_drill/model.py`, `execution.py`, `optimize.py` and `evidence.py` calculate
 stress, admit exits, solve and record decisions. Live acquisition and replay use
-`fire_drill/live.py`; the offline cache remains separate. See [judge Q&A](JUDGE_GUIDE.md#e-technical-qa)
+`fire_drill/live.py`, with native-unit acquisition/normalization and v2 replay in
+`app/live_data.py`; the offline cache remains separate. See [judge Q&A](JUDGE_GUIDE.md#e-technical-qa)
 for model formulas and constraints. DefiLlama supports the preserved research and
 historical replay; Pendle and Morpho supply the fire-drill protocol observations.
 Source URLs remain in raw records and manual mappings. The repository uses the
@@ -207,6 +210,24 @@ rejections are retained. Replay the observations offline:
 .venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_20261011_receipt.json
 .venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_release_20261011_receipt.json
 .venv/Scripts/python.exe scripts/audit_live_reference.py
+```
+
+After fixing the USD display inconsistency, a real ten-position browser run at
+**2026-10-11 05:22:54 UTC** produced **$2,359,706.70** for the hypothetical 100%
+wstETH shock. Provider risk timestamps spanned **04:51:02–05:21:35 UTC**. It passed
+the selected **60-minute** policy, failed the strict 15-minute standard, and is
+labelled **delayed risk-only analysis**. Sixteen exact Pendle quote requests were
+captured, but incomplete manual coverage in Steakhouse USDT and Yearn OG USDC
+blocked rescue; this does not certify an end-to-end Pendle rescue. A separate
+delayed Hakutora/cbBTC run at **05:24:19 UTC** produced **$901,368.61** loss and
+**$496,292.74** accounted loss with a **45% indicative reduction**. Its 21 options
+were independently enumerated. A strict Hakutora request was rejected for stale
+vault state. [Evidence, timestamps and independent audit](artifacts/certified_live/native_normalization_audit.json).
+
+```powershell
+.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/full_book_native_delayed_20261011_receipt.json
+.venv/Scripts/python.exe scripts/audit_native_live.py artifacts/certified_live/full_book_native_delayed_20261011_receipt.json
+.venv/Scripts/python.exe scripts/audit_live_reference.py artifacts/certified_live/hakutora_native_delayed_20261011_receipt.json
 ```
 
 No universal wallet support, calibrated scenario probability, atomic live state or

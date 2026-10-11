@@ -8,8 +8,8 @@ import streamlit as st
 
 from blast_radius.fire_drill.catalog import load_catalog
 from blast_radius.fire_drill.challenge import resize_positions
-from blast_radius.fire_drill.live import (LIVE_ASSUMPTIONS, analyze_live, capture_live,
-                                          live_receipt, save_live_receipt)
+from blast_radius.fire_drill.live import LIVE_ASSUMPTIONS, analyze_live
+from app.live_data import capture_live, live_receipt, save_live_receipt
 from blast_radius.fire_drill.model import discover
 from blast_radius.fire_drill.presentation import network
 from blast_radius.portfolio.book import load_book
@@ -71,6 +71,8 @@ def rejected_morpho_inputs(run, status):
     """Describe rejected identities from the captured data, without accepting them."""
     reasons = " ".join([status["risk_error"] or ""] +
                        [r["reason"] for r in status["rejections"] if r["kind"] == "risk"]).lower()
+    if "stale or future " not in reasons:
+        return []  # Balance/identity errors must not be described as old timestamps.
     selected = {p["id"] for p in run.positions}
     rows = {}
     for p in run.catalog:
@@ -160,7 +162,7 @@ def render_live():
     if risk_minutes > 15:
         st.warning("60-minute risk-data window selected. Observations older than 15 minutes are labelled delayed; "
                    "this does not certify a fresh live analysis. Risk timestamp spread is also capped at 60 minutes. "
-                   "USD marks, exact-size quotes and RPC data still expire after two minutes.")
+                   "Execution USD marks, exact-size quotes and RPC data still expire after two minutes.")
     with st.expander("Choose supported instruments and quote sizes"):
         ids = st.multiselect("Live portfolio instruments (up to ten)", [p["id"] for p in catalog],
                              default=list(default_sizes), key="live_selected",
@@ -281,6 +283,11 @@ def render_live():
             st.write("• " + assumption)
         st.json(run.mappings)
         st.json(run.bundle)
+        if hasattr(run.client, "normalization"):
+            st.write("Morpho risk balances: native token amounts valued with one timestamped price per token. "
+                     "Reported USD display values and exact raw responses remain in the receipt. "
+                     "Risk-token prices use the selected risk-data window; execution marks retain their two-minute limit.")
+            st.json(run.client.normalization)
     rec = observation_receipt(run, analysis)
     # Timer reruns recheck freshness, but only new decisions create new files.
     decision = (run.completed_at, None if analysis is None else

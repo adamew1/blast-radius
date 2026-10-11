@@ -1,0 +1,1437 @@
+{
+  "status": "PASS",
+  "checked_at": "2026-10-11T05:25:39.551401+00:00",
+  "receipt_replays": 10,
+  "full_book": {
+    "receipt": "full_book_native_delayed_20261011_receipt.json",
+    "receipt_sha256": "24d5406420fea0a744569b496b83590ea962332673b601db93ecadb50ebd6b8a",
+    "risk_data_status": {
+      "classification": "delayed risk observations",
+      "strict_15_minute_risk_passed": false,
+      "maximum_observed_risk_age_seconds": 1912.3326711654663,
+      "risk_timestamp_spread_seconds": 1833.0,
+      "selected_risk_age_limit_seconds": 3600,
+      "selected_risk_spread_limit_seconds": 3600
+    },
+    "decision_utc": "2026-10-11T05:22:54.332671+00:00",
+    "as_of_window_utc": [
+      "2026-10-11T04:51:02+00:00",
+      "2026-10-11T05:21:35+00:00"
+    ],
+    "positions": [
+      "pt-susds",
+      "pt-susde",
+      "pt-wsteth",
+      "pt-reusd",
+      "smokehouse-usdt",
+      "steakhouse-usdt",
+      "steakhouse-eth",
+      "gauntlet-usdc-prime",
+      "hakutora-usdc",
+      "yearn-og-usdc"
+    ],
+    "native_vaults": 8,
+    "native_markets": 37,
+    "timestamped_risk_prices": 21,
+    "exact_swap_requests": 16,
+    "conditional_loss_usd": 2359706.701438907,
+    "indicative_rescue_available": false,
+    "execution_errors": [
+      "steakhouse-usdt: incomplete manually mapped dependency coverage",
+      "yearn-og-usdc: incomplete manually mapped dependency coverage"
+    ],
+    "independent_native_units_audit_passed": true
+  },
+  "hakutora": {
+    "receipt": "artifacts/certified_live/hakutora_native_delayed_20261011_receipt.json",
+    "receipt_sha256": "44de6a266beb9a8e0847f4ac0cd840355e0fa3b691ef4cfefa3b7ea36d2a960d",
+    "decision_utc": "2026-10-11T05:24:19.829578+00:00",
+    "source_timestamps_utc": [
+      "2026-10-11T04:55:35+00:00",
+      "2026-10-11T05:18:55+00:00",
+      "2026-10-11T05:18:55+00:00",
+      "2026-10-11T05:23:59+00:00"
+    ],
+    "historical_freshness_passed": true,
+    "independent_optimality_verified": true,
+    "candidates_enumerated": 21,
+    "conditional_loss_usd": 901368.6124495689,
+    "reduction": 0.45,
+    "accounted_loss_usd": 496292.73684726295,
+    "executable": false,
+    "risk_policy_seconds": 3600,
+    "strict_15_minute_risk_passed": false,
+    "classification": "delayed risk observations"
+  },
+  "browser": {
+    "checked_at": "2026-10-11T05:22:13.572048+00:00",
+    "js_errors": [],
+    "api_mocks": false,
+    "receipt": "artifacts\\live\\native_full_book_browser_receipt.json",
+    "freshness": {
+      "checked_at": "2026-10-11T05:22:54.117718+00:00",
+      "risk_usable": true,
+      "execution_usable": false,
+      "status": "risk-only",
+      "fully_live": false,
+      "executable": false,
+      "checks": [
+        {
+          "kind": "risk",
+          "label": "smokehouse-usdt",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+          "observed_at": 1791696095.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 79.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x02bb03bf55f07c3ed3eee8a25d8df60fb9d09a38db612f0e07cf5c4d3df0100d",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x04f82076dd379cf1dc479cb166324b640f6c25b0793391d79ccfcb6efb61ee7b",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xc2c53d2b868e163da71de14a5113cc2743fc9b5ad7488334720ed2846566a8f6",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xdc5333039bcf15f1237133f74d5806675d83d9cf19cfd4cfdd9be674842651bf",
+          "observed_at": 1791695147.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1027.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3758a9e2abbd67b5621f23ec482608f2f98b3c792874661ce49df7843aadcfd2",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x9105a5447f3eecdf768f04da12d580a878106e2e6b234312db2ee0f304539e35",
+          "observed_at": 1791695123.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1051.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "steakhouse-usdt",
+          "observed_at": 1791695219.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 955.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xa6a4c1f15490a1ff39d9de3a366b408dd5647a436d8b179726d3e0562aff1292",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+          "observed_at": 1791696095.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 79.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xb7843fe78e7e7fd3106a1b939645367967d1f986c2e45edb8932ad1896450877",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x45671fb8d5dea1c4fbca0b8548ad742f6643300eeb8dbd34ad64a658b2b05bca",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "steakhouse-eth",
+          "observed_at": 1791695231.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 943.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x12dbf4937132ff2c6445212519295ce9afbee3c765ba626af5b197fe6c3941a0",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+          "observed_at": 1791695147.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1027.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "gauntlet-usdc-prime",
+          "observed_at": 1791694775.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1399.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1",
+          "observed_at": 1791695159.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1015.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+          "observed_at": 1791695171.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1003.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd",
+          "observed_at": 1791695183.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 991.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xbc99de6a88904cd0e69042ad6f266e63182801f030c636507c3caf590ffd84fe",
+          "observed_at": 1791695183.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 991.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "observed_at": 1791696059.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 115.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "observed_at": 1791695171.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1003.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+          "observed_at": 1791695735.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 439.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "hakutora-usdc",
+          "observed_at": 1791694535.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1639.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "observed_at": 1791696059.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 115.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "yearn-og-usdc",
+          "observed_at": 1791696047.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 127.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x973e9dd45799efe8775417bcc420a3ab84a583587b2108985746e2fe201d0c83",
+          "observed_at": 1791695123.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1051.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xad656d430bb3d8c1469bf45c8ad4ebae1b04be04757c69fa424eec78d7b3f4dc",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "observed_at": 1791696059.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 115.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xf8c5aa31ea6b2a068a9eddb46dd110cae57bf0f12be9583a3f9a818effecba89",
+          "observed_at": 1791695147.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1027.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7",
+          "observed_at": 1791695915.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 259.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "catalog-vault-0x31a5684983eee865d943a696aac155363ba024f9",
+          "observed_at": 1791695687.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 487.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x138eec0e4a1937eb92ebc70043ed539661dd7ed5a89fb92a720b341650288a40",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x2cbfb38723a8d9a2ad1607015591a78cfe3a5949561b39bde42c242b22874ec0",
+          "observed_at": 1791695099.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1075.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x37e7484d642d90f14451f1910ba4b7b8e4c3ccdd0ec28f8b2bdb35479e472ba7",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x58e212060645d18eab6d9b2af3d56fbc906a92ff5667385f616f662c70372284",
+          "observed_at": 1791695111.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1063.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+          "observed_at": 1791695135.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1039.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "catalog-vault-0xbeefb9f61cc44895d8aec381373555a64191a9c4",
+          "observed_at": 1791694643.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1531.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+          "observed_at": 1791695735.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 439.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+          "observed_at": 1791695171.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1003.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Pendle market 0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+          "observed_at": 1791694800.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1374.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Pendle market 0x34280882267ffa6383b363e278b027be083bbe3b",
+          "observed_at": 1791694800.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1374.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Pendle market 0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+          "observed_at": 1791694800.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1374.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Pendle market 0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+          "observed_at": 1791694800.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1374.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Pendle market 0x9c560ebaf78e596cbcc27411d633a74d628dd7dc",
+          "observed_at": 1791694800.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1374.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "rpc",
+          "label": "Ethereum decimals block",
+          "observed_at": 1791696131.0,
+          "max_age_seconds": 120,
+          "age_seconds": 43.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0xdc169abe56461a2e0c034da431ac2a3ebf596094",
+          "observed_at": 1791696105.033,
+          "max_age_seconds": 120,
+          "age_seconds": 69.08471751213074,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+          "observed_at": 1791696135.007,
+          "max_age_seconds": 120,
+          "age_seconds": 39.11071753501892,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 8fc693b3df8f8aff635b217bcc5097e98249693d4df611238e87cac0e0d2cfcb",
+          "observed_at": 1791696146.2704325,
+          "max_age_seconds": 120,
+          "age_seconds": 27.84728503227234,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 2893f8a45c94a39ca4b85cbfd440634e0b542bfeb63a54a788046f812504bdd9",
+          "observed_at": 1791696146.9224288,
+          "max_age_seconds": 120,
+          "age_seconds": 27.19528865814209,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 33d5b32575b546ef9866711f6d8e4684a1646223c50cba282e14e15932681f15",
+          "observed_at": 1791696148.5073617,
+          "max_age_seconds": 120,
+          "age_seconds": 25.610355854034424,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 92841cda2e7ee0ed8bb7f5036904aa6a9e2c60700f586cf15a542a92e68fb911",
+          "observed_at": 1791696150.0323825,
+          "max_age_seconds": 120,
+          "age_seconds": 24.08533501625061,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0xb195b618ea52b77cb2a58846f452f59f8dfa9390",
+          "observed_at": 1791696135.007,
+          "max_age_seconds": 120,
+          "age_seconds": 39.11071753501892,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+          "observed_at": 1791696135.007,
+          "max_age_seconds": 120,
+          "age_seconds": 39.11071753501892,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote adad3f9d6666ace273f1620a442605c780be995d594944be1eda90c0eb06d74d",
+          "observed_at": 1791696153.2371786,
+          "max_age_seconds": 120,
+          "age_seconds": 20.880538940429688,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 39d8c5605cdfa906f0bdb9e13fc50837012fc2c5060f1dcb47acac3cec0b172f",
+          "observed_at": 1791696154.8439796,
+          "max_age_seconds": 120,
+          "age_seconds": 19.273737907409668,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 7d43779483108ea1761ca3a8b196e811ffb01e1675e03185af37748ac98af760",
+          "observed_at": 1791696156.2654042,
+          "max_age_seconds": 120,
+          "age_seconds": 17.85231328010559,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote fa68f9006e07891ac30b6a3b27f98d892dcd21e21c398d8e055e0c453bd3994f",
+          "observed_at": 1791696157.6890388,
+          "max_age_seconds": 120,
+          "age_seconds": 16.42867875099182,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0xb253eff1104802b97ac7e3ac9fdd73aece295a2c",
+          "observed_at": 1791696135.007,
+          "max_age_seconds": 120,
+          "age_seconds": 39.11071753501892,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "observed_at": 1791696150.112,
+          "max_age_seconds": 120,
+          "age_seconds": 24.005717515945435,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote a36d85eb7252f23cc537768e75167d003509b9904aa8ff1163075875a6f4f648",
+          "observed_at": 1791696161.1260593,
+          "max_age_seconds": 120,
+          "age_seconds": 12.991658210754395,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 567fdfbccbe3ae308500f1cb6eec3ef821600889746a008ac914c2105945b4c6",
+          "observed_at": 1791696162.6518524,
+          "max_age_seconds": 120,
+          "age_seconds": 11.465865135192871,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote 87b8dd15f704c23bce4c0b82f1ffca762cb3cd0e4b9fc0ef1fad5ee4c0e82d92",
+          "observed_at": 1791696164.014871,
+          "max_age_seconds": 120,
+          "age_seconds": 10.102846622467041,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote d34bb920069fd898ad50676a7004e8ee86776c5a1ac76d3f12f3527ca9f0944a",
+          "observed_at": 1791696165.538177,
+          "max_age_seconds": 120,
+          "age_seconds": 8.579540491104126,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0xecfafdc7741323a945a163ed068b5a3c43483957",
+          "observed_at": 1791696150.112,
+          "max_age_seconds": 120,
+          "age_seconds": 24.005717515945435,
+          "status": "fresh"
+        },
+        {
+          "kind": "mark",
+          "label": "USD mark 0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+          "observed_at": 1791696150.112,
+          "max_age_seconds": 120,
+          "age_seconds": 24.005717515945435,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote f90471f6b67df69fc46f47b428033a6e80797b2553aeebf89d9642a5ebedc07e",
+          "observed_at": 1791696168.1110294,
+          "max_age_seconds": 120,
+          "age_seconds": 6.006688117980957,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote c12fbb2f8258ceb1f3593de280fb38f8341d556a3aff4f859a7a5755dbdb32f7",
+          "observed_at": 1791696169.545452,
+          "max_age_seconds": 120,
+          "age_seconds": 4.572265386581421,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote f010cf413548701b976da71215e20a747ad0022526a71504a93601174a79d243",
+          "observed_at": 1791696170.3777442,
+          "max_age_seconds": 120,
+          "age_seconds": 3.739973306655884,
+          "status": "fresh"
+        },
+        {
+          "kind": "quote",
+          "label": "Quote e1eb80786146ba11d21c3eb41ac61f0ed352f246aae80b184cb54d7415a9c1a4",
+          "observed_at": 1791696171.9569325,
+          "max_age_seconds": 120,
+          "age_seconds": 2.160784959793091,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xdac17f958d2ee523a2206206994597c13d831ec7",
+          "observed_at": 1791695935.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 239.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xdc169abe56461a2e0c034da431ac2a3ebf596094",
+          "observed_at": 1791695107.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1067.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xecfafdc7741323a945a163ed068b5a3c43483957",
+          "observed_at": 1791695107.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1067.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+          "observed_at": 1791694380.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1794.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x2260fac5e5542a773aa44fbcfedf7c193bc2c599",
+          "observed_at": 1791695878.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 296.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+          "observed_at": 1791695145.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1029.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xc1906aecf868749a2dee203f59b904c0cf212140",
+          "observed_at": 1791695107.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1067.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x54c1ff361b402f66c13107421e6a431c3375ef24",
+          "observed_at": 1791695165.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1009.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee",
+          "observed_at": 1791694380.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1794.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+          "observed_at": 1791695145.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1029.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2",
+          "observed_at": 1791695935.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 239.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "observed_at": 1791695935.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 239.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+          "observed_at": 1791694380.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1794.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x68749665ff8d2d112fa859aa293f07a622782f38",
+          "observed_at": 1791695878.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 296.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "observed_at": 1791695935.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 239.11771750450134,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e",
+          "observed_at": 1791694357.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1817.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xd2af830e8cbdfed6cc11bab697bb25496ed6fa62",
+          "observed_at": 1791694262.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1912.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xdbdc1ef57537e34680b898e1febd3d68c7389bcb",
+          "observed_at": 1791695145.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1029.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+          "observed_at": 1791695107.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1067.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+          "observed_at": 1791695145.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1029.1177175045013,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3",
+          "observed_at": 1791694380.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1794.1177175045013,
+          "status": "fresh"
+        }
+      ],
+      "rejections": [],
+      "risk_error": null,
+      "execution_errors": [
+        "steakhouse-usdt: incomplete manually mapped dependency coverage",
+        "yearn-og-usdc: incomplete manually mapped dependency coverage"
+      ],
+      "as_of_window_utc": [
+        "2026-10-11T04:51:02+00:00",
+        "2026-10-11T05:21:35+00:00"
+      ],
+      "policy": {
+        "risk_seconds": 3600,
+        "mark_seconds": 120,
+        "quote_seconds": 120,
+        "rpc_seconds": 120,
+        "max_skew_seconds": 3600,
+        "future_tolerance_seconds": 15,
+        "capture_budget_seconds": 180
+      }
+    },
+    "risk_data_status": {
+      "classification": "delayed risk observations",
+      "strict_15_minute_risk_passed": false,
+      "maximum_observed_risk_age_seconds": 1912.3326711654663,
+      "risk_timestamp_spread_seconds": 1833.0,
+      "selected_risk_age_limit_seconds": 3600,
+      "selected_risk_spread_limit_seconds": 3600
+    },
+    "alerts": [
+      "Timestamped protocol observations with versioned manual dependencies and assumed costs. Model rescues are indicative: cash conversion and Morpho withdrawal execution are not certified. Full-book and Pendle live coverage has not passed certification.",
+      "60-minute risk-data window selected. Observations older than 15 minutes are labelled delayed; this does not certify a fresh live analysis. Risk timestamp spread is also capped at 60 minutes. Execution USD marks, exact-size quotes and RPC data still expire after two minutes.",
+      "Delayed risk data: oldest validated state is 31.9 minutes old. Analysis and any indicative rescue use the selected wider policy; they have not passed the strict 15-minute live standard.",
+      "Risk-only analysis. No executable rescue plan or indicative optimization is available: steakhouse-usdt: incomplete manually mapped dependency coverage; yearn-og-usdc: incomplete manually mapped dependency coverage"
+    ],
+    "scenario": {
+      "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
+      "dependency_id": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+      "severity": 1.0,
+      "aum_usd": 10000000.0,
+      "affected_capital_usd": 5000000.0,
+      "exposed_positions": 5,
+      "loss_usd": 2359706.701438907,
+      "positions": [
+        {
+          "id": "pt-susds",
+          "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+          "size_usd": 1000000,
+          "fraction": 0.0,
+          "loss_usd": 0.0,
+          "exposed": false,
+          "apy": 0.04885192845881625,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+            "issuer:sky": 0.0,
+            "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+            "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+            "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+            "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+            "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+            "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+            "pos:pt-susds": 0.0
+          },
+          "flows": []
+        },
+        {
+          "id": "pt-susde",
+          "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+          "size_usd": 1000000,
+          "fraction": 0.0,
+          "loss_usd": 0.0,
+          "exposed": false,
+          "apy": 0.050110363119241885,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "oracle:manual:Chainlink/Redstone USDe": 0.0,
+            "issuer:ethena": 0.0,
+            "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+            "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+            "amm:pendle:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e": 0.0,
+            "pos:pt-susde": 0.0
+          },
+          "flows": []
+        },
+        {
+          "id": "pt-wsteth",
+          "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+          "size_usd": 1000000,
+          "fraction": 1.0,
+          "loss_usd": 1000000.0,
+          "exposed": true,
+          "apy": 0.02131308961970535,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+            "issuer:lido": 0.0,
+            "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+            "oracle:manual:Chainlink wstETH/ETH": 0.0,
+            "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+            "amm:pendle:0x34280882267ffa6383b363e278b027be083bbe3b": 0.0,
+            "pos:pt-wsteth": 1.0
+          },
+          "flows": [
+            {
+              "parent": "pos:pt-wsteth",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 1.0,
+              "rule": "PT underlying-denominated claim, fixed discount factor",
+              "coefficient": 1.0,
+              "root_loss_fraction": 1.0,
+              "impact_usd": 1000000.0
+            }
+          ]
+        },
+        {
+          "id": "pt-reusd",
+          "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+          "size_usd": 1000000,
+          "fraction": 0.0,
+          "loss_usd": 0.0,
+          "exposed": false,
+          "apy": 0.11809523002800915,
+          "node_losses": {
+            "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+            "chain:ethereum": 0.0,
+            "issuer:re": 0.0,
+            "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+            "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+            "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+            "pos:pt-reusd": 0.0
+          },
+          "flows": []
+        },
+        {
+          "id": "smokehouse-usdt",
+          "label": "Morpho Smokehouse USDT",
+          "size_usd": 1000000,
+          "fraction": 0.09484073043223018,
+          "loss_usd": 94840.73043223018,
+          "exposed": true,
+          "apy": 0.029191443464478013,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+            "issuer:sky": 0.0,
+            "oracle:manual:Chainlink/Redstone USDe": 0.0,
+            "issuer:ethena": 0.0,
+            "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+            "issuer:lido": 0.0,
+            "issuer:etherfi": 0.0,
+            "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+            "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+            "issuer:re": 0.0,
+            "token:ethereum:0x4c9edd5852cd905f086c759e8383e09bff1e68b3": 0.0,
+            "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+            "oracle:manual:Chainlink wstETH/ETH": 0.0,
+            "issuer:wbtc_custody": 0.0,
+            "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+            "oracle:manual:Redstone/Chainlink weETH": 0.0,
+            "issuer:coinbase": 0.0,
+            "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+            "amm:pendle:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc": 0.0,
+            "token:ethereum:0x5086bf358635b81d8c47c66d1c8b9e567db70c72": 0.0,
+            "amm:pendle:0x13285bcbc27f92b47b4edb99d744c07b48c977c0": 0.0,
+            "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+            "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+            "oracle:0xe47e36457d0cf83a74ae1e45382b7a044f7abd99": 0.0,
+            "token:ethereum:0x9d39a5de30e57443bff2a8307a4256c8797a3497": 0.0,
+            "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+            "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+            "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+            "oracle:0xa66a4f03fd8031973f8c7718904ce32385f54e70": 0.0,
+            "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+            "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+            "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+            "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+            "oracle:0x631bea187ae9d90b76ccf91aa8f5e3ee1cdc0f87": 0.0,
+            "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+            "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+            "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+            "oracle:0x3464a61a68c486241fe07201c913f055bdce35bf": 0.0,
+            "token:ethereum:0xdc169abe56461a2e0c034da431ac2a3ebf596094": 0.0,
+            "oracle:0x217d6ddcdb95112c51657f6270e8c079cfdb51f0": 0.0,
+            "token:ethereum:0xecfafdc7741323a945a163ed068b5a3c43483957": 0.0,
+            "lmkt:morpho:0x3758a9e2abbd67b5621f23ec482608f2f98b3c792874661ce49df7843aadcfd2": 0.0,
+            "lmkt:morpho:0xdc5333039bcf15f1237133f74d5806675d83d9cf19cfd4cfdd9be674842651bf": 0.0,
+            "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+            "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.8052412588320916,
+            "lmkt:morpho:0x9105a5447f3eecdf768f04da12d580a878106e2e6b234312db2ee0f304539e35": 0.0,
+            "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+            "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+            "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.8115592764092302,
+            "lmkt:morpho:0xc2c53d2b868e163da71de14a5113cc2743fc9b5ad7488334720ed2846566a8f6": 0.0,
+            "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+            "lmkt:morpho:0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b": 0.0,
+            "lmkt:morpho:0x6acd18854e43f93f5a90446004c35c72a68af1ad99f08cb247782ce6457914ca": 0.0,
+            "pos:smokehouse-usdt": 0.09484073043223018
+          },
+          "flows": [
+            {
+              "parent": "pos:smokehouse-usdt",
+              "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+              "fraction_at_parent": 0.06881116525253986,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.08478883459628118,
+              "root_loss_fraction": 0.06881116525253986,
+              "impact_usd": 68811.16525253985
+            },
+            {
+              "parent": "pos:smokehouse-usdt",
+              "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+              "fraction_at_parent": 0.026029565179690323,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.03232517570875984,
+              "root_loss_fraction": 0.026029565179690323,
+              "impact_usd": 26029.565179690322
+            },
+            {
+              "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.8115592764092302,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.06881116525253986,
+              "impact_usd": 68811.16525253985
+            },
+            {
+              "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.8052412588320916,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.026029565179690323,
+              "impact_usd": 26029.565179690322
+            }
+          ]
+        },
+        {
+          "id": "steakhouse-usdt",
+          "label": "Morpho Steakhouse USDT",
+          "size_usd": 1000000,
+          "fraction": 0.350010745198171,
+          "loss_usd": 350010.745198171,
+          "exposed": true,
+          "apy": 0.023795259893371362,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+            "issuer:lido": 0.0,
+            "oracle:manual:Sky PSM (hardcoded $1)": 0.0,
+            "issuer:sky": 0.0,
+            "issuer:etherfi": 0.0,
+            "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+            "oracle:manual:Chainlink wstETH/ETH": 0.0,
+            "token:ethereum:0xdc035d45d973e3ec169d2276ddab16f1e407384f": 0.0,
+            "oracle:manual:Sky SSR / Chainlink sUSDS": 0.0,
+            "issuer:wbtc_custody": 0.0,
+            "token:ethereum:0x35fa164735182de50811e8e2e824cfb9b6118ac2": 0.0,
+            "oracle:manual:Redstone/Chainlink weETH": 0.0,
+            "issuer:coinbase": 0.0,
+            "oracle:0xc7d1fe3fbe90e8f755250ca3ce4d2ae50873d9dc": 0.0,
+            "token:ethereum:0x68749665ff8d2d112fa859aa293f07a622782f38": 0.0,
+            "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+            "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+            "oracle:0x0c426d174fc88b7a25d59945ab2f7274bf7b4c79": 0.0,
+            "token:ethereum:0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": 0.0,
+            "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+            "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+            "oracle:0xa3a7a3cefee206f9d7fe00ec3c83324ed4228411": 0.0,
+            "token:ethereum:0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": 0.0,
+            "oracle:0x9f983115741d0f7f2eae07831415057ad3de34d2": 0.0,
+            "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+            "oracle:0x008bf4b1cda0cc9f0e882e0697f036667652e1ef": 0.0,
+            "oracle:0x95db30fab9a3754e42423000df27732cb2396992": 0.0,
+            "lmkt:morpho:0xb7843fe78e7e7fd3106a1b939645367967d1f986c2e45edb8932ad1896450877": 0.0,
+            "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8": 0.8052412588320916,
+            "lmkt:morpho:0x3274643db77a064abd3bc851de77556a4ad2e2f502f4f0c80845fa8f909ecf0b": 0.0,
+            "lmkt:morpho:0x3c5a244b778095e1e1b2e44b7c2ecc9bf4fda9cd85cc22740e09205a7a4bf510": 0.0,
+            "lmkt:morpho:0xa6a4c1f15490a1ff39d9de3a366b408dd5647a436d8b179726d3e0562aff1292": 0.0,
+            "lmkt:morpho:0x4fe72543c5c95cd6b5f3cb516cd235ba882e2e705fe3424db6f99dfe5811d0d3": 0.0,
+            "lmkt:morpho:0xa921ef34e2fc7a27ccc50ae7e4b154e16c9799d3387076c421423ef52ac4df99": 0.0,
+            "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2": 0.8115592764092302,
+            "pos:steakhouse-usdt": 0.350010745198171
+          },
+          "flows": [
+            {
+              "parent": "pos:steakhouse-usdt",
+              "child": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+              "fraction_at_parent": 0.3283764450851652,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.40462410403104165,
+              "root_loss_fraction": 0.3283764450851652,
+              "impact_usd": 328376.4450851652
+            },
+            {
+              "parent": "pos:steakhouse-usdt",
+              "child": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+              "fraction_at_parent": 0.021634300113005746,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.026866854965161335,
+              "root_loss_fraction": 0.021634300113005746,
+              "impact_usd": 21634.300113005746
+            },
+            {
+              "parent": "lmkt:morpho:0xe7e9694b754c4d4f7e21faf7223f6fa71abaeb10296a4c43a54a7977149687d2",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.8115592764092302,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.3283764450851652,
+              "impact_usd": 328376.4450851652
+            },
+            {
+              "parent": "lmkt:morpho:0x6a57d77b9a173c5ed10d432e7009dd1ee9a97fac62a7bc970b4bd715e2fff5c8",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.8052412588320916,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.021634300113005746,
+              "impact_usd": 21634.300113005746
+            }
+          ]
+        },
+        {
+          "id": "steakhouse-eth",
+          "label": "Morpho Steakhouse ETH",
+          "size_usd": 1000000,
+          "fraction": 0.8310362960671651,
+          "loss_usd": 831036.2960671651,
+          "exposed": true,
+          "apy": 0.014888511655818705,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+            "issuer:lido": 0.0,
+            "issuer:coinbase": 0.0,
+            "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+            "oracle:manual:Chainlink wstETH/ETH": 0.0,
+            "oracle:0x998eaa364282ad9ac33f934e97bef3d660389366": 0.0,
+            "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+            "oracle:0xbd60a6770b27e084e8617335dde769241b0e71d8": 0.0,
+            "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+            "lmkt:morpho:0x12dbf4937132ff2c6445212519295ce9afbee3c765ba626af5b197fe6c3941a0": 0.0,
+            "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d": 0.8469715838518228,
+            "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e": 0.8297014456158663,
+            "pos:steakhouse-eth": 0.8310362960671651
+          },
+          "flows": [
+            {
+              "parent": "pos:steakhouse-eth",
+              "child": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+              "fraction_at_parent": 0.6812487133887501,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.8210769271145195,
+              "root_loss_fraction": 0.6812487133887501,
+              "impact_usd": 681248.7133887501
+            },
+            {
+              "parent": "pos:steakhouse-eth",
+              "child": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+              "fraction_at_parent": 0.14978758267841494,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.17685077697319795,
+              "root_loss_fraction": 0.14978758267841494,
+              "impact_usd": 149787.58267841494
+            },
+            {
+              "parent": "lmkt:morpho:0xb8fc70e82bc5bb53e773626fcc6a23f7eefa036918d7ef216ecfb1950a94a85e",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.8297014456158663,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.6812487133887501,
+              "impact_usd": 681248.7133887501
+            },
+            {
+              "parent": "lmkt:morpho:0xd0e50cdac92fe2172043f5e0c36532c6369d24947e40968f34a5e8819ca9ec5d",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.8469715838518228,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.14978758267841494,
+              "impact_usd": 149787.58267841494
+            }
+          ]
+        },
+        {
+          "id": "gauntlet-usdc-prime",
+          "label": "Morpho Gauntlet USDC Prime",
+          "size_usd": 1000000,
+          "fraction": 0.08381892974134098,
+          "loss_usd": 83818.92974134098,
+          "exposed": true,
+          "apy": 0.04289955749463062,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+            "issuer:lido": 0.0,
+            "issuer:wbtc_custody": 0.0,
+            "token:ethereum:0xae7ab96520de3a18e5e111b5eaab095312d7fe84": 0.0,
+            "oracle:manual:Chainlink wstETH/ETH": 0.0,
+            "issuer:coinbase": 0.0,
+            "oracle:0xf1561bc4b3d1ba49053986fb9ee88d4fe22d0cf4": 0.0,
+            "token:ethereum:0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": 0.0,
+            "oracle:0xe087ad7fe989cf63f8383579d160a20ee7e69f9f": 0.0,
+            "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": 1.0,
+            "oracle:0x0f948cba8231db7898ef36a4212581ad7b1b4580": 0.0,
+            "token:ethereum:0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 0.0,
+            "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+            "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+            "oracle:0xdddd770badd886df3864029e4b377b5f6a2b6b83": 0.0,
+            "lmkt:morpho:0x09dc9e7eb5d8fc54b2bc41d1135fd4e99057a580f680321faeb90c7a21e631c1": 0.0,
+            "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8": 0.90171384001224,
+            "lmkt:morpho:0x94b823e6bd8ea533b4e33fbc307faea0b307301bc48763acc4d4aa4def7636cd": 0.0,
+            "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+            "lmkt:morpho:0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49": 0.0,
+            "pos:gauntlet-usdc-prime": 0.08381892974134098
+          },
+          "flows": [
+            {
+              "parent": "pos:gauntlet-usdc-prime",
+              "child": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+              "fraction_at_parent": 0.08381892974134098,
+              "rule": "disjoint funded allocation",
+              "coefficient": 0.09295513279490443,
+              "root_loss_fraction": 0.08381892974134098,
+              "impact_usd": 83818.92974134098
+            },
+            {
+              "parent": "lmkt:morpho:0x7e585a933ffe8443c371b4f8cfeb4430f5f6a14c2f32a898c26662c67a1cb8b8",
+              "child": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+              "fraction_at_parent": 0.90171384001224,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.08381892974134096,
+              "impact_usd": 83818.92974134097
+            }
+          ]
+        },
+        {
+          "id": "hakutora-usdc",
+          "label": "Morpho Hakutora USDC",
+          "size_usd": 1000000,
+          "fraction": 0.0,
+          "loss_usd": 0.0,
+          "exposed": false,
+          "apy": 0.03812447272495408,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "issuer:coinbase": 0.0,
+            "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+            "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 0.0,
+            "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.0,
+            "pos:hakutora-usdc": 0.0
+          },
+          "flows": []
+        },
+        {
+          "id": "yearn-og-usdc",
+          "label": "Morpho Yearn OG USDC",
+          "size_usd": 1000000,
+          "fraction": 0.0,
+          "loss_usd": 0.0,
+          "exposed": false,
+          "apy": 0.0667909600743519,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "issuer:infinifi": 0.0,
+            "issuer:threejane": 0.0,
+            "token:ethereum:0x48f9e38f3070ad8945dfeae3fa70987722e3d89c": 0.0,
+            "token:ethereum:0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": 0.0,
+            "issuer:origin": 0.0,
+            "token:ethereum:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc": 0.0,
+            "amm:pendle:0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e": 0.0,
+            "oracle:0x637060c43e0bf6ab68ab59e7ad72cee45ce84ad5": 0.0,
+            "token:ethereum:0x0bc529c00c6401aef6d220be8c6ea1667f6ad93e": 0.0,
+            "oracle:0xd2cc46b9b2d761502ef933320ecf0268ec0dfa6d": 0.0,
+            "token:ethereum:0xdbdc1ef57537e34680b898e1febd3d68c7389bcb": 0.0,
+            "oracle:0xe8adff9117151fb5ad7313873780b87cc56eedb0": 0.0,
+            "token:ethereum:0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3": 0.0,
+            "oracle:0x68b4c2b2b2e245ab54a3bd55dfd5a9d84f029c06": 0.0,
+            "oracle:0xe5e6ec063e63a9d0c6ac041d0ad2bd03f7f08d72": 0.0,
+            "token:ethereum:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d": 0.0,
+            "lmkt:morpho:0x973e9dd45799efe8775417bcc420a3ab84a583587b2108985746e2fe201d0c83": 0.0,
+            "lmkt:morpho:0xbbf7ce1b40d32d3e3048f5cf27eeaa6de8cb27b80194690aab191a63381d8c99": 0.0,
+            "lmkt:morpho:0xb8fef900b383db2dbbf4458c7f46acf5b140f26d603a6d1829963f241b82510e": 0.0,
+            "lmkt:morpho:0xe3df58f9d3011b7481ff36b939fa5f8da642f34ea5792d25d3958dbf1efa26d7": 0.0,
+            "lmkt:morpho:0xf8c5aa31ea6b2a068a9eddb46dd110cae57bf0f12be9583a3f9a818effecba89": 0.0,
+            "pos:yearn-og-usdc": 0.0
+          },
+          "flows": []
+        }
+      ]
+    },
+    "snapshot_baseline_passed": true
+  },
+  "tests": {
+    "executed": 89,
+    "passed": 89,
+    "failed": 0
+  }
+}

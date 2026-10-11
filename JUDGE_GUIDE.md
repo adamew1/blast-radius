@@ -128,7 +128,7 @@ market, shows its provider timestamp and age, and marks the validated timestamp
 window as partial. The original ten-position book can still be selected manually;
 its complete live coverage remains uncertified.
 
-Strict certification policy: provider risk states ≤900 seconds; USD marks, quote
+Strict certification policy: provider risk states and risk-token prices ≤900 seconds; execution USD marks, quote
 request times and RPC block ≤120 seconds; risk skew ≤900 seconds; future tolerance 15 seconds. Freshness
 is checked on actions, after solving and every 15 seconds in the UI. Captures are
 asynchronous. SDK quote times are request times, not atomic on-chain state times.
@@ -147,6 +147,24 @@ list in a Morpho-only run is metadata, not a certified Pendle financial analysis
 The detailed evidence and model assumptions are in
 [the historical run report](artifacts/certified_live/REFERENCE_RUN.md) and
 [Live API limitations](docs/LIVE_DATA_LIMITS.md).
+
+The subsequent native-unit correction completed a real **delayed risk-only**
+ten-position browser analysis at **05:22:54 UTC**: wstETH 100%, **$2,359,706.70**
+loss, risk timestamps **04:51:02–05:21:35 UTC**, accepted by the selected 60-minute
+policy, **not** by the strict 15-minute standard. Eight vaults, 37 markets and 21
+risk prices passed a separate native-unit audit. Incomplete manual coverage in
+Steakhouse USDT and Yearn OG USDC blocked rescue. All 16 exact Pendle quote requests
+were captured; complete fresh Pendle/rescue certification is still absent.
+
+To demonstrate this bounded analysis, keep the original ten positions in Live
+Mode, select **60**, then **Fetch fresh data & discover**. Explain the **delayed**
+and **risk-only** warnings. Subsequent requests may reject as observations age.
+For a delayed Hakutora demonstration, load the example, explicitly change its
+reset **15** setting to **60**, then fetch and calculate. The recorded **05:24:19**
+run produced **$901,368.61** loss and **$496,292.74** accounted loss with a 45%
+indicative reduction. This is not new strict live certification. Exact evidence
+and replay commands: [normalization audit](artifacts/certified_live/native_normalization_audit.json)
+and [README](README.md#live-mode).
 
 ## E. Technical Q&A
 

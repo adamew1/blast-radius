@@ -46,13 +46,8 @@ def main():
             page.get_by_role('button', name='FIND MY WEAKEST POINT').wait_for()
             expect(page.get_by_role('radio', name='Snapshot Mode', exact=True)).to_be_checked()
             page.get_by_text('Live Mode', exact=True).click()
-            page.get_by_text('Choose supported instruments and quote sizes', exact=True).click()
-            picker = page.locator('[data-testid="stMultiSelect"]').first
-            picker.get_by_role('button', name='Clear all', exact=True).click()
-            picker.get_by_role('combobox').fill('Hakutora')
-            page.get_by_role('option', name='Morpho Hakutora USDC', exact=True).click()
-            page.keyboard.press('Escape')
-            page.get_by_role('spinbutton', name='Morpho Hakutora USDC', exact=True).wait_for()
+            page.get_by_role('button', name='Load $1M Hakutora live example', exact=True).click()
+            expect(page.get_by_role('combobox', name='Maximum risk-data age (minutes)')).to_have_value('15')
             expect(page.locator('[data-testid="stStatusWidget"]')).not_to_be_visible()
             page.get_by_role('button', name='Fetch fresh data & discover', exact=True).click()
             page.get_by_role('button', name='Download live observation receipt').wait_for(timeout=210000)
@@ -70,7 +65,7 @@ def main():
             expect(page.locator('[data-testid="stJson"]').filter(has_text='indicative model rescue; not executable')).to_be_visible()
             with page.expect_download() as result:
                 page.get_by_role('button', name='Download live observation receipt').click()
-            path = ROOT/'artifacts/certified_live/hakutora_browser_20261011_receipt.json'
+            path = ROOT/'artifacts/live/release_hakutora_browser_receipt.json'
             result.value.save_as(str(path))
             verify(path)
             rec = json.loads(path.read_text(encoding='utf-8'))
@@ -108,7 +103,7 @@ def main():
         page.get_by_role('button', name='Download live observation receipt').wait_for(timeout=210000)
         with page.expect_download() as result:
             page.get_by_role('button', name='Download live observation receipt').click()
-        path = ROOT/'artifacts/certified_live/browser_full_book_receipt.json'
+        path = ROOT/'artifacts/live/release_full_book_browser_receipt.json'
         result.value.save_as(str(path))
         verify(path)
         full = json.loads(path.read_text(encoding='utf-8'))

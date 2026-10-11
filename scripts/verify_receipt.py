@@ -18,8 +18,8 @@ from blast_radius.portfolio.book import load_book
 
 def verify(path):
     rec = json.loads(Path(path).read_text(encoding="utf-8"))
-    if rec.get("receipt_schema") == "blast-radius-live-v1":
-        from blast_radius.fire_drill.live import verify_live_receipt
+    if rec.get("receipt_schema") in ("blast-radius-live-v1", "blast-radius-native-live-v2"):
+        from app.live_data import verify_live_receipt
         verify_live_receipt(rec)
         if "risk_data_status" in rec:
             status = rec["analysis"]["freshness"] if rec["analysis"] else rec["freshness_at_capture"]

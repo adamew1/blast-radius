@@ -10,8 +10,8 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
 from blast_radius.fire_drill.catalog import load_catalog
-from blast_radius.fire_drill.live import (analyze_live, capture_live, live_receipt,
-                                         save_live_receipt, verify_live_receipt)
+from blast_radius.fire_drill.live import analyze_live
+from app.live_data import capture_live, live_receipt, save_live_receipt, verify_live_receipt
 from blast_radius.fire_drill.model import discover
 from blast_radius.sources.live import utc
 

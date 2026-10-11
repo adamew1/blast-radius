@@ -8,8 +8,8 @@ USD amounts, not wallet balances. No arbitrary address import is supported.
 
 | Input | Refreshable observation | Remaining boundary |
 |---|---|---|
-| Morpho vault | Funded allocations, total assets, net APY, state timestamp/block | Vault V1 schema only; no V2 adapter discovery |
-| Morpho market | Collateral identity/value, debt, supply, liquidity, APYs, oracle address, timestamp/block | Aggregate balance sheet; no borrower liquidation simulation |
+| Morpho vault | Native funded allocations and total assets, net APY, state timestamp/block, timestamped asset price | Vault V1 schema only; no V2 adapter discovery |
+| Morpho market | Native collateral, debt, supply and liquidity, token decimals and timestamped prices, APYs, oracle address, timestamp/block | Aggregate balance sheet; no borrower liquidation simulation |
 | Pendle market | Active membership, PT/SY/underlying identity, pool liquidity, APY, expiry, data timestamp | Active universe only; expired/unlisted holdings must be rejected |
 | Pendle assets | USD marks, provider price times, decimals | Marks can lag a newly retrieved response |
 | Token decimals | Fresh RPC eth_call at a timestamped block | RPC/API mismatch must reject the quote |
@@ -161,3 +161,68 @@ Primary references checked:
 - https://docs.morpho.org/developers/api/get-started/ (schema evolution, limits, no SLA)
 - https://docs.pendle.finance/pendle-v2-dev/Backend/ApiOverview (CU limits, pagination)
 - https://docs.pendle.finance/pendle-v2/Developers/Backend/HostedSdk (Convert migration)
+
+## Native-unit correction (2026-10-11, 05:22 UTC)
+
+**Original issue and consequence.** The higher age limit exposed a distinct
+valuation problem. At 05:00:57, Smokehouse's PT-sUSDS/USDT market reported supply
+$5,155,328.55264408, debt $4,300,831.227781188 and liquidity $854,482.7707639054.
+The USD identity missed by $14.5541, beyond the $5.1553 tolerance. Other markets
+and a vault total showed similar display-price drift. The correctly conservative
+validator rejected these inputs. The failing v1 capture is preserved as
+`artifacts/certified_live/usd_display_mismatch_20261011_receipt.json`.
+
+**Fix.** The free Morpho GraphQL API also exposes native balances, token decimals
+and `asset.price { usd timestamp }`. The new acquisition adapter computes USD
+values from these observations, reusing one observed price per token across
+vaults and shared markets. For the same market, native supply 5,159,678,817,474
+minus debt 4,304,463,879,720 equals liquidity 855,214,937,754 exactly (six decimals).
+Native balance reconciliation allows at most one base unit for market rounding;
+vault total versus allocation rounding allows at most one base unit per funded
+allocation. A larger native gap, unreported idle funds or missing fields still
+rejects. The original USD validator, loss model and optimizer are unchanged.
+Yahoo market prices cannot replace protocol allocations, debt or collateral;
+no generic market-feed fallback is used. Morpho REST native-state and price
+endpoints were also probed; GraphQL already supplies the required fields together.
+
+Risk-token price timestamps are material risk observations, subject to the
+selected 15/60-minute age **and spread** policy and checked again at decision
+time. They are not execution marks: Pendle execution marks, quotes and RPC retain
+their 120-second limits. The new v2 receipt preserves the exact raw responses,
+reported display USD values, native balances, selected prices and derivation
+ledger, plus a hash of `app/live_data.py`. Replay reruns that adapter and the
+unchanged financial engine. Archived v1 and Snapshot source hashes still match.
+
+**Actual validation.** All **89 tests passed**, including eight new native/API/UI
+regressions. Separate Decimal calculations check native balances, decimal
+scaling, raw source prices and the normalization ledger without importing product
+financial code. The baseline and both alternative-portfolio independent audits
+passed unchanged. All ten packaged live success/rejection receipts replayed.
+
+The real browser run at **05:22:54 UTC** covered the original ten $1M positions,
+eight vaults, 37 markets and 21 risk-token prices, with **16 exact Pendle swap
+requests**. The hypothetical 100% wstETH loss was **$2,359,706.70**. Risk provider
+timestamps spanned **04:51:02–05:21:35**; oldest risk age was **1,912.33 seconds**,
+spread **1,833 seconds**. It passed the selected 3,600-second policy, **failed
+strict 900-second certification**, and was labelled delayed risk-only analysis.
+Incomplete manual coverage in Steakhouse USDT and Yearn OG USDC prohibited rescue.
+No JavaScript errors occurred, receipt download/replay passed, and one-click
+Snapshot fallback reproduced the original rescue.
+
+A separate **05:24:19 UTC** Hakutora/cbBTC run under the explicit 60-minute policy
+completed the optimizer: loss **$901,368.61**, 45% indicative reduction, accounted
+loss **$496,292.74**. Vault timestamp **04:55:35**, market **05:23:59**, USDC/cbBTC
+prices **05:18:55**. It passed the selected policy, **not** strict certification;
+an independent Decimal reconstruction exhaustively checked all 21 options.
+At **05:23:34 UTC**, the strict Hakutora attempt correctly rejected the same
+04:55:35 vault state (age 1,679.4 seconds). No stale substitution was performed.
+
+User allocations, dependency mappings, transmission/recovery, unchanged residual
+mix, gas and cash conversion remain hypothetical or assumed. Withdrawal
+execution and conversion are uncertified; the complete ten-position fresh
+end-to-end workflow remains uncertified. See
+`artifacts/certified_live/native_normalization_audit.json` and the distinctly named
+native delayed/strict-rejected receipts. Historical replay is not fresh analysis.
+
+Native field references: [Morpho markets API](https://docs.morpho.org/developers/api/morpho/)
+and [Morpho vaults API](https://docs.morpho.org/developers/api/morpho-vaults/).

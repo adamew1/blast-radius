@@ -225,3 +225,35 @@ external publication is performed in this pass.**
 - [ ] Team: install dependencies and rehearse on the presentation laptop before travel.
 
 No external submission or publication is authorized or performed by this report.
+
+## Follow-up: native Morpho valuation correction, 11 October 2026
+
+The release results above describe the original hardening pass. A subsequent
+user-reported Live failure was traced to inconsistent cached USD display prices,
+despite exact native supply/debt/liquidity reconciliation. Acquisition now derives
+USD values from observed native integers, decimals and one timestamped price per
+token. Financial formulas, original USD tolerances, shared liquidity constraints
+and the optimizer are unchanged. Raw evidence and derivations are preserved in
+versioned v2 receipts, with a separate adapter hash; old receipts still replay.
+
+Newly executed validation: **89/89 tests**, baseline independent enumeration,
+catalog and Portfolio Challenge audits, independent native balance/price audit,
+independent 21-option Hakutora optimization reconstruction, all **10 packaged live
+receipt replays**, and a real browser default fetch/download/Snapshot recovery
+with no JavaScript errors. The original $2,361,622.14 / $498,999.85 Snapshot result
+and independently audited alternative scenarios are unchanged.
+
+Actual new API evidence: full ten-position wstETH risk analysis at **05:22:54 UTC**,
+loss **$2,359,706.70**, source window **04:51:02–05:21:35 UTC**; selected 60-minute
+policy passed, strict 15-minute policy failed. The result is **delayed risk-only**,
+with rescue blocked by incomplete manual coverage. Sixteen exact Pendle quotes
+were captured, without certifying a full fresh rescue. Delayed Hakutora/cbBTC at
+**05:24:19 UTC** yielded **$901,368.61** loss, **45% indicative reduction** and
+**$496,292.74** accounted loss; selected policy passed and strict certification
+failed. A strict request was safely rejected for stale vault state.
+
+Detailed cause, consequences, fix and independent checks:
+[Live limits](docs/LIVE_DATA_LIMITS.md#native-unit-correction-2026-10-11-0522-utc).
+Exact observations and timestamps:
+[native audit](artifacts/certified_live/native_normalization_audit.json).
+Readiness remains **PASS WITH LIMITATIONS**; no execution or publication is claimed.

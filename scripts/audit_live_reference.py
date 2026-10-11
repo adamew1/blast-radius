@@ -11,6 +11,7 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
 D = lambda value: Decimal(str(value))
 
 
@@ -26,6 +27,9 @@ def audit(path):
     rec = json.loads(path.read_text(encoding='utf-8'))
     payload = {k: v for k, v in rec.items() if k != 'receipt_sha256'}
     assert hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest() == rec['receipt_sha256']
+    if rec['receipt_schema'] == 'blast-radius-native-live-v2':
+        from scripts.audit_native_live import audited_view
+        rec = audited_view(rec)
     assert len(rec['portfolio']) == 1 and rec['portfolio'][0]['id'] == 'hakutora-usdc'
     analysis, position = rec['analysis'], rec['portfolio'][0]
     assert analysis['scenario']['dependency_id'] == 'token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf'
@@ -51,6 +55,8 @@ def audit(path):
     close(sum(D(a['supplyAssetsUsd']) for a in state['allocation']), total, 'allocation reconciliation')
     loss, capacities, claims = D(0), {}, {}
     times = [seconds(state['timestamp'])]
+    if 'normalization' in rec:
+        times.extend(mark['timestamp'] for mark in rec['normalization']['prices'].values())
     for allocation in state['allocation']:
         claim = D(allocation['supplyAssetsUsd'])
         if not claim:
@@ -69,7 +75,8 @@ def audit(path):
         loss += size*claim/total*impairment
     decision = analysis['analyzed_at']
     policy = rec['policy']
-    assert policy['risk_seconds'] == 900 and policy['max_skew_seconds'] == 900
+    assert policy['risk_seconds'] == policy['max_skew_seconds']
+    assert policy['risk_seconds'] in ((900, 3600) if 'normalization' in rec else (900,))
     assert all(-policy['future_tolerance_seconds'] <= decision-t <= policy['risk_seconds'] for t in times)
     assert max(times)-min(times) <= policy['max_skew_seconds']
     assert {c['observed_at'] for c in analysis['freshness']['checks']} == set(times)
@@ -110,12 +117,18 @@ def audit(path):
         assert mid not in by_market and 0 <= amount <= claims[mid] and amount <= capacities[mid]
         by_market[mid] = amount
     close(sum(by_market.values()), sold, 'withdrawal funding')
-    return {'receipt': path.relative_to(ROOT).as_posix(), 'receipt_sha256': rec['receipt_sha256'],
+    result = {'receipt': path.relative_to(ROOT).as_posix(), 'receipt_sha256': rec['receipt_sha256'],
             'decision_utc': datetime.fromtimestamp(decision, timezone.utc).isoformat(),
             'source_timestamps_utc': [datetime.fromtimestamp(t, timezone.utc).isoformat() for t in times],
             'historical_freshness_passed': True, 'independent_optimality_verified': True,
             'candidates_enumerated': len(options), 'conditional_loss_usd': float(loss),
             'reduction': float(fraction), 'accounted_loss_usd': float(accounted), 'executable': False}
+    if 'normalization' in rec:
+        strict = all(decision-t <= 900 for t in times) and max(times)-min(times) <= 900
+        assert strict == rec['risk_data_status']['strict_15_minute_risk_passed']
+        result.update(risk_policy_seconds=policy['risk_seconds'], strict_15_minute_risk_passed=strict,
+                      classification=rec['risk_data_status']['classification'])
+    return result
 
 
 if __name__ == '__main__':
