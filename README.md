@@ -10,6 +10,11 @@ Blast Radius discovers shared DeFi dependencies, lets you stress them, and price
 
 **DISCOVER → ATTACK → COLLAPSE → RESCUE → PROVE**
 
+**Final release:** [JUDGE_GUIDE.md](JUDGE_GUIDE.md) has exact clicks, expected
+figures, technical answers and recovery. [RELEASE_REPORT.md](RELEASE_REPORT.md)
+records newly executed validation and remaining submission actions. The older
+`JUDGE_READINESS.md` preserves the earlier financial correction history.
+
 - **Find My Weakest Point:** recursively discover and canonically deduplicate dependencies; rank shared points by conditional damage. The bundled book reveals **wstETH under five positions**, a Pendle PT and four Morpho vaults. The result is computed, not selected in advance. Ethereum is excluded from the shared-point reveal because settlement-chain exposure is trivial; it remains selectable.
 - **Attack and collapse:** select any discovered dependency and vary its intrinsic shock from 0–100%. Actual contributing paths animate; inspectors explain their exposure and attributed loss. Animation conveys causal order, not incident time.
 - **Build Rescue Plan:** minimize execution costs, a conversion reserve and thirty-day foregone carry on a 5% grid, respecting available quotes, funded claims, shared market liquidity and position locks. Infeasible and unresolved results are distinguished.
@@ -96,7 +101,29 @@ python -m venv .venv
 .venv/Scripts/python.exe -m streamlit run app/Home.py --browser.gatherUsageStats false
 ```
 
-Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. The main app forces `BLAST_RADIUS_OFFLINE=1`; no CDN, wallet, key or network request is required during the demo.
+Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. **Snapshot Mode** is the default and forces the historical clients offline; no CDN, wallet, key or network request is required during the demo. Live Mode uses a separate request client and never reads or overwrites the frozen response cache.
+
+## Live Mode
+
+Select **Live Mode**, choose up to ten instruments from the same 14-instrument catalog, then click **Fetch fresh data & discover**. Discover shared dependencies, select an attack and severity, inspect the recalculated losses and collapse paths, and calculate an **indicative model rescue** when all required observations pass validation. **Use offline Snapshot Mode** returns to the validated demonstration in one click.
+
+Live acquisition retrieves all eight admitted Morpho vaults when direct PT positions need lending-contagion discovery. Morpho-only books retrieve their selected vaults and every funded market used by those vaults. Each shared lending market uses one canonical observation. Pendle metadata and timestamped market data are retrieved where the graph requires them. The receipt records the vault discovery scope; this is not a complete Morpho scan. User allocations are hypothetical USD amounts, not imported wallet balances.
+
+The default quote grid requests four exact trades per selected PT (25%, 50%, 75%, 100%). The optional 5% grid requests twenty. These are subsets of the existing optimizer's candidate grid; optimality applies only to available candidates. Input tokens are rounded down to integer units, and sold notional uses that actual token amount at the fresh input mark. Outputs are never scaled or extrapolated. USD marks use Pendle provider timestamps; token decimals are checked against fresh timestamped Ethereum RPC observations. Partial quote failures remove only those sizes; no valid quote for a selected PT means risk-only analysis. Risk-only capture can also be selected explicitly.
+
+Freshness policy is **15 minutes for provider risk states**, **2 minutes for USD marks, quote request times and the RPC block**, at most **15 minutes of risk-observation skew**, and **15 seconds of future-clock tolerance**. HTTP connect/read timeouts are 3.05/12 seconds with a 180-second capture budget. Limits are application policy, not provider guarantees. Missing provider timestamps, inconsistent balances, allocations that do not reconcile, inactive markets, errors and stale risk data reject analysis. Stale execution data blocks optimization while fresh risk analysis remains available. Freshness is checked on each action, after solving and on a 15-second UI timer. An API outage or 429 never silently loads snapshot data; the user selects the explicit offline fallback.
+
+Manual wrapper/issuer relationships, token-level oracle hypotheses, transmission coefficients, aggregate recovery, residual exposure proportions, gas and cash conversion remain disclosed mappings or assumptions. Unknown collateral blocks rescue calculation. **No executable rescue plan is claimed:** the cash-conversion leg is unquoted and Morpho withdrawal queues, permissions and transactions are uncertified. Quotes are indicative observations, not guaranteed fills. Data is asynchronous, not atomic or fully live end to end. See the [pre-implementation feasibility review and API limitations](docs/LIVE_DATA_LIMITS.md).
+
+Each capture and decision saves a self-contained receipt under `artifacts/live/` and offers a download. It embeds exact HTTP requests/responses, individual retrieval times, provider freshness checks, quote sizes, mappings, catalog, assumptions and model hashes. Replay reconstructs graphs, losses and candidates offline and audits any plan at the original decision time:
+
+```powershell
+.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/live/<receipt-sha256>.json
+.venv/Scripts/python.exe -m unittest discover -s tests -p test_live.py -v
+.venv/Scripts/python.exe scripts/run_live_analysis.py --positions hakutora-usdc --dependency token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf
+```
+
+Receipts detect local changes but are not provider signatures. Historical replay never makes old evidence fresh. Replay requires the matching model source version. Existing archived snapshot receipts likewise retain the source hashes of the version that created them; generate a new receipt with this version to verify current code.
 
 ```powershell
 .venv/Scripts/python.exe -m unittest discover -s tests -v
@@ -105,7 +132,7 @@ Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. The main 
 .venv/Scripts/python.exe scripts/verify_receipt.py
 ```
 
-Forty-seven tests cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, liquidity, locks, exhaustive small-case optimization, honest solver statuses, tampering, decimals, execution availability, modified allocations and newly admitted instruments with exact-size quote reuse. Source manifests hash all Python model code and configuration with LF-normalized UTF-8 text.
+Seventy-five tests include the original 47 financial regressions and 28 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
 
 Reproduce the modified-book audit separately:
 
@@ -137,3 +164,47 @@ Browser verification blocks external requests and exercises discovery, propagati
 If the custom component fails, open **http://localhost:8501/?fallback=1**; native controls use the same Python calculations. If the application cannot run, play the local MP4 file; the original WebM is also retained. If video playback fails, use the six `FireDrill_*.png` screenshots with the pitch and independent audit. These are labelled recorded evidence, not a live run.
 
 The frontend is a local JavaScript/SVG Streamlit v2 component. Python, NetworkX and SciPy/HiGHS implement discovery, deterministic stress and mixed-integer optimization. Original Position, Portfolio, Replay, Track Record and Market Scan research is preserved in the sidebar. [Archived research documentation](docs/RESEARCH_README.md) retains previous work; the current audit supersedes its older execution claims.
+
+## Architecture and audit boundaries
+
+```mermaid
+flowchart LR
+    A[Snapshot cache or explicit live HTTP observations] --> B[Identity, balance and freshness checks]
+    B --> C[Recursive protocol and manual dependency resolvers]
+    C --> D[Canonical dependency graphs]
+    D --> E[Instrument-specific single-shock propagation]
+    B --> F[Exact PT quotes and shared Morpho resources]
+    E --> G[Constrained discrete MILP]
+    F --> G
+    G --> H[Dollar-unit financial verification]
+    H --> I[Evidence manifest and replayable receipt]
+```
+
+`sources` captures data; `discovery` expands claims into a directed graph;
+`fire_drill/model.py`, `execution.py`, `optimize.py` and `evidence.py` calculate
+stress, admit exits, solve and record decisions. Live acquisition and replay use
+`fire_drill/live.py`; the offline cache remains separate. See [judge Q&A](JUDGE_GUIDE.md#e-technical-qa)
+for model formulas and constraints. DefiLlama supports the preserved research and
+historical replay; Pendle and Morpho supply the fire-drill protocol observations.
+Source URLs remain in raw records and manual mappings. The repository uses the
+[MIT license](LICENSE). Optional browser tools are development dependencies.
+
+Real HTTP Hakutora USDC/cbBTC analyses are checked in under
+[`artifacts/certified_live/`](artifacts/certified_live), including the original
+$901,381.95 / $496,300.07 result and a fresh release run ($901,381.52 / $496,299.83).
+Both passed freshness at their recorded times and separate Decimal reconstruction.
+A further real browser capture produced $902,209.66 / $496,755.31 and also passed
+freshness, receipt download/replay and the independent audit.
+Only this Morpho position is certified; withdrawal execution and a live Pendle
+exact-size quote workflow remain uncertified. Historical full-book and Pendle
+rejections are retained. Replay the observations offline:
+
+```powershell
+.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_20261011_receipt.json
+.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_release_20261011_receipt.json
+.venv/Scripts/python.exe scripts/audit_live_reference.py
+```
+
+No universal wallet support, calibrated scenario probability, atomic live state or
+guaranteed execution is claimed. Dependency mapping is incomplete; mathematically
+feasible rescue remains conditional on recovery and execution assumptions.

@@ -13,3 +13,4 @@ dist/
 artifacts/*.pkl
 # NOTE: data/raw/ IS committed on purpose so the demo runs offline from cache.
 artifacts/market_scan_checkpoint.json
+artifacts/live/

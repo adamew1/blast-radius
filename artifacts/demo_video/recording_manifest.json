@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-10-10T22:47:32.222864+00:00",
+  "recorded_at": "2026-10-11T03:54:05.261101+00:00",
   "url": "http://localhost:8501",
   "external_requests": [],
   "js_errors": [],
@@ -10,34 +10,95 @@
     },
     {
       "title": "DISCOVER",
-      "at_seconds": 12.52
+      "at_seconds": 12.39
     },
     {
       "title": "ATTACK \u2192 COLLAPSE",
-      "at_seconds": 30.43
+      "at_seconds": 30.46
     },
     {
       "title": "RESCUE",
-      "at_seconds": 50.44
+      "at_seconds": 50.47
     },
     {
       "title": "CHALLENGE",
-      "at_seconds": 81.03
+      "at_seconds": 81.33
     },
     {
       "title": "PROVE",
-      "at_seconds": 95.45
+      "at_seconds": 95.73
     }
   ],
   "caption_classification": "editorial; no financial values injected",
-  "story_duration_seconds": 120.08,
+  "story_duration_seconds": 120.03,
   "video": "artifacts/demo_video/blast-radius-two-minute.webm",
-  "video_sha256": "3d37257dbb068dff724590855b2df5bcbadae9e85cb6b69f01a55a0e7051a89a",
+  "video_sha256": "b7524cbff591f9c8b26de0c6a7704e930b1267609918e24664ce0d2e8c68eb1a",
   "status": "PASS",
   "mp4_export": {
     "path": "artifacts/demo_video/blast-radius-two-minute.mp4",
-    "sha256": "1688e57d0abc498f8c6224e083515098a7f8166c054cf3760055b19033a0e066",
-    "duration_seconds": 120.0,
-    "edit": "remove 2.68 seconds of application-launch pre-roll; encode 120 seconds H264/yuv420p; financial output unchanged"
+    "sha256": "7a2a02057fb0a9df63ec9088d6623e0c855d1ddf8fa1f7bfb41618f58d8a2bc2",
+    "duration_seconds": 119.96,
+    "full_decode_passed": true,
+    "edit": "Remove 1.41 seconds of measured launch pre-roll; H264/yuv420p export, approximately 120 seconds. Financial output unchanged."
+  },
+  "source_sha256": {
+    "app/components/__init__.py": "ab3d96363c808e9c1172df87b50d27dd5ede8d354ce3cd5909d331d25f58f6a4",
+    "app/components/graphviz.py": "1026710e8cdf1c64842f9c8ae526161657843319caced883aa842d986f418e61",
+    "app/components/live.py": "23fa6dbf8e154faefa4aa0d4636d3c9ed0a5be344ae86f95b8e23aa908346d23",
+    "app/components/terminal.py": "3bb5103223edf705660ab565f62354e480242af6d9244740ba98c284f5d7817f",
+    "app/components/ui.py": "0afba0e22cabe133c3f6090b026f42dffeebe9b98c65ee41e8aecfb760a6121f",
+    "app/Home.py": "58cfbf53fdaaacdbba6c931899452927db4a371b66980d863132fb588a5cacee",
+    "app/pages/1_Position.py": "41e1787e17e1605fd109c02a2821a69b5038eb8cf9b03846419c1711c6c771f4",
+    "app/pages/2_Portfolio.py": "3ec5150f4c9b67b48de21be3f3e01f644ccdad38ea34126f94a1175522ebffb3",
+    "app/pages/3_Replay_Stream.py": "e6304c1d7bdfac7d8ebc1cf573c8cbcd15b2b4479cc09018b993b9d40ea4d613",
+    "app/pages/4_Track_Record.py": "fa09f7bd6d72c21e239768c8e6eefe52c54b922fec7c72e6a156d84d1522317e",
+    "app/pages/5_Market_Scan.py": "8100bea5f8a54cf566616b0429a285e635a43cb9b3db23f77b99c07fd82e3b45",
+    "app/pages/6_Research.py": "486baff79345c295e76dc51f5fc7d859f9f45f6b7f8c54306d408c0131074b1d",
+    "app/research_home.py": "8cc73f7a6ea58d312342d4715ecdec28f4348d30ae8cef203223f9ef94628b35",
+    "blast_radius/__init__.py": "cda7cab1222a81ace69adce64f0c44a4eae602fbeb2b58759ea2d64df48d75e6",
+    "blast_radius/analyze.py": "88989a5c1a56bab697ce83cb2b4383c57d1f7e38976956b051a19036de540c2f",
+    "blast_radius/backtest/__init__.py": "5ec54aa39956a2fbd4cce198b8776ba72714585615bb8a88f42f56e3ef557c6c",
+    "blast_radius/backtest/controls.py": "5bf4470f0f4e64b96dda77a6e4bf7b64ae6a46aa7a796a84fdde51f45a648418",
+    "blast_radius/backtest/graph.py": "8d2c8b609c091cc99b69a5dd62b6ca0aa53e6e7fe36b2c4b2a66efcf0565a247",
+    "blast_radius/backtest/library.py": "c688bdda61dc7f6bf8f3c20fac7d9e382999fd5a203db7c9c300f9fa854f0e2b",
+    "blast_radius/backtest/prices.py": "8e4a3e93a70be03828c31aa3c82128fdc5dc544f5f8999c0a63cfef162e51d23",
+    "blast_radius/backtest/runner.py": "4d2982d697285f9add298f857457c9c9d1a101a37973f7b0850c3ad19ba56b5d",
+    "blast_radius/config.py": "9ad99d1fcd1d8d5440e545e874fe9bd6350df23d19655d0f4872355a853780d6",
+    "blast_radius/discovery/__init__.py": "6d282aecfd75fb937d29bab136fd2d815b6db435c1bbc460042cea9a11239bcb",
+    "blast_radius/discovery/engine.py": "979f441403969aae9d36f3713bce7e8f588cf79c928f50222114916283c3af31",
+    "blast_radius/discovery/graph.py": "92e907f64a830841fdffc591d7093ddc1e7813ad7ffe10447e1fce3de1f82272",
+    "blast_radius/discovery/resolvers.py": "557aa763dfec82753ee382dedc356258e6e3fc7d6e6c4fe0919d6f6e77a17037",
+    "blast_radius/fire_drill/__init__.py": "2db6386d96a1ee42c72e4c762d29bf34128cbe588fe407a3d1f97a55a8236004",
+    "blast_radius/fire_drill/catalog.py": "82c307c47d9f9244df6f098b5cd8a4cba77930af51c4a7cf19eafc50c81808b9",
+    "blast_radius/fire_drill/challenge.py": "3ec157271e36ab5c962798552f9fc532a4bfd7e8a54eb2e061946a6e85ba96f9",
+    "blast_radius/fire_drill/evidence.py": "25bae8256c52f53a6caaecbe37d9fe263ebedd55b0d00ca236503e429988cd95",
+    "blast_radius/fire_drill/execution.py": "18cb8b1b42f3eaac33195b8c77a8cb7be9cb2b1562602ca398a07168004c10ac",
+    "blast_radius/fire_drill/live.py": "2f862105b5955a2f5de8c9bcfd5fa81ecf75432ea242880237f9c13a95236e16",
+    "blast_radius/fire_drill/model.py": "45d240860e6bad477cc9990eba8bf07b568ac46f24174c27ddc9f3ff485a10ee",
+    "blast_radius/fire_drill/optimize.py": "4138f3d556f1b243c11a847e7b8a1a1fa68ee7fb76e970fb122792b39152b39c",
+    "blast_radius/fire_drill/presentation.py": "74f14eafe79923d7a59d922c14d54c091fd7e56297a79d1b17ad848c5b1cf045",
+    "blast_radius/models/__init__.py": "ae511b294642c840f6fe8a2ecef5f6540286ac6d01e9557cc2ea50fcccb009c0",
+    "blast_radius/models/evaluation.py": "9232a96ec5d6ae5b62b9b0a2ed63845083e2eee80723e261197cbde308578d78",
+    "blast_radius/models/incidents.py": "f05957c7ab8aba880b66c8d784434f4507736a365bef92fad4fdf8c640463e90",
+    "blast_radius/models/passthrough.py": "908145f6cb85f47ab2017f8dd258dad6c6baceb06afd51d2583d4b2e0bd6e6e8",
+    "blast_radius/models/severity.py": "289b3fa04f0aa8e1b3395def27fe46dac2c43b7c14276f2fc774082e7dbf32bb",
+    "blast_radius/portfolio/__init__.py": "f51dc543bdd3fc3c884ec2fe93945546c0b68219b035db4d5724ea30f74c4d35",
+    "blast_radius/portfolio/book.py": "201af8412ea82b662e7f2b54f8adeb823ab42a59793de45721965675bb342c6b",
+    "blast_radius/replay/__init__.py": "e92e53c3c869b944bb05c5969e1fdb08a8f80407f69bc333d04c481d84fb06e1",
+    "blast_radius/replay/stream.py": "11eccf68bc306a99a52ae1245de06c630b549c5d9d8edd7ce7c30215c2781e3d",
+    "blast_radius/risk/__init__.py": "9f6426db6b46b494bb994175cd86ce6716fcfb49ffa67241e04be1765f75f19b",
+    "blast_radius/risk/decision.py": "c944bdd60a1bbbbe867218c742ab8f7c06f9f16fac6280c835961cf8786b1f8a",
+    "blast_radius/risk/exit_cost.py": "06353d2a3c327085ac78a5d29d9e776c42b8e72fba5dbc30bb2f192ff81c87d6",
+    "blast_radius/risk/propagate.py": "61faea77ceef47e905e108c2d5f5664dc8bd1a16b38e802c467a240f22989e1e",
+    "blast_radius/scan/__init__.py": "fde7b4dd8b73a5cef10f6d6c5c0b6b9f1496cb48845437f2355f110e96f683f9",
+    "blast_radius/scan/runner.py": "4c2133f25789b05ed32313f6f102c0dc77a095d7f2b891f8c380d6df0029e1e4",
+    "blast_radius/sources/__init__.py": "9117ccb5008f11da318fe7bba3e6db65f59aab914990204f23fa6a2fe55a9801",
+    "blast_radius/sources/cache.py": "0650aa3c19a021c8431fd298460a5780babfd93f7a524c6d61f3b21fa532cf8c",
+    "blast_radius/sources/defillama.py": "a381a4a351ee5f79798ec7c7024755b288d6ed2a52e4af7b5efa126c2fad232f",
+    "blast_radius/sources/live.py": "43875ca3bf5cf5da4ebffba803425378d4278aa26e0b044e780bc82249ab2720",
+    "blast_radius/sources/morpho.py": "df3036ecdc143a9d516341b8a4b8700d3a97c31a7db4f6d86729fafa9e08782f",
+    "blast_radius/sources/pendle.py": "9dea3dfb6fc4b0c8466352e7acfc9038618d79b930f5d5e949122d63c3e63f9d",
+    "app/components/terminal/terminal.css": "d675b6e24613612434b42bf70def8ddb5791a7081aa8d8e1638fdc8ab94aba56",
+    "app/components/terminal/terminal.js": "ba72f1139af92032a7d9e2e3deb3edc571bd2f4f5da5977de8a5d5ea3b3e38c4"
   }
 }

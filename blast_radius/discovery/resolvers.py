@@ -23,20 +23,26 @@ class Context:
     chain_name: str = ETH
     _pt_index: Optional[dict] = field(default=None, repr=False)
     _morpho_vaults: Optional[list] = field(default=None, repr=False)
+    # Explicit run-local inputs. Snapshot callers retain the original clients.
+    provider: object | None = field(default=None, repr=False)
+    mappings: dict | None = field(default=None, repr=False)
+
+    def markets_active(self):
+        return (self.provider or pendle).markets_active(self.chain_id)
 
     @property
     def pt_index(self) -> dict:
         """raw PT address (lowercased) -> market dict."""
         if self._pt_index is None:
             self._pt_index = {}
-            for m in pendle.markets_active(self.chain_id).get("markets", []):
+            for m in self.markets_active().get("markets", []):
                 self._pt_index[_raw(m["pt"])] = m
         return self._pt_index
 
     @property
     def morpho_vaults(self) -> list:
         if self._morpho_vaults is None:
-            self._morpho_vaults = morpho.vaults((self.chain_id,), first=50)
+            self._morpho_vaults = (self.provider or morpho).vaults((self.chain_id,), first=50)
         return self._morpho_vaults
 
 
@@ -54,17 +60,17 @@ def token_id(addr: str, chain: str = ETH) -> str:
     return f"token:{chain}:{addr.lower()}"
 
 
-def _manual_token(addr: str) -> dict:
-    return (manual_map().get("tokens") or {}).get(addr.lower(), {})
+def _manual_token(addr: str, ctx: Context) -> dict:
+    return ((ctx.mappings if ctx.mappings is not None else manual_map()).get("tokens") or {}).get(addr.lower(), {})
 
 
-def _manual_issuer(key: str) -> dict:
-    return (manual_map().get("issuers") or {}).get(key, {})
+def _manual_issuer(key: str, ctx: Context) -> dict:
+    return ((ctx.mappings if ctx.mappings is not None else manual_map()).get("issuers") or {}).get(key, {})
 
 
 def _add_chain(g: DependencyGraph, parent_id: str, ctx: Context, source: str) -> None:
     cid = chain_id_node(ctx.chain_name)
-    cinfo = (manual_map().get("chains") or {}).get(ctx.chain_name, {})
+    cinfo = ((ctx.mappings if ctx.mappings is not None else manual_map()).get("chains") or {}).get(ctx.chain_name, {})
     g.add_node(Node(id=cid, kind="chain", label=ctx.chain_name.title(), chain=ctx.chain_name,
                     meta={"risk_category": cinfo.get("risk_category", "Chain"),
                           "source": cinfo.get("source")}))
@@ -76,7 +82,7 @@ def _add_token_node(g: DependencyGraph, addr: str, ctx: Context) -> str:
     tid = token_id(addr, ctx.chain_name)
     if g.has_node(tid) and g.node(tid).meta.get("resolved_label"):
         return tid
-    mt = _manual_token(addr)
+    mt = _manual_token(addr, ctx)
     is_pt = addr.lower() in ctx.pt_index
     label = mt.get("symbol") or (ctx.pt_index[addr.lower()]["name"] + " PT" if is_pt else addr[:8])
     risk_cat = "Yield" if is_pt else mt.get("risk_category")
@@ -93,12 +99,12 @@ def _add_token_node(g: DependencyGraph, addr: str, ctx: Context) -> str:
 def resolve_pendle_pt(g: DependencyGraph, pos: Node, ctx: Context, position: dict) -> list[str]:
     cid = position.get("chain_id", 1)
     market = position["market"]
-    markets = pendle.markets_active(cid).get("markets", [])
+    markets = ctx.markets_active().get("markets", [])
     m = next((x for x in markets if x["address"].lower() == market.lower()), None)
     if not m:
         return []
     # Scans supply the cached universe snapshot; avoid a redundant per-market request.
-    md = {} if position.get("market_snapshot") else (pendle.market_data(market, cid) or {})
+    md = {} if position.get("market_snapshot") else ((ctx.provider or pendle).market_data(market, cid) or {})
     details = m.get("details") or {}
     pos.meta.update({
         "risk_category": "Yield",
@@ -152,7 +158,7 @@ def resolve_pendle_pt(g: DependencyGraph, pos: Node, ctx: Context, position: dic
 
 def resolve_morpho_vault(g: DependencyGraph, pos: Node, ctx: Context, position: dict) -> list[str]:
     cid = position.get("chain_id", 1)
-    v = position.get("vault_snapshot") or morpho.vault_by_address(position["vault"], cid)
+    v = position.get("vault_snapshot") or (ctx.provider or morpho).vault_by_address(position["vault"], cid)
     if not v:
         return []
     state = v.get("state") or {}
@@ -217,13 +223,13 @@ def resolve_token(g: DependencyGraph, node: Node, ctx: Context) -> list[str]:
         g.add_edge(Edge(node.id, und, dep_type="backing", exposure_pct=100.0, source="api:pendle"))
         return [und]
 
-    mt = _manual_token(addr)
+    mt = _manual_token(addr, ctx)
     if mt.get("opaque"):
         node.meta["unmapped"] = True
     node.meta["estimated"] = bool(mt.get("estimated"))
     # issuer
     if mt.get("issuer"):
-        iss = _manual_issuer(mt["issuer"])
+        iss = _manual_issuer(mt["issuer"], ctx)
         iid = f"issuer:{mt['issuer']}"
         g.add_node(Node(id=iid, kind="issuer", label=iss.get("name", mt["issuer"]), chain=ctx.chain_name,
                         meta={"risk_category": iss.get("risk_category"),

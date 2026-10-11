@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-11T02:34:31.223237+00:00",
+  "created_at": "2026-10-11T03:42:56.842021+00:00",
   "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
   "classification": "hypothetical pre-failure protection using frozen evidence",
   "scenario": {
@@ -6927,15 +6927,16 @@
       "blast_radius/backtest/runner.py": "4d2982d697285f9add298f857457c9c9d1a101a37973f7b0850c3ad19ba56b5d",
       "blast_radius/config.py": "9ad99d1fcd1d8d5440e545e874fe9bd6350df23d19655d0f4872355a853780d6",
       "blast_radius/discovery/__init__.py": "6d282aecfd75fb937d29bab136fd2d815b6db435c1bbc460042cea9a11239bcb",
-      "blast_radius/discovery/engine.py": "842d60154118fb1785da7b47a190e4b005c9ac4a79ef2cb4420a9f173707180f",
+      "blast_radius/discovery/engine.py": "979f441403969aae9d36f3713bce7e8f588cf79c928f50222114916283c3af31",
       "blast_radius/discovery/graph.py": "92e907f64a830841fdffc591d7093ddc1e7813ad7ffe10447e1fce3de1f82272",
-      "blast_radius/discovery/resolvers.py": "845af579baa452eacf18fc16ba1e5a334791c7bfe628d3c7d49dbab976b628f6",
+      "blast_radius/discovery/resolvers.py": "557aa763dfec82753ee382dedc356258e6e3fc7d6e6c4fe0919d6f6e77a17037",
       "blast_radius/fire_drill/__init__.py": "2db6386d96a1ee42c72e4c762d29bf34128cbe588fe407a3d1f97a55a8236004",
       "blast_radius/fire_drill/catalog.py": "82c307c47d9f9244df6f098b5cd8a4cba77930af51c4a7cf19eafc50c81808b9",
       "blast_radius/fire_drill/challenge.py": "3ec157271e36ab5c962798552f9fc532a4bfd7e8a54eb2e061946a6e85ba96f9",
       "blast_radius/fire_drill/evidence.py": "25bae8256c52f53a6caaecbe37d9fe263ebedd55b0d00ca236503e429988cd95",
       "blast_radius/fire_drill/execution.py": "18cb8b1b42f3eaac33195b8c77a8cb7be9cb2b1562602ca398a07168004c10ac",
-      "blast_radius/fire_drill/model.py": "ec5457ffd48977dbc057f212b0a54dc92eb5fcb0245e9a2cb7b7a396ab9999fc",
+      "blast_radius/fire_drill/live.py": "2f862105b5955a2f5de8c9bcfd5fa81ecf75432ea242880237f9c13a95236e16",
+      "blast_radius/fire_drill/model.py": "45d240860e6bad477cc9990eba8bf07b568ac46f24174c27ddc9f3ff485a10ee",
       "blast_radius/fire_drill/optimize.py": "4138f3d556f1b243c11a847e7b8a1a1fa68ee7fb76e970fb122792b39152b39c",
       "blast_radius/fire_drill/presentation.py": "74f14eafe79923d7a59d922c14d54c091fd7e56297a79d1b17ad848c5b1cf045",
       "blast_radius/models/__init__.py": "ae511b294642c840f6fe8a2ecef5f6540286ac6d01e9557cc2ea50fcccb009c0",
@@ -6956,6 +6957,7 @@
       "blast_radius/sources/__init__.py": "9117ccb5008f11da318fe7bba3e6db65f59aab914990204f23fa6a2fe55a9801",
       "blast_radius/sources/cache.py": "0650aa3c19a021c8431fd298460a5780babfd93f7a524c6d61f3b21fa532cf8c",
       "blast_radius/sources/defillama.py": "a381a4a351ee5f79798ec7c7024755b288d6ed2a52e4af7b5efa126c2fad232f",
+      "blast_radius/sources/live.py": "43875ca3bf5cf5da4ebffba803425378d4278aa26e0b044e780bc82249ab2720",
       "blast_radius/sources/morpho.py": "df3036ecdc143a9d516341b8a4b8700d3a97c31a7db4f6d86729fafa9e08782f",
       "blast_radius/sources/pendle.py": "9dea3dfb6fc4b0c8466352e7acfc9038618d79b930f5d5e949122d63c3e63f9d",
       "config.yaml": "e05f8f03b94502f6781ff5a0b61ae1d9887d78c93b9e1fbc834cbddd1ece4088",
@@ -6967,7 +6969,7 @@
     ],
     "timestamp_semantics": "cached_at is local retrieval time; price_updated_at is provider mark time; manual maps have file hashes, not an observation timestamp; captures are not synchronized",
     "hash_normalization": "UTF-8 text with line endings normalized to LF",
-    "bundle_sha256": "642b795d758e9ad49e287f18245093279a5483d1b2b06c57c0a3afbdccbc150e"
+    "bundle_sha256": "6a4013715b67c6bf63fbd26ccae20e131b4110ec54c5dfc0e83145cffd6822a7"
   },
   "assumptions": [
     "One hypothetical intrinsic shock; scenario loss is not probability-weighted expected loss.",

@@ -1,0 +1,55 @@
+{
+  "status": "PASS",
+  "audited_at": "2026-10-11T03:59:38.351298+00:00",
+  "method": "Embedded real HTTP responses; separate Decimal calculations and exhaustive 21-candidate enumeration; no product or solver imports",
+  "cases": [
+    {
+      "receipt": "artifacts/certified_live/hakutora_20261011_receipt.json",
+      "receipt_sha256": "4bc6e93e81590279492b48844faebf8879724b2ad785acb301a3a07e7ccc2092",
+      "decision_utc": "2026-10-11T03:33:47.416033+00:00",
+      "source_timestamps_utc": [
+        "2026-10-11T03:25:47+00:00",
+        "2026-10-11T03:33:35+00:00"
+      ],
+      "historical_freshness_passed": true,
+      "independent_optimality_verified": true,
+      "candidates_enumerated": 21,
+      "conditional_loss_usd": 901381.9540175991,
+      "reduction": 0.45,
+      "accounted_loss_usd": 496300.0747096795,
+      "executable": false
+    },
+    {
+      "receipt": "artifacts/certified_live/hakutora_release_20261011_receipt.json",
+      "receipt_sha256": "e71ea905f47535f119eca1fc7dd37a3a27324be541b1a83c8d87596d1ff64792",
+      "decision_utc": "2026-10-11T03:44:59.010765+00:00",
+      "source_timestamps_utc": [
+        "2026-10-11T03:35:23+00:00",
+        "2026-10-11T03:44:23+00:00"
+      ],
+      "historical_freshness_passed": true,
+      "independent_optimality_verified": true,
+      "candidates_enumerated": 21,
+      "conditional_loss_usd": 901381.5158388969,
+      "reduction": 0.45,
+      "accounted_loss_usd": 496299.8337113933,
+      "executable": false
+    },
+    {
+      "receipt": "artifacts/certified_live/hakutora_browser_20261011_receipt.json",
+      "receipt_sha256": "106b515245dee408bee9408510af464affa3e004f9f7fb0270b7eaf1f4c8a95b",
+      "decision_utc": "2026-10-11T03:57:10.685711+00:00",
+      "source_timestamps_utc": [
+        "2026-10-11T03:55:35+00:00",
+        "2026-10-11T03:55:47+00:00"
+      ],
+      "historical_freshness_passed": true,
+      "independent_optimality_verified": true,
+      "candidates_enumerated": 21,
+      "conditional_loss_usd": 902209.6554790469,
+      "reduction": 0.45,
+      "accounted_loss_usd": 496755.31051347574,
+      "executable": false
+    }
+  ]
+}

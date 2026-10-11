@@ -17,9 +17,10 @@ _RESOLVERS = {
 }
 
 
-def build_graph(position: dict, max_depth: int = 8) -> DependencyGraph:
+def build_graph(position: dict, max_depth: int = 8, *, provider=None, mappings=None) -> DependencyGraph:
     cid = position.get("chain_id", 1)
-    ctx = Context(chain_id=cid, chain_name=position.get("chain", "ethereum"))
+    ctx = Context(chain_id=cid, chain_name=position.get("chain", "ethereum"),
+                  provider=provider, mappings=mappings)
 
     g = DependencyGraph(root_id=f"pos:{position['id']}")
     root = Node(id=g.root_id, kind="position", label=position["label"], chain=position.get("chain"),

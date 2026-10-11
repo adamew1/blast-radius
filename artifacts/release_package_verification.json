@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "snapshot_launch_and_rescue": true,
+  "http_calls_allowed": false,
+  "accounted_loss_usd": 498999.8517156921,
+  "source_root": "C:\\Users\\lahch\\AppData\\Local\\Temp\\blast-radius-release-2c8fbe0b-278f-4567-815d-506ab77a7681",
+  "export_method": "git archive of staged tree; no untracked files included"
+}

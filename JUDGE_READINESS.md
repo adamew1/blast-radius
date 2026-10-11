@@ -1,5 +1,10 @@
 # Final judge-readiness audit
 
+> Historical audit and correction record. Final release-hardening results,
+> 75-test validation and bounded Live Mode certification are in
+> [RELEASE_REPORT.md](RELEASE_REPORT.md) and [JUDGE_GUIDE.md](JUDGE_GUIDE.md).
+> Test counts in the addenda below describe those earlier stages.
+
 **Verdict: PASS for the offline hackathon demonstration after critical corrections.**
 
 **The original total-loss headline fails financial review and is superseded.** Its arithmetic reproduced, but a generic 0.95 coefficient invented 5% residual PT value after the underlying was assumed worthless. This audit corrected PT claims to transmit underlying USD mark changes one-for-one at a fixed discount factor. Model version: `single-shock-aggregate-recovery-v2-pt-parity`.

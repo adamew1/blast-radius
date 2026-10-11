@@ -1,0 +1,76 @@
+{
+  "checked_at": "2026-10-11T03:34:53.672573+00:00",
+  "passed": false,
+  "reason": "Stale or future Pendle PT-wstETH market data: age 2093.7s; maximum 900s",
+  "observation": {
+    "key": "1e187c7fad879188293dfd7eda921921ab510e09184b00225829f0e67aba8c77",
+    "request": {
+      "method": "GET",
+      "url": "https://api-v2.pendle.finance/core/v2/1/markets/0x34280882267ffa6383b363e278b027be083bbe3b/data",
+      "params": null,
+      "body": null
+    },
+    "requested_at": 1791689692.9907794,
+    "http_status": 200,
+    "headers": {
+      "Date": "Sun, 11 Oct 2026 03:34:53 GMT",
+      "x-computing-unit": "1",
+      "x-ratelimit-limit": "200",
+      "x-ratelimit-remaining": "199",
+      "x-ratelimit-reset": "1791689700",
+      "x-ratelimit-weekly-limit": "200000",
+      "x-ratelimit-weekly-remaining": "199050",
+      "x-ratelimit-weekly-reset": "1792022400"
+    },
+    "response": {
+      "timestamp": "2026-10-11T03:00:00.000Z",
+      "liquidity": {
+        "usd": 5144494.692774712,
+        "acc": 2054.212974719316
+      },
+      "tradingVolume": {
+        "usd": 33.80107436933327
+      },
+      "totalTvl": {
+        "usd": 5650598.010738986
+      },
+      "underlyingInterestApy": 0.022736645711574743,
+      "underlyingRewardApy": 0,
+      "underlyingApy": 0.022736645711574743,
+      "impliedApy": 0.02131308961845435,
+      "ytFloatingApy": 0.032703028066265905,
+      "swapFeeApy": 5.038801931256387e-07,
+      "voterApy": 0.0008748761365760128,
+      "ptDiscount": 0.025375405684647134,
+      "pendleApy": 0.0009389923648431835,
+      "arbApy": 0,
+      "lpRewardApy": 0,
+      "aggregatedApy": 0.023609026856589353,
+      "maxBoostedApy": 0.025017515403854128,
+      "estimatedDailyPoolRewards": [
+        {
+          "asset": {
+            "id": "1-0x808507121b80c02388fad14726482e061b8da827",
+            "chainId": 1,
+            "address": "0x808507121b80c02388fad14726482e061b8da827",
+            "symbol": "PENDLE",
+            "decimals": 18,
+            "accentColor": null,
+            "price": {
+              "usd": 2.16093965
+            },
+            "priceUpdatedAt": "2026-10-11T03:34:30.131Z",
+            "name": "PENDLE"
+          },
+          "amount": 6.1507328704129725
+        }
+      ],
+      "totalPt": 99.3696496703288,
+      "totalSy": 1570.9015958657665,
+      "totalLp": 922.6392038326272,
+      "totalActiveSupply": 370.50262830704366,
+      "assetPriceUsd": 2504.362866015704
+    },
+    "received_at": 1791689693.672503
+  }
+}

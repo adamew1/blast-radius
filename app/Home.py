@@ -12,6 +12,8 @@ os.environ["BLAST_RADIUS_OFFLINE"] = "1"
 
 import streamlit as st
 
+from app.components.live import render_live, snapshot_fallback
+
 from app.components.terminal import render_terminal
 from blast_radius.fire_drill.challenge import MAX_POSITION_USD, STEP_USD, resize_positions
 from blast_radius.fire_drill.catalog import execution_for, load_catalog
@@ -36,6 +38,15 @@ st.markdown("""<style>
 [data-testid=stMain] button{border-radius:8px}
 @media(max-width:800px){.block-container{padding:2rem .5rem}}
 </style>""", unsafe_allow_html=True)
+
+mode_column, fallback_column = st.columns([3, 1])
+with mode_column:
+    data_mode = st.radio("Data mode", ["Snapshot Mode", "Live Mode"], horizontal=True, key="data_mode")
+with fallback_column:
+    st.button("Use offline Snapshot Mode", on_click=snapshot_fallback, disabled=data_mode == "Snapshot Mode")
+if data_mode == "Live Mode":
+    render_live()
+    st.stop()
 
 
 @st.cache_resource
@@ -69,6 +80,7 @@ stress = stress_book(book, state.dependency, state.severity)
 selected = next(r for r in ranking if r["id"] == state.dependency)
 opaque = [p["id"] for p in book.positions if any(n.meta.get("unmapped") for n in book.graphs[p["id"]].nodes())]
 revision = f"{state.dependency}:{state.severity}:{','.join(state.locks)}:{state.loss_limit}"
+scenario_revision = f"{state.dependency}:{state.severity}:{sizes_json}"
 if sizes_json:
     revision += ":" + sizes_json
 
@@ -94,6 +106,7 @@ payload = {
     "network": network(book, ranking, stress, state.revealed, state.attacked,
                        state.plan if state.before_after == "after" else None),
     "state": {k: state[k] for k in defaults if k != "last_event"}, "revision": revision,
+    "scenario_revision": scenario_revision,
     "ack": state.last_event,
     "snapshot": bundle.get("captured_at", "missing quote bundle"),
     "snapshot_window": manifest["presentation_evidence_window_utc"],
@@ -194,7 +207,13 @@ else:
         elif kind == "attack":
             state.revealed = state.attacked = True
             state.plan, state.baseline = None, None
-        elif kind == "rescue" and event.get("revision") == revision:
+        elif kind == "constraints" and event.get("revision") == revision:
+            state.loss_limit = max(0, float(event["limit"]))
+            state.locks = sorted(set(event.get("locks", [])) & {p["id"] for p in book.positions})
+            state.plan, state.baseline = None, None
+            state.evidence = False
+            state.before_after = "before"
+        elif kind == "rescue" and event.get("scenario_revision") == scenario_revision:
             state.loss_limit = max(0, float(event["limit"]))
             state.locks = sorted(set(event.get("locks", [])) & {p["id"] for p in book.positions})
             state.attacked = state.revealed = True

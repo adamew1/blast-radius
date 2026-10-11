@@ -16,7 +16,7 @@ export default function(component) {
     const nonce=Date.now()+Math.random();
     root.dataset.pending=String(nonce);
     root.classList.add('busy');
-    setTriggerValue('action',{type,...rest,revision:d.revision,nonce});
+    setTriggerValue('action',{type,...rest,revision:d.revision,scenario_revision:d.scenario_revision,nonce});
   };
   const stage=s.evidence?4:plan?3:s.attacked?2:s.revealed?1:0;
   const selected=d.selected;
@@ -110,6 +110,17 @@ export default function(component) {
     if(!Number.isFinite(limit)||limit<0)return;
     send('rescue',{limit,locks:[...root.querySelectorAll('.lock input:checked')].map(x=>x.value)});
   };
+  const constraintsChanged=()=>{
+    const limit=Number($('#limit').value);
+    if(!Number.isFinite(limit)||limit<0)return;
+    const locks=[...root.querySelectorAll('.lock input:checked')].map(x=>x.value).sort();
+    if(limit===s.loss_limit&&JSON.stringify(locks)===JSON.stringify([...s.locks].sort()))return;
+    send('constraints',{limit,locks});
+  };
+  // A direct Build click carries the edited mandate in its single event. Sending
+  // a separate blur event then would race Streamlit's component trigger rerender.
+  if($('#limit')) $('#limit').onblur=e=>{if(e.relatedTarget?.id!=='rescue')constraintsChanged();};
+  root.querySelectorAll('.lock input').forEach(input=>input.onchange=constraintsChanged);
   if($('#before')){$('#before').onclick=()=>send('view',{value:'before'});$('#after').onclick=()=>send('view',{value:'after'});}
   $('#proof').onclick=()=>send('evidence');
   if($('#probability')) $('#probability').oninput=e=>{

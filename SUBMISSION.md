@@ -29,6 +29,15 @@ Under the stated frozen wstETH scenario: **$2,361,622 conditional loss → $499,
 
 **Show Me the Evidence** distinguishes API observations, sourced manual mappings, cached RPC observations and modelling assumptions. Download a source-hashed receipt and independently recompute the plan. The complete experience runs offline, with a native-control fallback and browser-recorded demonstration evidence.
 
+**Explicit Live Mode** uses a separate request client, strict provider timestamps
+and exact-size quote requests, without historical substitution. Real Morpho
+Hakutora USDC analyses passed freshness and independent receipt reconstruction;
+the full ten-position live book and a live Pendle quote workflow remain uncertified.
+Any rescue is indicative: withdrawals and conversion into external cash are not
+certified, observations are asynchronous, and no transaction is executed. A
+one-click Snapshot fallback preserves the audited demonstration. See
+`JUDGE_GUIDE.md` for operation and `RELEASE_REPORT.md` for final validation.
+
 The preserved research pages additionally provide:
 
 1. **Recursive dependency discovery** — a Pendle PT or Morpho vault is unwrapped layer by layer from cached DefiLlama / Pendle / Morpho data. Issuer, some oracle and backing links come from a sourced manual map, labelled in the UI.
@@ -99,7 +108,7 @@ not executable quotes for entire pools. Source-cache dates, coverage and full re
 python -m venv .venv && .venv/Scripts/pip install -e .
 ./run.ps1          # or ./run.sh — launches the dashboard from cached data (works offline)
 ```
-Everything is cached to `data/raw/`, so the demo is reproducible offline. See `DEMO.md` for the 2-minute walkthrough.
+Snapshot observations are cached to `data/raw/`, so that demo is reproducible offline. Live Mode is explicit and separate. See `JUDGE_GUIDE.md` for the judge walkthrough and `DEMO.md` for narration.
 
 ### Tech
 Python · Streamlit · NetworkX · Plotly · scikit-learn · NumPy/SciPy. Free APIs: DefiLlama, Pendle v2, Morpho Blue GraphQL. No API keys, CPU-only.

@@ -1,0 +1,93 @@
+{
+  "checked_at": "2026-10-11T03:57:04.878814+00:00",
+  "js_errors": [],
+  "interactions": [
+    "Real Hakutora browser capture, cbBTC shock, indicative rescue and downloaded receipt replay",
+    "Live severity change clears the previous recommendation",
+    "Live allocation change hides prior scenario and recommendation until refreshed",
+    "One-click fallback returns from Live Mode to the original offline demonstration",
+    "Real full-book rejected inputs produce a downloadable receipt and no current recommendation",
+    "Snapshot discovery, stress and rescue recover immediately after the full-book request"
+  ],
+  "fresh_capture_passed": true,
+  "external_browser_requests": [],
+  "api_mocks": false,
+  "receipt": "artifacts/certified_live/hakutora_browser_20261011_receipt.json",
+  "freshness": {
+    "checked_at": "2026-10-11T03:57:10.685711+00:00",
+    "risk_usable": true,
+    "execution_usable": true,
+    "status": "fresh observations; manual assumptions remain",
+    "fully_live": false,
+    "executable": false,
+    "checks": [
+      {
+        "kind": "risk",
+        "label": "hakutora-usdc",
+        "observed_at": 1791690935.0,
+        "max_age_seconds": 900,
+        "age_seconds": 95.68571138381958,
+        "status": "fresh"
+      },
+      {
+        "kind": "risk",
+        "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+        "observed_at": 1791690947.0,
+        "max_age_seconds": 900,
+        "age_seconds": 83.68571138381958,
+        "status": "fresh"
+      }
+    ],
+    "rejections": [],
+    "risk_error": null,
+    "execution_errors": [],
+    "as_of_window_utc": [
+      "2026-10-11T03:55:35+00:00",
+      "2026-10-11T03:55:47+00:00"
+    ],
+    "policy": {
+      "risk_seconds": 900,
+      "mark_seconds": 120,
+      "quote_seconds": 120,
+      "rpc_seconds": 120,
+      "max_skew_seconds": 900,
+      "future_tolerance_seconds": 15,
+      "capture_budget_seconds": 180
+    }
+  },
+  "full_book_freshness": {
+    "checked_at": "2026-10-11T03:57:16.861511+00:00",
+    "risk_usable": false,
+    "execution_usable": false,
+    "status": "rejected",
+    "fully_live": false,
+    "executable": false,
+    "checks": [
+      {
+        "kind": "risk",
+        "label": "smokehouse-usdt",
+        "observed_at": 1791690911.0,
+        "max_age_seconds": 900,
+        "age_seconds": 125.86151146888733,
+        "status": "fresh"
+      }
+    ],
+    "rejections": [],
+    "risk_error": "Risk inputs rejected: Stale or future 0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b: age 3149.9s; maximum 900s",
+    "execution_errors": [],
+    "as_of_window_utc": [
+      "2026-10-11T03:55:11+00:00",
+      "2026-10-11T03:55:11+00:00"
+    ],
+    "policy": {
+      "risk_seconds": 900,
+      "mark_seconds": 120,
+      "quote_seconds": 120,
+      "rpc_seconds": 120,
+      "max_skew_seconds": 900,
+      "future_tolerance_seconds": 15,
+      "capture_budget_seconds": 180
+    }
+  },
+  "status": "PASS"
+}

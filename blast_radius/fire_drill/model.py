@@ -26,16 +26,16 @@ class Portfolio:
     vaults: dict[str, dict]
 
 
-def prepare(positions: list[dict]) -> Portfolio:
+def prepare(positions: list[dict], *, provider=None, mappings=None) -> Portfolio:
     if not positions or len({p["id"] for p in positions}) != len(positions):
         raise ValueError("A nonempty book with unique position ids is required")
     if any(not math.isfinite(p["size_usd"]) or p["size_usd"] <= 0 for p in positions):
         raise ValueError("Position sizes must be finite and positive")
     graphs, vaults = {}, {}
     for p in positions:
-        graphs[p["id"]] = build_graph(p)
+        graphs[p["id"]] = build_graph(p, provider=provider, mappings=mappings)
         if p["kind"] == "morpho_vault":
-            vaults[p["id"]] = morpho.vault_by_address(p["vault"], p.get("chain_id", 1))
+            vaults[p["id"]] = (provider or morpho).vault_by_address(p["vault"], p.get("chain_id", 1))
     return Portfolio(positions, graphs, vaults)
 
 

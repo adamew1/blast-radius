@@ -18,6 +18,11 @@ from blast_radius.portfolio.book import load_book
 
 def verify(path):
     rec = json.loads(Path(path).read_text(encoding="utf-8"))
+    if rec.get("receipt_schema") == "blast-radius-live-v1":
+        from blast_radius.fire_drill.live import verify_live_receipt
+        verify_live_receipt(rec)
+        print("PASS embedded live observations, historical freshness, scenario, candidates and plan audit (not executable)")
+        return
     for r in rec["evidence"]["sources"]:
         if hashlib.sha256((ROOT / r["path"]).read_text(encoding="utf-8").encode()).hexdigest() != r["sha256"]:
             raise ValueError(f"Evidence differs: {r['path']}")

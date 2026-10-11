@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "receipts_verified": 18,
+  "paths": [
+    "artifacts/browser_catalog_apyusd_receipt.json",
+    "artifacts/browser_catalog_usd3_receipt.json",
+    "artifacts/browser_catalog_wsteth_receipt.json",
+    "artifacts/browser_challenge_quote_bound_receipt.json",
+    "artifacts/browser_challenge_resized_receipt.json",
+    "artifacts/browser_decision_receipt.json",
+    "artifacts/catalog_apyusd_receipt.json",
+    "artifacts/catalog_usd3_receipt.json",
+    "artifacts/catalog_wsteth_receipt.json",
+    "artifacts/challenge_quote_bound_receipt.json",
+    "artifacts/challenge_removed_receipt.json",
+    "artifacts/challenge_resized_receipt.json",
+    "artifacts/fire_drill_receipt.json",
+    "artifacts/certified_live/browser_full_book_receipt.json",
+    "artifacts/certified_live/full_book_rejected_20261011_receipt.json",
+    "artifacts/certified_live/hakutora_20261011_receipt.json",
+    "artifacts/certified_live/hakutora_browser_20261011_receipt.json",
+    "artifacts/certified_live/hakutora_release_20261011_receipt.json"
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "discovery_seconds": 0.14792810000653844,
+  "discovery_seconds": 0.12845979999110568,
   "ranking": [
     {
       "id": "chain:ethereum",
@@ -1567,8 +1567,8 @@
         "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
         "mip_gap": 0.0
       },
-      "stress_seconds": 0.0014173000090522692,
-      "solve_seconds": 0.025007599993841723
+      "stress_seconds": 0.0015268999995896593,
+      "solve_seconds": 0.02057230001082644
     },
     {
       "dependency": "token:ethereum:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
@@ -2259,8 +2259,8 @@
         "mip_gap": 0.0,
         "minimum_attainable_proved": true
       },
-      "stress_seconds": 0.0024692000006325543,
-      "solve_seconds": 0.024530299997422844
+      "stress_seconds": 0.0014626999909523875,
+      "solve_seconds": 0.016474300005938858
     },
     {
       "dependency": "issuer:lido",
@@ -2941,8 +2941,8 @@
         "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
         "mip_gap": 0.0
       },
-      "stress_seconds": 0.0025098999904002994,
-      "solve_seconds": 0.05580360000021756
+      "stress_seconds": 0.001479099999414757,
+      "solve_seconds": 0.03664299999945797
     },
     {
       "dependency": "issuer:lido",
@@ -3678,8 +3678,8 @@
         "mip_gap": 0.0,
         "minimum_attainable_proved": true
       },
-      "stress_seconds": 0.0018735999910859391,
-      "solve_seconds": 0.025865100004011765
+      "stress_seconds": 0.0016128999995999038,
+      "solve_seconds": 0.016597399997408502
     }
   ],
   "quote_options_available": 80,
