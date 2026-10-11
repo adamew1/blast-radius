@@ -257,3 +257,45 @@ Detailed cause, consequences, fix and independent checks:
 Exact observations and timestamps:
 [native audit](artifacts/certified_live/native_normalization_audit.json).
 Readiness remains **PASS WITH LIMITATIONS**; no execution or publication is claimed.
+
+## Follow-up: shared Live interface and demo recovery, 11 October 2026
+
+Live Mode now uses the Snapshot terminal for graph discovery, hypothetical shocks,
+loss cards, rescue comparisons and evidence. Advanced settings and raw JSON are
+collapsed. **Start live demo** explicitly selects the $1M Hakutora/cbBTC example
+and requests new API data. If that example cannot pass validation, it opens a
+verified saved API run with a persistent **HISTORICAL REPLAY** label. Custom
+portfolio failures preserve their holdings and offer explicit recovery choices.
+Saved replay works offline, preserves the original observation timestamps and
+records its parent receipt and historical decision time in new receipts. Neither
+saved replay nor indicative rescue is labelled executable or fully live.
+
+The previous Live interface exposed technical JSON instead of the five-stage
+presentation. Its replacement changes presentation and recovery only. Financial
+source files and the acquisition adapter are unchanged. Changes to portfolio,
+dependency, severity, locks or mandate clear the previous plan. Duplicate terminal
+events are guarded so rapid input cannot leave controls waiting indefinitely.
+Replay receipts are independently checked against their packaged parent; changing
+their historical flag to claim fresh data is rejected.
+
+Newly executed validation: **92/92 tests**, **11 packaged receipt replays**,
+independent native-unit/Decimal reconstruction and exhaustive 21-option Hakutora
+optimization audit. A real Playwright browser rehearsal passed all five stages,
+receipt download/replay, saved offline replay, locks and infeasibility, 25% severity,
+reset and original Snapshot recovery, with **zero JavaScript errors**. No API mocks
+were used for that browser run.
+
+The browser obtained fresh Hakutora observations at **05:57:05 UTC**. Provider
+timestamps: vault **05:55:47**, market **05:51:11**, USDC/cbBTC prices **05:53:58**.
+The observations met the strict 15-minute standard at that decision time, despite
+the selected 60-minute policy. Conditional loss **$901,352.27**; indicative reduction
+**45%**; accounted loss **$496,283.75**. Actual withdrawal, gas and external-cash
+conversion remain unverified assumptions. This certifies Hakutora only.
+
+Evidence: [browser report](artifacts/live_ui_browser_verification.json),
+[independent audit](artifacts/certified_live/live_ui_independent_audit.json),
+[receipt](artifacts/certified_live/hakutora_live_ui_20261011_receipt.json),
+[interface preview](artifacts/live_ui_preview.png). Current demonstration and
+recovery instructions are in [JUDGE_GUIDE.md](JUDGE_GUIDE.md#d-live-mode-demonstration).
+The previously recorded video predates this interface update; use the application
+for the final Live demonstration. Readiness remains **PASS WITH LIMITATIONS**.

@@ -39,9 +39,22 @@ def verify(path):
             expected_label = {"delayed risk observations": "delayed protocol observations; indicative analysis, not verified fresh live data",
                               "rejected": "rejected protocol observations; no verified current analysis",
                               "fresh risk observations": "fresh protocol observations with manual mappings and financial assumptions"}[classification]
+            if "presentation_context" in rec:
+                from blast_radius.sources.live import utc
+                context = rec["presentation_context"]
+                parents = [json.loads(p.read_text(encoding="utf-8")) for p in
+                           (ROOT/"artifacts/certified_live").glob("*receipt.json")]
+                parent = next((p for p in parents if p["receipt_sha256"] == context.get("source_receipt_sha256")), None)
+                if (context.get("mode") != "historical replay" or context.get("fresh_at_replay") is not False
+                        or not parent or parent["observations"] != rec["observations"]
+                        or parent["portfolio"] != rec["portfolio"]
+                        or context.get("recorded_decision_utc") != utc(parent["analysis"]["analyzed_at"])
+                        or rec["analysis"] and rec["analysis"]["analyzed_at"] != parent["analysis"]["analyzed_at"]):
+                    raise ValueError("Historical replay context does not reproduce")
+                expected_label = "historical replay of " + classification + "; not current live data"
             if rec["classification"] != expected_label:
                 raise ValueError("Receipt classification does not reproduce")
-            print(f"PASS embedded observations, historical policy checks, scenario and plan audit: {classification} (not executable)")
+            print(f"PASS embedded observations, historical policy checks, scenario and plan audit: {rec['classification']} (not executable)")
         else:
             print("PASS embedded live observations, historical freshness, scenario, candidates and plan audit (not executable)")
         return

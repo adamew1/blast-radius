@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "audited_at": "2026-10-11T05:58:42.711783+00:00",
+  "method": "Independent Decimal reconstruction, native unit source reconciliation and exhaustive 21-option enumeration; no production financial imports",
+  "tests": {
+    "executed": 92,
+    "passed": 92,
+    "failed": 0
+  },
+  "packaged_receipts_replayed": 11,
+  "case": {
+    "receipt": "artifacts/certified_live/hakutora_live_ui_20261011_receipt.json",
+    "receipt_sha256": "b2b98273114d7b7a1d88e2a00958d8c88495caa1942505f0bc110945cb7eaae2",
+    "decision_utc": "2026-10-11T05:57:05.620186+00:00",
+    "source_timestamps_utc": [
+      "2026-10-11T05:55:47+00:00",
+      "2026-10-11T05:53:58+00:00",
+      "2026-10-11T05:53:58+00:00",
+      "2026-10-11T05:51:11+00:00"
+    ],
+    "historical_freshness_passed": true,
+    "independent_optimality_verified": true,
+    "candidates_enumerated": 21,
+    "conditional_loss_usd": 901352.2678114248,
+    "reduction": 0.45,
+    "accounted_loss_usd": 496283.74729628366,
+    "executable": false,
+    "risk_policy_seconds": 3600,
+    "strict_15_minute_risk_passed": true,
+    "classification": "fresh risk observations"
+  }
+}

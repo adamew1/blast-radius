@@ -1,0 +1,149 @@
+{
+  "checked_at": "2026-10-11T05:56:59.890878+00:00",
+  "js_errors": [],
+  "checks": [
+    "live_demo: Discover, Attack, Collapse, Rescue, Prove and receipt replay",
+    "Live lock invalidates the previous plan and reports infeasibility",
+    "saved_demo: Discover, Attack, Collapse, Rescue, Prove and receipt replay",
+    "Partial severity change clears the saved plan and preserves 25%",
+    "Reset returns to discovery with responsive controls",
+    "Snapshot fallback retains the original baseline and interface"
+  ],
+  "api_mocks": false,
+  "live_demo": {
+    "receipt_sha256": "b2b98273114d7b7a1d88e2a00958d8c88495caa1942505f0bc110945cb7eaae2",
+    "classification": "fresh protocol observations with manual mappings and financial assumptions",
+    "presentation_context": null,
+    "freshness": {
+      "checked_at": "2026-10-11T05:57:05.620186+00:00",
+      "risk_usable": true,
+      "execution_usable": true,
+      "status": "fresh observations; manual assumptions remain",
+      "fully_live": false,
+      "executable": false,
+      "checks": [
+        {
+          "kind": "risk",
+          "label": "hakutora-usdc",
+          "observed_at": 1791698147.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 78.6201856136322,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "observed_at": 1791697871.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 354.6201856136322,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "observed_at": 1791698038.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 187.6201856136322,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "observed_at": 1791698038.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 187.6201856136322,
+          "status": "fresh"
+        }
+      ],
+      "rejections": [],
+      "risk_error": null,
+      "execution_errors": [],
+      "as_of_window_utc": [
+        "2026-10-11T05:51:11+00:00",
+        "2026-10-11T05:55:47+00:00"
+      ],
+      "policy": {
+        "risk_seconds": 3600,
+        "mark_seconds": 120,
+        "quote_seconds": 120,
+        "rpc_seconds": 120,
+        "max_skew_seconds": 3600,
+        "future_tolerance_seconds": 15,
+        "capture_budget_seconds": 180
+      }
+    },
+    "loss_usd": 901352.2678114248,
+    "accounted_loss_usd": 496283.7472962836
+  },
+  "saved_demo": {
+    "receipt_sha256": "8e014dde90fbf010a9ee8806831f1d0a2100860d586479349b97283a9c3ffa7b",
+    "classification": "historical replay of delayed risk observations; not current live data",
+    "presentation_context": {
+      "mode": "historical replay",
+      "source_receipt_sha256": "44de6a266beb9a8e0847f4ac0cd840355e0fa3b691ef4cfefa3b7ea36d2a960d",
+      "recorded_decision_utc": "2026-10-11T05:24:19.829578+00:00",
+      "fresh_at_replay": false
+    },
+    "freshness": {
+      "checked_at": "2026-10-11T05:24:19.829578+00:00",
+      "risk_usable": true,
+      "execution_usable": true,
+      "status": "fresh observations; manual assumptions remain",
+      "fully_live": false,
+      "executable": false,
+      "checks": [
+        {
+          "kind": "risk",
+          "label": "hakutora-usdc",
+          "observed_at": 1791694535.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 1724.8295783996582,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "observed_at": 1791696239.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 20.829578399658203,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48",
+          "observed_at": 1791695935.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 324.8295783996582,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "Morpho risk-token price 0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+          "observed_at": 1791695935.0,
+          "max_age_seconds": 3600,
+          "age_seconds": 324.8295783996582,
+          "status": "fresh"
+        }
+      ],
+      "rejections": [],
+      "risk_error": null,
+      "execution_errors": [],
+      "as_of_window_utc": [
+        "2026-10-11T04:55:35+00:00",
+        "2026-10-11T05:23:59+00:00"
+      ],
+      "policy": {
+        "risk_seconds": 3600,
+        "mark_seconds": 120,
+        "quote_seconds": 120,
+        "rpc_seconds": 120,
+        "max_skew_seconds": 3600,
+        "future_tolerance_seconds": 15,
+        "capture_budget_seconds": 180
+      }
+    },
+    "loss_usd": 901368.612449569,
+    "accounted_loss_usd": 496292.73684726295
+  },
+  "status": "PASS"
+}

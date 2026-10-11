@@ -79,6 +79,30 @@ admitted Ethereum instruments**, with $50k allocation steps and $2M per position
 
 ## D. Live Mode demonstration
 
+**Recommended final interface rehearsal (about one minute):**
+
+1. Select **Live Mode** and click **Start live demo**. This explicitly chooses $1M
+   Hakutora USDC, cbBTC, 100%, a $500k mandate and the 60-minute risk policy.
+2. Read the source label. Fresh observations show their timestamps. Delayed data
+   says delayed. If validation fails, the demo opens **HISTORICAL REPLAY**, using
+   genuine saved API responses; say that it is recorded evidence, not fresh data.
+3. **FIND MY WEAKEST POINT** → **SIMULATE FAILURE** → **BUILD RESCUE PLAN**.
+   The graph and financial cards use the same presentation as Snapshot Mode.
+   Expect a roughly 45% Hakutora reduction and around $496k accounted loss;
+   fresh results can differ. Saved replay reproduces $496,292.74.
+4. Inspect the three-way comparison and cost cards. **Show Me the Evidence** →
+   **Download live observation receipt**. Explain that no transactions are sent.
+5. Optional: lock Hakutora and rebuild to show honest infeasibility; unlock to
+   restore the feasible plan. Severity or mandate changes clear the previous plan.
+
+**Immediate recovery:** **Replay saved API run** works without internet and needs
+no API check. It has a persistent historical label and original timestamps.
+**Use offline Snapshot Mode** is the second fallback. For a component problem,
+open `http://localhost:8501/?fallback=1`, select Live Mode and use the expanded
+native controls. Portfolio/data settings and raw evidence are expandable; they
+do not need to be opened for the main demonstration. A custom portfolio fetch
+never silently replaces its holdings with the saved example.
+
 Explain the three classifications explicitly:
 
 - **Verified live analysis:** required observations passed freshness at the

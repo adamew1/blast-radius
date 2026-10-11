@@ -105,7 +105,11 @@ Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. **Snapsho
 
 ## Live Mode
 
-Select **Live Mode**, choose up to ten instruments from the same 14-instrument catalog, then click **Fetch fresh data & discover**. Discover shared dependencies, select an attack and severity, inspect the recalculated losses and collapse paths, and calculate an **indicative model rescue** when all required observations pass validation. **Use offline Snapshot Mode** returns to the validated demonstration in one click.
+Select **Live Mode** → **Start live demo**. This explicitly selects the illustrative $1M Hakutora USDC / cbBTC example and the 60-minute risk window, fetches new API observations, then opens the same interactive graph, five stages, financial cards and rescue comparison as Snapshot Mode. Click **FIND MY WEAKEST POINT** → **SIMULATE FAILURE** → **BUILD RESCUE PLAN** → **Show Me the Evidence**, then download the receipt. Costs, reductions, feasibility and before/after graphs are readable without inspecting JSON.
+
+If the demo's API observations fail validation, **Start live demo** opens the authentic saved run with a prominent **HISTORICAL REPLAY** label, original source timestamps and an explanation of the failed request. It never fabricates live figures. **Replay saved API run** opens this verified offline backup immediately, without any API request. Its recorded portfolio stays fixed; dependency, severity, locks and loss mandate can be explored at the recorded decision time. Replay receipts retain that context and cannot claim current freshness. **Use offline Snapshot Mode** remains available in one click.
+
+For custom Live portfolios, open **Portfolio & data settings**, choose up to ten catalog instruments and click **Fetch fresh data & discover**. Custom requests retain their portfolio on failure and offer the explicit replay/Snapshot recovery choices. The graph's Live Portfolio editor applies allocations and requires a new fetch. **Advanced controls & raw evidence** offers native controls if the component fails; `?fallback=1` selects these controls directly. Technical JSON stays collapsed during the main demo.
 
 For the previously verified scope, click **Load $1M Hakutora live example**, then **Fetch fresh data & discover**. This explicitly selects one illustrative Hakutora USDC holding, the cbBTC scenario and the strict 15-minute policy; it does not fetch automatically or guarantee freshness. A rejected full-book request never silently switches portfolios. Stale Morpho errors identify the holding, collateral market, provider timestamp and age; the timestamp window is marked partial when acquisition fails. Wait for provider updates, explicitly select another portfolio, or use Snapshot Mode.
 
@@ -138,7 +142,7 @@ Receipts detect local changes but are not provider signatures. Historical replay
 .venv/Scripts/python.exe scripts/verify_receipt.py
 ```
 
-All 89 tests passed after the native-unit correction, including the original 47 financial regressions and 42 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The new cases also test native units, inconsistent display USD marks, price expiry, adapter replay and the actual Live button. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
+All 92 tests passed after the Live UI and replay recovery update, including the original 47 financial regressions and 45 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The new cases also test native units, inconsistent display USD marks, price expiry, adapter replay and the actual Live button. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
 
 Reproduce the modified-book audit separately:
 
@@ -233,3 +237,20 @@ vault state. [Evidence, timestamps and independent audit](artifacts/certified_li
 No universal wallet support, calibrated scenario probability, atomic live state or
 guaranteed execution is claimed. Dependency mapping is incomplete; mathematically
 feasible rescue remains conditional on recovery and execution assumptions.
+
+The final shared-UI browser rehearsal completed a new real Hakutora/cbBTC run at
+**2026-10-11 05:57:05 UTC**: conditional loss **$901,352.27**, **45%** indicative
+reduction, accounted loss **$496,283.75**. Vault timestamp **05:55:47**, market
+**05:51:11**, USDC/cbBTC prices **05:53:58**. These observations passed the strict
+15-minute age/spread standard, despite the selected 60-minute acceptance policy.
+The receipt replay and separate 21-option Decimal audit passed. Browser checks
+also passed saved offline replay, locks/infeasibility, 25% severity, reset and
+Snapshot baseline recovery, with no JavaScript errors.
+[Browser report](artifacts/live_ui_browser_verification.json) ·
+[Independent live audit](artifacts/certified_live/live_ui_independent_audit.json) ·
+[UI preview](artifacts/live_ui_preview.png).
+
+```powershell
+.venv/Scripts/python.exe scripts/verify_live_demo.py
+.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_live_ui_20261011_receipt.json
+```
