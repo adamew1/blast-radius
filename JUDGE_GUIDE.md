@@ -109,14 +109,24 @@ A further real browser run at **03:57:10 UTC** used provider timestamps
 **03:55:35 / 03:55:47**, passed freshness, and produced loss **$902,209.66** and
 accounted loss **$496,755.31** with the same 45% indicative reduction. Its downloaded
 receipt is `artifacts/certified_live/hakutora_browser_20261011_receipt.json`; the
-independent audit verifies all three captures.
+independent audit verifies these captures. The recovery-button browser run at
+**04:47:15 UTC** used **04:45:47 / 04:39:11** provider timestamps, passed freshness,
+and produced loss **$901,379.25**, a **45% indicative reduction** and accounted loss
+**$496,298.59**. Its replayable evidence is
+`artifacts/certified_live/hakutora_recovery_20261011_receipt.json`.
 
-For a fresh attempt: **Live Mode** → expand **Choose supported instruments and
-quote sizes** → clear the portfolio selection → select **Morpho Hakutora USDC** →
-leave $1M and the default grid → **Fetch fresh data & discover** → choose **cbBTC**
-in **Attack dependency** → leave 100% and $500k → **Calculate indicative model
+For a fresh attempt: **Live Mode** → **Load $1M Hakutora live example** →
+**Fetch fresh data & discover** → confirm **cbBTC** in **Attack dependency** →
+leave 100% and $500k → **Calculate indicative model
 rescue** → inspect timestamps and download the live receipt. Fresh values can
 differ or fail validation; neither is a reason to loosen limits.
+
+The example button explicitly replaces only the Live portfolio and clears the old
+analysis; it does not fetch automatically. A failed request preserves the selected
+portfolio. A stale Morpho rejection names the affected holding and collateral
+market, shows its provider timestamp and age, and marks the validated timestamp
+window as partial. The original ten-position book can still be selected manually;
+its complete live coverage remains uncertified.
 
 Policy: provider risk states ≤900 seconds; USD marks, quote request times and RPC
 block ≤120 seconds; risk skew ≤900 seconds; future tolerance 15 seconds. Freshness

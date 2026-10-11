@@ -13,7 +13,7 @@ from blast_radius.fire_drill.live import (LIVE_ASSUMPTIONS, analyze_live, captur
 from blast_radius.fire_drill.model import discover
 from blast_radius.fire_drill.presentation import network
 from blast_radius.portfolio.book import load_book
-from blast_radius.sources.live import LiveInputError
+from blast_radius.sources.live import LiveInputError, timestamp, utc
 
 
 def snapshot_fallback():
@@ -22,6 +22,84 @@ def snapshot_fallback():
 
 def clear_live_analysis():
     st.session_state.pop("live_analysis", None)
+
+
+def load_hakutora_example():
+    """Explicitly replace the Live portfolio; never substitute on a failed fetch."""
+    for key in ("live_run", "live_analysis", "live_receipt_decision", "live_download_receipt", "live_receipt_path"):
+        st.session_state.pop(key, None)
+    st.session_state.live_selected = ["hakutora-usdc"]
+    st.session_state["live_size_hakutora-usdc"] = 1_000_000
+    st.session_state.live_grid = "25% steps (four per PT)"
+    st.session_state.live_dependency = "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
+    st.session_state.live_severity = 100
+    st.session_state.live_limit = 500_000.0
+    st.session_state.live_locks = []
+
+
+def rejected_morpho_inputs(run, status):
+    """Describe rejected identities from the captured data, without accepting them."""
+    reasons = " ".join([status["risk_error"] or ""] +
+                       [r["reason"] for r in status["rejections"] if r["kind"] == "risk"]).lower()
+    selected = {p["id"] for p in run.positions}
+    rows = {}
+    for p in run.catalog:
+        vault = run.vault_records.get(p.get("vault", "").lower())
+        if not isinstance(vault, dict) or not isinstance(vault.get("state"), dict):
+            continue
+        state = vault["state"]
+        inputs = [(p["id"], "vault", state)]
+        allocations = state.get("allocation")
+        for allocation in allocations if isinstance(allocations, list) else []:
+            if not isinstance(allocation, dict) or not isinstance(allocation.get("market"), dict):
+                continue
+            market = allocation["market"]
+            mid = market.get("marketId", "")
+            if isinstance(mid, str) and mid and allocation.get("supplyAssetsUsd"):
+                def symbol(key):
+                    asset = market.get(key)
+                    return asset.get("symbol", "unknown asset") if isinstance(asset, dict) else "unknown asset"
+                market_state = market.get("state")
+                inputs.append((mid, f"{symbol('collateralAsset')} / {symbol('loanAsset')} market",
+                               market_state if isinstance(market_state, dict) else {}))
+        for identity, label, observation in inputs:
+            if identity.lower() not in reasons:
+                continue
+            row = rows.setdefault(identity, {"identity": identity, "input": label, "positions": [],
+                                             "scope": [], "provider_time_utc": "Unavailable",
+                                             "age_seconds": None, "max_age_seconds": run.client.policy.risk_seconds})
+            row["positions"].append(p["label"])
+            row["scope"].append("selected holding" if p["id"] in selected else "PT contagion discovery")
+            try:
+                observed = timestamp(observation.get("timestamp"))
+                row["provider_time_utc"] = utc(observed)
+                row["age_seconds"] = timestamp(status["checked_at"]) - observed
+            except (LiveInputError, OverflowError, OSError):
+                pass
+    return list(rows.values())
+
+
+def render_rejection(run, status):
+    rows = rejected_morpho_inputs(run, status)
+    if not rows:
+        st.error("Live analysis rejected. " + (status["risk_error"] or "Inputs expired or changed; fetch a new run."))
+        return
+    for row in rows:
+        age = row["age_seconds"]
+        timing = (f"{age / 60:.1f} minutes old" if age is not None and age >= 0 else
+                  f"{-age / 60:.1f} minutes in the future" if age is not None else "missing a valid timestamp")
+        limit = (f"future tolerance {run.client.policy.future_tolerance_seconds} seconds" if age is not None and age < 0
+                 else f"maximum age {row['max_age_seconds'] / 60:g} minutes")
+        st.error(f"Live analysis rejected. {', '.join(row['positions'])}: {row['input']} is {timing} "
+                 f"({limit}). "
+                 f"Provider timestamp: {row['provider_time_utc']}.")
+    st.info("Morpho returned an observation outside the freshness policy. No current scenario or rescue is available "
+            "for this portfolio. Retry after the provider updates, change the selected instruments, "
+            "or use ‘Load $1M Hakutora live example’ above and fetch again. "
+            "The example must also pass fresh API checks. ‘Use offline Snapshot Mode’ is available above.")
+    with st.expander("Rejected input evidence and technical details"):
+        st.dataframe(rows, width="stretch", hide_index=True)
+        st.write(status["risk_error"] or status["rejections"])
 
 
 def graph_dot(view):
@@ -39,9 +117,13 @@ def render_live():
     st.title("Blast Radius · Live Mode")
     st.caption("Discover → Attack → Collapse → Rescue → Prove · supported Ethereum catalog · hypothetical allocations")
     st.info("Fresh protocol observations with versioned manual dependencies and assumed costs. "
-            "Model rescues are indicative: cash conversion and Morpho withdrawal execution are not certified.")
+            "Model rescues are indicative: cash conversion and Morpho withdrawal execution are not certified. "
+            "Full-book and Pendle live coverage has not passed certification.")
     catalog = load_catalog()
     default_sizes = {p["id"]: p["size_usd"] for p in load_book()["positions"]}
+    st.button("Load $1M Hakutora live example", on_click=load_hakutora_example, key="live_example",
+              help="Replaces only the Live portfolio with one illustrative $1M Hakutora USDC holding, "
+                   "100% cbBTC shock and $500k mandate. Click Fetch to obtain new observations; freshness is never guaranteed.")
     with st.expander("Choose supported instruments and quote sizes"):
         ids = st.multiselect("Live portfolio instruments (up to ten)", [p["id"] for p in catalog],
                              default=list(default_sizes), key="live_selected",
@@ -57,6 +139,8 @@ def render_live():
     except ValueError as exc:
         st.error(str(exc))
         return
+    st.caption(f"Selected live portfolio: {len(positions)} instrument{'s' if len(positions) != 1 else ''} · "
+               f"${sum(p['size_usd'] for p in positions):,.0f} illustrative allocation.")
     steps = list(range(1, 21)) if grid.startswith("5%") else [] if grid.startswith("Risk") else [5, 10, 15, 20]
     run = st.session_state.get("live_run")
     changed = run and (run.positions != positions or run.quote_steps != steps)
@@ -77,7 +161,9 @@ def render_live():
         return
     status = run.freshness()
     st.write("Freshness:", status["status"])
-    st.caption("As-of provider state window (UTC): " + " → ".join(status["as_of_window_utc"])
+    window_label = "As-of provider state window (UTC): " if status["risk_usable"] else \
+                   "Validated provider timestamps only (partial; analysis rejected): "
+    st.caption(window_label + (" → ".join(status["as_of_window_utc"]) or "none")
                + " · retrieved through " + time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime(run.completed_at)))
     with st.expander("Sources, timestamps and freshness checks"):
         st.json(status)
@@ -87,7 +173,10 @@ def render_live():
     analysis = None
     if changed or not status["risk_usable"]:
         clear_live_analysis()
-        st.error("Live analysis rejected. " + (status["risk_error"] or "Inputs expired or changed; fetch a new run."))
+        if changed:
+            st.error("Live analysis rejected. Portfolio inputs changed; fetch a new run.")
+        else:
+            render_rejection(run, status)
     else:
         ranking = discover(run.book)
         shared = [r for r in ranking if r["positions"] > 1 and r["kind"] != "chain"]

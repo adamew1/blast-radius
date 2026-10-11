@@ -538,6 +538,98 @@ class LiveUiTests(unittest.TestCase):
                 self.assertFalse(app.exception)
                 self.assertTrue(app.session_state["live_analysis"]["plan"]["audit"]["verified"])
 
+    def test_stale_market_explained_and_explicit_example_recovers_without_substitution(self):
+        from app.components.live import rejected_morpho_inputs
+
+        api = Api(LiveTests.fixtures)
+        smokehouse = next(p for p in load_catalog() if p["id"] == "smokehouse-usdt")
+        market = api.vaults[raw(smokehouse["vault"])]["state"]["allocation"][0]["market"]
+        mid = market["marketId"]
+        for vault in api.vaults.values():
+            for allocation in vault["state"]["allocation"]:
+                if allocation["market"]["marketId"] == mid:
+                    allocation["market"]["state"]["timestamp"] = NOW - 1988
+        failed = capture_live(load_book()["positions"], client=ObservationClient(session=api, clock=lambda: NOW))
+        self.assertFalse(failed.freshness()["risk_usable"])
+        details = rejected_morpho_inputs(failed, failed.freshness())
+        self.assertEqual(len(details), 1)
+        self.assertIn("Morpho Smokehouse USDT", details[0]["positions"])
+        self.assertIn("PT-sUSDS", details[0]["input"])
+        self.assertEqual(details[0]["provider_time_utc"], utc(NOW - 1988))
+        self.assertEqual(details[0]["age_seconds"], 1988)
+        self.assertEqual(details[0]["max_age_seconds"], 900)
+        self.assertEqual(details[0]["scope"], ["selected holding"])
+        vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
+        fresh = capture_live([vault], client=ObservationClient(session=api, clock=lambda: NOW))
+        self.assertTrue(fresh.freshness()["risk_usable"])
+        with tempfile.TemporaryDirectory() as directory:
+            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")), \
+                    patch("requests.Session.request", side_effect=AssertionError("unexpected request")):
+                app = self.app()
+                app.radio(key="data_mode").set_value("Live Mode").run()
+                with patch("app.components.live.capture_live", return_value=failed) as fetch:
+                    app.button(key="live_refresh").click().run()
+                    self.assertFalse(app.exception)
+                    self.assertEqual(fetch.call_count, 1)
+                # Rejection neither drops holdings nor silently runs a sample.
+                self.assertEqual(app.multiselect(key="live_selected").value,
+                                 [p["id"] for p in load_book()["positions"]])
+                self.assertTrue(any("Smokehouse USDT" in e.value and "33.1 minutes" in e.value and
+                                    "15 minutes" in e.value and utc(NOW - 1988) in e.value for e in app.error))
+                self.assertTrue(any("partial; analysis rejected" in c.value for c in app.caption))
+                self.assertFalse(any(b.key == "live_rescue" for b in app.button))
+                old_snapshot = app.session_state["portfolio_sizes"]
+                with patch("app.components.live.capture_live", side_effect=AssertionError("sample needs explicit fetch")):
+                    app.button(key="live_example").click().run()
+                self.assertFalse(app.exception)
+                self.assertEqual(app.multiselect(key="live_selected").value, ["hakutora-usdc"])
+                self.assertEqual(app.number_input(key="live_size_hakutora-usdc").value, 1_000_000)
+                self.assertNotIn("live_run", app.session_state)
+                self.assertNotIn("live_analysis", app.session_state)
+                self.assertNotIn("live_download_receipt", app.session_state)
+                self.assertEqual(app.session_state["portfolio_sizes"], old_snapshot)
+                with patch("app.components.live.capture_live", return_value=fresh):
+                    app.button(key="live_refresh").click().run()
+                self.assertFalse(app.exception)
+                app.button(key="live_rescue").click().run()
+                self.assertFalse(app.exception)
+                plan = app.session_state["live_analysis"]["plan"]
+                self.assertTrue(plan["audit"]["verified"])
+                self.assertFalse(plan["executable"])
+                self.assertEqual(app.session_state["live_dependency"],
+                                 "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf")
+
+    def test_example_is_available_after_empty_portfolio_error(self):
+        with patch("requests.Session.request", side_effect=AssertionError("unexpected request")):
+            app = self.app()
+            app.radio(key="data_mode").set_value("Live Mode").run()
+            app.multiselect(key="live_selected").set_value([]).run()
+            self.assertTrue(app.error)
+            app.button(key="live_example").click().run()
+            self.assertFalse(app.exception)
+            self.assertFalse(app.error)
+            self.assertEqual(app.multiselect(key="live_selected").value, ["hakutora-usdc"])
+            self.assertNotIn("live_run", app.session_state)
+
+    def test_malformed_provider_data_cannot_crash_rejection_details(self):
+        api = Api(LiveTests.fixtures)
+        smokehouse = next(p for p in load_catalog() if p["id"] == "smokehouse-usdt")
+        api.vaults[raw(smokehouse["vault"])]["state"] = ["invalid state object"]
+        failed = capture_live(load_book()["positions"], client=ObservationClient(session=api, clock=lambda: NOW))
+        self.assertFalse(failed.freshness()["risk_usable"])
+        with tempfile.TemporaryDirectory() as directory:
+            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")):
+                app = self.app()
+                app.radio(key="data_mode").set_value("Live Mode").run()
+                with patch("app.components.live.capture_live", return_value=failed):
+                    app.button(key="live_refresh").click().run()
+                self.assertFalse(app.exception)
+                self.assertTrue(any("rejected" in e.value.lower() for e in app.error))
+                self.assertFalse(any(b.key == "live_rescue" for b in app.button))
+                app.button(key="live_example").click().run()
+                self.assertFalse(app.exception)
+                self.assertNotIn("live_run", app.session_state)
+
 
 if __name__ == "__main__":
     unittest.main()

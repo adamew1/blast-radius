@@ -78,6 +78,46 @@ policy. The rejected capture's receipt replayed offline successfully. This is an
 observed availability limit, not grounds to relax freshness or load old balances.
 Mocked fresh responses exercise the complete workflow independently of API uptime.
 
+### Stale-market rejection and recovery (2026-10-11)
+
+A user capture at **04:38:07 UTC** rejected Smokehouse USDT's
+**PT-sUSDS-26NOV2026 / USDT** market
+`0x0367161b7cb23dfd03747dd3815d1c445b0437b648a6d50346249c6e7b92ff1b`.
+Its provider timestamp was **04:04:59 UTC**, age **1,988.8 seconds**, exceeding the
+unchanged **900-second** risk limit. Direct requests to both Morpho GraphQL hostnames
+still returned that timestamp around **04:41 UTC**. Refreshing the browser or
+replacing the timestamp with HTTP retrieval time cannot make this input fresh.
+
+The original UI showed a contract hash and a timestamp window containing only the
+first accepted vault observation. This hid the failed market's older timestamp.
+The UI now identifies the holding and market, shows the rejected provider time
+and age, and labels the accepted time window as partial. **Load $1M Hakutora live
+example** explicitly replaces the Live selection and clears previous results;
+the user must then fetch new observations. No automatic portfolio substitution,
+historical fallback, financial model change or freshness relaxation is used.
+
+A separate real HTTP Hakutora/cbBTC run at **04:42:08 UTC** passed with vault and
+market timestamps **04:35:47 / 04:39:11 UTC** (ages 382 / 178 seconds). Its $1M
+illustrative holding produced **$901,379.25** conditional loss and **$496,298.59**
+accounted loss with a **45% indicative reduction**. The receipt replay passed.
+Runtime evidence: `artifacts/live/fd111bdcf355a2c18911de0cb40e28108904c947a9055a1211a127f56171304a.json`.
+These historical checks do not guarantee the next request will pass. Gas, cash
+conversion and manual dependency mappings remain assumed; execution is uncertified.
+
+A browser request at **04:46:05 UTC** was rejected for inconsistent Morpho dollar
+valuations: allocation sum $15,315,705.93 versus vault total $15,316,132.55. The
+reconciliation threshold was preserved. A separate explicit request at
+**04:47:15 UTC** passed freshness and reconciliation, with vault/market timestamps
+**04:45:47 / 04:39:11 UTC** (ages 88 / 484 seconds), and the same rounded financial
+results as the earlier run. Download/replay and independent Decimal enumeration
+of all 21 candidates passed. This receipt is packaged at
+`artifacts/certified_live/hakutora_recovery_20261011_receipt.json`.
+The real browser also verified clear stale-market messaging, explicit portfolio
+replacement without an automatic fetch, and Snapshot baseline recovery, with no
+JavaScript errors. The complete automated suite passed **78/78 tests**, including
+three new UI recovery regressions. Historical release reports describe the earlier
+75-test release.
+
 The existing `/swap` schema is still used for exact-size quotes; it was the
 repository's captured/validated response contract. If the provider removes it or
 returns an unrecognized schema, the run remains risk-only. The implementation does

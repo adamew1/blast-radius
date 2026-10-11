@@ -1,0 +1,2615 @@
+{
+  "receipt_schema": "blast-radius-live-v1",
+  "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
+  "classification": "fresh protocol observations with manual mappings and financial assumptions",
+  "executable": false,
+  "portfolio": [
+    {
+      "id": "hakutora-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Hakutora USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+      "size_usd": 1000000
+    }
+  ],
+  "catalog": [
+    {
+      "id": "pt-susds",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x9c560ebaf78e596cbcc27411d633a74d628dd7dc",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-susde",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-wsteth",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x34280882267ffa6383b363e278b027be083bbe3b",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-reusd",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+      "size_usd": 1000000
+    },
+    {
+      "id": "smokehouse-usdt",
+      "kind": "morpho_vault",
+      "label": "Morpho Smokehouse USDT",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484",
+      "size_usd": 1000000
+    },
+    {
+      "id": "steakhouse-usdt",
+      "kind": "morpho_vault",
+      "label": "Morpho Steakhouse USDT",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+      "size_usd": 1000000
+    },
+    {
+      "id": "steakhouse-eth",
+      "kind": "morpho_vault",
+      "label": "Morpho Steakhouse ETH",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xBEEf050ecd6a16c4e7bfFbB52Ebba7846C4b8cD4",
+      "size_usd": 1000000
+    },
+    {
+      "id": "gauntlet-usdc-prime",
+      "kind": "morpho_vault",
+      "label": "Morpho Gauntlet USDC Prime",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+      "size_usd": 1000000
+    },
+    {
+      "id": "hakutora-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Hakutora USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+      "size_usd": 1000000
+    },
+    {
+      "id": "yearn-og-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Yearn OG USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xF9bdDd4A9b3A45f980e11fDDE96e16364dDBEc49",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-apyUSD \u00b7 2026-11-05",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-USD3 \u00b7 2026-12-17",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-vault-0x31a5684983eee865d943a696aac155363ba024f9",
+      "kind": "morpho_vault",
+      "label": "Morpho Vault Bridge WETH",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0x31A5684983EeE865d943A696AAC155363bA024f9",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-vault-0xbeefb9f61cc44895d8aec381373555a64191a9c4",
+      "kind": "morpho_vault",
+      "label": "Morpho Vault Bridge USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xBEefb9f61CC44895d8AEc381373555a64191A9c4",
+      "size_usd": 1000000
+    }
+  ],
+  "manual_mappings": {
+    "chains": {
+      "ethereum": {
+        "risk_category": "Chain",
+        "source": "https://defillama.com/chain/Ethereum"
+      }
+    },
+    "issuers": {
+      "wbtc_custody": {
+        "name": "WBTC custody (BitGo / BiT Global)",
+        "kind": "custodial wrapped BTC",
+        "risk_category": "Wrapped BTC (custodial)",
+        "source": "https://www.wbtc.network/about"
+      },
+      "apyx": {
+        "name": "Apyx",
+        "kind": "preferred-share backed synthetic dollar",
+        "risk_category": "Synthetic Dollar",
+        "source": "https://apyx-labs.github.io/evm-contracts/"
+      },
+      "infinifi": {
+        "name": "infiniFi",
+        "kind": "fractional-reserve yield protocol",
+        "risk_category": "Yield",
+        "source": "https://docs.infinifi.xyz/risk-disclosures"
+      },
+      "re": {
+        "name": "Re Protocol",
+        "kind": "reinsurance / tranche issuer",
+        "risk_category": "Yield",
+        "source": "https://docs.re.xyz/products/smart-contracts"
+      },
+      "threejane": {
+        "name": "3Jane",
+        "kind": "credit / tranche issuer",
+        "risk_category": "Lending",
+        "source": "https://docs.3jane.xyz/usd3-susd3/suppliers"
+      },
+      "strata": {
+        "name": "Strata",
+        "kind": "risk-tranching protocol",
+        "risk_category": "Yield",
+        "source": "https://docs.strata.markets/technical-documentation/contracts-details"
+      },
+      "sierra": {
+        "name": "Sierra",
+        "kind": "RWA / DeFi yield token issuer",
+        "risk_category": "Yield",
+        "source": "https://docs.sierra.money/building-with-sierra/blockchain-addresses"
+      },
+      "usdd": {
+        "name": "USDD protocol",
+        "kind": "collateral-backed stablecoin",
+        "risk_category": "CDP stablecoin",
+        "source": "https://docs.usdd.io/introduction/collateral-asset-contract-addresses"
+      },
+      "origin": {
+        "name": "Origin Protocol",
+        "kind": "liquid staking",
+        "risk_category": "Liquid Staking",
+        "source": "https://docs.originprotocol.com/registry/contracts/oeth-registry"
+      },
+      "sky": {
+        "name": "Sky (formerly MakerDAO)",
+        "kind": "CDP / stablecoin issuer",
+        "defillama_slug": "sky-lending",
+        "risk_category": "CDP",
+        "source": "https://sky.money"
+      },
+      "lido": {
+        "name": "Lido",
+        "kind": "liquid staking",
+        "defillama_slug": "lido",
+        "risk_category": "Liquid Staking",
+        "source": "https://lido.fi"
+      },
+      "etherfi": {
+        "name": "ether.fi",
+        "kind": "liquid restaking",
+        "defillama_slug": "ether.fi-stake",
+        "risk_category": "Liquid Restaking",
+        "source": "https://ether.fi"
+      },
+      "ethena": {
+        "name": "Ethena",
+        "kind": "synthetic dollar",
+        "defillama_slug": "ethena",
+        "risk_category": "Synthetic Dollar",
+        "source": "https://ethena.fi"
+      },
+      "circle": {
+        "name": "Circle",
+        "kind": "fiat-backed stablecoin",
+        "defillama_slug": "circle",
+        "risk_category": "Stablecoin (fiat)",
+        "source": "https://www.circle.com/usdc"
+      },
+      "tether": {
+        "name": "Tether",
+        "kind": "fiat-backed stablecoin",
+        "defillama_slug": "tether",
+        "risk_category": "Stablecoin (fiat)",
+        "source": "https://tether.to"
+      },
+      "coinbase": {
+        "name": "Coinbase",
+        "kind": "custodial wrapped BTC",
+        "risk_category": "Wrapped BTC (custodial)",
+        "source": "https://www.coinbase.com/cbbtc"
+      }
+    },
+    "tokens": {
+      "0xa3931d71877c0e7a3148cb7eb4463524fec27fbd": {
+        "symbol": "sUSDS",
+        "kind": "wrapper",
+        "peg": null,
+        "wraps": "0xdc035d45d973e3ec169d2276ddab16f1e407384f",
+        "backing_share": 100,
+        "issuer": "sky",
+        "risk_category": "Yield (savings)",
+        "oracle": {
+          "name": "Sky SSR / Chainlink sUSDS",
+          "source": "https://docs.sky.money"
+        },
+        "source": "https://docs.sky.money/sky-tokens/susds"
+      },
+      "0xdc035d45d973e3ec169d2276ddab16f1e407384f": {
+        "symbol": "USDS",
+        "kind": "stablecoin",
+        "peg": 1.0,
+        "wraps": null,
+        "backing_share": 100,
+        "issuer": "sky",
+        "risk_category": "CDP stablecoin",
+        "oracle": {
+          "name": "Sky PSM (hardcoded $1)",
+          "source": "https://docs.sky.money"
+        },
+        "source": "https://docs.sky.money/sky-tokens/usds"
+      },
+      "0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0": {
+        "symbol": "wstETH",
+        "kind": "lst",
+        "peg": null,
+        "wraps": "0xae7ab96520de3a18e5e111b5eaab095312d7fe84",
+        "backing_share": 100,
+        "issuer": "lido",
+        "risk_category": "Liquid Staking",
+        "oracle": {
+          "name": "Chainlink wstETH/ETH",
+          "source": "https://data.chain.link"
+        },
+        "source": "https://docs.lido.fi/contracts/wsteth"
+      },
+      "0xae7ab96520de3a18e5e111b5eaab095312d7fe84": {
+        "symbol": "stETH",
+        "kind": "lst",
+        "peg": null,
+        "wraps": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "backing_share": 100,
+        "issuer": "lido",
+        "risk_category": "Liquid Staking",
+        "source": "https://docs.lido.fi"
+      },
+      "0xcd5fe23c85820f7b72d0926fc9b05b43e359b7ee": {
+        "symbol": "weETH",
+        "kind": "lrt",
+        "peg": null,
+        "wraps": "0x35fa164735182de50811e8e2e824cfb9b6118ac2",
+        "backing_share": 100,
+        "issuer": "etherfi",
+        "risk_category": "Liquid Restaking",
+        "oracle": {
+          "name": "Redstone/Chainlink weETH",
+          "source": "https://data.chain.link"
+        },
+        "source": "https://etherfi.gitbook.io"
+      },
+      "0x35fa164735182de50811e8e2e824cfb9b6118ac2": {
+        "symbol": "eETH",
+        "kind": "lrt",
+        "peg": null,
+        "wraps": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "backing_share": 100,
+        "issuer": "etherfi",
+        "risk_category": "Liquid Restaking",
+        "source": "https://etherfi.gitbook.io"
+      },
+      "0x9d39a5de30e57443bff2a8307a4256c8797a3497": {
+        "symbol": "sUSDe",
+        "kind": "wrapper",
+        "peg": null,
+        "wraps": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+        "backing_share": 100,
+        "issuer": "ethena",
+        "risk_category": "Yield (savings)",
+        "source": "https://docs.ethena.fi"
+      },
+      "0x4c9edd5852cd905f086c759e8383e09bff1e68b3": {
+        "symbol": "USDe",
+        "kind": "stablecoin",
+        "peg": 1.0,
+        "wraps": null,
+        "backing_share": 100,
+        "issuer": "ethena",
+        "risk_category": "Synthetic Dollar",
+        "oracle": {
+          "name": "Chainlink/Redstone USDe",
+          "source": "https://data.chain.link"
+        },
+        "source": "https://docs.ethena.fi"
+      },
+      "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee": {
+        "symbol": "ETH",
+        "kind": "base",
+        "peg": null,
+        "risk_category": "Native asset",
+        "source": "https://ethereum.org"
+      },
+      "0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": {
+        "symbol": "WETH",
+        "kind": "base",
+        "peg": null,
+        "risk_category": "Native asset",
+        "source": "https://weth.io"
+      },
+      "0x2260fac5e5542a773aa44fbcfedf7c193bc2c599": {
+        "symbol": "WBTC",
+        "kind": "wrapper",
+        "peg": null,
+        "issuer": "wbtc_custody",
+        "risk_category": "Wrapped BTC (custodial)",
+        "source": "https://wbtc.network"
+      },
+      "0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": {
+        "symbol": "cbBTC",
+        "kind": "wrapper",
+        "peg": null,
+        "issuer": "coinbase",
+        "risk_category": "Wrapped BTC (custodial)",
+        "source": "https://www.coinbase.com/cbbtc"
+      },
+      "0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": {
+        "symbol": "USDC",
+        "kind": "stablecoin",
+        "peg": 1.0,
+        "issuer": "circle",
+        "risk_category": "Stablecoin (fiat)",
+        "oracle": {
+          "name": "Chainlink USDC/USD",
+          "source": "https://data.chain.link"
+        },
+        "source": "https://www.circle.com/usdc"
+      },
+      "0xdac17f958d2ee523a2206206994597c13d831ec7": {
+        "symbol": "USDT",
+        "kind": "stablecoin",
+        "peg": 1.0,
+        "issuer": "tether",
+        "risk_category": "Stablecoin (fiat)",
+        "oracle": {
+          "name": "Chainlink USDT/USD",
+          "source": "https://data.chain.link"
+        },
+        "source": "https://tether.to"
+      },
+      "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a": {
+        "symbol": "apyUSD",
+        "kind": "wrapper",
+        "wraps": "0x98a878b1cd98131b271883b390f68d2c90674665",
+        "backing_share": 100,
+        "issuer": "apyx",
+        "risk_category": "Yield (savings)",
+        "source": "https://apyx-labs.github.io/evm-contracts/"
+      },
+      "0x98a878b1cd98131b271883b390f68d2c90674665": {
+        "symbol": "apxUSD",
+        "kind": "stablecoin",
+        "issuer": "apyx",
+        "risk_category": "Synthetic Dollar",
+        "source": "https://docs.apyx.fi/technical-overview/protocol-contracts-overview",
+        "note": "Issuer identified; preferred-share reserve issuers and weights not mapped."
+      },
+      "0xdbdc1ef57537e34680b898e1febd3d68c7389bcb": {
+        "symbol": "siUSD",
+        "kind": "wrapper",
+        "wraps": "0x48f9e38f3070ad8945dfeae3fa70987722e3d89c",
+        "backing_share": 100,
+        "issuer": "infinifi",
+        "risk_category": "Yield (savings)",
+        "source": "https://docs.infinifi.xyz/dev-docs/tokens/staked-token"
+      },
+      "0x48f9e38f3070ad8945dfeae3fa70987722e3d89c": {
+        "symbol": "iUSD",
+        "kind": "stablecoin",
+        "issuer": "infinifi",
+        "risk_category": "Yield",
+        "source": "https://docs.infinifi.xyz/dev-docs/contracts",
+        "note": "Issuer identified; dynamic liquid/illiquid farm allocations not mapped."
+      },
+      "0x5086bf358635b81d8c47c66d1c8b9e567db70c72": {
+        "symbol": "reUSD",
+        "kind": "wrapper",
+        "issuer": "re",
+        "risk_category": "Yield",
+        "source": "https://docs.re.xyz/products/smart-contracts",
+        "note": "Senior reinsurance tranche; reserves, counterparties and waterfall not modelled."
+      },
+      "0xddc0f880ff6e4e22e4b74632fbb43ce4df6ccc5a": {
+        "symbol": "reUSDe",
+        "kind": "wrapper",
+        "issuer": "re",
+        "risk_category": "Yield",
+        "source": "https://docs.re.xyz/products/smart-contracts",
+        "note": "Mezzanine reinsurance tranche; not assumed to be a 100% sUSDe wrapper."
+      },
+      "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc": {
+        "symbol": "USD3",
+        "kind": "wrapper",
+        "issuer": "threejane",
+        "risk_category": "Lending",
+        "source": "https://docs.3jane.xyz/developers/addresses",
+        "note": "3Jane senior credit tranche, distinct from Reserve's token of the same ticker."
+      },
+      "0xf689555121e529ff0463e191f9bd9d1e496164a7": {
+        "symbol": "sUSD3",
+        "kind": "wrapper",
+        "issuer": "threejane",
+        "risk_category": "Lending",
+        "source": "https://docs.3jane.xyz/developers/addresses",
+        "note": "Junior credit tranche; shared issuer only, no invented senior/junior loss factor."
+      },
+      "0x3d7d6fdf07ee548b939a80edbc9b2256d0cdc003": {
+        "symbol": "srUSDe",
+        "kind": "wrapper",
+        "wraps": "0x4c9edd5852cd905f086c759e8383e09bff1e68b3",
+        "backing_share": 100,
+        "estimated": true,
+        "issuer": "strata",
+        "risk_category": "Yield",
+        "source": "https://docs.strata.markets/markets/ethena-usde/srusde",
+        "note": "Estimated equivalent USDe exposure; senior protection / CDO waterfall not modelled."
+      },
+      "0xbceb5f6877d979ec621ae694da1102cb95691ad3": {
+        "symbol": "SIERRA",
+        "kind": "wrapper",
+        "issuer": "sierra",
+        "risk_category": "Yield",
+        "source": "https://docs.sierra.money/building-with-sierra/blockchain-addresses",
+        "note": "Native Ethereum SIERRA; USDC/OpenTrade reserve weights not inferred."
+      },
+      "0xc5d6a7b61d18afa11435a889557b068bb9f29930": {
+        "symbol": "sUSDD",
+        "kind": "wrapper",
+        "wraps": "0x4f8e5de400de08b164e7421b3ee387f461becd1a",
+        "backing_share": 100,
+        "issuer": "usdd",
+        "risk_category": "Yield (savings)",
+        "source": "https://docs.usdd.io/introduction/collateral-asset-contract-addresses"
+      },
+      "0x4f8e5de400de08b164e7421b3ee387f461becd1a": {
+        "symbol": "USDD",
+        "kind": "stablecoin",
+        "issuer": "usdd",
+        "risk_category": "CDP stablecoin",
+        "source": "https://docs.usdd.io/introduction/collateral-asset-contract-addresses"
+      },
+      "0x856c4efb76c1d1ae02e20ceb03a2a6a08b0b8dc3": {
+        "symbol": "OETH",
+        "kind": "lst",
+        "wraps": "0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+        "backing_share": 100,
+        "issuer": "origin",
+        "risk_category": "Liquid Staking",
+        "source": "https://docs.originprotocol.com/registry/contracts/oeth-registry",
+        "note": "ETH-equivalent backing; staking strategies and validator operators not enumerated."
+      }
+    }
+  },
+  "policy": {
+    "risk_seconds": 900,
+    "mark_seconds": 120,
+    "quote_seconds": 120,
+    "rpc_seconds": 120,
+    "max_skew_seconds": 900,
+    "future_tolerance_seconds": 15,
+    "capture_budget_seconds": 180
+  },
+  "capture_started_at": 1791694033.4533267,
+  "capture_completed_at": 1791694034.76891,
+  "morpho_discovery_scope": {
+    "vaults": [
+      "0x974c8fbf4fd795f66b85b73ebc988a51f1a040a9"
+    ],
+    "rule": "all admitted vaults for direct PT contagion; selected vaults for Morpho-only books"
+  },
+  "quote_steps": [
+    5,
+    10,
+    15,
+    20
+  ],
+  "observations": [
+    {
+      "key": "fedbff0bc5f846e18d727ec81d55f8bb96ce48abc7e657fc5d79912e7d0bcf29",
+      "request": {
+        "method": "POST",
+        "url": "https://blue-api.morpho.org/graphql",
+        "params": null,
+        "body": {
+          "query": "query($address:String!, $chainId:Int!){vaultByAddress(address:$address,chainId:$chainId){\n  address name symbol\n  asset { symbol address decimals }\n  chain { id network }\n  state {\n    timestamp blockNumber totalAssets totalAssetsUsd apy netApy fee\n    allocation {\n      supplyAssets supplyAssetsUsd supplyCapUsd\n      market {\n        marketId lltv\n        loanAsset { symbol address }\n        collateralAsset { symbol address }\n        oracle { address }\n        state { timestamp blockNumber supplyApy borrowApy utilization supplyAssetsUsd borrowAssetsUsd liquidityAssetsUsd collateralAssetsUsd }\n      }\n    }\n  }\n}}",
+          "variables": {
+            "address": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+            "chainId": 1
+          }
+        }
+      },
+      "requested_at": 1791694033.453379,
+      "http_status": 200,
+      "headers": {
+        "Date": "Sun, 11 Oct 2026 04:47:13 GMT",
+        "Age": "2"
+      },
+      "response": {
+        "data": {
+          "vaultByAddress": {
+            "address": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+            "name": "Hakutora USDC",
+            "symbol": "hUSDC",
+            "asset": {
+              "symbol": "USDC",
+              "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+              "decimals": 6
+            },
+            "chain": {
+              "id": 1,
+              "network": "Ethereum"
+            },
+            "state": {
+              "timestamp": 1791693947,
+              "blockNumber": 26166904,
+              "totalAssets": 15320334269665,
+              "totalAssetsUsd": 15315705.934024053,
+              "apy": 0.0450009441204838,
+              "netApy": 0.03812387793581049,
+              "fee": 0.15,
+              "allocation": [
+                {
+                  "supplyAssets": 15320334269665,
+                  "supplyAssetsUsd": 15315705.934024053,
+                  "supplyCapUsd": 49984894.79550681,
+                  "market": {
+                    "marketId": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+                    "lltv": "860000000000000000",
+                    "loanAsset": {
+                      "symbol": "USDC",
+                      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                    },
+                    "collateralAsset": {
+                      "symbol": "cbBTC",
+                      "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+                    },
+                    "oracle": {
+                      "address": "0xA6D6950c9F177F1De7f7757FB33539e3Ec60182a"
+                    },
+                    "state": {
+                      "timestamp": 1791693551,
+                      "blockNumber": 26166871,
+                      "supplyApy": 0.04500032657411466,
+                      "borrowApy": 0.05004514922490024,
+                      "utilization": 0.9013792480840983,
+                      "supplyAssetsUsd": 337220422.7196239,
+                      "borrowAssetsUsd": 303963491.0696164,
+                      "liquidityAssetsUsd": 33256931.650007546,
+                      "collateralAssetsUsd": 693382568.1317071
+                    }
+                  }
+                },
+                {
+                  "supplyAssets": 0,
+                  "supplyAssetsUsd": 0,
+                  "supplyCapUsd": 19993957.918202724,
+                  "market": {
+                    "marketId": "0x54efdee08e272e929034a8f26f7ca34b1ebe364b275391169b28c6d7db24dbc8",
+                    "lltv": 0,
+                    "loanAsset": {
+                      "symbol": "USDC",
+                      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                    },
+                    "collateralAsset": null,
+                    "oracle": null,
+                    "state": {
+                      "timestamp": 1791691511,
+                      "blockNumber": 26166703,
+                      "supplyApy": 0,
+                      "borrowApy": 0,
+                      "utilization": 0,
+                      "supplyAssetsUsd": 639851.3893514838,
+                      "borrowAssetsUsd": 0,
+                      "liquidityAssetsUsd": 639851.3893514838,
+                      "collateralAssetsUsd": null
+                    }
+                  }
+                },
+                {
+                  "supplyAssets": 0,
+                  "supplyAssetsUsd": 0,
+                  "supplyCapUsd": 49984894.79550681,
+                  "market": {
+                    "marketId": "0xb323495f7e4148be5643a4ea4a8221eef163e4bccfdedc2a6f4696baacbc86cc",
+                    "lltv": "860000000000000000",
+                    "loanAsset": {
+                      "symbol": "USDC",
+                      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                    },
+                    "collateralAsset": {
+                      "symbol": "wstETH",
+                      "address": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0"
+                    },
+                    "oracle": {
+                      "address": "0x48F7E36EB6B826B2dF4B2E630B62Cd25e89E40e2"
+                    },
+                    "state": {
+                      "timestamp": 1791693755,
+                      "blockNumber": 26166888,
+                      "supplyApy": 0.045382938896785706,
+                      "borrowApy": 0.05045632269538187,
+                      "utilization": 0.9016469865472773,
+                      "supplyAssetsUsd": 32579524.26043598,
+                      "borrowAssetsUsd": 29375229.872566015,
+                      "liquidityAssetsUsd": 3204294.387869966,
+                      "collateralAssetsUsd": 75300758.44214757
+                    }
+                  }
+                },
+                {
+                  "supplyAssets": 0,
+                  "supplyAssetsUsd": 0,
+                  "supplyCapUsd": 19993957.918202724,
+                  "market": {
+                    "marketId": "0x3a85e619751152991742810df6ec69ce473daef99e28a64ab2340d7b7ccfee49",
+                    "lltv": "860000000000000000",
+                    "loanAsset": {
+                      "symbol": "USDC",
+                      "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+                    },
+                    "collateralAsset": {
+                      "symbol": "WBTC",
+                      "address": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599"
+                    },
+                    "oracle": {
+                      "address": "0xDddd770BADd886dF3864029e4B377B5F6a2B6b83"
+                    },
+                    "state": {
+                      "timestamp": 1791693371,
+                      "blockNumber": 26166856,
+                      "supplyApy": 0.04513318825555107,
+                      "borrowApy": 0.05021646539645091,
+                      "utilization": 0.9009727651793475,
+                      "supplyAssetsUsd": 128839161.15036401,
+                      "borrowAssetsUsd": 116080575.28503104,
+                      "liquidityAssetsUsd": 12758585.865332978,
+                      "collateralAssetsUsd": 249928056.66433626
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "extensions": {
+          "complexity": 440,
+          "maximumComplexity": 1000000
+        }
+      },
+      "received_at": 1791694033.9025776
+    },
+    {
+      "key": "7c0a06a2c96b0bb7a7d3de1a0bc85d8f36ad62adf34e251e41a0fe1de2d1b17e",
+      "request": {
+        "method": "POST",
+        "url": "https://blue-api.morpho.org/graphql",
+        "params": null,
+        "body": {
+          "query": "query($m0:String!){m0:marketById(marketId:$m0,chainId:1){\nmarketId lltv\nloanAsset { symbol address }\ncollateralAsset { symbol address }\noracle { address }\nstate { timestamp blockNumber supplyApy borrowApy utilization\n        supplyAssetsUsd borrowAssetsUsd liquidityAssetsUsd collateralAssetsUsd }\n}}",
+          "variables": {
+            "m0": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64"
+          }
+        }
+      },
+      "requested_at": 1791694033.9027014,
+      "http_status": 200,
+      "headers": {
+        "Date": "Sun, 11 Oct 2026 04:47:14 GMT"
+      },
+      "response": {
+        "data": {
+          "m0": {
+            "marketId": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+            "lltv": "860000000000000000",
+            "loanAsset": {
+              "symbol": "USDC",
+              "address": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+            },
+            "collateralAsset": {
+              "symbol": "cbBTC",
+              "address": "0xcbB7C0000aB88B473b1f5aFd9ef808440eed33Bf"
+            },
+            "oracle": {
+              "address": "0xA6D6950c9F177F1De7f7757FB33539e3Ec60182a"
+            },
+            "state": {
+              "timestamp": 1791693551,
+              "blockNumber": 26166871,
+              "supplyApy": 0.04500032657411466,
+              "borrowApy": 0.05004514922490024,
+              "utilization": 0.9013792480840983,
+              "supplyAssetsUsd": 337220422.7196239,
+              "borrowAssetsUsd": 303963491.0696164,
+              "liquidityAssetsUsd": 33256931.650007546,
+              "collateralAssetsUsd": 693382568.1317071
+            }
+          }
+        },
+        "extensions": {
+          "complexity": 210,
+          "maximumComplexity": 1000000
+        }
+      },
+      "received_at": 1791694034.0275474
+    },
+    {
+      "key": "1f4e4ebf33749de9b95b543f836cbff619d6d7d7566161a33d5acdfc367ae57d",
+      "request": {
+        "method": "GET",
+        "url": "https://api-v2.pendle.finance/core/v1/1/markets/active",
+        "params": null,
+        "body": null
+      },
+      "requested_at": 1791694034.0276532,
+      "http_status": 200,
+      "headers": {
+        "Date": "Sun, 11 Oct 2026 04:47:14 GMT",
+        "x-computing-unit": "1",
+        "x-ratelimit-limit": "200",
+        "x-ratelimit-remaining": "199",
+        "x-ratelimit-reset": "1791694080",
+        "x-ratelimit-weekly-limit": "200000",
+        "x-ratelimit-weekly-remaining": "198996",
+        "x-ratelimit-weekly-reset": "1792022400"
+      },
+      "response": {
+        "markets": [
+          {
+            "name": "wstETH",
+            "address": "0x34280882267ffa6383b363e278b027be083bbe3b",
+            "expiry": "2027-12-30T00:00:00.000Z",
+            "pt": "1-0xb253eff1104802b97ac7e3ac9fdd73aece295a2c",
+            "yt": "1-0x04b7fa1e727d7290d6e24fa9b426d0c940283a95",
+            "sy": "1-0xcbc72d92b2dc8187414f6734718563898740c0bc",
+            "underlyingAsset": "1-0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+            "details": {
+              "liquidity": 5146637.352898754,
+              "pendleApy": 0.0009477157074016147,
+              "impliedApy": 0.021313087937948838,
+              "feeRate": 0.0004999999993486881,
+              "yieldRange": {
+                "min": 0.029978328225930276,
+                "max": 0.07247767045580256
+              },
+              "aggregatedApy": 0.023617749927926236,
+              "maxBoostedApy": 0.02503932348902866
+            },
+            "isNew": false,
+            "isPrime": true,
+            "timestamp": "2023-05-29T07:40:11.000Z",
+            "categoryIds": [
+              "eth",
+              "lido"
+            ]
+          },
+          {
+            "name": "superUSDC",
+            "address": "0x61703e1ea2887fffd4b5f777bafd6abd7122bcf9",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0xd4e6ea03d2e8bfeb5fa5c03ae9352514b1829218",
+            "yt": "1-0x6316ebb9ef25bd9bb0432b291ee737066560138b",
+            "sy": "1-0x4d654f255d54637112844bd8802b716170904fee",
+            "underlyingAsset": "1-0xf6ebea08a0dfd44825f67fa9963911c81be2a947",
+            "details": {
+              "liquidity": 377550.02041379956,
+              "pendleApy": 0.007675504483599017,
+              "impliedApy": 0.0817138591143114,
+              "feeRate": 0.001545455916864391,
+              "yieldRange": {
+                "min": 0.05,
+                "max": 0.21
+              },
+              "aggregatedApy": 0.1015315979591069,
+              "maxBoostedApy": 0.16585451186660874
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-04-27T20:52:47.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "superWETH",
+            "address": "0x384509537ce5daa5740baeb6d1ee0eb2847ea8a8",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0x1cfaed2df5ee27b078e96fafa10709c5548fc1b7",
+            "yt": "1-0x775f0f7690c2ceed13d20f9a302d1e8069d56b3b",
+            "sy": "1-0x3aecaedfb92efbbac95e5c458c56e94070cb9179",
+            "underlyingAsset": "1-0xa036823b9a24f63c32553367bf181ee04229c3ac",
+            "details": {
+              "liquidity": 349651.4369680568,
+              "pendleApy": 0.009635135861078723,
+              "impliedApy": 0.059015452760943,
+              "feeRate": 0.0011720818479485917,
+              "yieldRange": {
+                "min": 0.02,
+                "max": 0.12999999999999998
+              },
+              "aggregatedApy": 0.07195782146892372,
+              "maxBoostedApy": 0.11807372325743053
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-04-27T20:59:47.000Z",
+            "categoryIds": [
+              "points",
+              "eth"
+            ]
+          },
+          {
+            "name": "srRoyAPYUSD",
+            "address": "0x0e201d27ded56cf4a0da8853d7604743de217435",
+            "expiry": "2026-11-05T00:00:00.000Z",
+            "pt": "1-0x44db865cc6d5768703fb5bf73dfb7a5a0f95c1fc",
+            "yt": "1-0x7cf9ea7bc05c6b3f8517b71f8d87feecb006def4",
+            "sy": "1-0xa99a50d95003e7687d7962f29aad6cdd3655d411",
+            "underlyingAsset": "1-0xbd373c9d3d8976a4fecc504a93c768bbe8c3227c",
+            "details": {
+              "liquidity": 149714.95114592882,
+              "pendleApy": 0,
+              "impliedApy": 0.15350000000000152,
+              "feeRate": 0.002731891893999805,
+              "yieldRange": {
+                "min": 0.07,
+                "max": 0.12999999999999998
+              },
+              "aggregatedApy": 0.15289117425347346,
+              "maxBoostedApy": 0.15289117425347346
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-01T21:08:11.000Z",
+            "categoryIds": [
+              "points",
+              "rwa",
+              "strc",
+              "apyx"
+            ]
+          },
+          {
+            "name": "jrRoyAPYUSD",
+            "address": "0x5949c3bfdf9babd759170a3a75c4fe52b03e6797",
+            "expiry": "2026-11-05T00:00:00.000Z",
+            "pt": "1-0xd70be760f0bc3009db4563fe0b9eee54883adb50",
+            "yt": "1-0x56467eef9be9bcd025c24d4437525e02acbe310b",
+            "sy": "1-0x464a2b93b6633707470bcd2c81d34519f38e1e9c",
+            "underlyingAsset": "1-0xab2ab53e1e2e2c5d7202918ec8c873712bcc4a2d",
+            "details": {
+              "liquidity": 984692.4171266131,
+              "pendleApy": 0.0019459785506757536,
+              "impliedApy": 0.19322968022311215,
+              "feeRate": 0.0035264030258483903,
+              "yieldRange": {
+                "min": 0.115,
+                "max": 0.3
+              },
+              "aggregatedApy": 0.08278005108053832,
+              "maxBoostedApy": 0.08569901890655195
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-01T21:41:47.000Z",
+            "categoryIds": [
+              "points",
+              "rwa",
+              "strc",
+              "apyx"
+            ]
+          },
+          {
+            "name": "fxSAVE",
+            "address": "0x8308e53f584a7e5f0c581059d9ba971c0bec9454",
+            "expiry": "2026-10-29T00:00:00.000Z",
+            "pt": "1-0x079c3469143804af5d0d645a878c371dbe8d038e",
+            "yt": "1-0x1964590af52cd77c2f30970bdbcb4d6e3dbdc615",
+            "sy": "1-0x13945b761b2ed3219a497a46d15a8923f418d2ab",
+            "underlyingAsset": "1-0x7743e50f534a7f9f1791dde7dcd89f7783eefc39",
+            "details": {
+              "liquidity": 1448907.6550831879,
+              "pendleApy": 0.0021309756989375643,
+              "impliedApy": 0.08469521177769224,
+              "feeRate": 0.0017459976098341823,
+              "yieldRange": {
+                "min": 0.04,
+                "max": 0.16999999999999998
+              },
+              "aggregatedApy": 0.10167678662852911,
+              "maxBoostedApy": 0.14887081866302648
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-15T03:12:47.000Z",
+            "categoryIds": [
+              "stables"
+            ]
+          },
+          {
+            "name": "WOUSD",
+            "address": "0x30ee7618e0ef0682f0f354d6f84be87de6b8878c",
+            "expiry": "2026-12-17T00:00:00.000Z",
+            "pt": "1-0xeccde3a92f8ad4884a2613d9ef1556103c26728f",
+            "yt": "1-0x4f93641804ddd289ce8917533169a767ce17cd9a",
+            "sy": "1-0xe22deabf5b174437092ae9ac79761b03ef178ca8",
+            "underlyingAsset": "1-0xd2af830e8cbdfed6cc11bab697bb25496ed6fa62",
+            "details": {
+              "liquidity": 126005.25334164035,
+              "pendleApy": 0,
+              "impliedApy": 0.0653174744907834,
+              "feeRate": 0.0012662558903497878,
+              "yieldRange": {
+                "min": 0.030000000000000002,
+                "max": 0.11999999999999998
+              },
+              "aggregatedApy": 0.0632858803053872,
+              "maxBoostedApy": 0.0632858803053872
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-15T04:19:47.000Z",
+            "categoryIds": [
+              "stables"
+            ]
+          },
+          {
+            "name": "sUSDS",
+            "address": "0x9c560ebaf78e596cbcc27411d633a74d628dd7dc",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0xdc169abe56461a2e0c034da431ac2a3ebf596094",
+            "yt": "1-0xc7b8551c6b286ce0b44952320e940bd3dee58a09",
+            "sy": "1-0xbe3d4ec488a0a042bb86f9176c24f8cd54018ba7",
+            "underlyingAsset": "1-0xa3931d71877c0e7a3148cb7eb4463524fec27fbd",
+            "details": {
+              "liquidity": 4770348.065430976,
+              "pendleApy": 0.0024614281648325125,
+              "impliedApy": 0.048851890445547275,
+              "feeRate": 0.0009985765669870972,
+              "yieldRange": {
+                "min": 0.03,
+                "max": 0.11999999999999998
+              },
+              "aggregatedApy": 0.04640083787705108,
+              "maxBoostedApy": 0.05009298012429985
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-15T07:10:23.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa",
+              "skymoney",
+              "fixed-rates",
+              "yt-leverage"
+            ]
+          },
+          {
+            "name": "apyUSD",
+            "address": "0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+            "expiry": "2026-11-05T00:00:00.000Z",
+            "pt": "1-0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "yt": "1-0x85cc1b74fc95abb6b9b6060c56334ba3e4b88ed4",
+            "sy": "1-0x04f8dca7bccd8997ac57ca6fef7c705e17d6bcb6",
+            "underlyingAsset": "1-0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "details": {
+              "liquidity": 19658740.52818403,
+              "pendleApy": 0.0004654233123963611,
+              "impliedApy": 0.16065213000434508,
+              "feeRate": 0.002875610410699503,
+              "yieldRange": {
+                "min": 0.08000000000000002,
+                "max": 0.29
+              },
+              "aggregatedApy": 0.1497081509568732,
+              "maxBoostedApy": 0.15040628592546776
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-16T00:37:59.000Z",
+            "categoryIds": [
+              "points",
+              "rwa",
+              "strc",
+              "apyx"
+            ]
+          },
+          {
+            "name": "apxUSD",
+            "address": "0xaf0349fb9b1ba07d34381870c59b560b31412660",
+            "expiry": "2026-11-05T00:00:00.000Z",
+            "pt": "1-0xaf687b5ecb525ccea96115088999b4ed80c388b6",
+            "yt": "1-0x7fbc01c63b0ac372ec75907f3a1d8adc8cf28e1f",
+            "sy": "1-0x4f116ee5bcd227d1a1c4f57918d694a4abe7b3fc",
+            "underlyingAsset": "1-0x98a878b1cd98131b271883b390f68d2c90674665",
+            "details": {
+              "liquidity": 1626234.988625394,
+              "pendleApy": 0.003966601558162954,
+              "impliedApy": 0.13591080423267243,
+              "feeRate": 0.002652893384752497,
+              "yieldRange": {
+                "min": 0.060000000000000005,
+                "max": 0.24999999999999997
+              },
+              "aggregatedApy": 0.06001642688059687,
+              "maxBoostedApy": 0.0659663292178413
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-16T00:44:47.000Z",
+            "categoryIds": [
+              "points",
+              "rwa",
+              "strc",
+              "apyx"
+            ]
+          },
+          {
+            "name": "USD3",
+            "address": "0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+            "expiry": "2026-12-17T00:00:00.000Z",
+            "pt": "1-0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "yt": "1-0x5cffcc9ddef0fdcf395e2ea24ca5ed5a12032706",
+            "sy": "1-0xea3bc608f32847b97965c5e1648bdfcd4c2c40d0",
+            "underlyingAsset": "1-0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "details": {
+              "liquidity": 7172566.745572753,
+              "pendleApy": 0.004815383687206835,
+              "impliedApy": 0.1504953605521644,
+              "feeRate": 0.0026439829591216046,
+              "yieldRange": {
+                "min": 0.03500000000000001,
+                "max": 0.19999999999999998
+              },
+              "aggregatedApy": 0.13616681972479014,
+              "maxBoostedApy": 0.1433898952556004
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-05-19T02:32:23.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa"
+            ]
+          },
+          {
+            "name": "jrUSDe",
+            "address": "0x78f6927ab0600c445178645f3c64afec85f6dd8a",
+            "expiry": "2026-10-22T00:00:00.000Z",
+            "pt": "1-0x9786a09cbb2efb23046542576ffd9a235aa3ca07",
+            "yt": "1-0xfed516abb3dd311b370a774209c2b56738d86334",
+            "sy": "1-0x4f6673346ab4813f1665327ab39087008cc7d76f",
+            "underlyingAsset": "1-0xc58d044404d8b14e953c115e67823784dea53d8f",
+            "details": {
+              "liquidity": 715939.7168682122,
+              "pendleApy": 0.002113481610727653,
+              "impliedApy": 0.06533880045416729,
+              "feeRate": 0.0012281730649155165,
+              "yieldRange": {
+                "min": 0.030000000000000002,
+                "max": 0.11999999999999998
+              },
+              "aggregatedApy": 0.05915937648765385,
+              "maxBoostedApy": 0.06232959890374533
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-05T18:14:59.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "ethena"
+            ]
+          },
+          {
+            "name": "srUSDe",
+            "address": "0x66ec657c59cdcaf171ab43b83da3942758bf8a97",
+            "expiry": "2026-10-22T00:00:00.000Z",
+            "pt": "1-0x59bc9fae5d62b19d4f8d07d758047acb9ee19d34",
+            "yt": "1-0xfe6040719cca36aeb85e352f48fe956057728814",
+            "sy": "1-0xc9bfebc79a722c05dc34bd2a227ef2db19fd1b8e",
+            "underlyingAsset": "1-0x3d7d6fdf07ee548b939a80edbc9b2256d0cdc003",
+            "details": {
+              "liquidity": 3683223.9099710477,
+              "pendleApy": 0.0015039332907766636,
+              "impliedApy": 0.05654319005978348,
+              "feeRate": 0.001072917563744058,
+              "yieldRange": {
+                "min": 0.019999999999999997,
+                "max": 0.08999999999999998
+              },
+              "aggregatedApy": 0.052969229511589645,
+              "maxBoostedApy": 0.05522512944775464
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-05T18:16:59.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "ethena",
+              "pt-looping"
+            ]
+          },
+          {
+            "name": "sUSDf",
+            "address": "0x84cda226022b5d6012b418e76b815b967ecc785b",
+            "expiry": "2026-12-17T00:00:00.000Z",
+            "pt": "1-0x5987440ec8fa7f8976fe5d324e052a3140c9f333",
+            "yt": "1-0xd94d3b841ea48a0e0b3cfc75296686d19af3cf8a",
+            "sy": "1-0xa780d7f775b4eff6846a8c28981f086bc6a7d637",
+            "underlyingAsset": "1-0xc8cf6d7991f15525488b2a83df53468d682ba4b0",
+            "details": {
+              "liquidity": 235622.70641839033,
+              "pendleApy": 0.006186763522062877,
+              "impliedApy": 0.042446564924302654,
+              "feeRate": 0.0008109384594052749,
+              "yieldRange": {
+                "min": 0.04,
+                "max": 0.10999999999999999
+              },
+              "aggregatedApy": 0.057974829218508606,
+              "maxBoostedApy": 0.06725497450160292
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-08T03:13:11.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "reUSD",
+            "address": "0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+            "expiry": "2026-12-10T00:00:00.000Z",
+            "pt": "1-0xecfafdc7741323a945a163ed068b5a3c43483957",
+            "yt": "1-0xa8bd3b21291ace53927b35563fc80615919e63d7",
+            "sy": "1-0x9487bd5a3b16ecb5f3184453e3ee75b800141648",
+            "underlyingAsset": "1-0x5086bf358635b81d8c47c66d1c8b9e567db70c72",
+            "details": {
+              "liquidity": 12412449.099853093,
+              "pendleApy": 0.0030851464343491365,
+              "impliedApy": 0.1180951574315885,
+              "feeRate": 0.002216131296696844,
+              "yieldRange": {
+                "min": 0.060000000000000005,
+                "max": 0.18999999999999997
+              },
+              "aggregatedApy": 0.10384690098706036,
+              "maxBoostedApy": 0.10847462063858405
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-09T14:29:47.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa",
+              "rexyz",
+              "pt-looping"
+            ]
+          },
+          {
+            "name": "reUSDe",
+            "address": "0x90b70c407f1077f8eb92bf423b44cd92329b737a",
+            "expiry": "2026-12-10T00:00:00.000Z",
+            "pt": "1-0x2ae4f59e500b6ddeb88c480edf277eda54a00205",
+            "yt": "1-0xfd9aa51f530369ff5024bc3f6d6f3a00a789f94a",
+            "sy": "1-0x47dfd0c8eee949748c1d5cb6b695a4aba5fe7379",
+            "underlyingAsset": "1-0xddc0f880ff6e4e22e4b74632fbb43ce4df6ccc5a",
+            "details": {
+              "liquidity": 4703205.975811455,
+              "pendleApy": 0.0023492246660640477,
+              "impliedApy": 0.18461388006309343,
+              "feeRate": 0.003399615342895901,
+              "yieldRange": {
+                "min": 0.09000000000000001,
+                "max": 0.21
+              },
+              "aggregatedApy": 0.1745678999142127,
+              "maxBoostedApy": 0.17809173691330876
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-09T14:39:47.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa",
+              "rexyz",
+              "lp-with-no-il"
+            ]
+          },
+          {
+            "name": "sUSD3",
+            "address": "0x7972de1c2f9f11f622a188fbae8c0a943880424f",
+            "expiry": "2026-12-17T00:00:00.000Z",
+            "pt": "1-0x41f45d21502bde8211e94d94ef2eeebcfc48a6ac",
+            "yt": "1-0xc7aa07578e1f7b3e2c567f8fece72ee1fd218437",
+            "sy": "1-0x77d2bc95ab51b75960ec3a01e112460ea7bafb20",
+            "underlyingAsset": "1-0xf689555121e529ff0463e191f9bd9d1e496164a7",
+            "details": {
+              "liquidity": 1289594.6644500955,
+              "pendleApy": 0.006722192256375186,
+              "impliedApy": 0.2454660249798497,
+              "feeRate": 0.004087574336582689,
+              "yieldRange": {
+                "min": 0.060000000000000005,
+                "max": 0.25999999999999995
+              },
+              "aggregatedApy": 0.24040382614449873,
+              "maxBoostedApy": 0.2504871145290615
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-19T19:33:47.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa"
+            ]
+          },
+          {
+            "name": "USP",
+            "address": "0x3ffdf143cbe1e594fba183e2b9035eb027a732ec",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0xc83f11814428b91b7f176ba927c57043e89786cb",
+            "yt": "1-0xafb351cdcd9600fa75d29d5eac3d867e7870f69b",
+            "sy": "1-0xf5145335540c4116956c0936b7db08d1a862a2d9",
+            "underlyingAsset": "1-0x098697ba3fee4ea76294c5d6a466a4e3b3e95fe6",
+            "details": {
+              "liquidity": 31875.53851080426,
+              "pendleApy": 0,
+              "impliedApy": 0.1888000000000012,
+              "feeRate": 0.003210754411181016,
+              "yieldRange": {
+                "min": 0.07,
+                "max": 0.15999999999999998
+              },
+              "aggregatedApy": 0.20587440346919614,
+              "maxBoostedApy": 0.20587440346919614
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-25T15:34:11.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "pufETH",
+            "address": "0x79a8b102dd39329aafecc69499c0f6d07f2f959d",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0xa32877eee252d78d5e4fa00285d4cc2066d15bac",
+            "yt": "1-0x0a35ccc9651634efe92e266fcc2c691b106b1bbf",
+            "sy": "1-0x253008ba4ae2f3e6488dc998a5321d4eb1a0c905",
+            "underlyingAsset": "1-0xd9a442856c234a39a81a089c06451ebaa4306a72",
+            "details": {
+              "liquidity": 294601.4490515306,
+              "pendleApy": 0,
+              "impliedApy": 0.03800989668111798,
+              "feeRate": 0.0007463829012195333,
+              "yieldRange": {
+                "min": 0.019999999999999997,
+                "max": 0.06999999999999999
+              },
+              "aggregatedApy": 0.03311225239195783,
+              "maxBoostedApy": 0.03311225239195783
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-06-27T16:09:23.000Z",
+            "categoryIds": [
+              "points",
+              "eth"
+            ]
+          },
+          {
+            "name": "mixUSDC",
+            "address": "0x4b912476356c914b154524c59b5a438a88e99429",
+            "expiry": "2026-10-29T00:00:00.000Z",
+            "pt": "1-0x45c00ec1a2797b507d3e955b208fb275795da669",
+            "yt": "1-0x89c7d1cdb6b2a5c09f25de59fd4bee47921bbf4d",
+            "sy": "1-0x0e012d6a77a7f6c91de7cb74c2732553876d1d61",
+            "underlyingAsset": "1-0x9b44efca3e2a707b63dc00ce79d646e5e5d24ba5",
+            "details": {
+              "liquidity": 52304.512439691796,
+              "pendleApy": 0,
+              "impliedApy": 0.05000073883641987,
+              "feeRate": 0.0009762872702281378,
+              "yieldRange": {
+                "min": 0.019999999999999997,
+                "max": 0.09999999999999998
+              },
+              "aggregatedApy": 0.05490206105045539,
+              "maxBoostedApy": 0.05490206105045539
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-07-15T15:55:23.000Z",
+            "categoryIds": [
+              "stables"
+            ]
+          },
+          {
+            "name": "mixWETH",
+            "address": "0x392ac82951ef3b32512bc5be0dfb6a762c43bb81",
+            "expiry": "2026-10-29T00:00:00.000Z",
+            "pt": "1-0xcc8ca5c2a0862a37ee3946b80e12ebb2bfb524f0",
+            "yt": "1-0x729c3798d061eb9fbd88f1348aa73a244ec166e9",
+            "sy": "1-0x3870cf5e2eab623a74d2af1007295963b1c5a12f",
+            "underlyingAsset": "1-0x29bcfed246ce37319d94eba107db90c453d4c43d",
+            "details": {
+              "liquidity": 69066.85949979333,
+              "pendleApy": 0,
+              "impliedApy": 0.020232124599750767,
+              "feeRate": 0.00039587025255860553,
+              "yieldRange": {
+                "min": 0.009999999999999995,
+                "max": 0.05999999999999999
+              },
+              "aggregatedApy": 0.023074854914453883,
+              "maxBoostedApy": 0.023074854914453883
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-07-15T15:57:47.000Z",
+            "categoryIds": [
+              "eth"
+            ]
+          },
+          {
+            "name": "strUSD",
+            "address": "0xac028348c46d3455899a2b9b50077c11960eaddb",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0x74299580811e1c3c1a2831db079ba0a8f513998f",
+            "yt": "1-0xc4bb3ec6588ff14d7676445a40f2716e690a3203",
+            "sy": "1-0x7e8a16e87fa6b0f2e657db47f3dbfe2e981ef211",
+            "underlyingAsset": "1-0x280839980a7ed0d7717f64125fe241012e5f5815",
+            "details": {
+              "liquidity": 4590422.407745474,
+              "pendleApy": 0.0016873370530175046,
+              "impliedApy": 0.11420331731264599,
+              "feeRate": 0.002209803243826025,
+              "yieldRange": {
+                "min": 0.060000000000000005,
+                "max": 0.3
+              },
+              "aggregatedApy": 0.10755500857780474,
+              "maxBoostedApy": 0.110086014157331
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-07-19T18:15:59.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "lp-with-no-il"
+            ]
+          },
+          {
+            "name": "trUSD",
+            "address": "0xfcf009cb3135da12a6eb1f73f3ee05392a7bc947",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0x7191878f1fe834b28f4d0cead0e4375b814c4abb",
+            "yt": "1-0x1fcdb1e747419bb8d1a029c4d1f83b41e8afe8ce",
+            "sy": "1-0xa09482f2f6cb5f2177b05144bc276d06b8b818eb",
+            "underlyingAsset": "1-0xd0580192e98ea6ceb9c7b6191ed2e27560911697",
+            "details": {
+              "liquidity": 1130140.8275175325,
+              "pendleApy": 0.0033791478699050485,
+              "impliedApy": 0.10383807666224776,
+              "feeRate": 0.0018771359457760983,
+              "yieldRange": {
+                "min": 0.05000000000000001,
+                "max": 0.28
+              },
+              "aggregatedApy": 0.02974497488002266,
+              "maxBoostedApy": 0.03481369668488023
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-07-19T18:16:11.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "sUSN",
+            "address": "0x16d3126ee82ee36816499fb9db6f647c6addd09c",
+            "expiry": "2027-07-22T00:00:00.000Z",
+            "pt": "1-0x6a0efc272e8dd4fc5affea17376dcf107cbcbc0f",
+            "yt": "1-0xdfaacdd9035febaba7e582f660da3c43fb85e292",
+            "sy": "1-0xa0a2c8c94bf30227f84af6e054025945a51d0eff",
+            "underlyingAsset": "1-0xe24a3dc889621612422a64e6388927901608b91d",
+            "details": {
+              "liquidity": 1178743.9747147388,
+              "pendleApy": 0.0019644364954831336,
+              "impliedApy": 0.08613066996077157,
+              "feeRate": 0.0016561769372598345,
+              "yieldRange": {
+                "min": 0.04,
+                "max": 0.14
+              },
+              "aggregatedApy": 0.08252636582752587,
+              "maxBoostedApy": 0.08547302057075058
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-07-21T14:13:23.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "sAID",
+            "address": "0x50d746e1c7987396b47b0a95ebd94bccaaf7a2d9",
+            "expiry": "2026-12-31T00:00:00.000Z",
+            "pt": "1-0xf6e9dd9696bf932864ebbcd34395221a16f3c62b",
+            "yt": "1-0x4f26c150c90f1bfe2009cd26bd1d998a800dbbb4",
+            "sy": "1-0x39fb0bb5d696ec6da2d827649cf3a3f00299d2dd",
+            "underlyingAsset": "1-0xb3b3c527ba57cd61648e2ec2f5e006a0b390a9f8",
+            "details": {
+              "liquidity": 70240.40520556399,
+              "pendleApy": 0,
+              "impliedApy": 0.0896592531614051,
+              "feeRate": 0.0016441994352573985,
+              "yieldRange": {
+                "min": 0.049999999999999996,
+                "max": 0.15
+              },
+              "aggregatedApy": 0.09278437975721623,
+              "maxBoostedApy": 0.09278437975721623
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-07-26T17:10:11.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "rwa"
+            ]
+          },
+          {
+            "name": "sBOLD",
+            "address": "0xeb603c5a42d49d3b2e078191c23bf3f5d25bc219",
+            "expiry": "2027-02-04T00:00:00.000Z",
+            "pt": "1-0x2a21f68b60156860615bd27ac958df817df45aa3",
+            "yt": "1-0xc802c127ac01e06610a6a5c12ce5b70ce93924e4",
+            "sy": "1-0xa73fb4f3a3f3889e41387973afc542fa06785981",
+            "underlyingAsset": "1-0x50bd66d59911f5e086ec87ae43c811e0d059dd11",
+            "details": {
+              "liquidity": 270103.6641885191,
+              "pendleApy": 0,
+              "impliedApy": 0.05211071574797943,
+              "feeRate": 0.001016482290548737,
+              "yieldRange": {
+                "min": 0.02,
+                "max": 0.15
+              },
+              "aggregatedApy": 0.05376725769343482,
+              "maxBoostedApy": 0.05376725769343482
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-04T08:45:59.000Z",
+            "categoryIds": [
+              "stables"
+            ]
+          },
+          {
+            "name": "SIERRA",
+            "address": "0x22fcdf7be34a72bddbf4a6eeeb489b1f29062f0b",
+            "expiry": "2026-10-22T00:00:00.000Z",
+            "pt": "1-0x17c47b0cedec9b41e639f5ec1a053e9135db2a6d",
+            "yt": "1-0x9dafdd6a02d49d821f140cb6863f185223fc5f58",
+            "sy": "1-0x9845bbb51d326fe4d5e7cbd47ce157a33d7936ef",
+            "underlyingAsset": "1-0xbceb5f6877d979ec621ae694da1102cb95691ad3",
+            "details": {
+              "liquidity": 10980765.726477364,
+              "pendleApy": 0.0007811169694099839,
+              "impliedApy": 0.09795297169776229,
+              "feeRate": 0.0018586005001834938,
+              "yieldRange": {
+                "min": 0.05999999999999999,
+                "max": 0.14
+              },
+              "aggregatedApy": 0.08151920778721562,
+              "maxBoostedApy": 0.0826908832413306
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-04T14:13:59.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "rwa"
+            ]
+          },
+          {
+            "name": "USDat",
+            "address": "0x4ccf6deb3d1895373f604b418ff55d8adae8b846",
+            "expiry": "2027-01-14T00:00:00.000Z",
+            "pt": "1-0xba96292ee7673e3b546cc90db6d97111cd9a314f",
+            "yt": "1-0x480c3c9470fa4bbda030f6396fa4b17adefc1ce0",
+            "sy": "1-0x7a7de491e1be5287874904e2b7c8488249a4d0a9",
+            "underlyingAsset": "1-0x23238f20b894f29041f48d88ee91131c395aaa71",
+            "details": {
+              "liquidity": 2174387.4949328112,
+              "pendleApy": 0.01688938598489373,
+              "impliedApy": 0.08265779837983933,
+              "feeRate": 0.001618341084366648,
+              "yieldRange": {
+                "min": 0.03500000000000001,
+                "max": 0.12999999999999998
+              },
+              "aggregatedApy": 0.10130139234992501,
+              "maxBoostedApy": 0.1490520748569141
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-08T20:26:35.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "rwa",
+              "strc",
+              "saturn",
+              "points-market"
+            ]
+          },
+          {
+            "name": "sUSDat",
+            "address": "0xb6fe0f0811931a38aa97534bac3c147437223e38",
+            "expiry": "2027-01-14T00:00:00.000Z",
+            "pt": "1-0x0b985c624bb2949432cce77cfd246f01390a0517",
+            "yt": "1-0xc38901aa77112efc519a1f8bd501eb2f68055689",
+            "sy": "1-0x8917f8c7feb840b5837edc7e128123baa2f289f9",
+            "underlyingAsset": "1-0xd166337499e176bbc38a1fbd113ab144e5bd2df7",
+            "details": {
+              "liquidity": 1395756.4718221999,
+              "pendleApy": 0.003924097390509538,
+              "impliedApy": 0.14006267019133212,
+              "feeRate": 0.0027364954360680205,
+              "yieldRange": {
+                "min": 0.08,
+                "max": 0.24999999999999997
+              },
+              "aggregatedApy": 0.12345613618795927,
+              "maxBoostedApy": 0.12934228227372357
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-08T20:27:47.000Z",
+            "categoryIds": [
+              "points",
+              "rwa",
+              "strc",
+              "saturn"
+            ]
+          },
+          {
+            "name": "sUSDe",
+            "address": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0xb195b618ea52b77cb2a58846f452f59f8dfa9390",
+            "yt": "1-0x89e6e5f7c3a60e7d6347f054051a29a272f4ce44",
+            "sy": "1-0xbf98480425a29197e5d99d003017f63a1e595d02",
+            "underlyingAsset": "1-0x9d39a5de30e57443bff2a8307a4256c8797a3497",
+            "details": {
+              "liquidity": 3820334.7502057594,
+              "pendleApy": 0.0017511849515639227,
+              "impliedApy": 0.0501103241035481,
+              "feeRate": 0.0009792415961249468,
+              "yieldRange": {
+                "min": 0.03,
+                "max": 0.10999999999999999
+              },
+              "aggregatedApy": 0.05152871865832382,
+              "maxBoostedApy": 0.054155496085669705
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-10T05:19:47.000Z",
+            "categoryIds": [
+              "stables",
+              "ethena",
+              "points",
+              "rwa",
+              "fixed-rates",
+              "blue-chips"
+            ]
+          },
+          {
+            "name": "siUSD",
+            "address": "0x1f34887b270bfaf56cf7973572654874c8ed740e",
+            "expiry": "2026-10-22T00:00:00.000Z",
+            "pt": "1-0xe3cdf5b8d7aedfc9f768dbdcc334146fae989188",
+            "yt": "1-0x30aa5125e9f3d958911b180e1bbc83d7086e6a7e",
+            "sy": "1-0x9f30507c264cc6eb5be35b18ff9ad7b4539aa920",
+            "underlyingAsset": "1-0xdbdc1ef57537e34680b898e1febd3d68c7389bcb",
+            "details": {
+              "liquidity": 3320755.953354576,
+              "pendleApy": 0.0027213854307489406,
+              "impliedApy": 0.09867001574254575,
+              "feeRate": 0.0018401983250324605,
+              "yieldRange": {
+                "min": 0.045000000000000005,
+                "max": 0.13999999999999999
+              },
+              "aggregatedApy": 0.08640732249015216,
+              "maxBoostedApy": 0.09048940063627557
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-12T15:19:47.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "srUSDat",
+            "address": "0xdf2e3e0250f679d6284a39a0c1a16a850a9d7aa6",
+            "expiry": "2027-01-14T00:00:00.000Z",
+            "pt": "1-0x2c3e7c0fab3d546ea0715d2a96fbdf598711a062",
+            "yt": "1-0xf26e7953bab8b301945bb551b4607dffa8500de0",
+            "sy": "1-0x9d0fc59f88acb85520a8cfb74c7fe141d8563185",
+            "underlyingAsset": "1-0xfaa9a0e1db9e22ae3a20b2b58a68dc24d053d066",
+            "details": {
+              "liquidity": 218821.72356716302,
+              "pendleApy": 0.007123273944149137,
+              "impliedApy": 0.10680432314910915,
+              "feeRate": 0.0019808837259154277,
+              "yieldRange": {
+                "min": 0.060000000000000005,
+                "max": 0.15
+              },
+              "aggregatedApy": 0.10256956162035122,
+              "maxBoostedApy": 0.11325447253657492
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-13T11:28:47.000Z",
+            "categoryIds": [
+              "strc",
+              "points",
+              "rwa",
+              "strata",
+              "saturn",
+              "lo-incentives"
+            ]
+          },
+          {
+            "name": "sUSDD",
+            "address": "0xbeab098b510f758cd35122ee345957b8eccbb322",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0x459bcab2490843ad1fe1e4feff7f7ea16a14408b",
+            "yt": "1-0xc08aaed663c1c257f677f9d4b92a7a265967e54f",
+            "sy": "1-0xdd0c9da25f8eb47116f3bed8a311899a5eb449b4",
+            "underlyingAsset": "1-0xc5d6a7b61d18afa11435a889557b068bb9f29930",
+            "details": {
+              "liquidity": 5129024.234412199,
+              "pendleApy": 0.0013273006790807211,
+              "impliedApy": 0.054390078929307695,
+              "feeRate": 0.001008774368269627,
+              "yieldRange": {
+                "min": 0.029999999999999992,
+                "max": 0.08999999999999998
+              },
+              "aggregatedApy": 0.061917225694827153,
+              "maxBoostedApy": 0.06390817671344824
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-18T06:28:35.000Z",
+            "categoryIds": [
+              "stables",
+              "yt-leverage"
+            ]
+          },
+          {
+            "name": "STRCx",
+            "address": "0x8ce3a13852d13e0e991c677a8c6137584e2b7635",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0x599ef448e1d3378ed2dd7982d4b00615d9e5bf77",
+            "yt": "1-0x2875133b91909eb332fcf1e8664d0965a5fc5ca9",
+            "sy": "1-0x3aaaf43a1f8d327fdf24dc93654eb17e319883c5",
+            "underlyingAsset": "1-0x1aad217b8f78dba5e6693460e8470f8b1a3977f3",
+            "details": {
+              "liquidity": 1261034.637672265,
+              "pendleApy": 0.0283302699981476,
+              "impliedApy": 0.2469863877146823,
+              "feeRate": 0.004413801284042451,
+              "yieldRange": {
+                "min": 0.1,
+                "max": 0.44999999999999996
+              },
+              "aggregatedApy": 0.21809426233325954,
+              "maxBoostedApy": 0.26058966733048095
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-08-24T08:28:23.000Z",
+            "categoryIds": [
+              "strc",
+              "rwa",
+              "points",
+              "stocks"
+            ]
+          },
+          {
+            "name": "USDx",
+            "address": "0x0bef762d2094ac80821c657dea6783fc43435292",
+            "expiry": "2026-12-03T00:00:00.000Z",
+            "pt": "1-0xa4b3a2eec53863fe2c9ab0041d480cf964942e84",
+            "yt": "1-0xa91277e31f6be8c33850dde8dfacb27bad1be6fb",
+            "sy": "1-0xa7606952845269dc7377cba3c7c7bda133dd97f7",
+            "underlyingAsset": "1-0xa1fa7777974312f7d801a8880714a218f76233f8",
+            "details": {
+              "liquidity": 2233078.5935103875,
+              "pendleApy": 0.002915091216863091,
+              "impliedApy": 0.14629822603622533,
+              "feeRate": 0.002934884810274374,
+              "yieldRange": {
+                "min": 0.060000000000000005,
+                "max": 0.27
+              },
+              "aggregatedApy": 0.0639726369207092,
+              "maxBoostedApy": 0.06834527374600384
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-02T05:42:35.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "rwa"
+            ]
+          },
+          {
+            "name": "sUSDx",
+            "address": "0x5e572498e9f83650f0ff24194999bddb4b390928",
+            "expiry": "2026-12-03T00:00:00.000Z",
+            "pt": "1-0x06ebad062fd573ca31a72d6dfb0f425da2153985",
+            "yt": "1-0x96dcb9501bcc8128b7683980a63250448ea5334b",
+            "sy": "1-0x3b184870f40ca026341593cedb37ab09e611e928",
+            "underlyingAsset": "1-0xeb892628d1e58bc475a6dcb7f5dbc4f591632aa4",
+            "details": {
+              "liquidity": 6133356.969298862,
+              "pendleApy": 0.002918359246555878,
+              "impliedApy": 0.1879129209762369,
+              "feeRate": 0.0035324937635150544,
+              "yieldRange": {
+                "min": 0.08,
+                "max": 0.3
+              },
+              "aggregatedApy": 0.18911464894840813,
+              "maxBoostedApy": 0.19349218781824196
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-02T05:53:35.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "rwa"
+            ]
+          },
+          {
+            "name": "NGI+",
+            "address": "0x03005432d0f02c46d48ccd859d677d261640e5e1",
+            "expiry": "2026-12-10T00:00:00.000Z",
+            "pt": "1-0x47f4d6505e39998bbabf325def4c4861695ac8f5",
+            "yt": "1-0x7a3d12d8262b0246f4bbf8da354272e73a831a4b",
+            "sy": "1-0xcad69479358c1ef3560f29f278966df772abf42f",
+            "underlyingAsset": "1-0xf252c5bd43907a6cab079e990845a37a7c5730d9",
+            "details": {
+              "liquidity": 248521.59966173698,
+              "pendleApy": 0,
+              "impliedApy": 0.18261450899547715,
+              "feeRate": 0.003291613315749009,
+              "yieldRange": {
+                "min": 0.09,
+                "max": 0.28
+              },
+              "aggregatedApy": 0.10838769397686294,
+              "maxBoostedApy": 0.10838769397686294
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-08T02:09:23.000Z",
+            "categoryIds": [
+              "rwa",
+              "_featured"
+            ]
+          },
+          {
+            "name": "siUSD",
+            "address": "0xd44f2630260ff3805d7cb317d4f6740b0044c408",
+            "expiry": "2027-01-07T00:00:00.000Z",
+            "pt": "1-0x76543ac61ba84c6feeee76c6a918127bf0ca5fd1",
+            "yt": "1-0xd42f23aa6d2b886524006c6aecb1ad80579e736c",
+            "sy": "1-0x9f30507c264cc6eb5be35b18ff9ad7b4539aa920",
+            "underlyingAsset": "1-0xdbdc1ef57537e34680b898e1febd3d68c7389bcb",
+            "details": {
+              "liquidity": 11161387.11859979,
+              "pendleApy": 0.001433807543262627,
+              "impliedApy": 0.09935441679474843,
+              "feeRate": 0.0019272511151324778,
+              "yieldRange": {
+                "min": 0.055,
+                "max": 0.14
+              },
+              "aggregatedApy": 0.08454134029130056,
+              "maxBoostedApy": 0.0866920516061945
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-09T14:18:35.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "srnOPAL",
+            "address": "0x3e81f92001cd428dd6f2ef1421939da6a3d9f1bd",
+            "expiry": "2027-01-07T00:00:00.000Z",
+            "pt": "1-0x1e20339f4449de327b64a5a9c8dcabb1e72ce016",
+            "yt": "1-0xad20225471238b56274302fe6866beb250c0c397",
+            "sy": "1-0xefc86eda0d06f6c608f75e4bc918d079c6779cec",
+            "underlyingAsset": "1-0x8a646edc4633adba5ec87dedaf3af958e268fe96",
+            "details": {
+              "liquidity": 61872.568691801855,
+              "pendleApy": 0,
+              "impliedApy": 0.08684683822624861,
+              "feeRate": 0.0015907459894377585,
+              "yieldRange": {
+                "min": 0.049999999999999996,
+                "max": 0.15
+              },
+              "aggregatedApy": 0.09673619255436004,
+              "maxBoostedApy": 0.09673619255436004
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-13T14:19:11.000Z",
+            "categoryIds": [
+              "rwa",
+              "stables",
+              "strata"
+            ]
+          },
+          {
+            "name": "mAPOLLO",
+            "address": "0xb8858f53f71a127a7a6e2d015c722bfbeb1810c3",
+            "expiry": "2027-03-18T00:00:00.000Z",
+            "pt": "1-0xd9fa32c4a0d9d58d1e75e8159b9c4b1c545143d8",
+            "yt": "1-0xf503c7af30ff1813de175c43429763315e299e45",
+            "sy": "1-0xe1e22d55e23900f30599d8bee74a0801f09b4e58",
+            "underlyingAsset": "1-0x7cf9dec92ca9fd46f8d86e7798b72624bc116c05",
+            "details": {
+              "liquidity": 2885094.6414606026,
+              "pendleApy": 0.0016898508863248621,
+              "impliedApy": 0.07032654451865739,
+              "feeRate": 0.0013540889211158813,
+              "yieldRange": {
+                "min": 0.05,
+                "max": 0.10999999999999999
+              },
+              "aggregatedApy": 0.07564120853581449,
+              "maxBoostedApy": 0.07817598486530178
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-14T01:54:59.000Z",
+            "categoryIds": [
+              "points",
+              "stables",
+              "midas"
+            ]
+          },
+          {
+            "name": "aptUSD",
+            "address": "0xb94f1423b4a95b0115f913daa6c4b8744a74e3b2",
+            "expiry": "2027-01-14T00:00:00.000Z",
+            "pt": "1-0x87f3a8c7b3db5d342163b078d02deeb1ea56af05",
+            "yt": "1-0xc082266de75051cc13042d45461a1f5781f5df88",
+            "sy": "1-0xd9a5a7ba8094daf3af47e8e4af4bd13f96fdc7ab",
+            "underlyingAsset": "1-0x093df218d70ea6036afa26704a1c70d12010b908",
+            "details": {
+              "liquidity": 102987.63015700135,
+              "pendleApy": 0,
+              "impliedApy": 0.06888428625186238,
+              "feeRate": 0.0012584019451618023,
+              "yieldRange": {
+                "min": 0.029999999999999995,
+                "max": 0.08999999999999998
+              },
+              "aggregatedApy": 0.060090632650059816,
+              "maxBoostedApy": 0.060090632650059816
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-15T18:57:59.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa",
+              "points"
+            ]
+          },
+          {
+            "name": "USDG",
+            "address": "0xb986fe3f6ecf16c13e769b0d6d2a0bc41449d54f",
+            "expiry": "2027-03-25T00:00:00.000Z",
+            "pt": "1-0x203a918321f920763c2b8ccc2cbf5b3a5ba748d1",
+            "yt": "1-0x8e5ae33b762076244fb4ebbd15ba837a176726f4",
+            "sy": "1-0x2b4715bc201375aea9f55866473aa99d8321b71a",
+            "underlyingAsset": "1-0xe343167631d89b6ffc58b88d6b7fb0228795491d",
+            "details": {
+              "liquidity": 398355.9194407652,
+              "pendleApy": 0.00767187354777887,
+              "impliedApy": 0.03553505911335009,
+              "feeRate": 0.0006882652698425584,
+              "yieldRange": {
+                "min": 0.02,
+                "max": 0.06999999999999999
+              },
+              "aggregatedApy": 0.041438189633526475,
+              "maxBoostedApy": 0.08748278034238734
+            },
+            "isNew": false,
+            "isPrime": false,
+            "timestamp": "2026-09-21T07:07:11.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa"
+            ]
+          },
+          {
+            "name": "sUSG",
+            "address": "0x68b647308f86f8669eaced155a9168769ce72265",
+            "expiry": "2026-11-26T00:00:00.000Z",
+            "pt": "1-0xe2dbd6bafcd6b1da90483108f0f437addf7bd885",
+            "yt": "1-0x89cedb3c823315c9922d8eb841c114782d5a4de2",
+            "sy": "1-0xe31b01ce6f29107cf8870599911703fa2aa36e1c",
+            "underlyingAsset": "1-0xf17d6f98a5c6eaa99d149079984119e0a4ef6900",
+            "details": {
+              "liquidity": 141249.68229464028,
+              "pendleApy": 0.020891804025413876,
+              "impliedApy": 0.16990786838786587,
+              "feeRate": 0.0032312518351127473,
+              "yieldRange": {
+                "min": 0.05,
+                "max": 0.19999999999999998
+              },
+              "aggregatedApy": 0.2963845187280014,
+              "maxBoostedApy": 0.48898514763751205
+            },
+            "isNew": true,
+            "isPrime": false,
+            "timestamp": "2026-09-25T09:16:59.000Z",
+            "categoryIds": [
+              "stables",
+              "points"
+            ]
+          },
+          {
+            "name": "jrUSDe",
+            "address": "0x64c809c69d8881341afe7d67c559a048ddd9d129",
+            "expiry": "2027-02-25T00:00:00.000Z",
+            "pt": "1-0x1e47528b06e814e7a3d5aa7518d640edc8b407e5",
+            "yt": "1-0xb52ff2ee15ed61564f150f12ce28b350e3dce26a",
+            "sy": "1-0x4f6673346ab4813f1665327ab39087008cc7d76f",
+            "underlyingAsset": "1-0xc58d044404d8b14e953c115e67823784dea53d8f",
+            "details": {
+              "liquidity": 34459.15077590822,
+              "pendleApy": 0.05697721888672711,
+              "impliedApy": 0.04679700136841736,
+              "feeRate": 0.0009151182335296326,
+              "yieldRange": {
+                "min": 0.030000000000000002,
+                "max": 0.12999999999999998
+              },
+              "aggregatedApy": 0.11908631621071811,
+              "maxBoostedApy": 0.20455214454080878
+            },
+            "isNew": true,
+            "isPrime": false,
+            "timestamp": "2026-10-02T18:24:23.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "ethena"
+            ]
+          },
+          {
+            "name": "srUSDe",
+            "address": "0xb7c7eafa97c0a2322c977576b88e71e6b8e8242d",
+            "expiry": "2027-02-25T00:00:00.000Z",
+            "pt": "1-0xd2e5a2467552a8df873177c02fc6fde4720d1bf1",
+            "yt": "1-0x1d03e1859e0b10fc4943fd9204c008c8293d416d",
+            "sy": "1-0xc9bfebc79a722c05dc34bd2a227ef2db19fd1b8e",
+            "underlyingAsset": "1-0x3d7d6fdf07ee548b939a80edbc9b2256d0cdc003",
+            "details": {
+              "liquidity": 54394.07881760876,
+              "pendleApy": 0.036197281512997816,
+              "impliedApy": 0.0412784295206472,
+              "feeRate": 0.0007988051488054815,
+              "yieldRange": {
+                "min": 0.019999999999999997,
+                "max": 0.09999999999999999
+              },
+              "aggregatedApy": 0.081655769346969,
+              "maxBoostedApy": 0.1359516916164657
+            },
+            "isNew": true,
+            "isPrime": false,
+            "timestamp": "2026-10-02T18:26:59.000Z",
+            "categoryIds": [
+              "stables",
+              "points",
+              "ethena",
+              "pt-looping"
+            ]
+          },
+          {
+            "name": "USDfr",
+            "address": "0xf3f7b3a8f2518603796dddb61392ad0e322118b6",
+            "expiry": "2027-01-28T00:00:00.000Z",
+            "pt": "1-0x1d5aaa79322d825bc4689ee25ccb868374af2662",
+            "yt": "1-0x80e159f4f82a9e480c109c06288c2d457e6e36cc",
+            "sy": "1-0xef10d4ed86e12b57f1fa178d3ab7bfd5cc2f97df",
+            "underlyingAsset": "1-0xcc07e7c4e5e35affd47b351e420a22c667d7f83d",
+            "details": {
+              "liquidity": 251585.69217693259,
+              "pendleApy": 0.020365139285860537,
+              "impliedApy": 0.056249066915271095,
+              "feeRate": 0.0010950783224974447,
+              "yieldRange": {
+                "min": 0.020000000000000007,
+                "max": 0.19999999999999998
+              },
+              "aggregatedApy": 0.03449702653668382,
+              "maxBoostedApy": 0.06504473546547462
+            },
+            "isNew": true,
+            "isPrime": false,
+            "timestamp": "2026-10-07T09:20:35.000Z",
+            "categoryIds": [
+              "stables",
+              "rwa"
+            ]
+          },
+          {
+            "name": "sUSDfr",
+            "address": "0x687dedecd5d2899ef497b3ff13af066ac3d152b0",
+            "expiry": "2027-01-28T00:00:00.000Z",
+            "pt": "1-0xdbd5fb715b833fbea448ab756f02c7617ecb97be",
+            "yt": "1-0x9ce7a40030918ecc11de14431192a6845a9a8912",
+            "sy": "1-0xa6e23d9a6f7f4fb5ec305b50b29418dd119eb692",
+            "underlyingAsset": "1-0xaf559d1d59b33ca4b950ab2091372af8a773e234",
+            "details": {
+              "liquidity": 1794690.9533286914,
+              "pendleApy": 0.011420944137458389,
+              "impliedApy": 0.2917886563092058,
+              "feeRate": 0.005261076402220066,
+              "yieldRange": {
+                "min": 0.08000000000000002,
+                "max": 0.39999999999999997
+              },
+              "aggregatedApy": 0.32462328827632964,
+              "maxBoostedApy": 0.3417547044825172
+            },
+            "isNew": true,
+            "isPrime": false,
+            "timestamp": "2026-10-07T09:22:47.000Z",
+            "categoryIds": [
+              "rwa",
+              "stables"
+            ]
+          }
+        ]
+      },
+      "received_at": 1791694034.7646
+    }
+  ],
+  "freshness_at_capture": {
+    "checked_at": "2026-10-11T04:47:14.768910+00:00",
+    "risk_usable": true,
+    "execution_usable": true,
+    "status": "fresh observations; manual assumptions remain",
+    "fully_live": false,
+    "executable": false,
+    "checks": [
+      {
+        "kind": "risk",
+        "label": "hakutora-usdc",
+        "observed_at": 1791693947.0,
+        "max_age_seconds": 900,
+        "age_seconds": 87.76890993118286,
+        "status": "fresh"
+      },
+      {
+        "kind": "risk",
+        "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+        "observed_at": 1791693551.0,
+        "max_age_seconds": 900,
+        "age_seconds": 483.76890993118286,
+        "status": "fresh"
+      }
+    ],
+    "rejections": [],
+    "risk_error": null,
+    "execution_errors": [],
+    "as_of_window_utc": [
+      "2026-10-11T04:39:11+00:00",
+      "2026-10-11T04:45:47+00:00"
+    ],
+    "policy": {
+      "risk_seconds": 900,
+      "mark_seconds": 120,
+      "quote_seconds": 120,
+      "rpc_seconds": 120,
+      "max_skew_seconds": 900,
+      "future_tolerance_seconds": 15,
+      "capture_budget_seconds": 180
+    }
+  },
+  "analysis": {
+    "analyzed_at": 1791694035.4654672,
+    "freshness": {
+      "checked_at": "2026-10-11T04:47:15.465467+00:00",
+      "risk_usable": true,
+      "execution_usable": true,
+      "status": "fresh observations; manual assumptions remain",
+      "fully_live": false,
+      "executable": false,
+      "checks": [
+        {
+          "kind": "risk",
+          "label": "hakutora-usdc",
+          "observed_at": 1791693947.0,
+          "max_age_seconds": 900,
+          "age_seconds": 88.46546721458435,
+          "status": "fresh"
+        },
+        {
+          "kind": "risk",
+          "label": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "observed_at": 1791693551.0,
+          "max_age_seconds": 900,
+          "age_seconds": 484.46546721458435,
+          "status": "fresh"
+        }
+      ],
+      "rejections": [],
+      "risk_error": null,
+      "execution_errors": [],
+      "as_of_window_utc": [
+        "2026-10-11T04:39:11+00:00",
+        "2026-10-11T04:45:47+00:00"
+      ],
+      "policy": {
+        "risk_seconds": 900,
+        "mark_seconds": 120,
+        "quote_seconds": 120,
+        "rpc_seconds": 120,
+        "max_skew_seconds": 900,
+        "future_tolerance_seconds": 15,
+        "capture_budget_seconds": 180
+      }
+    },
+    "scenario": {
+      "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
+      "dependency_id": "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+      "severity": 1.0,
+      "aum_usd": 1000000.0,
+      "affected_capital_usd": 1000000.0,
+      "exposed_positions": 1,
+      "loss_usd": 901379.2480840983,
+      "positions": [
+        {
+          "id": "hakutora-usdc",
+          "label": "Morpho Hakutora USDC",
+          "size_usd": 1000000,
+          "fraction": 0.9013792480840983,
+          "loss_usd": 901379.2480840983,
+          "exposed": true,
+          "apy": 0.03812387793581049,
+          "node_losses": {
+            "chain:ethereum": 0.0,
+            "issuer:coinbase": 0.0,
+            "oracle:0xa6d6950c9f177f1de7f7757fb33539e3ec60182a": 0.0,
+            "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf": 1.0,
+            "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 0.9013792480840983,
+            "pos:hakutora-usdc": 0.9013792480840983
+          },
+          "flows": [
+            {
+              "parent": "pos:hakutora-usdc",
+              "child": "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+              "fraction_at_parent": 0.9013792480840983,
+              "rule": "disjoint funded allocation",
+              "coefficient": 1.0,
+              "root_loss_fraction": 0.9013792480840983,
+              "impact_usd": 901379.2480840983
+            },
+            {
+              "parent": "lmkt:morpho:0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+              "child": "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf",
+              "fraction_at_parent": 0.9013792480840983,
+              "rule": "incremental aggregate collateral shortfall / market supply",
+              "coefficient": null,
+              "root_loss_fraction": 0.9013792480840983,
+              "impact_usd": 901379.2480840983
+            }
+          ]
+        }
+      ]
+    },
+    "exit_candidates": {
+      "options": {
+        "hakutora-usdc": [
+          {
+            "fraction": 0.0,
+            "notional_usd": 0.0,
+            "execution_usd": 0.0,
+            "conversion_usd": 0.0,
+            "carry_usd": 0.0,
+            "source": "hold"
+          },
+          {
+            "fraction": 0.05,
+            "notional_usd": 50000.0,
+            "execution_usd": 10.0,
+            "conversion_usd": 50.0,
+            "carry_usd": 156.6734709690842,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.1,
+            "notional_usd": 100000.0,
+            "execution_usd": 20.0,
+            "conversion_usd": 100.0,
+            "carry_usd": 313.3469419381684,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.15,
+            "notional_usd": 150000.0,
+            "execution_usd": 30.0,
+            "conversion_usd": 150.0,
+            "carry_usd": 470.02041290725265,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.2,
+            "notional_usd": 200000.0,
+            "execution_usd": 40.0,
+            "conversion_usd": 200.0,
+            "carry_usd": 626.6938838763368,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.25,
+            "notional_usd": 250000.0,
+            "execution_usd": 50.0,
+            "conversion_usd": 250.0,
+            "carry_usd": 783.3673548454211,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.3,
+            "notional_usd": 300000.0,
+            "execution_usd": 60.0,
+            "conversion_usd": 300.0,
+            "carry_usd": 940.0408258145053,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.35,
+            "notional_usd": 350000.0,
+            "execution_usd": 70.0,
+            "conversion_usd": 350.0,
+            "carry_usd": 1096.7142967835896,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.4,
+            "notional_usd": 400000.0,
+            "execution_usd": 80.0,
+            "conversion_usd": 400.0,
+            "carry_usd": 1253.3877677526737,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.45,
+            "notional_usd": 450000.0,
+            "execution_usd": 90.0,
+            "conversion_usd": 450.0,
+            "carry_usd": 1410.061238721758,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.5,
+            "notional_usd": 500000.0,
+            "execution_usd": 100.0,
+            "conversion_usd": 500.0,
+            "carry_usd": 1566.7347096908422,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.55,
+            "notional_usd": 550000.0,
+            "execution_usd": 110.0,
+            "conversion_usd": 550.0,
+            "carry_usd": 1723.4081806599265,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.6,
+            "notional_usd": 600000.0,
+            "execution_usd": 120.0,
+            "conversion_usd": 600.0,
+            "carry_usd": 1880.0816516290106,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.65,
+            "notional_usd": 650000.0,
+            "execution_usd": 130.0,
+            "conversion_usd": 650.0,
+            "carry_usd": 2036.7551225980949,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.7,
+            "notional_usd": 700000.0,
+            "execution_usd": 140.0,
+            "conversion_usd": 700.0,
+            "carry_usd": 2193.428593567179,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.75,
+            "notional_usd": 750000.0,
+            "execution_usd": 150.0,
+            "conversion_usd": 750.0,
+            "carry_usd": 2350.1020645362632,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.8,
+            "notional_usd": 800000.0,
+            "execution_usd": 160.0,
+            "conversion_usd": 800.0,
+            "carry_usd": 2506.7755355053473,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.85,
+            "notional_usd": 850000.0,
+            "execution_usd": 170.0,
+            "conversion_usd": 850.0,
+            "carry_usd": 2663.449006474432,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.9,
+            "notional_usd": 900000.0,
+            "execution_usd": 180.0,
+            "conversion_usd": 900.0,
+            "carry_usd": 2820.122477443516,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 0.95,
+            "notional_usd": 950000.0,
+            "execution_usd": 190.0,
+            "conversion_usd": 950.0,
+            "carry_usd": 2976.7959484126,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          },
+          {
+            "fraction": 1.0,
+            "notional_usd": 1000000.0,
+            "execution_usd": 200.0,
+            "conversion_usd": 1000.0,
+            "carry_usd": 3133.4694193816845,
+            "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified"
+          }
+        ]
+      },
+      "resources": {
+        "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 33256931.650007546
+      },
+      "vault_caps": {
+        "hakutora-usdc": {
+          "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64": 15315705.934024053
+        }
+      },
+      "unavailable": [],
+      "carry_days": 30,
+      "gas_bps_assumed": 2,
+      "conversion_bps_assumed": 10
+    },
+    "plan": {
+      "status": "optimal",
+      "optimal": true,
+      "target_met": true,
+      "audit": {
+        "verified": true,
+        "avoided_loss_usd": 405620.6616378443,
+        "residual_loss_usd": 495758.58644625405,
+        "execution_usd": 90.0,
+        "conversion_usd": 450.0,
+        "carry_usd": 1410.061238721758,
+        "protection_cost_usd": 1950.061238721758,
+        "capital_sold_usd": 450000.0,
+        "capital_released_usd": 449460.0,
+        "accounted_loss_usd": 496298.58644625405,
+        "meets_limit": true,
+        "break_even_probability": 0.004807598387241075,
+        "market_use": [
+          {
+            "market": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+            "used_usd": 450000.0,
+            "capacity_usd": 33256931.650007546
+          }
+        ]
+      },
+      "actions": [
+        {
+          "id": "hakutora-usdc",
+          "label": "Morpho Hakutora USDC",
+          "fraction": 0.45,
+          "notional_usd": 450000.0,
+          "execution_usd": 90.0,
+          "conversion_usd": 450.0,
+          "carry_usd": 1410.061238721758,
+          "source": "fresh Morpho funded claims and shared liquidity; withdrawal not certified",
+          "avoided_loss_usd": 405620.6616378443
+        }
+      ],
+      "withdrawals": [
+        {
+          "position": "hakutora-usdc",
+          "market": "0x64d65c9a2d91c36d56fbc42d69e979335320169b3df63bf92789e2c8883fcc64",
+          "amount_usd": 450000.0
+        }
+      ],
+      "loss_limit_usd": 500000.0,
+      "locks": [],
+      "mode": "protect",
+      "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+      "mip_gap": 0.0,
+      "classification": "indicative model rescue; not executable",
+      "executable": false
+    },
+    "loss_limit": 500000.0,
+    "locks": []
+  },
+  "assumptions": [
+    "One hypothetical intrinsic shock; scenario loss is not probability-weighted expected loss.",
+    "Alternate paths to the same claim use the strongest channel; distinct funded vault allocations add.",
+    "Aggregate collateral shortfall assumes immediate recovery at stressed collateral value; borrower-level liquidations are not simulated.",
+    "Issuer, backing, oracle and liquidity transmission coefficients are modelling assumptions, not measured incident outcomes.",
+    "Unmapped collateral and loan-asset issuer risks are not fully covered. Known issuers do not establish complete reserves.",
+    "Withdrawals are bounded by observed funded allocations and shared market liquidity; withdrawal queues and executable transactions are not certified.",
+    "All protection happens before the hypothetical failure; indicative quotes do not guarantee future execution.",
+    "Released capital is assumed transferred to external cash; conversion reserve is 10 bps and gas reserve is 2 bps, both assumptions.",
+    "Remaining claims retain observed exposure proportions; market feedback, cash-transfer risk and FX movements are outside this model.",
+    "Foregone carry uses nonnegative observed APY times 30/365; no reinvestment return is assumed.",
+    "The $10M book is an illustrative allocation to real instruments; judge-modified allocations are also hypothetical, not an observed wallet or managed fund.",
+    "Evidence is a composite of individually timestamped captures, not an atomic block-aligned observed. Quote bundle captured_at is assembly time.",
+    "Manual token-level oracle names are hypotheses about integrations, not verified deployed oracle contracts; market oracle addresses come from Morpho API observations.",
+    "Discovery omits zero-funded and dust collateral allocations below the rounded 0.1% vault threshold. Missing paths are not evidence of safety.",
+    "Aggregate recovery can understate borrower-level shortfalls at partial shocks; it pools collateral and excludes liquidation incentives and timing. It is modelled economic impairment, not a vault share-price forecast.",
+    "PT claims pass underlying USD mark changes one-for-one at a fixed discount factor; a worthless underlying leaves no invented PT recovery. Other generic transmission coefficients remain assumptions.",
+    "The optimizer minimizes protection cost subject to a manager-selected stress mandate. Plan-versus-hold break-even is not a marginal threshold or a globally optimal expected-return trading policy.",
+    "Live Mode refreshes protocol observations only; manual mappings and financial assumptions are not live.",
+    "Direct PT lending-contagion discovery scans the eight admitted Morpho vaults; Morpho-only books use selected vaults. Neither covers all Morpho markets.",
+    "No cash-conversion quote or certified Morpho withdrawal transaction: any model rescue is indicative, never executable.",
+    "Risk and quote observations are asynchronous. No atomicity, wallet coverage or guaranteed execution is claimed.",
+    "Freshness limits are application policy, not provider guarantees. Missing provider times cannot use retrieval times."
+  ],
+  "coefficients": {
+    "chain": 1.0,
+    "issuer": 0.9,
+    "backing": 0.95,
+    "collateral": 0.85,
+    "oracle": 0.7,
+    "liquidity": 0.35,
+    "pt_underlying_claim_override": 1.0
+  },
+  "timestamp_semantics": "Provider state/mark times are separate from retrieval and quote request times. No atomicity.",
+  "code_hashes": {
+    "blast_radius/__init__.py": "69741a03d0cbc01d325c4380a6f9874fd2c74bce5d3151f45296db8d5ed3bad2",
+    "blast_radius/analyze.py": "6b2ffcab8dcc3d34048bb8c76106873c57b3427fd0e0585f00f54b578a3ea393",
+    "blast_radius/backtest/__init__.py": "8cdf65fe80e8ff97ae48629f61b0ceb4c2e108100aea102f77bd31505129011f",
+    "blast_radius/backtest/controls.py": "559dc13b4be74254f3f3f5559c2673db88c06ad160f9cda6b262095e45344947",
+    "blast_radius/backtest/graph.py": "91c6e7831b751fb1b1f5830f823c8b1c7364e4247a9c8a89c667622ea92df451",
+    "blast_radius/backtest/library.py": "f467dc0494341d852bdead14700f08189ab11e2e8ecb2fddde419789d9d80aaa",
+    "blast_radius/backtest/prices.py": "fac63373745799e25dbc3c603e1dce72b77d0159895f7ef6db66c00bb7652063",
+    "blast_radius/backtest/runner.py": "3cff3897d9bfa6176d982d350c0f348d20b6d62f940959d15da2ad0154920e42",
+    "blast_radius/config.py": "168101586ac0a2154d27dede1fa9a55f614171719c1019bfb0b6c0f1987a34f6",
+    "blast_radius/discovery/__init__.py": "d3f19fd7ee857ebbd3458ee296dea94d17639560483c11311ebc5235e938557f",
+    "blast_radius/discovery/engine.py": "37f5e6b1936acdb716c9e409b06aecc816b573d9e04184250e03306b34bb05b1",
+    "blast_radius/discovery/graph.py": "201a3fe0770500ecc21bc28479d0f1a6cabaafe7f4088b1dbcb68abae23ecaf2",
+    "blast_radius/discovery/resolvers.py": "e4ea6d5590fbd81bea53a9c84926aa2d9e1eaa0b42a397f127096140ec7dd98c",
+    "blast_radius/fire_drill/__init__.py": "51c4168240c071d323dbbf765a198130b280e065c6e6ccc7e54f4394197fad80",
+    "blast_radius/fire_drill/catalog.py": "2d70e22c565e2f7994c0fd57503cfe65ba70fa787e0daf24eb2d71312c916475",
+    "blast_radius/fire_drill/challenge.py": "910f4e8ebc977ca96755e93102c5a55c8decaf4c961767f16651cd61005b92af",
+    "blast_radius/fire_drill/evidence.py": "9b5637cca1ffce12f6474e4aa5861bb3e31d9c7efa80c9f9054fd530b0411e61",
+    "blast_radius/fire_drill/execution.py": "9e9ecdb65a092b6389b0b58d605dd3f59fefe95eeacf12ed3206c6e69d25829d",
+    "blast_radius/fire_drill/live.py": "25102fc40e6fe1dbf91629b83daf886169e8a0550f71417135cc5d1623afd970",
+    "blast_radius/fire_drill/model.py": "b9f15b379cb23ce7e83b0e7c61cbd7e3880a866ddd012676239a6ebcc704acaa",
+    "blast_radius/fire_drill/optimize.py": "203f2332fa6b612e3ad1ed10cd3ad7552ae52ced73abc5a5b928aa555ae1341f",
+    "blast_radius/fire_drill/presentation.py": "939ede1d66e0570b7385596d90a0ae6693113cec8fa7c5926e2af94cb7f90813",
+    "blast_radius/models/__init__.py": "d0f1a78536f7f15f08b25681076fd17eb41a17a3467abab1d4519b58ee158ae1",
+    "blast_radius/models/evaluation.py": "f151242611ec7f9abce7dd0c89c2860fcd717a0740b1fb48dc8f2b0f81f7a01d",
+    "blast_radius/models/incidents.py": "633894d96b3e7ccf716ea060e75df1770124d99af6ddd3367573a18f1ca7ef19",
+    "blast_radius/models/passthrough.py": "9d5276cc1ad8845457209012b693635e01db0cf11b9364523b08366fc74207d3",
+    "blast_radius/models/severity.py": "b205381eab5e76985560a65a404c0b7293ef667e4f67b4fda342200c1250fdc4",
+    "blast_radius/portfolio/__init__.py": "762b1c09b452e2a8d94ab4692d94b59dd7c8d84da7bc495c381f9fa9f2774573",
+    "blast_radius/portfolio/book.py": "ef0aea191000a8b3903a173c8c7d456ed5e5e4961c547a96a5132e05bb9ce8ee",
+    "blast_radius/replay/__init__.py": "385055f06a1523627bf019d03314265a7d2ca3aa80b781f5f4eaaa72124c70a1",
+    "blast_radius/replay/stream.py": "865c17d8bbbe01e99c35cc8afe17f78b7a43e23e4edb1dc5229cc33b5e4aa6ea",
+    "blast_radius/risk/__init__.py": "889f63747856694afda035f33a4397d6c87aef968627b0e390d4ea25a1586370",
+    "blast_radius/risk/decision.py": "766e102c76d8e10918326b445a9e3e7d93b74b4f03b002b50fcb889932ef8149",
+    "blast_radius/risk/exit_cost.py": "112fc65039d557cf19c82e6a51c217839fc831030bd6192eeb420f20e2150191",
+    "blast_radius/risk/propagate.py": "8068a49dbbde14d1b92355f0ff7ff5140ed14718eefa100bc51af5e0bf10e621",
+    "blast_radius/scan/__init__.py": "b4155fff4f2b20de3ba8bce61ae9abdb8df2271b5943c67da3596aeb44b0bda7",
+    "blast_radius/scan/runner.py": "4ee8cff71966f0064334dfca01a232edf5fa5164309668084a38a54c1a79bffb",
+    "blast_radius/sources/__init__.py": "4d5c896552a2c51b6c9965b60d90fd57d852379ee2eaafdee08d15df3df259cb",
+    "blast_radius/sources/cache.py": "a9be7e04cfe190045502a6788610060982a9a4d6b81c04707d25ef90462604c8",
+    "blast_radius/sources/defillama.py": "31e27467ba0a0c0a005305b7f42aca9130d2366e61ff08f01c2bf039487513f9",
+    "blast_radius/sources/live.py": "99faba068c324a7fdb34609974e80eb61ab54a4db9eed4ab1ee1c89b971151cf",
+    "blast_radius/sources/morpho.py": "a262b88ee0da75afeb44c650ce6f4327b352f57efbbd83d55e559c8c5a3f9e59",
+    "blast_radius/sources/pendle.py": "5d496ad4da105b806b2d6cd7bbe1b5cb764acbb9e3d2c26046c0ff3dc8e8522b"
+  },
+  "receipt_sha256": "d727a7d6d58f497242478eabb9bf2fdba3530522ae7079be91291f388b5ea14a"
+}

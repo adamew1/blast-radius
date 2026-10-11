@@ -1,6 +1,6 @@
 {
   "status": "PASS",
-  "audited_at": "2026-10-11T03:59:38.351298+00:00",
+  "audited_at": "2026-10-11T04:48:42.517584+00:00",
   "method": "Embedded real HTTP responses; separate Decimal calculations and exhaustive 21-candidate enumeration; no product or solver imports",
   "cases": [
     {
@@ -49,6 +49,22 @@
       "conditional_loss_usd": 902209.6554790469,
       "reduction": 0.45,
       "accounted_loss_usd": 496755.31051347574,
+      "executable": false
+    },
+    {
+      "receipt": "artifacts/certified_live/hakutora_recovery_20261011_receipt.json",
+      "receipt_sha256": "d727a7d6d58f497242478eabb9bf2fdba3530522ae7079be91291f388b5ea14a",
+      "decision_utc": "2026-10-11T04:47:15.465467+00:00",
+      "source_timestamps_utc": [
+        "2026-10-11T04:45:47+00:00",
+        "2026-10-11T04:39:11+00:00"
+      ],
+      "historical_freshness_passed": true,
+      "independent_optimality_verified": true,
+      "candidates_enumerated": 21,
+      "conditional_loss_usd": 901379.2480840983,
+      "reduction": 0.45,
+      "accounted_loss_usd": 496298.5864462541,
       "executable": false
     }
   ]

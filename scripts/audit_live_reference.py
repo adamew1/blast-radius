@@ -121,7 +121,7 @@ def audit(path):
 if __name__ == '__main__':
     paths = [Path(p) for p in sys.argv[1:]] or [ROOT/'artifacts/certified_live'/name for name in
              ('hakutora_20261011_receipt.json', 'hakutora_release_20261011_receipt.json',
-              'hakutora_browser_20261011_receipt.json')]
+              'hakutora_browser_20261011_receipt.json', 'hakutora_recovery_20261011_receipt.json')]
     results = [audit(p.resolve()) for p in paths]
     report = {'status': 'PASS', 'audited_at': datetime.now(timezone.utc).isoformat(),
               'method': 'Embedded real HTTP responses; separate Decimal calculations and exhaustive 21-candidate enumeration; no product or solver imports',
