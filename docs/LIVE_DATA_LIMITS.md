@@ -123,6 +123,39 @@ repository's captured/validated response contract. If the provider removes it or
 returns an unrecognized schema, the run remains risk-only. The implementation does
 not guess how to value a different Convert response. No transaction is submitted.
 
+## User-requested delayed-data window
+
+After the 04:47 recovery, the user explicitly requested a higher maximum age.
+The Live interface now defaults to a **60-minute risk age and timestamp-spread
+window**, with a **15-minute strict** option. The command-line and financial
+client defaults remain 15 minutes; previously certified receipts and their model
+hashes remain unchanged. The Hakutora example resets the interface to strict mode.
+
+Accepted data outside the strict 15-minute standard is labelled **delayed risk
+observations**, never verified fresh live data. Any rescue remains indicative and
+is labelled as using delayed data. New UI receipts include the selected policy,
+actual maximum age/spread, and `strict_15_minute_risk_passed`; their top-level
+classification distinguishes delayed, rejected and fresh observations. Policy
+changes require a new capture and clear any previous recommendation. The exact
+responses and provider timestamps remain embedded; historical data is not loaded.
+
+The two-minute mark/quote/RPC limits, future tolerance, balance reconciliation,
+shared liquidity rules and optimizer mathematics are unchanged. A real full-book
+probe at **04:54:13 UTC** passed the previously failing market's age check under
+60 minutes, then correctly rejected inconsistent lending-market balances. Raising
+the age limit does not resolve independent provider inconsistencies or certify
+full-book live coverage.
+
+Validation after this policy change: **81/81 automated tests passed**, including
+delayed-data labelling, receipt replay/classification tampering, policy-change
+invalidation, over-age/future rejection and unchanged quote expiry. All six
+packaged live success/rejection receipts replayed. A real browser capture at
+**05:00:57 UTC** used the 60-minute policy, passed the earlier age check, and
+retained the independent balance rejection. Its receipt replayed; the browser
+also verified strict-example reset and unchanged Snapshot rescue recovery with
+no JavaScript errors. This was a safely rejected request, not a newly certified
+full-book live analysis.
+
 Primary references checked:
 
 - https://docs.morpho.org/developers/api/get-started/ (schema evolution, limits, no SLA)

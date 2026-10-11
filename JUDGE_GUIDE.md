@@ -128,10 +128,17 @@ market, shows its provider timestamp and age, and marks the validated timestamp
 window as partial. The original ten-position book can still be selected manually;
 its complete live coverage remains uncertified.
 
-Policy: provider risk states ≤900 seconds; USD marks, quote request times and RPC
-block ≤120 seconds; risk skew ≤900 seconds; future tolerance 15 seconds. Freshness
+Strict certification policy: provider risk states ≤900 seconds; USD marks, quote
+request times and RPC block ≤120 seconds; risk skew ≤900 seconds; future tolerance 15 seconds. Freshness
 is checked on actions, after solving and every 15 seconds in the UI. Captures are
 asynchronous. SDK quote times are request times, not atomic on-chain state times.
+
+The Live interface defaults to a user-requested **60-minute** risk age/spread
+window. Data older than the strict standard is labelled **delayed**, including
+any indicative rescue and receipt, and must not be presented as verified fresh
+live analysis. Select **15** in **Maximum risk-data age (minutes)** for the strict
+standard; **Load $1M Hakutora live example** selects it automatically. The wider
+window never changes the two-minute execution-data limits or balance checks.
 
 The original full-book attempt was rejected for stale Morpho state; a Pendle
 market probe was also stale. **No successful live Pendle exact-size quote workflow

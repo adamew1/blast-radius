@@ -21,7 +21,29 @@ def verify(path):
     if rec.get("receipt_schema") == "blast-radius-live-v1":
         from blast_radius.fire_drill.live import verify_live_receipt
         verify_live_receipt(rec)
-        print("PASS embedded live observations, historical freshness, scenario, candidates and plan audit (not executable)")
+        if "risk_data_status" in rec:
+            status = rec["analysis"]["freshness"] if rec["analysis"] else rec["freshness_at_capture"]
+            checks = [c for c in status["checks"] if c["kind"] == "risk"]
+            age = max((c["age_seconds"] for c in checks), default=0)
+            times = [c["observed_at"] for c in checks]
+            spread = max(times) - min(times) if times else 0
+            delayed = age > 900 or spread > 900
+            classification = "rejected" if not status["risk_usable"] else "delayed risk observations" if delayed else "fresh risk observations"
+            expected = {"classification": classification,
+                        "strict_15_minute_risk_passed": bool(status["risk_usable"] and not delayed),
+                        "maximum_observed_risk_age_seconds": age, "risk_timestamp_spread_seconds": spread,
+                        "selected_risk_age_limit_seconds": rec["policy"]["risk_seconds"],
+                        "selected_risk_spread_limit_seconds": rec["policy"]["max_skew_seconds"]}
+            if rec["risk_data_status"] != expected:
+                raise ValueError("Risk-data classification does not reproduce")
+            expected_label = {"delayed risk observations": "delayed protocol observations; indicative analysis, not verified fresh live data",
+                              "rejected": "rejected protocol observations; no verified current analysis",
+                              "fresh risk observations": "fresh protocol observations with manual mappings and financial assumptions"}[classification]
+            if rec["classification"] != expected_label:
+                raise ValueError("Receipt classification does not reproduce")
+            print(f"PASS embedded observations, historical policy checks, scenario and plan audit: {classification} (not executable)")
+        else:
+            print("PASS embedded live observations, historical freshness, scenario, candidates and plan audit (not executable)")
         return
     for r in rec["evidence"]["sources"]:
         if hashlib.sha256((ROOT / r["path"]).read_text(encoding="utf-8").encode()).hexdigest() != r["sha256"]:

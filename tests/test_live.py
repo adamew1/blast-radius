@@ -446,12 +446,14 @@ class LiveUiTests(unittest.TestCase):
     def setUpClass(cls):
         LiveTests.setUpClass()
 
-    def app(self):
+    def app(self, risk_minutes=15):
         from streamlit.testing.v1 import AppTest
         app = AppTest.from_file(str(ROOT / "app/Home.py"), default_timeout=30)
         app.query_params["fallback"] = "1"
         app.run()
         self.assertFalse(app.exception)
+        if risk_minutes is not None:
+            app.session_state["live_risk_age_minutes"] = risk_minutes
         return app
 
     def test_snapshot_default_and_one_click_fallback_need_no_network(self):
@@ -629,6 +631,100 @@ class LiveUiTests(unittest.TestCase):
                 app.button(key="live_example").click().run()
                 self.assertFalse(app.exception)
                 self.assertNotIn("live_run", app.session_state)
+
+    def test_extended_age_accepts_delayed_risk_and_receipt_preserves_policy(self):
+        from app.components.live import observation_receipt, risk_data_status
+
+        api = Api(LiveTests.fixtures)
+        vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
+        allocation = api.vaults[raw(vault["vault"])]["state"]["allocation"][0]
+        mid = allocation["market"]["marketId"]
+        for record in api.vaults.values():
+            for a in record["state"]["allocation"]:
+                if a["market"]["marketId"] == mid:
+                    a["market"]["state"]["timestamp"] = NOW - 47 * 60
+        policy = FreshnessPolicy(risk_seconds=3600, max_skew_seconds=3600)
+        run = capture_live([vault], client=ObservationClient(session=api, clock=lambda: NOW, policy=policy))
+        self.assertTrue(run.freshness()["risk_usable"])
+        status = risk_data_status(run.freshness())
+        self.assertEqual(status["classification"], "delayed risk observations")
+        self.assertFalse(status["strict_15_minute_risk_passed"])
+        analysis = analyze_live(run, "chain:ethereum", 1, rescue=True)
+        rec = observation_receipt(run, analysis)
+        self.assertIn("delayed", rec["classification"])
+        self.assertEqual(rec["risk_data_status"], status)
+        self.assertEqual(rec["policy"]["risk_seconds"], 3600)
+        self.assertEqual(rec["policy"]["max_skew_seconds"], 3600)
+        for key in ("mark_seconds", "quote_seconds", "rpc_seconds"):
+            self.assertEqual(rec["policy"][key], 120)
+        with patch("requests.Session.request", side_effect=AssertionError("receipt replay network request")):
+            verify_live_receipt(rec)
+        with tempfile.TemporaryDirectory() as directory:
+            from scripts.verify_receipt import verify
+            path = save_live_receipt(rec, Path(directory)/"artifacts/live")
+            verify(path)
+            tampered = copy.deepcopy(rec)
+            tampered["risk_data_status"]["strict_15_minute_risk_passed"] = True
+            tampered.pop("receipt_sha256")
+            tampered["receipt_sha256"] = digest(tampered)
+            with self.assertRaisesRegex(ValueError, "classification"):
+                verify(save_live_receipt(tampered, Path(directory)/"artifacts/live"))
+            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")):
+                app = self.app(risk_minutes=None)
+                app.radio(key="data_mode").set_value("Live Mode").run()
+                self.assertEqual(app.selectbox(key="live_risk_age_minutes").value, 60)
+                app.multiselect(key="live_selected").set_value([vault["id"]]).run()
+                with patch("app.components.live.capture_live", return_value=run) as fetch:
+                    app.button(key="live_refresh").click().run()
+                    self.assertEqual(fetch.call_args.kwargs["client"].policy, policy)
+                self.assertFalse(app.exception)
+                self.assertTrue(any("oldest validated state is 47.0" in warning.value for warning in app.warning))
+                app.button(key="live_rescue").click().run()
+                self.assertIn("live_analysis", app.session_state)
+                self.assertTrue(any("Delayed-data indicative model rescue" in warning.value for warning in app.warning))
+                self.assertFalse(app.session_state["live_download_receipt"]["risk_data_status"]["strict_15_minute_risk_passed"])
+                app.selectbox(key="live_risk_age_minutes").set_value(15).run()
+                self.assertFalse(app.exception)
+                self.assertNotIn("live_analysis", app.session_state)
+                self.assertFalse(any(b.key == "live_rescue" for b in app.button))
+                self.assertTrue(any("Risk-data age policy changed" in warning.value for warning in app.warning))
+                app.button(key="live_example").click().run()
+                self.assertEqual(app.selectbox(key="live_risk_age_minutes").value, 15)
+
+    def test_extended_policy_still_rejects_over_age_future_and_invalid_balances(self):
+        from app.components.live import observation_receipt
+
+        vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
+        policy = FreshnessPolicy(risk_seconds=3600, max_skew_seconds=3600)
+        for issue in ("over age", "future", "balance mismatch"):
+            api = Api(LiveTests.fixtures)
+            market = api.vaults[raw(vault["vault"])]["state"]["allocation"][0]["market"]
+            for record in api.vaults.values():
+                for a in record["state"]["allocation"]:
+                    if a["market"]["marketId"] == market["marketId"]:
+                        if issue == "balance mismatch":
+                            a["market"]["state"]["liquidityAssetsUsd"] = 0
+                        else:
+                            a["market"]["state"]["timestamp"] = NOW - 3601 if issue == "over age" else NOW + 16
+            with self.subTest(issue=issue):
+                run = capture_live([vault], client=ObservationClient(session=api, clock=lambda: NOW, policy=policy))
+                self.assertFalse(run.freshness()["risk_usable"])
+                self.assertIn("rejected", observation_receipt(run)["classification"])
+                with self.assertRaises(LiveInputError):
+                    analyze_live(run, "chain:ethereum", 1, rescue=True)
+
+    def test_extended_risk_window_does_not_extend_quote_expiry(self):
+        api = Api(LiveTests.fixtures)
+        now = NOW
+        client = ObservationClient(session=api, clock=lambda: now,
+                                   policy=FreshnessPolicy(risk_seconds=3600, max_skew_seconds=3600))
+        run = capture_live([LiveTests.pt], client=client)
+        self.assertTrue(run.freshness()["execution_usable"])
+        now += 121
+        self.assertTrue(run.freshness()["risk_usable"])
+        self.assertFalse(run.freshness()["execution_usable"])
+        with self.assertRaises(LiveInputError):
+            analyze_live(run, WSTETH, 1, rescue=True)
 
 
 if __name__ == "__main__":

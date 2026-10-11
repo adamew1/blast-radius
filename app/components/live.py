@@ -13,7 +13,7 @@ from blast_radius.fire_drill.live import (LIVE_ASSUMPTIONS, analyze_live, captur
 from blast_radius.fire_drill.model import discover
 from blast_radius.fire_drill.presentation import network
 from blast_radius.portfolio.book import load_book
-from blast_radius.sources.live import LiveInputError, timestamp, utc
+from blast_radius.sources.live import FreshnessPolicy, LiveInputError, ObservationClient, digest, timestamp, utc
 
 
 def snapshot_fallback():
@@ -31,10 +31,40 @@ def load_hakutora_example():
     st.session_state.live_selected = ["hakutora-usdc"]
     st.session_state["live_size_hakutora-usdc"] = 1_000_000
     st.session_state.live_grid = "25% steps (four per PT)"
+    st.session_state.live_risk_age_minutes = 15
     st.session_state.live_dependency = "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
     st.session_state.live_severity = 100
     st.session_state.live_limit = 500_000.0
     st.session_state.live_locks = []
+
+
+def risk_data_status(status):
+    """Distinguish the selected acceptance window from the strict live standard."""
+    checks = [c for c in status["checks"] if c["kind"] == "risk"]
+    max_age = max((c["age_seconds"] for c in checks), default=0)
+    times = [c["observed_at"] for c in checks]
+    skew = max(times) - min(times) if times else 0
+    strict = FreshnessPolicy()
+    delayed = max_age > strict.risk_seconds or skew > strict.max_skew_seconds
+    return {"classification": "rejected" if not status["risk_usable"] else
+            "delayed risk observations" if delayed else "fresh risk observations",
+            "strict_15_minute_risk_passed": bool(status["risk_usable"] and not delayed),
+            "maximum_observed_risk_age_seconds": max_age, "risk_timestamp_spread_seconds": skew,
+            "selected_risk_age_limit_seconds": status["policy"]["risk_seconds"],
+            "selected_risk_spread_limit_seconds": status["policy"]["max_skew_seconds"]}
+
+
+def observation_receipt(run, analysis=None):
+    rec = live_receipt(run, analysis)
+    status = analysis["freshness"] if analysis else rec["freshness_at_capture"]
+    rec["risk_data_status"] = risk_data_status(status)
+    if rec["risk_data_status"]["classification"] == "delayed risk observations":
+        rec["classification"] = "delayed protocol observations; indicative analysis, not verified fresh live data"
+    elif not status["risk_usable"]:
+        rec["classification"] = "rejected protocol observations; no verified current analysis"
+    rec.pop("receipt_sha256")
+    rec["receipt_sha256"] = digest(rec)
+    return rec
 
 
 def rejected_morpho_inputs(run, status):
@@ -116,14 +146,21 @@ def graph_dot(view):
 def render_live():
     st.title("Blast Radius · Live Mode")
     st.caption("Discover → Attack → Collapse → Rescue → Prove · supported Ethereum catalog · hypothetical allocations")
-    st.info("Fresh protocol observations with versioned manual dependencies and assumed costs. "
+    st.info("Timestamped protocol observations with versioned manual dependencies and assumed costs. "
             "Model rescues are indicative: cash conversion and Morpho withdrawal execution are not certified. "
             "Full-book and Pendle live coverage has not passed certification.")
     catalog = load_catalog()
     default_sizes = {p["id"]: p["size_usd"] for p in load_book()["positions"]}
     st.button("Load $1M Hakutora live example", on_click=load_hakutora_example, key="live_example",
               help="Replaces only the Live portfolio with one illustrative $1M Hakutora USDC holding, "
-                   "100% cbBTC shock and $500k mandate. Click Fetch to obtain new observations; freshness is never guaranteed.")
+                   "100% cbBTC shock, $500k mandate and strict 15-minute risk policy. Click Fetch to obtain new observations.")
+    risk_minutes = st.selectbox("Maximum risk-data age (minutes)", [15, 60], index=1,
+                                key="live_risk_age_minutes", on_change=clear_live_analysis)
+    policy = FreshnessPolicy(risk_seconds=risk_minutes * 60, max_skew_seconds=risk_minutes * 60)
+    if risk_minutes > 15:
+        st.warning("60-minute risk-data window selected. Observations older than 15 minutes are labelled delayed; "
+                   "this does not certify a fresh live analysis. Risk timestamp spread is also capped at 60 minutes. "
+                   "USD marks, exact-size quotes and RPC data still expire after two minutes.")
     with st.expander("Choose supported instruments and quote sizes"):
         ids = st.multiselect("Live portfolio instruments (up to ten)", [p["id"] for p in catalog],
                              default=list(default_sizes), key="live_selected",
@@ -143,29 +180,37 @@ def render_live():
                f"${sum(p['size_usd'] for p in positions):,.0f} illustrative allocation.")
     steps = list(range(1, 21)) if grid.startswith("5%") else [] if grid.startswith("Risk") else [5, 10, 15, 20]
     run = st.session_state.get("live_run")
-    changed = run and (run.positions != positions or run.quote_steps != steps)
+    changed = run and (run.positions != positions or run.quote_steps != steps or run.client.policy != policy)
     if changed:
-        st.warning("Portfolio or quote grid changed. Refresh before analysis.")
+        st.warning("Portfolio or quote grid changed. Refresh before analysis." if run.client.policy == policy else
+                   "Risk-data age policy changed. Fetch a new run before analysis.")
         clear_live_analysis()
     if st.button("Fetch fresh data & discover", type="primary", key="live_refresh"):
         # A failed refresh must not leave an earlier successful analysis on screen.
         st.session_state.pop("live_run", None)
         clear_live_analysis()
         with st.spinner("Retrieving timestamped Morpho/Pendle observations and exact-size quotes…"):
-            run = capture_live(positions, quote_steps=steps)
+            run = capture_live(positions, quote_steps=steps, client=ObservationClient(policy=policy))
         st.session_state.live_run = run
-        save_live_receipt(live_receipt(run))
+        save_live_receipt(observation_receipt(run))
         changed = False
     if run is None:
         st.caption("No live observations yet. Fetch data to start. Snapshot Mode is available above.")
         return
     status = run.freshness()
-    st.write("Freshness:", status["status"])
+    risk_status = risk_data_status(status)
+    st.write("Freshness:", risk_status["classification"] if risk_status["classification"] == "delayed risk observations"
+             else status["status"])
+    if risk_status["classification"] == "delayed risk observations":
+        st.warning(f"Delayed risk data: oldest validated state is {risk_status['maximum_observed_risk_age_seconds'] / 60:.1f} "
+                   "minutes old. Analysis and any indicative rescue use the selected wider policy; "
+                   "they have not passed the strict 15-minute live standard.")
     window_label = "As-of provider state window (UTC): " if status["risk_usable"] else \
                    "Validated provider timestamps only (partial; analysis rejected): "
     st.caption(window_label + (" → ".join(status["as_of_window_utc"]) or "none")
                + " · retrieved through " + time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime(run.completed_at)))
     with st.expander("Sources, timestamps and freshness checks"):
+        st.json(risk_status)
         st.json(status)
         st.dataframe([{"source": o["request"]["url"], "method": o["request"]["method"],
                        "received_at": o["received_at"], "observation": o["key"],
@@ -174,7 +219,7 @@ def render_live():
     if changed or not status["risk_usable"]:
         clear_live_analysis()
         if changed:
-            st.error("Live analysis rejected. Portfolio inputs changed; fetch a new run.")
+            st.error("Live analysis rejected. Portfolio, quote grid or risk-data policy changed; fetch a new run.")
         else:
             render_rejection(run, status)
     else:
@@ -222,20 +267,21 @@ def render_live():
                 if not run.freshness()["execution_usable"]:
                     raise LiveInputError("Execution observations expired while solving; refresh the run")
                 st.session_state.live_analysis = analysis
-                save_live_receipt(live_receipt(run, analysis))
+                save_live_receipt(observation_receipt(run, analysis))
             except LiveInputError as exc:
                 clear_live_analysis()
                 st.error(str(exc))
         if st.session_state.get("live_analysis") and status["execution_usable"]:
             analysis = st.session_state.live_analysis
-            st.warning("Indicative model rescue · not executable · assumed gas and cash conversion · no guaranteed fill")
+            st.warning(("Delayed-data indicative model rescue" if risk_status["classification"] == "delayed risk observations" else
+                        "Indicative model rescue") + " · not executable · assumed gas and cash conversion · no guaranteed fill")
             st.json(analysis["plan"])
     with st.expander("Prove: observations, manual mappings and assumptions"):
         for assumption in LIVE_ASSUMPTIONS:
             st.write("• " + assumption)
         st.json(run.mappings)
         st.json(run.bundle)
-    rec = live_receipt(run, analysis)
+    rec = observation_receipt(run, analysis)
     # Timer reruns recheck freshness, but only new decisions create new files.
     decision = (run.completed_at, None if analysis is None else
                 (analysis["scenario"], analysis["exit_candidates"], analysis["plan"]))
