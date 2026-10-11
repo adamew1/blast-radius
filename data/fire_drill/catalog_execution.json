@@ -1,0 +1,936 @@
+{
+  "captured_at": "2026-10-11T02:25:14.643422+00:00",
+  "rpc": "https://ethereum-rpc.publicnode.com",
+  "rpc_block": "0x18f43b9",
+  "rpc_block_timestamp": 1791685475,
+  "quote_method": "amountOut * output asset USD mark; fee already in output",
+  "positions": {
+    "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3": {
+      "position": {
+        "id": "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+        "kind": "pendle_pt",
+        "label": "Pendle PT-apyUSD \u00b7 2026-11-05",
+        "chain": "ethereum",
+        "chain_id": 1,
+        "market": "0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+        "size_usd": 1000000
+      },
+      "input_asset": {
+        "address": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+        "decimals": 18,
+        "symbol": "PT-apyUSD-5NOV2026",
+        "price_usd": 0.9645915242249561,
+        "price_updated_at": "2026-10-11T02:24:30.114Z",
+        "metadata_url": "https://api-v2.pendle.finance/core/v1/1/assets/0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+        "rpc_request": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+              "data": "0x313ce567"
+            },
+            "0x18f43b9"
+          ]
+        },
+        "rpc_response": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "result": "0x0000000000000000000000000000000000000000000000000000000000000012"
+        }
+      },
+      "output_asset": {
+        "address": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+        "decimals": 18,
+        "symbol": "apyUSD",
+        "price_usd": 1.403624642432168,
+        "price_updated_at": "2026-10-11T02:24:30.114Z",
+        "metadata_url": "https://api-v2.pendle.finance/core/v1/1/assets/0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+        "rpc_request": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+              "data": "0x313ce567"
+            },
+            "0x18f43b9"
+          ]
+        },
+        "rpc_response": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "result": "0x0000000000000000000000000000000000000000000000000000000000000012"
+        }
+      },
+      "options": [
+        {
+          "fraction": 0.05,
+          "notional_usd": 50000,
+          "available": true,
+          "amount_in": "51835412964233456873789",
+          "amount_out": "35616457136727143361958",
+          "output_value_usd": 49992.13691323927,
+          "mark_shortfall_usd": 7.863086760728038,
+          "signed_mark_shortfall_usd": 7.863086760728038,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "51835412964233456873789"
+          },
+          "raw_cache_key": "d2761306d7fab8c66dbd",
+          "captured_at": "2026-10-11T02:25:14.644916+00:00"
+        },
+        {
+          "fraction": 0.1,
+          "notional_usd": 100000,
+          "available": true,
+          "amount_in": "103670825928466913747578",
+          "amount_out": "71232914042823499594107",
+          "output_value_usd": 99984.27350275949,
+          "mark_shortfall_usd": 15.72649724051007,
+          "signed_mark_shortfall_usd": 15.72649724051007,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "103670825928466913747578"
+          },
+          "raw_cache_key": "dc9cee48b388408be64e",
+          "captured_at": "2026-10-11T02:25:14.645222+00:00"
+        },
+        {
+          "fraction": 0.15,
+          "notional_usd": 150000,
+          "available": true,
+          "amount_in": "155506238892700370621367",
+          "amount_out": "106847274783603970434639",
+          "output_value_usd": 149973.46786298772,
+          "mark_shortfall_usd": 26.532137012283783,
+          "signed_mark_shortfall_usd": 26.532137012283783,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "155506238892700370621367"
+          },
+          "raw_cache_key": "beb3fe26e2469a942042",
+          "captured_at": "2026-10-11T02:25:14.645560+00:00"
+        },
+        {
+          "fraction": 0.2,
+          "notional_usd": 200000,
+          "available": true,
+          "amount_in": "207341651856933827495156",
+          "amount_out": "142459696935549633123870",
+          "output_value_usd": 199959.94117215587,
+          "mark_shortfall_usd": 40.058827844128245,
+          "signed_mark_shortfall_usd": 40.058827844128245,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "207341651856933827495156"
+          },
+          "raw_cache_key": "cd0a9067b8356e6e7c14",
+          "captured_at": "2026-10-11T02:25:14.645874+00:00"
+        },
+        {
+          "fraction": 0.25,
+          "notional_usd": 250000,
+          "available": true,
+          "amount_in": "259177064821167284368946",
+          "amount_out": "178072002725916037300864",
+          "output_value_usd": 249946.25115334394,
+          "mark_shortfall_usd": 53.74884665606078,
+          "signed_mark_shortfall_usd": 53.74884665606078,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "259177064821167284368946"
+          },
+          "raw_cache_key": "10672d2f2bc2b8fcbcab",
+          "captured_at": "2026-10-11T02:25:14.646188+00:00"
+        },
+        {
+          "fraction": 0.3,
+          "notional_usd": 300000,
+          "available": true,
+          "amount_in": "311012477785400741242735",
+          "amount_out": "213684308265319986374300",
+          "output_value_usd": 299932.56078227493,
+          "mark_shortfall_usd": 67.4392177250702,
+          "signed_mark_shortfall_usd": 67.4392177250702,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "311012477785400741242735"
+          },
+          "raw_cache_key": "ece50d915eddbf0bc865",
+          "captured_at": "2026-10-11T02:25:14.646473+00:00"
+        },
+        {
+          "fraction": 0.35,
+          "notional_usd": 350000,
+          "available": true,
+          "amount_in": "362847890749634198116524",
+          "amount_out": "249296613615760093200798",
+          "output_value_usd": 349918.8701459716,
+          "mark_shortfall_usd": 81.12985402840422,
+          "signed_mark_shortfall_usd": 81.12985402840422,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "362847890749634198116524"
+          },
+          "raw_cache_key": "52fafe140301e445299f",
+          "captured_at": "2026-10-11T02:25:14.646757+00:00"
+        },
+        {
+          "fraction": 0.4,
+          "notional_usd": 400000,
+          "available": true,
+          "amount_in": "414683303713867654990313",
+          "amount_out": "284908918760021520351027",
+          "output_value_usd": 399905.17922027083,
+          "mark_shortfall_usd": 94.82077972916886,
+          "signed_mark_shortfall_usd": 94.82077972916886,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "414683303713867654990313"
+          },
+          "raw_cache_key": "1063fe091f88b13f7be2",
+          "captured_at": "2026-10-11T02:25:14.647031+00:00"
+        },
+        {
+          "fraction": 0.45,
+          "notional_usd": 450000,
+          "available": true,
+          "amount_in": "466518716678101111864102",
+          "amount_out": "320521223508892347354516",
+          "output_value_usd": 449891.48773959,
+          "mark_shortfall_usd": 108.51226041000336,
+          "signed_mark_shortfall_usd": 108.51226041000336,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "466518716678101111864102"
+          },
+          "raw_cache_key": "871e067beb876a3135d6",
+          "captured_at": "2026-10-11T02:25:14.647301+00:00"
+        },
+        {
+          "fraction": 0.5,
+          "notional_usd": 500000,
+          "available": true,
+          "amount_in": "518354129642334568737892",
+          "amount_out": "356133532642668228536875",
+          "output_value_usd": 499877.80241367,
+          "mark_shortfall_usd": 122.1975863300031,
+          "signed_mark_shortfall_usd": 122.1975863300031,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "518354129642334568737892"
+          },
+          "raw_cache_key": "579ea2d0a4505ab80804",
+          "captured_at": "2026-10-11T02:25:14.647576+00:00"
+        },
+        {
+          "fraction": 0.55,
+          "notional_usd": 550000,
+          "available": true,
+          "amount_in": "570189542606568025611681",
+          "amount_out": "391745837722789119332087",
+          "output_value_usd": 549864.11139794,
+          "mark_shortfall_usd": 135.888602060033,
+          "signed_mark_shortfall_usd": 135.888602060033,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "570189542606568025611681"
+          },
+          "raw_cache_key": "c742c3bf24e0d253306f",
+          "captured_at": "2026-10-11T02:25:14.647847+00:00"
+        },
+        {
+          "fraction": 0.6,
+          "notional_usd": 600000,
+          "available": true,
+          "amount_in": "622024955570801482485470",
+          "amount_out": "427358142421393888445259",
+          "output_value_usd": 599850.4198467046,
+          "mark_shortfall_usd": 149.58015329542104,
+          "signed_mark_shortfall_usd": 149.58015329542104,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "622024955570801482485470"
+          },
+          "raw_cache_key": "fd9415b48ae5fe4c66ba",
+          "captured_at": "2026-10-11T02:25:14.648122+00:00"
+        },
+        {
+          "fraction": 0.65,
+          "notional_usd": 650000,
+          "available": true,
+          "amount_in": "673860368535034939359259",
+          "amount_out": "462970452788319076121874",
+          "output_value_usd": 649836.7362516633,
+          "mark_shortfall_usd": 163.2637483366998,
+          "signed_mark_shortfall_usd": 163.2637483366998,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "673860368535034939359259"
+          },
+          "raw_cache_key": "99f9dc7d2ccab23fea88",
+          "captured_at": "2026-10-11T02:25:14.648391+00:00"
+        },
+        {
+          "fraction": 0.7,
+          "notional_usd": 700000,
+          "available": true,
+          "amount_in": "725695781499268396233048",
+          "amount_out": "498582757490921048635880",
+          "output_value_usd": 699823.0447060384,
+          "mark_shortfall_usd": 176.9552939615678,
+          "signed_mark_shortfall_usd": 176.9552939615678,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "725695781499268396233048"
+          },
+          "raw_cache_key": "74dc5a798bf61f88c1cf",
+          "captured_at": "2026-10-11T02:25:16.685920+00:00"
+        },
+        {
+          "fraction": 0.75,
+          "notional_usd": 750000,
+          "available": true,
+          "amount_in": "777531194463501853106838",
+          "amount_out": "534195061540608626750246",
+          "output_value_usd": 749809.3522439668,
+          "mark_shortfall_usd": 190.64775603322778,
+          "signed_mark_shortfall_usd": 190.64775603322778,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "777531194463501853106838"
+          },
+          "raw_cache_key": "ad4bda57f25a6b6c1898",
+          "captured_at": "2026-10-11T02:25:18.064258+00:00"
+        },
+        {
+          "fraction": 0.8,
+          "notional_usd": 800000,
+          "available": true,
+          "amount_in": "829366607427735309980627",
+          "amount_out": "569807366121938212378414",
+          "output_value_usd": 799795.6605281209,
+          "mark_shortfall_usd": 204.33947187906597,
+          "signed_mark_shortfall_usd": 204.33947187906597,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "829366607427735309980627"
+          },
+          "raw_cache_key": "9c583273bbbc3bb7c0d0",
+          "captured_at": "2026-10-11T02:25:20.227035+00:00"
+        },
+        {
+          "fraction": 0.85,
+          "notional_usd": 850000,
+          "available": true,
+          "amount_in": "881202020391968766854416",
+          "amount_out": "605419670008450049369192",
+          "output_value_usd": 849781.9678370118,
+          "mark_shortfall_usd": 218.03216298820917,
+          "signed_mark_shortfall_usd": 218.03216298820917,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "881202020391968766854416"
+          },
+          "raw_cache_key": "000d5df620e02a5c6b7b",
+          "captured_at": "2026-10-11T02:25:22.644903+00:00"
+        },
+        {
+          "fraction": 0.9,
+          "notional_usd": 900000,
+          "available": true,
+          "amount_in": "933037433356202223728205",
+          "amount_out": "641031973569783949668581",
+          "output_value_usd": 899768.274689475,
+          "mark_shortfall_usd": 231.725310525042,
+          "signed_mark_shortfall_usd": 231.725310525042,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "933037433356202223728205"
+          },
+          "raw_cache_key": "b201d5797d961abe8cbc",
+          "captured_at": "2026-10-11T02:25:24.529969+00:00"
+        },
+        {
+          "fraction": 0.95,
+          "notional_usd": 950000,
+          "available": true,
+          "amount_in": "984872846320435680601994",
+          "amount_out": "676644277815633406594474",
+          "output_value_usd": 949754.582502741,
+          "mark_shortfall_usd": 245.41749725898262,
+          "signed_mark_shortfall_usd": 245.41749725898262,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "984872846320435680601994"
+          },
+          "raw_cache_key": "b1226835beeda52c0723",
+          "captured_at": "2026-10-11T02:25:25.628779+00:00"
+        },
+        {
+          "fraction": 1.0,
+          "notional_usd": 1000000,
+          "available": true,
+          "amount_in": "1036708259284669137475784",
+          "amount_out": "712256589231773279340659",
+          "output_value_usd": 999740.9003804034,
+          "mark_shortfall_usd": 259.0996195966145,
+          "signed_mark_shortfall_usd": 259.0996195966145,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+            "tokenOut": "0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+            "amountIn": "1036708259284669137475784"
+          },
+          "raw_cache_key": "5cc69c63d33c9a622241",
+          "captured_at": "2026-10-11T02:25:27.351420+00:00"
+        }
+      ]
+    },
+    "catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e": {
+      "position": {
+        "id": "catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+        "kind": "pendle_pt",
+        "label": "Pendle PT-USD3 \u00b7 2026-12-17",
+        "chain": "ethereum",
+        "chain_id": 1,
+        "market": "0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+        "size_usd": 1000000
+      },
+      "input_asset": {
+        "address": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+        "decimals": 6,
+        "symbol": "PT-USD3-17DEC2026",
+        "price_usd": 0.9789721481407903,
+        "price_updated_at": "2026-10-11T02:24:45.039Z",
+        "metadata_url": "https://api-v2.pendle.finance/core/v1/1/assets/0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+        "rpc_request": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+              "data": "0x313ce567"
+            },
+            "0x18f43b9"
+          ]
+        },
+        "rpc_response": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "result": "0x0000000000000000000000000000000000000000000000000000000000000006"
+        }
+      },
+      "output_asset": {
+        "address": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+        "decimals": 6,
+        "symbol": "USD3",
+        "price_usd": 1.1877009079001013,
+        "price_updated_at": "2026-10-11T02:25:15.036Z",
+        "metadata_url": "https://api-v2.pendle.finance/core/v1/1/assets/0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+        "rpc_request": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "method": "eth_call",
+          "params": [
+            {
+              "to": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+              "data": "0x313ce567"
+            },
+            "0x18f43b9"
+          ]
+        },
+        "rpc_response": {
+          "jsonrpc": "2.0",
+          "id": 2,
+          "result": "0x0000000000000000000000000000000000000000000000000000000000000006"
+        }
+      },
+      "options": [
+        {
+          "fraction": 0.05,
+          "notional_usd": 50000,
+          "available": true,
+          "amount_in": "51073976001",
+          "amount_out": "42071512681",
+          "output_value_usd": 49968.373807954325,
+          "mark_shortfall_usd": 31.626192045674543,
+          "signed_mark_shortfall_usd": 31.626192045674543,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "51073976001"
+          },
+          "raw_cache_key": "2f8370187bbb26ded0ef",
+          "captured_at": "2026-10-11T02:25:33.763156+00:00"
+        },
+        {
+          "fraction": 0.1,
+          "notional_usd": 100000,
+          "available": true,
+          "amount_in": "102147952002",
+          "amount_out": "84129764416",
+          "output_value_usd": 99920.99757830483,
+          "mark_shortfall_usd": 79.0024216951715,
+          "signed_mark_shortfall_usd": 79.0024216951715,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "102147952002"
+          },
+          "raw_cache_key": "cba6d13ac056bde1b3df",
+          "captured_at": "2026-10-11T02:25:34.619137+00:00"
+        },
+        {
+          "fraction": 0.15,
+          "notional_usd": 150000,
+          "available": true,
+          "amount_in": "153221928003",
+          "amount_out": "126187298944",
+          "output_value_usd": 149872.7695212503,
+          "mark_shortfall_usd": 127.2304787496978,
+          "signed_mark_shortfall_usd": 127.2304787496978,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "153221928003"
+          },
+          "raw_cache_key": "f841e7b02199ab019275",
+          "captured_at": "2026-10-11T02:25:35.497877+00:00"
+        },
+        {
+          "fraction": 0.2,
+          "notional_usd": 200000,
+          "available": true,
+          "amount_in": "204295904004",
+          "amount_out": "168244831673",
+          "output_value_usd": 199824.5393275218,
+          "mark_shortfall_usd": 175.46067247819155,
+          "signed_mark_shortfall_usd": 175.46067247819155,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "204295904004"
+          },
+          "raw_cache_key": "6f15b90c743b084bc057",
+          "captured_at": "2026-10-11T02:25:36.413784+00:00"
+        },
+        {
+          "fraction": 0.25,
+          "notional_usd": 250000,
+          "available": true,
+          "amount_in": "255369880006",
+          "amount_out": "210301753585",
+          "output_value_usd": 249775.58366588788,
+          "mark_shortfall_usd": 224.4163341121166,
+          "signed_mark_shortfall_usd": 224.4163341121166,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "255369880006"
+          },
+          "raw_cache_key": "2625a7c9637b2305d057",
+          "captured_at": "2026-10-11T02:25:38.311012+00:00"
+        },
+        {
+          "fraction": 0.3,
+          "notional_usd": 300000,
+          "available": true,
+          "amount_in": "306443856007",
+          "amount_out": "252354291094",
+          "output_value_usd": 299721.4206448303,
+          "mark_shortfall_usd": 278.57935516972793,
+          "signed_mark_shortfall_usd": 278.57935516972793,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "306443856007"
+          },
+          "raw_cache_key": "fd8a095762af079f4400",
+          "captured_at": "2026-10-11T02:25:42.491972+00:00"
+        },
+        {
+          "fraction": 0.35,
+          "notional_usd": 350000,
+          "available": true,
+          "amount_in": "357517832008",
+          "amount_out": "294389377351",
+          "output_value_usd": 349646.5307559282,
+          "mark_shortfall_usd": 353.4692440718063,
+          "signed_mark_shortfall_usd": 353.4692440718063,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "357517832008"
+          },
+          "raw_cache_key": "0f6e54e03e471d47d48d",
+          "captured_at": "2026-10-11T02:25:44.360419+00:00"
+        },
+        {
+          "fraction": 0.4,
+          "notional_usd": 400000,
+          "available": true,
+          "amount_in": "408591808009",
+          "amount_out": "336405561182",
+          "output_value_usd": 399549.19043850445,
+          "mark_shortfall_usd": 450.80956149555277,
+          "signed_mark_shortfall_usd": 450.80956149555277,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "408591808009"
+          },
+          "raw_cache_key": "fbd812a486008a4c99c9",
+          "captured_at": "2026-10-11T02:25:46.271637+00:00"
+        },
+        {
+          "fraction": 0.45,
+          "notional_usd": 450000,
+          "available": true,
+          "amount_in": "459665784010",
+          "amount_out": "378402114876",
+          "output_value_usd": 449428.5353895436,
+          "mark_shortfall_usd": 571.4646104563726,
+          "signed_mark_shortfall_usd": 571.4646104563726,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "459665784010"
+          },
+          "raw_cache_key": "7f576381e1e433abd9b3",
+          "captured_at": "2026-10-11T02:25:48.115132+00:00"
+        },
+        {
+          "fraction": 0.5,
+          "notional_usd": 500000,
+          "available": true,
+          "amount_in": "510739760012",
+          "amount_out": "420378547293",
+          "output_value_usd": 499283.9822816218,
+          "mark_shortfall_usd": 716.0177183782216,
+          "signed_mark_shortfall_usd": 716.0177183782216,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "510739760012"
+          },
+          "raw_cache_key": "f2ca9a36075cf035a7b6",
+          "captured_at": "2026-10-11T02:25:50.043479+00:00"
+        },
+        {
+          "fraction": 0.55,
+          "notional_usd": 550000,
+          "available": true,
+          "amount_in": "561813736013",
+          "amount_out": "462334284410",
+          "output_value_usd": 549114.8493471006,
+          "mark_shortfall_usd": 885.1506528994069,
+          "signed_mark_shortfall_usd": 885.1506528994069,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "561813736013"
+          },
+          "raw_cache_key": "b4a8a540219d9e324e05",
+          "captured_at": "2026-10-11T02:25:51.098728+00:00"
+        },
+        {
+          "fraction": 0.6,
+          "notional_usd": 600000,
+          "available": true,
+          "amount_in": "612887712014",
+          "amount_out": "504268740263",
+          "output_value_usd": 598920.4406360055,
+          "mark_shortfall_usd": 1079.5593639945146,
+          "signed_mark_shortfall_usd": 1079.5593639945146,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "612887712014"
+          },
+          "raw_cache_key": "bacc82fb187502c29c54",
+          "captured_at": "2026-10-11T02:25:52.118933+00:00"
+        },
+        {
+          "fraction": 0.65,
+          "notional_usd": 650000,
+          "available": true,
+          "amount_in": "663961688015",
+          "amount_out": "546181263030",
+          "output_value_usd": 648699.981978755,
+          "mark_shortfall_usd": 1300.0180212450214,
+          "signed_mark_shortfall_usd": 1300.0180212450214,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "663961688015"
+          },
+          "raw_cache_key": "7dde065a2301ab9e821f",
+          "captured_at": "2026-10-11T02:25:53.115074+00:00"
+        },
+        {
+          "fraction": 0.7,
+          "notional_usd": 700000,
+          "available": true,
+          "amount_in": "715035664017",
+          "amount_out": "588071141064",
+          "output_value_usd": 698452.6281515614,
+          "mark_shortfall_usd": 1547.3718484386336,
+          "signed_mark_shortfall_usd": 1547.3718484386336,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "715035664017"
+          },
+          "raw_cache_key": "68acd15ac0345a6019d7",
+          "captured_at": "2026-10-11T02:25:55.035725+00:00"
+        },
+        {
+          "fraction": 0.75,
+          "notional_usd": 750000,
+          "available": true,
+          "amount_in": "766109640018",
+          "amount_out": "629937596170",
+          "output_value_usd": 748177.4548915164,
+          "mark_shortfall_usd": 1822.5451084836386,
+          "signed_mark_shortfall_usd": 1822.5451084836386,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "766109640018"
+          },
+          "raw_cache_key": "9b4b5c72bce02c9eb66a",
+          "captured_at": "2026-10-11T02:25:56.801057+00:00"
+        },
+        {
+          "fraction": 0.8,
+          "notional_usd": 800000,
+          "available": true,
+          "amount_in": "817183616019",
+          "amount_out": "671779775864",
+          "output_value_usd": 797873.4497025993,
+          "mark_shortfall_usd": 2126.5502974006813,
+          "signed_mark_shortfall_usd": 2126.5502974006813,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "817183616019"
+          },
+          "raw_cache_key": "cb87bcecd1fee6b03fa8",
+          "captured_at": "2026-10-11T02:25:57.701239+00:00"
+        },
+        {
+          "fraction": 0.85,
+          "notional_usd": 850000,
+          "available": true,
+          "amount_in": "868257592020",
+          "amount_out": "713596744377",
+          "output_value_usd": 847539.5011711194,
+          "mark_shortfall_usd": 2460.4988288806053,
+          "signed_mark_shortfall_usd": 2460.4988288806053,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "868257592020"
+          },
+          "raw_cache_key": "da6f8fa3d1281fc666d1",
+          "captured_at": "2026-10-11T02:26:00.396594+00:00"
+        },
+        {
+          "fraction": 0.9,
+          "notional_usd": 900000,
+          "available": true,
+          "amount_in": "919331568021",
+          "amount_out": "755387498712",
+          "output_value_usd": 897174.418036629,
+          "mark_shortfall_usd": 2825.58196337102,
+          "signed_mark_shortfall_usd": 2825.58196337102,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "919331568021"
+          },
+          "raw_cache_key": "0edcaf6453f33432f04b",
+          "captured_at": "2026-10-11T02:26:03.094383+00:00"
+        },
+        {
+          "fraction": 0.95,
+          "notional_usd": 950000,
+          "available": true,
+          "amount_in": "970405544023",
+          "amount_out": "797150852068",
+          "output_value_usd": 946776.790734503,
+          "mark_shortfall_usd": 3223.2092654970475,
+          "signed_mark_shortfall_usd": 3223.2092654970475,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "970405544023"
+          },
+          "raw_cache_key": "05ed838dee397c2520ed",
+          "captured_at": "2026-10-11T02:26:05.180205+00:00"
+        },
+        {
+          "fraction": 1.0,
+          "notional_usd": 1000000,
+          "available": true,
+          "amount_in": "1021479520024",
+          "amount_out": "838885573072",
+          "output_value_usd": 996345.1567619111,
+          "mark_shortfall_usd": 3654.8432380888844,
+          "signed_mark_shortfall_usd": 3654.8432380888844,
+          "url": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+          "params": {
+            "receiver": "0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045",
+            "slippage": 0.01,
+            "tokenIn": "0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+            "tokenOut": "0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+            "amountIn": "1021479520024"
+          },
+          "raw_cache_key": "e58322c63b0e297108df",
+          "captured_at": "2026-10-11T02:26:07.139177+00:00"
+        }
+      ]
+    }
+  },
+  "completed_at": "2026-10-11T02:26:09.730497+00:00"
+}

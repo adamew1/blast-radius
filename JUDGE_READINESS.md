@@ -126,3 +126,17 @@ These boundaries prevent claims of a live, calibrated, globally optimal trading 
 - Primary: local app. First fallback: `http://localhost:8501/?fallback=1`, using the same engines with native controls. Second: local MP4 or WebM. Third: screenshots plus independent numerical report. Recorded artifacts are clearly labelled as recordings.
 
 Prior research and the earlier presentation documentation are preserved in `docs/RESEARCH_README.md` and `docs/PREVIOUS_DEMO.md` for history. Their old execution/headline claims are superseded by this audit.
+
+## Portfolio Challenge Mode addendum
+
+The submission adds one bounded improvement: judges can remove/resize the supported instruments and repeat the original workflow. Exact captured PT dollar trades are retained; their fractions change with the holding, while quoted outputs and costs do not scale. Morpho funded claims and shared capacities remain unscaled. Modified receipts include the actual book. The stress formulas and MILP remain unchanged.
+
+The full suite now has **40 passing tests**. The original independent audit and complete offline browser rehearsal pass with unchanged baseline headlines. A [separate independent Decimal audit](artifacts/challenge_independent_audit.json) verifies three changed books, including a proved infeasible $2M PT holding with only $1M of quote coverage. The [challenge browser rehearsal](artifacts/challenge_browser_verification.json) checks resizing, dependency removal, singleton/zero-shock cases, empty-book validation, continued operation after Reset, and native fallback.
+
+See [the four-feature assessment, limits and reproduction commands](docs/IMPROVEMENT_REVIEW.md). Frontier, robustness scenarios and an additional proof visualization were evaluated and deferred. Existing video recordings show the baseline workflow; current browser reports and screenshots cover the enhanced build.
+
+### Catalog extension beyond the prepared book
+
+The catalog now admits four additional observed instruments: PT-apyUSD, PT-USD3, Vault Bridge WETH and Vault Bridge USDC. Dynamic Add/Remove supports constructing a different portfolio while preserving the ten-position demonstration limit. Forty new exact-amount PT quotes and separate vault balance sheets supply each instrument's own execution/carry/credit inputs. A candidate Steakhouse USDC vault was excluded because a material funded market lacked collateral USD data. No engine formula or optimizer constraint was relaxed to admit it.
+
+The full suite now contains **47 passing tests**. [Independent catalog validation](artifacts/catalog_independent_audit.json) verifies all 40 additional quotes and three optimal decisions for an entirely new $2.25M book using raw data and Decimal arithmetic. [The catalog browser rehearsal](artifacts/catalog_browser_verification.json) assembles that book through Add/Remove, runs all three scenarios, verifies receipts, removes a new dependency, restores the original rescue with Reset, and exercises native addition. Original headlines and the original complete offline demonstration remain validated. See [catalog scope, timestamps and reproduction](docs/CATALOG_VALIDATION.md).

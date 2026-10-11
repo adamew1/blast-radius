@@ -1,0 +1,1 @@
+{"meta": {"method": "POST", "url": "https://ethereum-rpc.publicnode.com", "label": "catalog_decimals:0xb5be35d8ff83d431899b95851cb17a2b4bcef150"}, "data": {"jsonrpc": "2.0", "id": 2, "result": "0x0000000000000000000000000000000000000000000000000000000000000012"}, "cached_at": 1791685486.1896532}

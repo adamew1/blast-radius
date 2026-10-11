@@ -1,0 +1,52 @@
+{
+  "schema": "blast-radius-catalog-v1",
+  "captured_at": "2026-10-11T02:25:14.643410+00:00",
+  "chain_id": 1,
+  "positions": [
+    {
+      "id": "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-apyUSD \u00b7 2026-11-05",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-USD3 \u00b7 2026-12-17",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-vault-0x31a5684983eee865d943a696aac155363ba024f9",
+      "kind": "morpho_vault",
+      "label": "Morpho Vault Bridge WETH",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0x31A5684983EeE865d943A696AAC155363bA024f9",
+      "size_usd": 1000000
+    },
+    {
+      "id": "catalog-vault-0xbeefb9f61cc44895d8aec381373555a64191a9c4",
+      "kind": "morpho_vault",
+      "label": "Morpho Vault Bridge USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xBEefb9f61CC44895d8AEc381373555a64191A9c4",
+      "size_usd": 1000000
+    }
+  ],
+  "classification": "bounded Ethereum catalog; frozen protocol API observations; no wallet import or universal support",
+  "excluded": [
+    {
+      "kind": "morpho_vault",
+      "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+      "label": "Morpho Steakhouse USDC",
+      "reason": "Material steakEURCV allocation lacks API collateralAssetsUsd; no complete shortfall calculation"
+    }
+  ]
+}

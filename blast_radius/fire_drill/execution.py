@@ -37,20 +37,23 @@ def exit_options(book: Portfolio, bundle: dict | None = None, carry_days: int = 
                 resources[mid] = min(resources.get(mid, float("inf")), max(0, float(liquidity)))
             vault_caps[pid] = caps
         record = bundle.get("positions", {}).get(pid, {})
-        recorded = {round(o["fraction"], 8): o for o in record.get("options", [])}
-        if record and record.get("position") != p:
-            recorded = {}  # never apply another size's quote grid to this position
-        for step in range(1, 21):
-            fraction = step / 20
-            notional = p["size_usd"] * fraction
+        # A quote is evidence for one instrument and one absolute trade amount.
+        # Resizing the holding changes its exit fraction, never the quoted fill.
+        identity = lambda position: {k: v for k, v in position.items() if k != "size_usd"}
+        recorded = record.get("options", []) if identity(record.get("position", {})) == identity(p) else []
+        if p["kind"] == "pendle_pt":
+            candidates = [(q["notional_usd"] / p["size_usd"], q["notional_usd"], q)
+                          for q in recorded if 0 < q["notional_usd"] <= p["size_usd"]]
+            if not candidates:
+                unavailable.append({"position": pid, "reason": "No captured trade size fits this holding"})
+        else:
+            candidates = [(step / 20, p["size_usd"] * (step / 20), None) for step in range(1, 21)]
+        for fraction, notional, q in candidates:
             if p["kind"] == "pendle_pt":
-                q = recorded.get(round(fraction, 8))
-                if not q or not q.get("available"):
+                if not q.get("available"):
                     unavailable.append({"position": pid, "fraction": fraction,
                                         "reason": (q or {}).get("error", "No captured quote")})
                     continue
-                if abs(q["notional_usd"] - notional) > .01:
-                    raise ValueError("Quote notional differs from candidate")
                 execution = q["mark_shortfall_usd"] + notional * .0002
                 source = q["raw_cache_key"]
             elif p["kind"] == "morpho_vault":
