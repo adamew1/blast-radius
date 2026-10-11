@@ -117,6 +117,31 @@ class NativeLiveTests(unittest.TestCase):
         self.now += 11
         self.assertFalse(run.freshness()["risk_usable"])
 
+    def test_rejected_native_price_identifies_vault_and_token_from_raw_evidence(self):
+        from app.components.live import rejected_morpho_inputs
+        from blast_radius.sources.live import FreshnessPolicy
+        yearn = next(p for p in fixtures.LiveTests.catalog if p["id"] == "yearn-og-usdc")
+        address = "0xd2af830e8cbdfed6cc11bab697bb25496ed6fa62"
+        for positions in ([yearn], [fixtures.LiveTests.pt]):
+            self.api = Api(self.fixtures)
+            for allocation in self.api.vaults[raw(yearn["vault"])]["state"]["allocation"]:
+                asset = allocation["market"].get("collateralAsset")
+                if asset and raw(asset["address"]) == address:
+                    asset["price"]["timestamp"] = NOW - 4738
+            with self.subTest(positions=[p["id"] for p in positions]):
+                run = self.capture(positions, FreshnessPolicy(risk_seconds=3600, max_skew_seconds=3600))
+                self.assertFalse(run.freshness()["risk_usable"])
+                self.assertNotIn(raw(yearn["vault"]), run.vault_records)
+                rows = rejected_morpho_inputs(run, run.freshness())
+                self.assertEqual(len(rows), 1)
+                self.assertEqual(rows[0]["identity"], address)
+                self.assertEqual(rows[0]["input"], "WOUSD USD price")
+                self.assertIn(yearn["label"], rows[0]["positions"])
+                self.assertEqual(rows[0]["age_seconds"], 4738)
+                self.assertEqual(rows[0]["max_age_seconds"], 3600)
+                self.assertEqual(rows[0]["scope"], ["selected holding" if positions == [yearn]
+                                                    else "PT contagion discovery"])
+
     def test_one_price_per_token_and_all_shared_markets_use_identical_usd_values(self):
         for i, vault in enumerate(self.api.vaults.values()):
             vault["asset"]["price"]["usd"] = 1 + i / 1000

@@ -299,3 +299,29 @@ Evidence: [browser report](artifacts/live_ui_browser_verification.json),
 recovery instructions are in [JUDGE_GUIDE.md](JUDGE_GUIDE.md#d-live-mode-demonstration).
 The previously recorded video predates this interface update; use the application
 for the final Live demonstration. Readiness remains **PASS WITH LIMITATIONS**.
+
+## Follow-up: portfolio-preserving frozen recovery
+
+For custom-portfolio demonstrations, Snapshot Mode remains the reliable default:
+observations are fixed while allocations, discovery, stress and optimization are
+recalculated. **Use frozen data for this portfolio** now transfers the current
+Live selections, dollar allocations and scenario settings into Snapshot Mode,
+clears previous plans and uses frozen evidence exclusively. The existing generic
+Snapshot fallback still retains its prior Snapshot session. Catalog boundaries,
+exact-size quotes, shared liquidity and financial calculations are unchanged.
+
+Two confusing validation messages were corrected. Off-grid allocations now name
+the instrument and suggest the adjacent valid $50k amounts without changing the
+entry. A stale native token price can fail normalization before the vault enters
+the normalized run; the rejection inspector now reads the preserved raw response
+to identify that vault, token and provider timestamp. The reported 4,737.9-second
+failure was WOUSD collateral in Yearn OG USDC, legitimately outside the selected
+3,600-second window. No price was fabricated and no freshness limit was extended.
+Changing or invalidating allocations clears any previous model plan immediately.
+
+Newly executed: **95/95 tests**, including the exact five-position $1M portfolio
+from the user's screenshot transferred and optimized with network requests
+forbidden. Browser reproduction and receipt verification are available through
+`scripts/verify_frozen_portfolio.py`. This approach supports arbitrary combinations
+within the admitted catalog and existing allocation limits; it does not import
+arbitrary wallets or claim fresh or executable trades.

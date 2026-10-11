@@ -44,6 +44,11 @@ with mode_column:
     data_mode = st.radio("Data mode", ["Snapshot Mode", "Live Mode"], horizontal=True, key="data_mode")
 with fallback_column:
     st.button("Use offline Snapshot Mode", on_click=snapshot_fallback, disabled=data_mode == "Snapshot Mode")
+    if data_mode == "Live Mode":
+        from app.components.live_workspace import use_frozen_portfolio
+        st.button("Use frozen data for this portfolio", on_click=use_frozen_portfolio,
+                  help="Keep your selected holdings and allocations; recalculate with the frozen Snapshot evidence.",
+                  key="live_snapshot_portfolio")
 if data_mode == "Live Mode":
     render_live()
     st.stop()

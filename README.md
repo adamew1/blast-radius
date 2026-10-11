@@ -24,6 +24,15 @@ records newly executed validation and remaining submission actions. The older
 
 ## Independently audited result
 
+For a reliable custom-portfolio demonstration, use **Snapshot Mode → CHALLENGE
+THIS PORTFOLIO**. Holdings and allocations can change while observations stay
+frozen. If you already configured holdings in Live Mode, **Use frozen data for
+this portfolio** carries those allocations into Snapshot Mode and clears the old
+plan. Rebuild the graph, shock and rescue from the frozen evidence. No current
+API data is claimed and no network is required. The 14-instrument catalog and
+existing allocation/quote limits still apply; arbitrary wallet imports are not
+supported.
+
 For a hypothetical **100% intrinsic wstETH shock** and a **$500,000 accounted-loss limit**:
 
 | Quantity | USD |
@@ -142,7 +151,7 @@ Receipts detect local changes but are not provider signatures. Historical replay
 .venv/Scripts/python.exe scripts/verify_receipt.py
 ```
 
-All 92 tests passed after the Live UI and replay recovery update, including the original 47 financial regressions and 45 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The new cases also test native units, inconsistent display USD marks, price expiry, adapter replay and the actual Live button. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
+All 95 tests passed after the portfolio-preserving Snapshot recovery update, including the original 47 financial regressions and 48 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The new cases also test native units, inconsistent display USD marks, price expiry, adapter replay, stale token-price identification, allocation-field errors and offline recovery with the user's exact five-position portfolio. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
 
 Reproduce the modified-book audit separately:
 

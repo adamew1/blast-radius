@@ -52,6 +52,15 @@ conversion to external cash; it is not a certified executable trade.
 
 ## C. Portfolio Challenge demonstration
 
+**Reliable default for user-selected combinations:** stay in Snapshot Mode. Its
+data is frozen, but portfolio selection, allocations, graph discovery, losses and
+rescue are recalculated. If a portfolio is already configured in Live Mode,
+click **Use frozen data for this portfolio** at the top. It keeps those holdings
+and allocations, switches visibly to Snapshot Mode and discards previous plans.
+Then run Find → Simulate → Build → Evidence. There is no API freshness check
+because the evidence is explicitly historical. The separate **Use offline
+Snapshot Mode** button retains the existing Snapshot session instead.
+
 The fastest complete generalization takes about two minutes after the main demo:
 
 1. **Reset**, then open **CHALLENGE THIS PORTFOLIO**.

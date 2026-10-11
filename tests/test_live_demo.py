@@ -81,6 +81,47 @@ st.write(st.session_state.live_severity)
             self.assertEqual(app.session_state["live_severity"], 25)
             self.assertNotIn("live_analysis", app.session_state)
 
+    def test_allocation_error_names_the_field_and_clears_the_previous_plan(self):
+        with tempfile.TemporaryDirectory() as directory, patch(
+                "requests.Session.request", side_effect=AssertionError("must stay offline")), patch(
+                "app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory))):
+            app = self.app()
+            app.button(key="live_saved").click().run()
+            app.button(key="live_rescue").click().run()
+            self.assertIn("live_analysis", app.session_state)
+            app.number_input(key="live_size_hakutora-usdc").set_value(120_000).run()
+            self.assertFalse(app.exception)
+            self.assertNotIn("live_analysis", app.session_state)
+            error = " ".join(e.value for e in app.error)
+            for expected in ("Hakutora", "$120,000", "$100,000", "$150,000"):
+                self.assertIn(expected, error)
+            self.assertEqual(app.number_input(key="live_size_hakutora-usdc").value, 120_000)
+            app.number_input(key="live_size_hakutora-usdc").set_value(150_000).run()
+            self.assertFalse(any("supported demo allocation" in e.value for e in app.error))
+
+    def test_frozen_recovery_keeps_the_user_portfolio_and_completes_offline(self):
+        amounts = {"steakhouse-eth": 100_000, "gauntlet-usdc-prime": 150_000,
+                   "hakutora-usdc": 150_000, "yearn-og-usdc": 100_000,
+                   "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3": 500_000}
+        with patch("requests.Session.request", side_effect=AssertionError("Snapshot must stay offline")):
+            app = self.app()
+            app.multiselect(key="live_selected").set_value(list(amounts)).run()
+            for pid, amount in amounts.items():
+                app.number_input(key="live_size_" + pid).set_value(amount).run()
+            app.session_state["plan"] = {"stale": True}
+            app.session_state["baseline"] = {"stale": True}
+            app.button(key="live_snapshot_portfolio").click().run()
+            self.assertFalse(app.exception)
+            self.assertEqual(app.radio(key="data_mode").value, "Snapshot Mode")
+            self.assertEqual({k: v for k, v in app.session_state["portfolio_sizes"].items() if v}, amounts)
+            self.assertIsNone(app.session_state["plan"])
+            self.assertIsNone(app.session_state["baseline"])
+            self.assertEqual(app.metric[0].value, "$1,000,000")
+            next(b for b in app.button if b.label == "Find My Weakest Point").click().run()
+            next(b for b in app.button if b.label == "BUILD RESCUE PLAN").click().run()
+            self.assertFalse(app.exception)
+            self.assertTrue(app.session_state["plan"]["audit"]["verified"])
+
 
 if __name__ == "__main__":
     unittest.main()

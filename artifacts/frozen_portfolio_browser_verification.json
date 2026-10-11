@@ -1,0 +1,17 @@
+{
+  "checked_at": "2026-10-11T06:20:33.090595+00:00",
+  "js_errors": [],
+  "external_browser_requests": [],
+  "api_mocks": false,
+  "portfolio": {
+    "steakhouse-eth": 100000,
+    "gauntlet-usdc-prime": 150000,
+    "hakutora-usdc": 150000,
+    "yearn-og-usdc": 100000,
+    "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3": 500000
+  },
+  "receipt_file_sha256": "da0bd40398fbbb93a7773b986712deda8fbc03415e5316ddb680f23e9ccefc8e",
+  "scenario_loss_usd": 197622.15435906427,
+  "accounted_loss_usd": 197622.15435906427,
+  "status": "PASS"
+}

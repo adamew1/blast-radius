@@ -11,7 +11,7 @@ from app.components.terminal import render_terminal
 from app.live_data import verify_live_receipt
 from blast_radius.config import ROOT
 from blast_radius.fire_drill.catalog import load_catalog
-from blast_radius.fire_drill.challenge import resize_positions
+from blast_radius.fire_drill.challenge import MAX_POSITION_USD, STEP_USD, resize_positions
 from blast_radius.fire_drill.model import discover
 from blast_radius.fire_drill.optimize import plan_rescue
 from blast_radius.fire_drill.presentation import network
@@ -19,6 +19,49 @@ from blast_radius.portfolio.book import load_book
 from blast_radius.sources.live import FreshnessPolicy, LiveInputError, ObservationClient, digest, utc
 
 SAVED_RUN = ROOT / "artifacts/certified_live/hakutora_native_delayed_20261011_receipt.json"
+
+
+def validated_allocations(catalog, sizes):
+    """Retain the admitted allocation grid while identifying the offending row."""
+    try:
+        return resize_positions(catalog, sizes)
+    except ValueError:
+        if isinstance(sizes, dict):
+            for p in catalog:
+                amount = sizes.get(p["id"])
+                if (type(amount) in (int, float) and 0 < amount <= MAX_POSITION_USD
+                        and amount % STEP_USD):
+                    lower = int(amount // STEP_USD) * STEP_USD
+                    raise ValueError(f"{p['label']}: ${amount:,.0f} is not a supported demo allocation. "
+                                     f"Choose ${lower:,.0f} or ${lower + STEP_USD:,.0f}; "
+                                     "allocations use $50,000 steps. Your entry has not been changed.") from None
+        raise
+
+
+def use_frozen_portfolio():
+    """Transfer only holdings and scenario settings; recalculate from frozen evidence."""
+    state = st.session_state
+    catalog = load_catalog()
+    original = load_book()["positions"]
+    defaults = {p["id"]: p["size_usd"] for p in original}
+    selected = set(state.get("live_selected", defaults))
+    sizes = {p["id"]: state.get("live_size_" + p["id"], defaults.get(p["id"], 500_000))
+             if p["id"] in selected else 0 for p in catalog}
+    try:
+        positions = validated_allocations(catalog, sizes)
+    except ValueError as exc:
+        state.live_notice = str(exc)
+        return
+    state.portfolio_sizes = None if positions == original else sizes
+    state.dependency = state.get("live_dependency", "issuer:lido")
+    state.severity = state.get("live_severity", 100) / 100
+    state.loss_limit = state.get("live_limit", 500_000.0)
+    state.locks = [pid for pid in state.get("live_locks", []) if pid in selected]
+    state.revealed = state.attacked = state.evidence = False
+    state.plan = state.baseline = state.last_event = state.portfolio_error = None
+    state.before_after = "before"
+    ui.clear_live_analysis()
+    state.data_mode = "Snapshot Mode"
 
 
 def reset_stages():
@@ -93,7 +136,7 @@ def apply_action(event):
         elif kind == "portfolio":
             if getattr(run, "replay_context", None):
                 raise LiveInputError("Saved replay keeps its recorded portfolio. Fetch new API data to change holdings.")
-            positions = resize_positions(load_catalog(), event.get("sizes"))
+            positions = validated_allocations(load_catalog(), event.get("sizes"))
             state.live_selected = [p["id"] for p in positions]
             for p in positions:
                 state["live_size_" + p["id"]] = int(p["size_usd"])
@@ -176,15 +219,18 @@ def settings():
                                 key="live_risk_age_minutes", on_change=ui.clear_live_analysis)
         ids = st.multiselect("Live portfolio instruments (up to ten)", [p["id"] for p in catalog],
                               default=None if "live_selected" in st.session_state else list(defaults), key="live_selected",
+                              on_change=ui.clear_live_analysis,
                               format_func=lambda pid: next(p["label"] for p in catalog if p["id"] == pid))
+        st.caption("Demo allocations use $50,000 steps: for example $100,000 or $150,000. Maximum $2M per instrument.")
         sizes = {p["id"]: st.number_input(p["label"], min_value=50_000, max_value=2_000_000,
-                  value=defaults.get(p["id"], 500_000), step=50_000, key="live_size_"+p["id"])
+                  value=defaults.get(p["id"], 500_000), step=50_000, key="live_size_"+p["id"],
+                  on_change=ui.clear_live_analysis)
                   if p["id"] in ids else 0 for p in catalog}
         grid = st.selectbox("Requested quote grid", ["25% steps (four per PT)", "5% steps (twenty per PT)",
                              "Risk only (no quotes)"], key="live_grid")
         st.caption("60 minutes permits clearly labelled delayed risk observations. Strict live validation is 15 minutes. "
                    "Execution marks, exact quotes and RPC expire after two minutes. Each quote covers only its exact size.")
-    return resize_positions(catalog, sizes), grid, FreshnessPolicy(risk_seconds=minutes*60, max_skew_seconds=minutes*60)
+    return validated_allocations(catalog, sizes), grid, FreshnessPolicy(risk_seconds=minutes*60, max_skew_seconds=minutes*60)
 
 
 def native_controls(run, analysis, ranking, status):
@@ -252,6 +298,7 @@ def render_live():
     try:
         positions, grid, policy = settings()
     except ValueError as exc:
+        ui.clear_live_analysis()
         st.error(str(exc))
         st.info("Start live demo or Replay saved API run restores a valid example. Snapshot Mode is also available above.")
         return

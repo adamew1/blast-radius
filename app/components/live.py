@@ -82,12 +82,24 @@ def rejected_morpho_inputs(run, status):
         return []  # Balance/identity errors must not be described as old timestamps.
     selected = {p["id"] for p in run.positions}
     rows = {}
+    # Native normalization can reject a price before its vault is added to the
+    # run. The rejected provider response is still preserved as raw evidence.
+    vaults = {}
+    for record in getattr(run.client, "observations", []):
+        response = record.get("response")
+        data = response.get("data") if isinstance(response, dict) else None
+        vault = data.get("vaultByAddress") if isinstance(data, dict) else None
+        if isinstance(vault, dict) and isinstance(vault.get("address"), str):
+            vaults[vault["address"].lower()] = vault
+    vaults.update(run.vault_records)
+    used_prices = getattr(run.client, "normalization", {}).get("prices", {})
     for p in run.catalog:
-        vault = run.vault_records.get(p.get("vault", "").lower())
+        vault = vaults.get(p.get("vault", "").lower())
         if not isinstance(vault, dict) or not isinstance(vault.get("state"), dict):
             continue
         state = vault["state"]
         inputs = [(p["id"], "vault", state)]
+        assets = [vault.get("asset")]
         allocations = state.get("allocation")
         for allocation in allocations if isinstance(allocations, list) else []:
             if not isinstance(allocation, dict) or not isinstance(allocation.get("market"), dict):
@@ -95,20 +107,32 @@ def rejected_morpho_inputs(run, status):
             market = allocation["market"]
             mid = market.get("marketId", "")
             if isinstance(mid, str) and mid and allocation.get("supplyAssetsUsd"):
+                assets.extend([market.get("loanAsset"), market.get("collateralAsset")])
                 def symbol(key):
                     asset = market.get(key)
                     return asset.get("symbol", "unknown asset") if isinstance(asset, dict) else "unknown asset"
                 market_state = market.get("state")
                 inputs.append((mid, f"{symbol('collateralAsset')} / {symbol('loanAsset')} market",
                                market_state if isinstance(market_state, dict) else {}))
+        if "morpho risk-token price " in reasons:
+            for asset in assets:
+                if not isinstance(asset, dict) or not isinstance(asset.get("address"), str):
+                    continue
+                address = asset["address"].lower()
+                price = used_prices.get(address, asset.get("price"))
+                inputs.append((address, f"{asset.get('symbol', address)} USD price",
+                               price if isinstance(price, dict) else {}))
         for identity, label, observation in inputs:
             if identity.lower() not in reasons:
                 continue
             row = rows.setdefault(identity, {"identity": identity, "input": label, "positions": [],
                                              "scope": [], "provider_time_utc": "Unavailable",
                                              "age_seconds": None, "max_age_seconds": run.client.policy.risk_seconds})
-            row["positions"].append(p["label"])
-            row["scope"].append("selected holding" if p["id"] in selected else "PT contagion discovery")
+            if p["label"] not in row["positions"]:
+                row["positions"].append(p["label"])
+            scope = "selected holding" if p["id"] in selected else "PT contagion discovery"
+            if scope not in row["scope"]:
+                row["scope"].append(scope)
             try:
                 observed = timestamp(observation.get("timestamp"))
                 row["provider_time_utc"] = utc(observed)
@@ -132,10 +156,12 @@ def render_rejection(run, status):
         st.error(f"Live analysis rejected. {', '.join(row['positions'])}: {row['input']} is {timing} "
                  f"({limit}). "
                  f"Provider timestamp: {row['provider_time_utc']}.")
-    st.info("Morpho returned an observation outside the freshness policy. No current scenario or rescue is available "
-            "for this portfolio. Retry after the provider updates, change the selected instruments, "
-            "or use ‘Load $1M Hakutora live example’ above and fetch again. "
-            "The example must also pass fresh API checks. ‘Use offline Snapshot Mode’ is available above.")
+    st.info("Morpho supplied stale or future data used in the loss calculation. No current scenario or rescue is verified "
+            "for this portfolio. Fetching again cannot make an old provider price fresh. "
+            "For the demo, choose Start live demo (the $1M Hakutora example with labelled saved recovery), "
+            "Replay saved API run (historical Hakutora evidence), or Use offline Snapshot Mode. "
+            "Direct Pendle positions also scan the admitted Morpho vaults for contagion, so removing a vault "
+            "alone may not remove the stale input.")
     with st.expander("Rejected input evidence and technical details"):
         st.dataframe(rows, width="stretch", hide_index=True)
         st.write(status["risk_error"] or status["rejections"])
