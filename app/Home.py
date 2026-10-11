@@ -12,8 +12,6 @@ os.environ["BLAST_RADIUS_OFFLINE"] = "1"
 
 import streamlit as st
 
-from app.components.live import render_live, snapshot_fallback
-
 from app.components.terminal import render_terminal
 from blast_radius.fire_drill.challenge import MAX_POSITION_USD, STEP_USD, resize_positions
 from blast_radius.fire_drill.catalog import execution_for, load_catalog
@@ -38,21 +36,6 @@ st.markdown("""<style>
 [data-testid=stMain] button{border-radius:8px}
 @media(max-width:800px){.block-container{padding:2rem .5rem}}
 </style>""", unsafe_allow_html=True)
-
-mode_column, fallback_column = st.columns([3, 1])
-with mode_column:
-    data_mode = st.radio("Data mode", ["Snapshot Mode", "Live Mode"], horizontal=True, key="data_mode")
-with fallback_column:
-    st.button("Use offline Snapshot Mode", on_click=snapshot_fallback, disabled=data_mode == "Snapshot Mode")
-    if data_mode == "Live Mode":
-        from app.components.live_workspace import use_frozen_portfolio
-        st.button("Use frozen data for this portfolio", on_click=use_frozen_portfolio,
-                  help="Keep your selected holdings and allocations; recalculate with the frozen Snapshot evidence.",
-                  key="live_snapshot_portfolio")
-if data_mode == "Live Mode":
-    render_live()
-    st.stop()
-
 
 @st.cache_resource
 def prepared(sizes_json: str = ""):

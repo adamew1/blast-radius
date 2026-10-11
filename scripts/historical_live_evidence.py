@@ -1,45 +1,6 @@
-"""Native live workflow; snapshot presentation stays independent and offline."""
-from __future__ import annotations
-
-import json
-import time
-
-import streamlit as st
-
-from blast_radius.fire_drill.catalog import load_catalog
-from blast_radius.fire_drill.challenge import resize_positions
-from blast_radius.fire_drill.live import LIVE_ASSUMPTIONS, analyze_live
-from app.live_data import capture_live, live_receipt, save_live_receipt
-from blast_radius.fire_drill.model import discover
-from blast_radius.fire_drill.presentation import network
-from blast_radius.portfolio.book import load_book
-from blast_radius.sources.live import FreshnessPolicy, LiveInputError, ObservationClient, digest, timestamp, utc
-
-
-def snapshot_fallback():
-    st.session_state.data_mode = "Snapshot Mode"
-
-
-def clear_live_analysis():
-    st.session_state.pop("live_analysis", None)
-    st.session_state.pop("live_baseline", None)
-    st.session_state.live_before_after = "before"
-
-
-def load_hakutora_example():
-    """Explicitly replace the Live portfolio; never substitute on a failed fetch."""
-    for key in ("live_run", "live_analysis", "live_receipt_decision", "live_download_receipt", "live_receipt_path"):
-        st.session_state.pop(key, None)
-    st.session_state.live_selected = ["hakutora-usdc"]
-    st.session_state["live_size_hakutora-usdc"] = 1_000_000
-    st.session_state.live_grid = "25% steps (four per PT)"
-    st.session_state.live_risk_age_minutes = 15
-    st.session_state.live_dependency = "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf"
-    st.session_state.live_severity = 100
-    st.session_state.live_limit = 500_000.0
-    st.session_state.live_locks = []
-    st.session_state.live_revealed = st.session_state.live_attacked = st.session_state.live_evidence = False
-    st.session_state.live_last_event = None
+"""Offline classification helpers for archived API receipts; no application UI."""
+from app.live_data import live_receipt
+from blast_radius.sources.live import FreshnessPolicy, LiveInputError, digest, timestamp, utc
 
 
 def risk_data_status(status):
@@ -140,43 +101,3 @@ def rejected_morpho_inputs(run, status):
             except (LiveInputError, OverflowError, OSError):
                 pass
     return list(rows.values())
-
-
-def render_rejection(run, status):
-    rows = rejected_morpho_inputs(run, status)
-    if not rows:
-        st.error("Live analysis rejected. " + (status["risk_error"] or "Inputs expired or changed; fetch a new run."))
-        return
-    for row in rows:
-        age = row["age_seconds"]
-        timing = (f"{age / 60:.1f} minutes old" if age is not None and age >= 0 else
-                  f"{-age / 60:.1f} minutes in the future" if age is not None else "missing a valid timestamp")
-        limit = (f"future tolerance {run.client.policy.future_tolerance_seconds} seconds" if age is not None and age < 0
-                 else f"maximum age {row['max_age_seconds'] / 60:g} minutes")
-        st.error(f"Live analysis rejected. {', '.join(row['positions'])}: {row['input']} is {timing} "
-                 f"({limit}). "
-                 f"Provider timestamp: {row['provider_time_utc']}.")
-    st.info("Morpho supplied stale or future data used in the loss calculation. No current scenario or rescue is verified "
-            "for this portfolio. Fetching again cannot make an old provider price fresh. "
-            "For the demo, choose Start live demo (the $1M Hakutora example with labelled saved recovery), "
-            "Replay saved API run (historical Hakutora evidence), or Use offline Snapshot Mode. "
-            "Direct Pendle positions also scan the admitted Morpho vaults for contagion, so removing a vault "
-            "alone may not remove the stale input.")
-    with st.expander("Rejected input evidence and technical details"):
-        st.dataframe(rows, width="stretch", hide_index=True)
-        st.write(status["risk_error"] or status["rejections"])
-
-
-def graph_dot(view):
-    lines = ['digraph { rankdir=LR; bgcolor="#080d16"; node [style=filled fillcolor="#152335" fontcolor="white" color="#33455c"];']
-    for n in view["nodes"]:
-        lines.append(f'{json.dumps(n["id"])} [label={json.dumps(n["label"])}];')
-    for e in view["edges"]:
-        color = "#ef6574" if e["active"] else "#526780"
-        lines.append(f'{json.dumps(e["parent"])} -> {json.dumps(e["child"])} [color="{color}"];')
-    return "\n".join(lines + ["}"])
-
-
-def render_live():
-    from app.components.live_workspace import render_live as workspace
-    workspace()

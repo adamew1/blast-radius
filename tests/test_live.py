@@ -441,199 +441,14 @@ class LiveTests(unittest.TestCase):
                          {"pt-wsteth": .7, "steakhouse-eth": 1, "steakhouse-usdt": 1})
 
 
-class LiveUiTests(unittest.TestCase):
+class HistoricalPolicyTests(unittest.TestCase):
+    """Preserve receipt/freshness regressions after removing the Live page."""
     @classmethod
     def setUpClass(cls):
         LiveTests.setUpClass()
 
-    def app(self, risk_minutes=15):
-        from streamlit.testing.v1 import AppTest
-        app = AppTest.from_file(str(ROOT / "app/Home.py"), default_timeout=30)
-        app.query_params["fallback"] = "1"
-        app.run()
-        self.assertFalse(app.exception)
-        if risk_minutes is not None:
-            app.session_state["live_risk_age_minutes"] = risk_minutes
-        return app
-
-    def test_snapshot_default_and_one_click_fallback_need_no_network(self):
-        with patch("requests.Session.request", side_effect=AssertionError("offline request")):
-            app = self.app()
-            self.assertEqual(app.radio(key="data_mode").value, "Snapshot Mode")
-            app.radio(key="data_mode").set_value("Live Mode").run()
-            self.assertFalse(app.exception)
-            self.assertNotIn("live_run", app.session_state)
-            app.button[0].click().run()
-            self.assertFalse(app.exception)
-            self.assertEqual(app.radio(key="data_mode").value, "Snapshot Mode")
-            next(b for b in app.button if b.label == "Find My Weakest Point").click().run()
-            self.assertAlmostEqual(app.session_state["severity"], 1)
-
-    def test_live_ui_rejects_failed_refresh_without_displaying_previous_plan(self):
-        api = Api(LiveTests.fixtures)
-        client = ObservationClient(session=api, clock=lambda: NOW)
-        run = capture_live([LiveTests.pt], client=client)
-        with tempfile.TemporaryDirectory() as directory:
-            def save(rec):
-                return save_live_receipt(rec, Path(directory)/"artifacts/live")
-            with patch("app.components.live.save_live_receipt", side_effect=save), patch("requests.Session.request", side_effect=AssertionError("unexpected request")):
-                app = self.app()
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                app.multiselect(key="live_selected").set_value([LiveTests.pt["id"]]).run()
-                with patch("app.components.live.capture_live", return_value=run):
-                    app.button(key="live_refresh").click().run()
-                self.assertFalse(app.exception)
-                app.button(key="live_rescue").click().run()
-                self.assertFalse(app.exception)
-                self.assertIsNotNone(app.session_state["live_analysis"])
-                client.clock = lambda: NOW+121
-                app.run()
-                self.assertNotIn("live_analysis", app.session_state)
-                self.assertTrue(app.button(key="live_rescue").disabled)
-                client.clock = lambda: NOW
-                app.run()
-                app.button(key="live_rescue").click().run()
-                api.fail = lambda *args: Response({}, 503)
-                failed = capture_live([LiveTests.pt], client=ObservationClient(session=api, clock=lambda: NOW))
-                with patch("app.components.live.capture_live", return_value=failed):
-                    app.button(key="live_refresh").click().run()
-                self.assertFalse(app.exception)
-                self.assertNotIn("live_analysis", app.session_state)
-                self.assertTrue(any("rejected" in e.value.lower() for e in app.error))
-
-    def test_expiry_during_discovery_is_a_rejection_not_an_app_exception(self):
-        run = capture_live([LiveTests.pt], client=ObservationClient(session=Api(LiveTests.fixtures), clock=lambda: NOW))
-        with tempfile.TemporaryDirectory() as directory:
-            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")):
-                app = self.app()
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                app.multiselect(key="live_selected").set_value([LiveTests.pt["id"]]).run()
-                with patch("app.components.live.capture_live", return_value=run):
-                    app.button(key="live_refresh").click().run()
-                app.button(key="live_rescue").click().run()
-                self.assertIn("live_analysis", app.session_state)
-                with patch("app.components.live.analyze_live", side_effect=LiveInputError("Live risk inputs expired; refresh")):
-                    app.run()
-                self.assertFalse(app.exception)
-                self.assertNotIn("live_analysis", app.session_state)
-                self.assertTrue(any("expired" in e.value for e in app.error))
-
-    def test_refresh_to_another_instrument_removes_obsolete_locks(self):
-        api = Api(LiveTests.fixtures)
-        run = capture_live([LiveTests.pt], client=ObservationClient(session=api, clock=lambda: NOW))
-        vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
-        refreshed = capture_live([vault], client=ObservationClient(session=api, clock=lambda: NOW))
-        with tempfile.TemporaryDirectory() as directory:
-            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")):
-                app = self.app()
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                app.multiselect(key="live_selected").set_value([LiveTests.pt["id"]]).run()
-                with patch("app.components.live.capture_live", return_value=run):
-                    app.button(key="live_refresh").click().run()
-                app.multiselect(key="live_locks").set_value([LiveTests.pt["id"]]).run()
-                app.multiselect(key="live_selected").set_value([vault["id"]]).run()
-                with patch("app.components.live.capture_live", return_value=refreshed):
-                    app.button(key="live_refresh").click().run()
-                self.assertFalse(app.exception)
-                self.assertEqual(app.multiselect(key="live_locks").value, [])
-                app.button(key="live_rescue").click().run()
-                self.assertFalse(app.exception)
-                self.assertTrue(app.session_state["live_analysis"]["plan"]["audit"]["verified"])
-
-    def test_stale_market_explained_and_explicit_example_recovers_without_substitution(self):
-        from app.components.live import rejected_morpho_inputs
-
-        api = Api(LiveTests.fixtures)
-        smokehouse = next(p for p in load_catalog() if p["id"] == "smokehouse-usdt")
-        market = api.vaults[raw(smokehouse["vault"])]["state"]["allocation"][0]["market"]
-        mid = market["marketId"]
-        for vault in api.vaults.values():
-            for allocation in vault["state"]["allocation"]:
-                if allocation["market"]["marketId"] == mid:
-                    allocation["market"]["state"]["timestamp"] = NOW - 1988
-        failed = capture_live(load_book()["positions"], client=ObservationClient(session=api, clock=lambda: NOW))
-        self.assertFalse(failed.freshness()["risk_usable"])
-        details = rejected_morpho_inputs(failed, failed.freshness())
-        self.assertEqual(len(details), 1)
-        self.assertIn("Morpho Smokehouse USDT", details[0]["positions"])
-        self.assertIn("PT-sUSDS", details[0]["input"])
-        self.assertEqual(details[0]["provider_time_utc"], utc(NOW - 1988))
-        self.assertEqual(details[0]["age_seconds"], 1988)
-        self.assertEqual(details[0]["max_age_seconds"], 900)
-        self.assertEqual(details[0]["scope"], ["selected holding"])
-        vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
-        fresh = capture_live([vault], client=ObservationClient(session=api, clock=lambda: NOW))
-        self.assertTrue(fresh.freshness()["risk_usable"])
-        with tempfile.TemporaryDirectory() as directory:
-            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")), \
-                    patch("requests.Session.request", side_effect=AssertionError("unexpected request")):
-                app = self.app()
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                with patch("app.components.live.capture_live", return_value=failed) as fetch:
-                    app.button(key="live_refresh").click().run()
-                    self.assertFalse(app.exception)
-                    self.assertEqual(fetch.call_count, 1)
-                # Rejection neither drops holdings nor silently runs a sample.
-                self.assertEqual(app.multiselect(key="live_selected").value,
-                                 [p["id"] for p in load_book()["positions"]])
-                self.assertTrue(any("Smokehouse USDT" in e.value and "33.1 minutes" in e.value and
-                                    "15 minutes" in e.value and utc(NOW - 1988) in e.value for e in app.error))
-                self.assertTrue(any("partial; analysis rejected" in c.value for c in app.caption))
-                self.assertFalse(any(b.key == "live_rescue" for b in app.button))
-                old_snapshot = app.session_state["portfolio_sizes"]
-                with patch("app.components.live.capture_live", side_effect=AssertionError("sample needs explicit fetch")):
-                    app.button(key="live_example").click().run()
-                self.assertFalse(app.exception)
-                self.assertEqual(app.multiselect(key="live_selected").value, ["hakutora-usdc"])
-                self.assertEqual(app.number_input(key="live_size_hakutora-usdc").value, 1_000_000)
-                self.assertNotIn("live_run", app.session_state)
-                self.assertNotIn("live_analysis", app.session_state)
-                self.assertNotIn("live_download_receipt", app.session_state)
-                self.assertEqual(app.session_state["portfolio_sizes"], old_snapshot)
-                with patch("app.components.live.capture_live", return_value=fresh):
-                    app.button(key="live_refresh").click().run()
-                self.assertFalse(app.exception)
-                app.button(key="live_rescue").click().run()
-                self.assertFalse(app.exception)
-                plan = app.session_state["live_analysis"]["plan"]
-                self.assertTrue(plan["audit"]["verified"])
-                self.assertFalse(plan["executable"])
-                self.assertEqual(app.session_state["live_dependency"],
-                                 "token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf")
-
-    def test_example_is_available_after_empty_portfolio_error(self):
-        with patch("requests.Session.request", side_effect=AssertionError("unexpected request")):
-            app = self.app()
-            app.radio(key="data_mode").set_value("Live Mode").run()
-            app.multiselect(key="live_selected").set_value([]).run()
-            self.assertTrue(app.error)
-            app.button(key="live_example").click().run()
-            self.assertFalse(app.exception)
-            self.assertFalse(app.error)
-            self.assertEqual(app.multiselect(key="live_selected").value, ["hakutora-usdc"])
-            self.assertNotIn("live_run", app.session_state)
-
-    def test_malformed_provider_data_cannot_crash_rejection_details(self):
-        api = Api(LiveTests.fixtures)
-        smokehouse = next(p for p in load_catalog() if p["id"] == "smokehouse-usdt")
-        api.vaults[raw(smokehouse["vault"])]["state"] = ["invalid state object"]
-        failed = capture_live(load_book()["positions"], client=ObservationClient(session=api, clock=lambda: NOW))
-        self.assertFalse(failed.freshness()["risk_usable"])
-        with tempfile.TemporaryDirectory() as directory:
-            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")):
-                app = self.app()
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                with patch("app.components.live.capture_live", return_value=failed):
-                    app.button(key="live_refresh").click().run()
-                self.assertFalse(app.exception)
-                self.assertTrue(any("rejected" in e.value.lower() for e in app.error))
-                self.assertFalse(any(b.key == "live_rescue" for b in app.button))
-                app.button(key="live_example").click().run()
-                self.assertFalse(app.exception)
-                self.assertNotIn("live_run", app.session_state)
-
     def test_extended_age_accepts_delayed_risk_and_receipt_preserves_policy(self):
-        from app.components.live import observation_receipt, risk_data_status
+        from scripts.historical_live_evidence import observation_receipt, risk_data_status
 
         api = Api(LiveTests.fixtures)
         vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
@@ -669,30 +484,9 @@ class LiveUiTests(unittest.TestCase):
             tampered["receipt_sha256"] = digest(tampered)
             with self.assertRaisesRegex(ValueError, "classification"):
                 verify(save_live_receipt(tampered, Path(directory)/"artifacts/live"))
-            with patch("app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(rec, Path(directory)/"artifacts/live")):
-                app = self.app(risk_minutes=None)
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                self.assertEqual(app.selectbox(key="live_risk_age_minutes").value, 60)
-                app.multiselect(key="live_selected").set_value([vault["id"]]).run()
-                with patch("app.components.live.capture_live", return_value=run) as fetch:
-                    app.button(key="live_refresh").click().run()
-                    self.assertEqual(fetch.call_args.kwargs["client"].policy, policy)
-                self.assertFalse(app.exception)
-                self.assertTrue(any("oldest validated state is 47.0" in warning.value for warning in app.warning))
-                app.button(key="live_rescue").click().run()
-                self.assertIn("live_analysis", app.session_state)
-                self.assertTrue(any("Delayed-data indicative model rescue" in warning.value for warning in app.warning))
-                self.assertFalse(app.session_state["live_download_receipt"]["risk_data_status"]["strict_15_minute_risk_passed"])
-                app.selectbox(key="live_risk_age_minutes").set_value(15).run()
-                self.assertFalse(app.exception)
-                self.assertNotIn("live_analysis", app.session_state)
-                self.assertFalse(any(b.key == "live_rescue" for b in app.button))
-                self.assertTrue(any("Risk-data age policy changed" in warning.value for warning in app.warning))
-                app.button(key="live_example").click().run()
-                self.assertEqual(app.selectbox(key="live_risk_age_minutes").value, 15)
 
     def test_extended_policy_still_rejects_over_age_future_and_invalid_balances(self):
-        from app.components.live import observation_receipt
+        from scripts.historical_live_evidence import observation_receipt
 
         vault = next(p for p in load_catalog() if p["id"] == "hakutora-usdc")
         policy = FreshnessPolicy(risk_seconds=3600, max_skew_seconds=3600)

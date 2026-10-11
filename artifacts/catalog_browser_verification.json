@@ -1,5 +1,5 @@
 {
-  "verified_at": "2026-10-11T03:50:16.055677+00:00",
+  "verified_at": "2026-10-11T06:35:04.148245+00:00",
   "external_requests": [],
   "js_errors": [],
   "interactions": [
@@ -57,10 +57,10 @@
     "blast_radius/sources/pendle.py": "9dea3dfb6fc4b0c8466352e7acfc9038618d79b930f5d5e949122d63c3e63f9d",
     "app/components/__init__.py": "ab3d96363c808e9c1172df87b50d27dd5ede8d354ce3cd5909d331d25f58f6a4",
     "app/components/graphviz.py": "1026710e8cdf1c64842f9c8ae526161657843319caced883aa842d986f418e61",
-    "app/components/live.py": "23fa6dbf8e154faefa4aa0d4636d3c9ed0a5be344ae86f95b8e23aa908346d23",
-    "app/components/terminal.py": "3bb5103223edf705660ab565f62354e480242af6d9244740ba98c284f5d7817f",
+    "app/components/terminal.py": "12ba4507d00ddf42273e324c36b42d5e97208c1212053c02a1a3a6a0c3c24f48",
     "app/components/ui.py": "0afba0e22cabe133c3f6090b026f42dffeebe9b98c65ee41e8aecfb760a6121f",
-    "app/Home.py": "58cfbf53fdaaacdbba6c931899452927db4a371b66980d863132fb588a5cacee",
+    "app/Home.py": "d93a3f4e87f504d265b0a8ccfecef897b8fffd047d7f15b7ddd50b181dad4cc9",
+    "app/live_data.py": "ce7b1e16f910435a3bc838d3a25fc498392d0c76b2b149c85771c4f3a774f340",
     "app/pages/1_Position.py": "41e1787e17e1605fd109c02a2821a69b5038eb8cf9b03846419c1711c6c771f4",
     "app/pages/2_Portfolio.py": "3ec5150f4c9b67b48de21be3f3e01f644ccdad38ea34126f94a1175522ebffb3",
     "app/pages/3_Replay_Stream.py": "e6304c1d7bdfac7d8ebc1cf573c8cbcd15b2b4479cc09018b993b9d40ea4d613",
@@ -69,7 +69,7 @@
     "app/pages/6_Research.py": "486baff79345c295e76dc51f5fc7d859f9f45f6b7f8c54306d408c0131074b1d",
     "app/research_home.py": "8cc73f7a6ea58d312342d4715ecdec28f4348d30ae8cef203223f9ef94628b35",
     "app/components/terminal/terminal.css": "d675b6e24613612434b42bf70def8ddb5791a7081aa8d8e1638fdc8ab94aba56",
-    "app/components/terminal/terminal.js": "ba72f1139af92032a7d9e2e3deb3edc571bd2f4f5da5977de8a5d5ea3b3e38c4"
+    "app/components/terminal/terminal.js": "2f5572a5bb6e2c14ed593d043ca90f2f12ea241fe7fdc12f2542edb9062081fe"
   },
   "status": "passed",
   "offline": true

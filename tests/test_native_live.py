@@ -118,7 +118,7 @@ class NativeLiveTests(unittest.TestCase):
         self.assertFalse(run.freshness()["risk_usable"])
 
     def test_rejected_native_price_identifies_vault_and_token_from_raw_evidence(self):
-        from app.components.live import rejected_morpho_inputs
+        from scripts.historical_live_evidence import rejected_morpho_inputs
         from blast_radius.sources.live import FreshnessPolicy
         yearn = next(p for p in fixtures.LiveTests.catalog if p["id"] == "yearn-og-usdc")
         address = "0xd2af830e8cbdfed6cc11bab697bb25496ed6fa62"
@@ -201,25 +201,6 @@ class NativeLiveTests(unittest.TestCase):
         self.now += 121
         self.assertTrue(run.freshness()["risk_usable"])
         self.assertFalse(run.freshness()["execution_usable"])
-
-    def test_live_button_uses_native_adapter_and_exports_replayable_receipt(self):
-        from blast_radius.config import ROOT
-        from streamlit.testing.v1 import AppTest
-        with tempfile.TemporaryDirectory() as directory:
-            with patch("app.components.live.ObservationClient", side_effect=lambda **kw: ObservationClient(
-                    session=self.api, clock=lambda: self.now, **kw)), patch(
-                    "app.components.live.save_live_receipt", side_effect=lambda rec: save_live_receipt(
-                        rec, Path(directory)/"artifacts/live")):
-                app = AppTest.from_file(str(ROOT/"app/Home.py"), default_timeout=20).run()
-                app.radio(key="data_mode").set_value("Live Mode").run()
-                app.button(key="live_example").click().run()
-                app.button(key="live_refresh").click().run()
-                self.assertFalse(app.exception)
-                self.assertFalse(app.error)
-                rec = app.session_state["live_download_receipt"]
-                self.assertEqual(rec["receipt_schema"], "blast-radius-native-live-v2")
-                self.assertTrue(rec["analysis"]["freshness"]["risk_usable"])
-                verify_live_receipt(rec)
 
 
 if __name__ == "__main__":

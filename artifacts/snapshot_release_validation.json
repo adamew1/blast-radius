@@ -1,0 +1,86 @@
+{
+  "checked_at": "2026-10-11T06:40:03.554097+00:00",
+  "status": "PASS",
+  "scope": "Snapshot-only application; editable admitted portfolios; archived receipt tools retained",
+  "tests": {
+    "executed": 85,
+    "passed": 85,
+    "failed": 0,
+    "retired_removed_live_ui_tests": 13,
+    "added_snapshot_ui_tests": 3
+  },
+  "browsers": {
+    "fire_drill_verification.json": {
+      "status": "passed",
+      "js_errors": [],
+      "external_requests": [],
+      "checks": [
+        "Clean launch from frozen evidence",
+        "Automatic ranking reveals wstETH across five positions",
+        "Failure propagates over actual dependency paths",
+        "Clicking a canonical node selects a different dependency",
+        "Least-cost rescue independently verified within target",
+        "Economic comparison changes sign around the plan break-even assumption",
+        "Before and after transform actual retained exposures",
+        "Changing the mandate clears the old recommendation and residual headline",
+        "Changing a lock clears the previous recommendation before rebuilding",
+        "Lock challenge reports infeasibility honestly",
+        "Evidence exposes provenance, assumptions and source bundle",
+        "Inspected quote provenance, model assumptions and actual dependency evidence",
+        "Downloaded receipt recomputes independently",
+        "Zero severity gives zero loss and invalidates stale rescue",
+        "Reset restores a clean demonstration",
+        "Native-control fallback computes a rescue",
+        "Native-control fallback reproduces the locked-position infeasibility",
+        "Preserved offline research page: Position",
+        "Preserved offline research page: Portfolio",
+        "Preserved offline research page: Replay_Stream",
+        "Preserved offline research page: Track_Record",
+        "Preserved offline research page: Market_Scan",
+        "Preserved methodology and expected-loss analysis"
+      ]
+    },
+    "catalog_browser_verification.json": {
+      "status": "passed",
+      "js_errors": [],
+      "external_requests": [],
+      "checks": [
+        "Removed the prepared book and constructed a four-position book entirely from new catalog instruments",
+        "Discovered wsteth, propagated the real paths, optimized and reproduced the all-new-book receipt",
+        "Discovered apyusd, propagated the real paths, optimized and reproduced the all-new-book receipt",
+        "Discovered usd3, propagated the real paths, optimized and reproduced the all-new-book receipt",
+        "Removing a newly added PT removes its dependency and invalidates its previous rescue",
+        "Reset from an all-new book restores the audited default rescue",
+        "Native fallback adds a catalog PT and runs discovery and rescue"
+      ]
+    },
+    "challenge_browser_verification.json": {
+      "status": "passed",
+      "js_errors": [],
+      "external_requests": [],
+      "checks": [
+        "Resized four-position book rediscovers, stresses, rescues and reproduces its own receipt",
+        "Removing the selected dependency leaves a valid singleton book; zero shock clears the rescue",
+        "A $2M PT holding cannot borrow unsupported quotes to meet the $500k target",
+        "Empty-book validation preserves the last valid decision",
+        "Reset restores the original audited $10M demonstration and rescue",
+        "Native fallback also recomputes a resized portfolio"
+      ]
+    },
+    "frozen_portfolio_browser_verification.json": {
+      "status": "PASS",
+      "js_errors": [],
+      "external_requests": [],
+      "checks": []
+    }
+  },
+  "independent_audits": [
+    "audit_judge_readiness.py",
+    "audit_portfolio_challenge.py",
+    "audit_catalog.py"
+  ],
+  "packaged_receipts_verified": 24,
+  "clean_staged_checkout_offline_baseline": "PASS",
+  "credential_signature_scan": "PASS",
+  "financial_model_changed": false
+}

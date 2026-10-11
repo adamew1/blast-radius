@@ -1,4 +1,8 @@
-# Live data feasibility review
+# Archived Live data feasibility review
+
+The Live application page was removed at the user's request. The current product
+is Snapshot-only. This document records historical research and limitations; its
+Live UI instructions do not describe the current application.
 
 Reviewed before implementation, 2026-10-11. The final universe contains six
 Ethereum Pendle PT markets and eight Morpho vaults. Allocations remain illustrative

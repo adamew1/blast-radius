@@ -44,7 +44,7 @@ The audited book is entirely new: PT-apyUSD **$500k**, PT-USD3 **$750k**, Vault 
 
 These are conditional model results, not observed failure outcomes. The discrete quote grid explains why a least-cost rescue can finish appreciably below the limit.
 
-Catalog admission originally passed 47 tests; the final release suite passes **75 tests**, including 28 Live Mode regressions. Browser rehearsals block external requests and cover the original demo, allocation-only challenges and a catalog book assembled through actual Add/Remove controls. The catalog rehearsal checks three shocks, their optimized/downloaded receipts, removing a newly added dependency, Reset to the original rescue and adding a new PT through the native fallback.
+Catalog admission originally passed 47 tests; the original release suite passed **75 tests**. Current Snapshot-only validation is recorded in `RELEASE_REPORT.md`; archived API regressions are retained. Browser rehearsals block external requests and cover the original demo, allocation-only challenges and a catalog book assembled through actual Add/Remove controls. The catalog rehearsal checks three shocks, their optimized/downloaded receipts, removing a newly added dependency, Reset to the original rescue and adding a new PT through the native fallback.
 
 Evidence: [independent audit](../artifacts/catalog_independent_audit.json), [catalog browser rehearsal](../artifacts/catalog_browser_verification.json), [original browser rehearsal](../artifacts/fire_drill_verification.json), [allocation challenge rehearsal](../artifacts/challenge_browser_verification.json).
 

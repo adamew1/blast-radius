@@ -24,14 +24,10 @@ records newly executed validation and remaining submission actions. The older
 
 ## Independently audited result
 
-For a reliable custom-portfolio demonstration, use **Snapshot Mode → CHALLENGE
-THIS PORTFOLIO**. Holdings and allocations can change while observations stay
-frozen. If you already configured holdings in Live Mode, **Use frozen data for
-this portfolio** carries those allocations into Snapshot Mode and clears the old
-plan. Rebuild the graph, shock and rescue from the frozen evidence. No current
-API data is claimed and no network is required. The 14-instrument catalog and
-existing allocation/quote limits still apply; arbitrary wallet imports are not
-supported.
+Construct a custom book through **CHALLENGE THIS PORTFOLIO**. The application uses
+frozen evidence only; selected positions, allocations, graphs, losses and rescue
+plans are recalculated. There is no Live page, mode selector or API fetch in the
+presentation. The existing catalog, allocation and exact-quote limits still apply.
 
 For a hypothetical **100% intrinsic wstETH shock** and a **$500,000 accounted-loss limit**:
 
@@ -110,39 +106,9 @@ python -m venv .venv
 .venv/Scripts/python.exe -m streamlit run app/Home.py --browser.gatherUsageStats false
 ```
 
-Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. **Snapshot Mode** is the default and forces the historical clients offline; no CDN, wallet, key or network request is required during the demo. Live Mode uses a separate request client and never reads or overwrites the frozen response cache.
+Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. The application uses **Snapshot Mode only** and forces historical clients offline; no CDN, wallet, key or network request is required during the demo. Portfolio changes recalculate the analysis against the committed frozen evidence.
 
-## Live Mode
-
-Select **Live Mode** → **Start live demo**. This explicitly selects the illustrative $1M Hakutora USDC / cbBTC example and the 60-minute risk window, fetches new API observations, then opens the same interactive graph, five stages, financial cards and rescue comparison as Snapshot Mode. Click **FIND MY WEAKEST POINT** → **SIMULATE FAILURE** → **BUILD RESCUE PLAN** → **Show Me the Evidence**, then download the receipt. Costs, reductions, feasibility and before/after graphs are readable without inspecting JSON.
-
-If the demo's API observations fail validation, **Start live demo** opens the authentic saved run with a prominent **HISTORICAL REPLAY** label, original source timestamps and an explanation of the failed request. It never fabricates live figures. **Replay saved API run** opens this verified offline backup immediately, without any API request. Its recorded portfolio stays fixed; dependency, severity, locks and loss mandate can be explored at the recorded decision time. Replay receipts retain that context and cannot claim current freshness. **Use offline Snapshot Mode** remains available in one click.
-
-For custom Live portfolios, open **Portfolio & data settings**, choose up to ten catalog instruments and click **Fetch fresh data & discover**. Custom requests retain their portfolio on failure and offer the explicit replay/Snapshot recovery choices. The graph's Live Portfolio editor applies allocations and requires a new fetch. **Advanced controls & raw evidence** offers native controls if the component fails; `?fallback=1` selects these controls directly. Technical JSON stays collapsed during the main demo.
-
-For the previously verified scope, click **Load $1M Hakutora live example**, then **Fetch fresh data & discover**. This explicitly selects one illustrative Hakutora USDC holding, the cbBTC scenario and the strict 15-minute policy; it does not fetch automatically or guarantee freshness. A rejected full-book request never silently switches portfolios. Stale Morpho errors identify the holding, collateral market, provider timestamp and age; the timestamp window is marked partial when acquisition fails. Wait for provider updates, explicitly select another portfolio, or use Snapshot Mode.
-
-Live acquisition retrieves all eight admitted Morpho vaults when direct PT positions need lending-contagion discovery. Morpho-only books retrieve their selected vaults and every funded market used by those vaults. Each shared lending market uses one canonical observation. Pendle metadata and timestamped market data are retrieved where the graph requires them. The receipt records the vault discovery scope; this is not a complete Morpho scan. User allocations are hypothetical USD amounts, not imported wallet balances.
-
-Morpho risk valuations use integer native balances and one timestamped USD price per token per run. Provider display USD fields can use inconsistent cached marks; they are preserved as evidence, rather than used to reconcile token balances. Native supply minus debt must equal liquidity within one base unit, and vault allocations must reconcile within integer rounding. The unchanged financial validator then checks the derived USD values. Missing amounts, decimals, prices or price timestamps reject the run. Risk-token prices use the selected risk window; they are separate from the execution marks below.
-
-The default quote grid requests four exact trades per selected PT (25%, 50%, 75%, 100%). The optional 5% grid requests twenty. These are subsets of the existing optimizer's candidate grid; optimality applies only to available candidates. Input tokens are rounded down to integer units, and sold notional uses that actual token amount at the fresh input mark. Outputs are never scaled or extrapolated. USD marks use Pendle provider timestamps; token decimals are checked against fresh timestamped Ethereum RPC observations. Partial quote failures remove only those sizes; no valid quote for a selected PT means risk-only analysis. Risk-only capture can also be selected explicitly.
-
-The strict live standard and command-line default remain **15 minutes for provider risk states and risk-observation skew**. At the user's request, the Live interface now opens with **Maximum risk-data age = 60 minutes**, applying that window to both age and timestamp spread. Select **15** for strict validation. Data outside the strict standard is prominently labelled **delayed risk observations**, including any indicative rescue and the receipt classification; passing the wider policy is not certification of fresh live data. Changing this setting invalidates the displayed analysis and requires a new fetch. Both the selected policy and the strict-standard result are recorded in the receipt.
-
-**Execution USD marks, quote request times and the RPC block still expire after 2 minutes**, with **15 seconds of future-clock tolerance**. HTTP connect/read timeouts are 3.05/12 seconds with a 180-second capture budget. Limits are application policy, not provider guarantees. Missing provider timestamps, inconsistent native balances, allocations that do not reconcile, inactive markets, errors and risk data outside the selected window reject analysis. Stale execution data blocks optimization while validated risk analysis remains available. Freshness is checked on each action, after solving and on a 15-second UI timer. An API outage or 429 never silently loads snapshot data; the user selects the explicit offline fallback.
-
-Manual wrapper/issuer relationships, token-level oracle hypotheses, transmission coefficients, aggregate recovery, residual exposure proportions, gas and cash conversion remain disclosed mappings or assumptions. Unknown collateral blocks rescue calculation. **No executable rescue plan is claimed:** the cash-conversion leg is unquoted and Morpho withdrawal queues, permissions and transactions are uncertified. Quotes are indicative observations, not guaranteed fills. Data is asynchronous, not atomic or fully live end to end. See the [pre-implementation feasibility review and API limitations](docs/LIVE_DATA_LIMITS.md).
-
-Each capture and decision saves a self-contained receipt under `artifacts/live/` and offers a download. It embeds exact HTTP requests/responses, individual retrieval times, provider freshness checks, quote sizes, mappings, catalog, assumptions and model hashes. New `blast-radius-native-live-v2` receipts also record the normalization ledger and adapter source hash; original v1 receipts remain replayable. Replay reconstructs graphs, losses and candidates offline and audits any plan at the original decision time:
-
-```powershell
-.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/live/<receipt-sha256>.json
-.venv/Scripts/python.exe -m unittest discover -s tests -p test_live.py -v
-.venv/Scripts/python.exe scripts/run_live_analysis.py --positions hakutora-usdc --dependency token:ethereum:0xcbb7c0000ab88b473b1f5afd9ef808440eed33bf
-```
-
-Receipts detect local changes but are not provider signatures. Historical replay never makes old evidence fresh. Replay requires the matching model source version. Existing archived snapshot receipts likewise retain the source hashes of the version that created them; generate a new receipt with this version to verify current code.
+## Validation
 
 ```powershell
 .venv/Scripts/python.exe -m unittest discover -s tests -v
@@ -151,7 +117,14 @@ Receipts detect local changes but are not provider signatures. Historical replay
 .venv/Scripts/python.exe scripts/verify_receipt.py
 ```
 
-All 95 tests passed after the portfolio-preserving Snapshot recovery update, including the original 47 financial regressions and 48 live API/UI integration tests. They cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, shared liquidity, locks, discrete optimization, solver statuses, exact-size quotes, timeouts, HTTP/GraphQL failures, rate limits, stale/missing timestamps, incomplete balances, receipt replay/tampering, expiry during discovery, obsolete locks and one-click offline fallback. The new cases also test native units, inconsistent display USD marks, price expiry, adapter replay, stale token-price identification, allocation-field errors and offline recovery with the user's exact five-position portfolio. The original $2,361,622.14 scenario loss and $498,999.85 accounted-loss baseline remain unchanged. Snapshot source manifests hash Python model code and configuration with LF-normalized UTF-8 text.
+**85/85 tests passed**, all four Playwright rehearsals passed, and all 24 packaged
+receipts verified in the final Snapshot-only release. The suite covers financial propagation, PT claims, Morpho
+shortfalls, shared liquidity, exact quote sizes, locks, solver statuses, custom
+portfolio recalculation, original baseline and receipt replay/tampering. Archived
+API-boundary and historical receipt regressions remain; tests for the removed
+Live page have been retired. Validation results are recorded in
+[RELEASE_REPORT.md](RELEASE_REPORT.md). The original $2,361,622.14 scenario loss and
+$498,999.85 accounted-loss baseline remain unchanged.
 
 Reproduce the modified-book audit separately:
 
@@ -171,6 +144,7 @@ $env:PLAYWRIGHT_BROWSERS_PATH = "$PWD/.playwright-mcp/browsers"
 .venv/Scripts/python.exe scripts/verify_fire_drill.py --record
 .venv/Scripts/python.exe scripts/verify_portfolio_challenge.py
 .venv/Scripts/python.exe scripts/verify_catalog.py
+.venv/Scripts/python.exe scripts/verify_frozen_portfolio.py
 .venv/Scripts/python.exe scripts/record_demo.py
 ```
 
@@ -182,13 +156,16 @@ Browser verification blocks external requests and exercises discovery, propagati
 
 If the custom component fails, open **http://localhost:8501/?fallback=1**; native controls use the same Python calculations. If the application cannot run, play the local MP4 file; the original WebM is also retained. If video playback fails, use the six `FireDrill_*.png` screenshots with the pitch and independent audit. These are labelled recorded evidence, not a live run.
 
+The backup video predates removal of the mode selector; financial results are unchanged.
+The current application and screenshots show the final Snapshot-only interface.
+
 The frontend is a local JavaScript/SVG Streamlit v2 component. Python, NetworkX and SciPy/HiGHS implement discovery, deterministic stress and mixed-integer optimization. Original Position, Portfolio, Replay, Track Record and Market Scan research is preserved in the sidebar. [Archived research documentation](docs/RESEARCH_README.md) retains previous work; the current audit supersedes its older execution claims.
 
 ## Architecture and audit boundaries
 
 ```mermaid
 flowchart LR
-    A[Snapshot cache or explicit live HTTP observations] --> B[Identity, balance and freshness checks]
+    A[Frozen protocol observations and captured quotes] --> B[Identity, balance and evidence checks]
     B --> C[Recursive protocol and manual dependency resolvers]
     C --> D[Canonical dependency graphs]
     D --> E[Instrument-specific single-shock propagation]
@@ -201,65 +178,14 @@ flowchart LR
 
 `sources` captures data; `discovery` expands claims into a directed graph;
 `fire_drill/model.py`, `execution.py`, `optimize.py` and `evidence.py` calculate
-stress, admit exits, solve and record decisions. Live acquisition and replay use
-`fire_drill/live.py`, with native-unit acquisition/normalization and v2 replay in
-`app/live_data.py`; the offline cache remains separate. See [judge Q&A](JUDGE_GUIDE.md#e-technical-qa)
+stress, admit exits, solve and record decisions against frozen evidence. See
+[judge Q&A](JUDGE_GUIDE.md#e-technical-qa)
 for model formulas and constraints. DefiLlama supports the preserved research and
 historical replay; Pendle and Morpho supply the fire-drill protocol observations.
 Source URLs remain in raw records and manual mappings. The repository uses the
 [MIT license](LICENSE). Optional browser tools are development dependencies.
 
-Real HTTP Hakutora USDC/cbBTC analyses are checked in under
-[`artifacts/certified_live/`](artifacts/certified_live), including the original
-$901,381.95 / $496,300.07 result and a fresh release run ($901,381.52 / $496,299.83).
-Both passed freshness at their recorded times and separate Decimal reconstruction.
-A further real browser capture produced $902,209.66 / $496,755.31 and also passed
-freshness, receipt download/replay and the independent audit.
-Only this Morpho position is certified; withdrawal execution and a live Pendle
-exact-size quote workflow remain uncertified. Historical full-book and Pendle
-rejections are retained. Replay the observations offline:
-
-```powershell
-.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_20261011_receipt.json
-.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_release_20261011_receipt.json
-.venv/Scripts/python.exe scripts/audit_live_reference.py
-```
-
-After fixing the USD display inconsistency, a real ten-position browser run at
-**2026-10-11 05:22:54 UTC** produced **$2,359,706.70** for the hypothetical 100%
-wstETH shock. Provider risk timestamps spanned **04:51:02–05:21:35 UTC**. It passed
-the selected **60-minute** policy, failed the strict 15-minute standard, and is
-labelled **delayed risk-only analysis**. Sixteen exact Pendle quote requests were
-captured, but incomplete manual coverage in Steakhouse USDT and Yearn OG USDC
-blocked rescue; this does not certify an end-to-end Pendle rescue. A separate
-delayed Hakutora/cbBTC run at **05:24:19 UTC** produced **$901,368.61** loss and
-**$496,292.74** accounted loss with a **45% indicative reduction**. Its 21 options
-were independently enumerated. A strict Hakutora request was rejected for stale
-vault state. [Evidence, timestamps and independent audit](artifacts/certified_live/native_normalization_audit.json).
-
-```powershell
-.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/full_book_native_delayed_20261011_receipt.json
-.venv/Scripts/python.exe scripts/audit_native_live.py artifacts/certified_live/full_book_native_delayed_20261011_receipt.json
-.venv/Scripts/python.exe scripts/audit_live_reference.py artifacts/certified_live/hakutora_native_delayed_20261011_receipt.json
-```
-
-No universal wallet support, calibrated scenario probability, atomic live state or
-guaranteed execution is claimed. Dependency mapping is incomplete; mathematically
-feasible rescue remains conditional on recovery and execution assumptions.
-
-The final shared-UI browser rehearsal completed a new real Hakutora/cbBTC run at
-**2026-10-11 05:57:05 UTC**: conditional loss **$901,352.27**, **45%** indicative
-reduction, accounted loss **$496,283.75**. Vault timestamp **05:55:47**, market
-**05:51:11**, USDC/cbBTC prices **05:53:58**. These observations passed the strict
-15-minute age/spread standard, despite the selected 60-minute acceptance policy.
-The receipt replay and separate 21-option Decimal audit passed. Browser checks
-also passed saved offline replay, locks/infeasibility, 25% severity, reset and
-Snapshot baseline recovery, with no JavaScript errors.
-[Browser report](artifacts/live_ui_browser_verification.json) ·
-[Independent live audit](artifacts/certified_live/live_ui_independent_audit.json) ·
-[UI preview](artifacts/live_ui_preview.png).
-
-```powershell
-.venv/Scripts/python.exe scripts/verify_live_demo.py
-.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/certified_live/hakutora_live_ui_20261011_receipt.json
-```
+Historical API observations, receipts and their independent replay tools are
+retained as audit archives; they are not an application mode or current data.
+The current presentation reads only the frozen Snapshot evidence. No universal
+wallet support, calibrated failure probability or guaranteed execution is claimed.

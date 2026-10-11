@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-10-11T06:20:33.090595+00:00",
+  "checked_at": "2026-10-11T06:35:04.147903+00:00",
   "js_errors": [],
   "external_browser_requests": [],
   "api_mocks": false,
@@ -10,8 +10,9 @@
     "yearn-og-usdc": 100000,
     "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3": 500000
   },
-  "receipt_file_sha256": "da0bd40398fbbb93a7773b986712deda8fbc03415e5316ddb680f23e9ccefc8e",
+  "receipt_file_sha256": "ef98deecdf40fdca01c3b3485e034f345794f29a3ccf541a2d3bffa11f073f5f",
   "scenario_loss_usd": 197622.15435906427,
   "accounted_loss_usd": 197622.15435906427,
+  "snapshot_only": true,
   "status": "PASS"
 }
