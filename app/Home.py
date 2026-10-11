@@ -13,6 +13,8 @@ os.environ["BLAST_RADIUS_OFFLINE"] = "1"
 import streamlit as st
 
 from app.components.terminal import render_terminal
+from blast_radius.fire_drill.challenge import MAX_POSITION_USD, STEP_USD, resize_positions
+from blast_radius.fire_drill.catalog import execution_for, load_catalog
 from blast_radius.fire_drill.evidence import ASSUMPTIONS, receipt, source_manifest
 from blast_radius.fire_drill.execution import exit_options, load_execution
 from blast_radius.fire_drill.model import discover, prepare, stress_book
@@ -37,31 +39,54 @@ st.markdown("""<style>
 
 
 @st.cache_resource
-def prepared():
-    return prepare(load_book()["positions"])
+def prepared(sizes_json: str = ""):
+    return prepare(resize_positions(load_catalog(), json.loads(sizes_json)) if sizes_json else load_book()["positions"])
 
 
 @st.cache_data
-def inputs():
-    book = prepared()
-    bundle = load_execution()
+def inputs(sizes_json: str = ""):
+    book = prepared(sizes_json)
+    bundle = execution_for(book.positions)
     return discover(book), exit_options(book, bundle), source_manifest(), bundle
 
 
-book = prepared()
-ranking, execution, manifest, bundle = inputs()
 defaults = dict(revealed=False, attacked=False, dependency="issuer:lido", severity=1.0,
                 loss_limit=500000.0, locks=[], plan=None, baseline=None, evidence=False,
-                before_after="after", last_event=None)
+                before_after="after", last_event=None, portfolio_sizes=None, portfolio_error=None)
 for k, v in defaults.items():
     if k not in st.session_state:
         st.session_state[k] = v
 state = st.session_state
+supported = load_catalog()
+original = load_book()["positions"]
+sizes_json = json.dumps(state.portfolio_sizes, sort_keys=True) if state.portfolio_sizes else ""
+book = prepared(sizes_json)
+ranking, execution, manifest, bundle = inputs(sizes_json)
+shared = [r for r in ranking if r["positions"] > 1 and r["kind"] != "chain"]
+if state.dependency not in {r["id"] for r in ranking}:
+    state.dependency = (shared or ranking)[0]["id"]
 stress = stress_book(book, state.dependency, state.severity)
 selected = next(r for r in ranking if r["id"] == state.dependency)
-shared = [r for r in ranking if r["positions"] > 1 and r["kind"] != "chain"]
 opaque = [p["id"] for p in book.positions if any(n.meta.get("unmapped") for n in book.graphs[p["id"]].nodes())]
 revision = f"{state.dependency}:{state.severity}:{','.join(state.locks)}:{state.loss_limit}"
+if sizes_json:
+    revision += ":" + sizes_json
+
+
+def apply_portfolio(sizes):
+    try:
+        positions = resize_positions(supported, sizes)
+    except ValueError as error:
+        state.portfolio_error = str(error)
+        return
+    state.portfolio_sizes = None if positions == original else sizes
+    state.portfolio_error = None
+    state.revealed = state.attacked = state.evidence = False
+    state.plan = state.baseline = None
+    state.locks = [pid for pid in state.locks if pid in {p["id"] for p in positions}]
+    state.before_after = "after"
+
+
 payload = {
     "ranking": ranking, "shared": shared, "selected": selected,
     "stress": stress, "execution_summary": {"available_options": sum(len(v)-1 for v in execution["options"].values()),
@@ -75,6 +100,7 @@ payload = {
     "bundle_hash": manifest["bundle_sha256"], "assumptions": ASSUMPTIONS,
     "coefficients": {**PASS_THROUGH, "pt_underlying_claim_override": 1.0}, "opaque_positions": opaque,
     "positions": book.positions,
+    "challenge": {"supported": supported, "step_usd": STEP_USD, "max_usd": MAX_POSITION_USD},
     "sources": [{k: r[k] for k in ("path", "source", "cached_at", "label", "sha256")}
                 for r in manifest["sources"] if "morpho" in (r.get("label") or "") or
                 "fire_drill" in (r.get("label") or "")],
@@ -85,9 +111,28 @@ fallback = st.query_params.get("fallback") == "1"
 if fallback:
     st.title("Blast Radius — Break My Portfolio")
     st.caption("Native controls · frozen evidence · same Python stress and optimization engines")
+    with st.expander("Challenge this portfolio"):
+        st.caption("Select admitted Ethereum instruments. Zero removes a position. Pendle exits use exact captured 50k–1M USD trades; larger holdings can remain partly unprotected. Morpho uses frozen funded claims and shared liquidity.")
+        selected_ids = st.multiselect("Portfolio instruments (maximum ten)", [p["id"] for p in supported],
+                         default=[p["id"] for p in book.positions], key="catalog_selection_" + sizes_json,
+                         format_func=lambda pid: next(p["label"] for p in supported if p["id"] == pid))
+        with st.form("portfolio_challenge"):
+            sizes = {p["id"]: st.number_input(p["label"], min_value=0, max_value=MAX_POSITION_USD,
+                     step=STEP_USD, value=int((state.portfolio_sizes or {}).get(p["id"], p["size_usd"]) or 500_000),
+                     key="allocation_" + p["id"] + sizes_json) if p["id"] in selected_ids else 0 for p in supported}
+            if st.form_submit_button("Apply portfolio & rediscover"):
+                apply_portfolio(sizes)
+                st.rerun()
+        if state.portfolio_error:
+            st.error(state.portfolio_error)
+        if st.button("Restore original portfolio"):
+            for k, v in defaults.items():
+                if k != "last_event":
+                    state[k] = v
+            st.rerun()
     if st.button("Find My Weakest Point"):
         state.revealed = True
-        state.dependency = shared[0]["id"]
+        state.dependency = (shared or ranking)[0]["id"]
         state.plan = None
         st.rerun()
     options = [r["id"] for r in ranking]
@@ -118,7 +163,7 @@ if fallback:
     limit = st.number_input("Maximum accounted scenario loss", min_value=0.0, value=float(state.loss_limit))
     locks = st.multiselect("Lock positions", [p["id"] for p in book.positions], default=state.locks)
     if limit != state.loss_limit or locks != state.locks:
-        state.loss_limit, state.locks, state.plan = limit, locks, None
+        state.loss_limit, state.locks, state.plan, state.baseline = limit, locks, None, None
     if st.button("BUILD RESCUE PLAN"):
         state.plan = plan_rescue(stress, execution, state.loss_limit, state.locks)
     if state.plan:
@@ -132,10 +177,13 @@ else:
         kind = event.get("type")
         if kind == "reset":
             for k, v in defaults.items():
-                state[k] = v
+                if k != "last_event":
+                    state[k] = v
         elif kind == "discover":
-            state.revealed, state.dependency = True, shared[0]["id"]
+            state.revealed, state.dependency = True, (shared or ranking)[0]["id"]
             state.plan, state.baseline = None, None
+        elif kind == "portfolio" and event.get("revision") == revision:
+            apply_portfolio(event.get("sizes"))
         elif kind == "select" and event.get("id") in {r["id"] for r in ranking}:
             state.dependency = event["id"]
             state.revealed = True
@@ -161,7 +209,7 @@ else:
 
 if state.evidence:
     st.subheader("Show Me the Evidence")
-    st.caption("Illustrative $10M allocation to real instruments. Composite captures: "
+    st.caption(f"Illustrative ${stress['aum_usd']:,.0f} allocation across {len(book.positions)} real instruments. Composite captures: "
                + " to ".join(manifest["presentation_evidence_window_utc"])
                + ". Retrieval times and provider mark times differ; manual mappings are versioned files.")
     a, b, c = st.tabs(["Dependencies & coefficients", "Quotes & liquidity", "Model & receipt"])
@@ -192,7 +240,8 @@ if state.evidence:
         for assumption in ASSUMPTIONS:
             st.write("• " + assumption)
         st.json({**PASS_THROUGH, "pt_underlying_claim_override": 1.0})
-    st.download_button("Download decision receipt", json.dumps(receipt(stress, execution, state.plan, manifest, bundle), indent=2),
+    st.download_button("Download decision receipt", json.dumps(receipt(stress, execution, state.plan, manifest, bundle,
+                                                                     positions=book.positions, catalog_mode=True), indent=2),
                        file_name="blast-radius-decision.json", mime="application/json")
 
 with st.sidebar:

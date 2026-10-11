@@ -1,0 +1,88 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-11T02:44:01.948396+00:00",
+  "method": "Raw request/response identity, RPC decimals, own asset marks, exact integer quote amounts, funded lending balance sheets; independent Decimal stress and exhaustive optimality verification without financial engine imports",
+  "additional_instruments": [
+    {
+      "id": "catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
+      "label": "Pendle PT-apyUSD \u00b7 2026-11-05",
+      "own_snapshot_apy": 0.16073287710523143,
+      "quotes": 20,
+      "max_captured_trade_usd": 1000000
+    },
+    {
+      "id": "catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+      "label": "Pendle PT-USD3 \u00b7 2026-12-17",
+      "own_snapshot_apy": 0.15049535868795605,
+      "quotes": 20,
+      "max_captured_trade_usd": 1000000
+    },
+    {
+      "id": "catalog-vault-0x31a5684983eee865d943a696aac155363ba024f9",
+      "label": "Morpho Vault Bridge WETH",
+      "own_snapshot_apy": 0.01317218559231723,
+      "protocol_assets_usd": 16727580.808546824,
+      "funded_allocation_records": 5
+    },
+    {
+      "id": "catalog-vault-0xbeefb9f61cc44895d8aec381373555a64191a9c4",
+      "label": "Morpho Vault Bridge USDC",
+      "own_snapshot_apy": 0.04273208119523322,
+      "protocol_assets_usd": 9792409.071269287,
+      "funded_allocation_records": 4
+    }
+  ],
+  "quotes_verified": 40,
+  "new_evidence_retrieval_window_utc": [
+    "2026-10-11T02:24:45.839819+00:00",
+    "2026-10-11T02:29:01.396255+00:00"
+  ],
+  "rpc_block": "0x18f43b9",
+  "rpc_block_timestamp": 1791685475,
+  "cases": [
+    {
+      "receipt": "artifacts/catalog_wsteth_receipt.json",
+      "positions": 4,
+      "aum_usd": 2250000.0,
+      "loss_usd": 309689.63648286805,
+      "status": "optimal",
+      "accounted_loss_usd": 189051.2096312602,
+      "protection_cost_usd": 456.52907822987225,
+      "combinations_enumerated": 441,
+      "independent_optimality_proved": true,
+      "funded_claims_and_shared_liquidity_verified": true
+    },
+    {
+      "receipt": "artifacts/catalog_apyusd_receipt.json",
+      "positions": 4,
+      "aum_usd": 2250000.0,
+      "loss_usd": 500000.0,
+      "status": "optimal",
+      "accounted_loss_usd": 150501.1298540284,
+      "protection_cost_usd": 5124.952346096696,
+      "combinations_enumerated": 11,
+      "independent_optimality_proved": true,
+      "funded_claims_and_shared_liquidity_verified": true
+    },
+    {
+      "receipt": "artifacts/catalog_usd3_receipt.json",
+      "positions": 4,
+      "aum_usd": 2250000.0,
+      "loss_usd": 750000.0,
+      "status": "optimal",
+      "accounted_loss_usd": 151799.55936399454,
+      "protection_cost_usd": 9221.248285592366,
+      "combinations_enumerated": 16,
+      "independent_optimality_proved": true,
+      "funded_claims_and_shared_liquidity_verified": true
+    }
+  ],
+  "excluded": [
+    {
+      "kind": "morpho_vault",
+      "address": "0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+      "label": "Morpho Steakhouse USDC",
+      "reason": "Material steakEURCV allocation lacks API collateralAssetsUsd; no complete shortfall calculation"
+    }
+  ]
+}

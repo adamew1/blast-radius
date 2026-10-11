@@ -21,7 +21,7 @@ ASSUMPTIONS = [
     "Remaining claims retain snapshot exposure proportions; market feedback, cash-transfer risk and FX movements are outside this model.",
     "Foregone carry uses nonnegative snapshot APY times 30/365; no reinvestment return is assumed.",
     "API observations and sourced manual mappings are distinguished from cached RPC observations; none are labelled live.",
-    "The $10M book is an illustrative allocation to real instruments, not an observed wallet or managed fund.",
+    "The $10M book is an illustrative allocation to real instruments; judge-modified allocations are also hypothetical, not an observed wallet or managed fund.",
     "Evidence is a composite of individually timestamped captures, not an atomic block-aligned snapshot. Quote bundle captured_at is assembly time.",
     "Manual token-level oracle names are hypotheses about integrations, not verified deployed oracle contracts; market oracle addresses come from Morpho API observations.",
     "Discovery omits zero-funded and dust collateral allocations below the rounded 0.1% vault threshold. Missing paths are not evidence of safety.",
@@ -42,7 +42,8 @@ def source_manifest() -> dict:
                         "source": meta.get("url"), "label": meta.get("label"),
                         "method": meta.get("method")})
     files = {}
-    for name in ("data/manual/dependencies.yaml", "data/book/sample_book.json", "data/fire_drill/execution.json"):
+    for name in ("data/manual/dependencies.yaml", "data/book/sample_book.json", "data/fire_drill/execution.json",
+                 "data/fire_drill/catalog.json", "data/fire_drill/catalog_execution.json"):
         path = ROOT / name
         if path.exists():
             files[name] = hashlib.sha256(path.read_text(encoding="utf-8").encode("utf-8")).hexdigest()
@@ -51,7 +52,7 @@ def source_manifest() -> dict:
     for path in code:
         files[str(path.relative_to(ROOT)).replace("\\", "/")] = hashlib.sha256(path.read_text(encoding="utf-8").encode()).hexdigest()
     times = [r["cached_at"] for r in records if isinstance(r.get("cached_at"), (int, float))
-             and ((r.get("label") or "").startswith(("pendle_active:", "morpho_vault:", "fire_drill_")))]
+             and ((r.get("label") or "").startswith(("pendle_active:", "pendle_data:", "morpho_vault:", "fire_drill_", "catalog_")))]
     payload = {"sources": records, "files": files,
                "presentation_evidence_window_utc": [datetime.fromtimestamp(t, timezone.utc).isoformat()
                                                      for t in (min(times), max(times))] if times else [],
@@ -61,10 +62,13 @@ def source_manifest() -> dict:
     return payload
 
 
-def receipt(stress: dict, execution: dict, plan: dict | None, manifest: dict, bundle: dict) -> dict:
+def receipt(stress: dict, execution: dict, plan: dict | None, manifest: dict, bundle: dict,
+            *, positions: list[dict] | None = None, catalog_mode: bool = False) -> dict:
     return {"created_at": datetime.now(timezone.utc).isoformat(), "model_version": MODEL_VERSION,
             "classification": "hypothetical pre-failure protection using frozen evidence",
             "scenario": stress, "plan": plan, "exit_candidates": execution,
             "quote_bundle": bundle, "evidence": manifest, "assumptions": ASSUMPTIONS,
             "coefficients": {**PASS_THROUGH, "pt_underlying_claim_override": 1.0},
-            "receipt_schema": "blast-radius-decision-v1"}
+            "receipt_schema": "blast-radius-decision-v3" if catalog_mode else
+                              "blast-radius-decision-v1" if positions is None else "blast-radius-decision-v2",
+            **({"portfolio": positions} if positions is not None else {})}

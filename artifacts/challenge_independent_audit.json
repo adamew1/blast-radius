@@ -1,0 +1,43 @@
+{
+  "status": "passed",
+  "verified_at": "2026-10-11T02:35:47.513559+00:00",
+  "method": "Raw protocol responses and Decimal arithmetic; exhaustive relaxed enumeration attained by independently resource-verified plans; no financial engine or solver imports",
+  "cases": [
+    {
+      "receipt": "artifacts/challenge_resized_receipt.json",
+      "positions": 4,
+      "aum_usd": 3500000.0,
+      "loss_usd": 1601931.9879233406,
+      "status": "optimal",
+      "accounted_loss_usd": 499644.4303273291,
+      "protection_cost_usd": 9383.4428932071,
+      "combinations_enumerated": 7056,
+      "independent_optimality_proved": true,
+      "funded_claims_and_shared_liquidity_verified": true
+    },
+    {
+      "receipt": "artifacts/challenge_removed_receipt.json",
+      "positions": 3,
+      "aum_usd": 2750000.0,
+      "loss_usd": 851931.9879233408,
+      "status": "optimal",
+      "accounted_loss_usd": 498962.9633472504,
+      "protection_cost_usd": 1033.1281730092587,
+      "combinations_enumerated": 441,
+      "independent_optimality_proved": true,
+      "funded_claims_and_shared_liquidity_verified": true
+    },
+    {
+      "receipt": "artifacts/challenge_quote_bound_receipt.json",
+      "positions": 3,
+      "aum_usd": 3500000.0,
+      "loss_usd": 2415857.675971871,
+      "status": "infeasible",
+      "accounted_loss_usd": 1027448.9815351745,
+      "protection_cost_usd": 29816.187096567202,
+      "combinations_enumerated": 441,
+      "independent_optimality_proved": true,
+      "funded_claims_and_shared_liquidity_verified": true
+    }
+  ]
+}

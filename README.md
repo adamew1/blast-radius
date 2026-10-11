@@ -15,6 +15,8 @@ Blast Radius discovers shared DeFi dependencies, lets you stress them, and price
 - **Build Rescue Plan:** minimize execution costs, a conversion reserve and thirty-day foregone carry on a 5% grid, respecting available quotes, funded claims, shared market liquidity and position locks. Infeasible and unresolved results are distinguished.
 - **Show Me the Evidence:** inspect contracts, markets, allocation balances, coefficients, raw source records and timestamps. Download a decision receipt and reproduce its calculations offline.
 
+**Challenge this portfolio:** construct a different book from a **14-instrument frozen Ethereum catalog**, with dynamic Add/Remove controls and up to ten selected positions at $0–$2M each in $50k steps. New admissions are **PT-apyUSD, PT-USD3, Vault Bridge WETH and Vault Bridge USDC**, each using its own captured data. Pendle exits retain exact captured $50k–$1M trades and original costs; larger holdings can remain partly unprotected. Morpho funded claims and shared liquidity remain binding. **Reset** restores the original $10M demonstration. This is a bounded catalog, not universal wallet/protocol support. [Catalog validation and limits](docs/CATALOG_VALIDATION.md) · [Four-feature assessment](docs/IMPROVEMENT_REVIEW.md).
+
 ## Independently audited result
 
 For a hypothetical **100% intrinsic wstETH shock** and a **$500,000 accounted-loss limit**:
@@ -61,7 +63,7 @@ Preserved research pages compare Monte Carlo expected loss with carry and suppor
 
 ## Evidence and financial limits
 
-The presentation uses composite captures from **2026-10-10 18:01:08 to 21:51:16 UTC**. Pendle quote responses were retrieved **21:49:04–21:51:16 UTC**. Each response has its own retrieval time; asset marks have separate provider update times. These are not synchronized observations at one block. The quote bundle's `captured_at` is assembly time, not the age of every underlying observation.
+The original book uses composite captures from **2026-10-10 18:01:08 to 21:51:16 UTC**. Its Pendle quotes were retrieved **21:49:04–21:51:16 UTC**. New admitted catalog evidence was retrieved **2026-10-11 02:24:45–02:29:01 UTC**, with RPC decimals at block `0x18f43b9`. Each response has its own retrieval time; marks and market APYs retain their own provider/capture times. These are not synchronized observations at one block. Quote-bundle `captured_at` is assembly time, not the age of every underlying observation.
 
 | Classification | Evidence | Boundary |
 |---|---|---|
@@ -103,7 +105,16 @@ Open **http://localhost:8501**. On macOS/Linux use `.venv/bin/python`. The main 
 .venv/Scripts/python.exe scripts/verify_receipt.py
 ```
 
-Thirty-one tests cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, liquidity, locks, exhaustive small-case optimization, honest solver statuses, tampering, decimals and execution availability. Source manifests hash all Python model code and configuration with LF-normalized UTF-8 text.
+Forty-seven tests cover zero/monotonic stress, PT claim parity, overlap, funded allocations, shortfalls, liquidity, locks, exhaustive small-case optimization, honest solver statuses, tampering, decimals, execution availability, modified allocations and newly admitted instruments with exact-size quote reuse. Source manifests hash all Python model code and configuration with LF-normalized UTF-8 text.
+
+Reproduce the modified-book audit separately:
+
+```powershell
+.venv/Scripts/python.exe scripts/build_challenge_artifacts.py
+.venv/Scripts/python.exe scripts/audit_portfolio_challenge.py
+.venv/Scripts/python.exe scripts/build_catalog_artifacts.py
+.venv/Scripts/python.exe scripts/audit_catalog.py
+```
 
 Optional browser rehearsal, after installing `playwright` and Chromium once:
 
@@ -112,10 +123,12 @@ Optional browser rehearsal, after installing `playwright` and Chromium once:
 $env:PLAYWRIGHT_BROWSERS_PATH = "$PWD/.playwright-mcp/browsers"
 .venv/Scripts/python.exe -m playwright install chromium
 .venv/Scripts/python.exe scripts/verify_fire_drill.py --record
+.venv/Scripts/python.exe scripts/verify_portfolio_challenge.py
+.venv/Scripts/python.exe scripts/verify_catalog.py
 .venv/Scripts/python.exe scripts/record_demo.py
 ```
 
-Browser verification blocks external requests and exercises discovery, propagation, rescue, economics, locks, infeasibility, evidence, receipt download, reset, native fallback and preserved research pages.
+Browser verification blocks external requests and exercises discovery, propagation, rescue, economics, locks, infeasibility, evidence, receipt download, reset, native fallback and research pages. Additional rehearsals cover resizing/removal, singleton books, quote-limited infeasibility and constructing an entirely new catalog portfolio with three independently audited scenarios and receipts.
 
 ## Two-minute pitch and fallback
 

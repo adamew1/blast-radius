@@ -10,7 +10,9 @@ sys.path.insert(0, str(ROOT))
 os.environ["BLAST_RADIUS_OFFLINE"] = "1"
 from blast_radius.fire_drill.optimize import verify_plan
 from blast_radius.fire_drill.model import prepare, stress_book
-from blast_radius.fire_drill.execution import exit_options
+from blast_radius.fire_drill.execution import exit_options, load_execution
+from blast_radius.fire_drill.challenge import resize_positions
+from blast_radius.fire_drill.catalog import execution_for, load_catalog
 from blast_radius.portfolio.book import load_book
 
 
@@ -26,12 +28,26 @@ def verify(path):
             raise ValueError(f"Source differs: {name}")
     # Independently recompute both the scenario and the candidate costs, rather
     # than accepting totals embedded in the downloaded receipt.
-    book = prepare(load_book()["positions"])
+    supported = load_book()["positions"]
+    positions = supported
+    if rec["receipt_schema"] == "blast-radius-decision-v3":
+        supported = load_catalog()
+    if rec["receipt_schema"] in ("blast-radius-decision-v2", "blast-radius-decision-v3"):
+        submitted = rec["portfolio"]
+        sizes = {p["id"]: 0 for p in supported}
+        sizes.update({p["id"]: p["size_usd"] for p in submitted})
+        positions = resize_positions(supported, sizes)
+        if positions != submitted:
+            raise ValueError("Receipt changes supported instrument identity or duplicates a position")
+    elif rec["receipt_schema"] != "blast-radius-decision-v1":
+        raise ValueError("Unknown receipt schema")
+    book = prepare(positions)
     recomputed = stress_book(book, rec["scenario"]["dependency_id"], rec["scenario"]["severity"])
-    if abs(recomputed["loss_usd"] - rec["scenario"]["loss_usd"]) > .02:
-        raise ValueError("Scenario loss does not reproduce")
-    if recomputed["positions"] != rec["scenario"]["positions"]:
-        raise ValueError("Per-position scenario values do not reproduce")
+    if recomputed != rec["scenario"]:
+        raise ValueError("Scenario values do not reproduce")
+    expected_bundle = execution_for(positions) if rec["receipt_schema"] == "blast-radius-decision-v3" else load_execution()
+    if rec["quote_bundle"] != expected_bundle:
+        raise ValueError("Quote bundle differs from frozen evidence")
     for record in rec["quote_bundle"]["positions"].values():
         out = record["output_asset"]
         for q in record["options"]:

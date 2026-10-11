@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-10T22:46:32.862139+00:00",
+  "created_at": "2026-10-11T02:39:09.943053+00:00",
   "model_version": "single-shock-aggregate-recovery-v2-pt-parity",
   "classification": "hypothetical pre-failure protection using frozen evidence",
   "scenario": {
@@ -4670,6 +4670,14 @@
   "evidence": {
     "sources": [
       {
+        "path": "data/raw/000d5df620e02a5c6b7b.json",
+        "sha256": "00a9b86d7a6532094b24b351bc8484c370aa56556eee21f3bb898e2793147228",
+        "cached_at": 1791685522.643141,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:17",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/00cfa740bc715895895e.json",
         "sha256": "e626772365cad75da0f5340956df9852cf9beb8fb03b0800fb60523f0c320472",
         "cached_at": 1791662424.8235652,
@@ -4699,6 +4707,14 @@
         "cached_at": 1791669062.3582435,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x13285bcbc27f92b47b4edb99d744c07b48c977c0/swap",
         "label": "fire_drill_quote:pt-reusd:6",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/05ed838dee397c2520ed.json",
+        "sha256": "4898b795003998508c8e8d8d34938213c1a811c8df2411aecbec0ebbdeaee80a",
+        "cached_at": 1791685565.1785116,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:19",
         "method": "GET"
       },
       {
@@ -4742,6 +4758,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/0edcaf6453f33432f04b.json",
+        "sha256": "d84508851e15efffbddc375c4cb57730cc503e7d9e13754fe1e57586a4a5f36e",
+        "cached_at": 1791685563.0910044,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:18",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/0f455bcbec4d0bb8f241.json",
         "sha256": "e7d70ae3e28c59a8d24d5493d2e428fd3c767eca1d4a3ec32065bc09e25931e4",
         "cached_at": 1791663275.5279355,
@@ -4758,11 +4782,35 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/0f6e54e03e471d47d48d.json",
+        "sha256": "b190700b783a2cf89bb8f33436f08eccdb6435dff8317d45ac6f6a5f000154d8",
+        "cached_at": 1791685544.3539894,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:7",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/0f8a0dedd69a00876194.json",
         "sha256": "9ef721a71205d2d796da51dc95e2e1cc03161724c3f9e039cfdbd74f8a1d4ee7",
         "cached_at": 1791669056.50643,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x13285bcbc27f92b47b4edb99d744c07b48c977c0/swap",
         "label": "fire_drill_quote:pt-reusd:1",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/1063fe091f88b13f7be2.json",
+        "sha256": "4a246ec1ca05d10a17010df6926a0fc16b1cd858fc583209aed92b155e82ef49",
+        "cached_at": 1791685498.7254786,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:8",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/10672d2f2bc2b8fcbcab.json",
+        "sha256": "9e538aba23feda3ac8bd9da556bbb5e11937f8390a8aaac54f3ede5f6e87fcf2",
+        "cached_at": 1791685494.8326323,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:5",
         "method": "GET"
       },
       {
@@ -4934,6 +4982,22 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/2625a7c9637b2305d057.json",
+        "sha256": "8a93d5c7aae83101e4b9b45fe86ca1f0921efc152feaec29dc95bb989ef6d911",
+        "cached_at": 1791685538.3074398,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:5",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/271a46b61fcd54ee2e99.json",
+        "sha256": "78db5ba5a1897547e8586e3330a12ba6df0a5a2cc468bf7849c8668a3d369dee",
+        "cached_at": 1791685712.2455487,
+        "source": "https://blue-api.morpho.org/graphql",
+        "label": "morpho_vault:0x812B2C6Ab3f4471c0E43D4BB61098a9211017427",
+        "method": "POST"
+      },
+      {
         "path": "data/raw/27d7f1e7ee67afb5d2a7.json",
         "sha256": "8fd117f5279b64cad194de093b3cefd5bfa108054392875420d2fe94785acb09",
         "cached_at": 1791663277.3268576,
@@ -5022,6 +5086,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/2f8370187bbb26ded0ef.json",
+        "sha256": "5c2b276aeedab0a762b0992d561bf48be941b7e2e996bb0e128b8c5233f63a3b",
+        "cached_at": 1791685533.757212,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:1",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/2fe82be8bf6547af3f52.json",
         "sha256": "f26c1492668fcd76101c6eb781346928bdab7e5cc8f5c11f83b05b5c2e552abc",
         "cached_at": 1791668942.1314764,
@@ -5043,6 +5115,14 @@
         "cached_at": 1791663271.373372,
         "source": "https://coins.llama.fi/chart/coingecko:magic-internet-money",
         "label": "chart:coingecko:magic-internet-money",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/337ad60972b2eb888d0b.json",
+        "sha256": "09a4331b7f1a47beec388e6649966a297050285b1898a60e92c743a8c18e8c07",
+        "cached_at": 1791685485.8398194,
+        "source": "https://api-v2.pendle.finance/core/v1/1/assets/0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+        "label": "catalog_asset:0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
         "method": "GET"
       },
       {
@@ -5278,6 +5358,22 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/52fafe140301e445299f.json",
+        "sha256": "90a268a2611ade7330b374c4b017ffa21c02c1488693b4cc0bf42a2eb982f8ba",
+        "cached_at": 1791685496.7217455,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:7",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/5477400cb967db3cfb55.json",
+        "sha256": "71ff290bf502de88a8a69ad1955140dc83d852231c67b176d4f37ddce5a67854",
+        "cached_at": 1791685528.9908342,
+        "source": "https://api-v2.pendle.finance/core/v2/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/data",
+        "label": "pendle_data:0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/54ac38ca1a587e05edac.json",
         "sha256": "ec548d569963f433a5fad93c82d7365987fa42385dbf44c76e0845ac4ffc3bfc",
         "cached_at": 1791669073.1808276,
@@ -5308,6 +5404,14 @@
         "source": "https://docs.strata.markets/markets/ethena-usde/srusde.md",
         "label": "manual_map_evidence",
         "method": "GET_TEXT"
+      },
+      {
+        "path": "data/raw/579ea2d0a4505ab80804.json",
+        "sha256": "bf1de4e75cdc028f101706fb0b1487486ae25b4a42f5a4ecd83e017631401d98",
+        "cached_at": 1791685505.320128,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:10",
+        "method": "GET"
       },
       {
         "path": "data/raw/58828dc129bba91ebfba.json",
@@ -5350,6 +5454,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/5cc69c63d33c9a622241.json",
+        "sha256": "091472d4a3e674a586e3b486948e4f974c753f3c446095dbbae4477834b1ef79",
+        "cached_at": 1791685527.3478367,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:20",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/618ff498c8ee78df7aed.json",
         "sha256": "88064b2b4109b6e6213d272f77351371bc081d12145b2d4e0365fbb5ab177e6e",
         "cached_at": 1791669052.8306053,
@@ -5364,6 +5476,14 @@
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x9c560ebaf78e596cbcc27411d633a74d628dd7dc/swap",
         "label": "pendle_swap:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc:50306464095893839654135",
         "method": "GET"
+      },
+      {
+        "path": "data/raw/629910e558dd3fb4a146.json",
+        "sha256": "222c84c7428f82c1d50246a5edaa95bca9e7d02a772f6a273697cebd2d7b13ba",
+        "cached_at": 1791685487.2242615,
+        "source": "https://ethereum-rpc.publicnode.com",
+        "label": "catalog_decimals:0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+        "method": "POST"
       },
       {
         "path": "data/raw/62d3c99e7b4eeaec9a70.json",
@@ -5406,6 +5526,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/68acd15ac0345a6019d7.json",
+        "sha256": "04f44ac90d22010e637f3e53104b6e79971c7572301c30ea8242e702da69f3ce",
+        "cached_at": 1791685555.0339234,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:14",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/69a02e3ea7b4bf76f3e1.json",
         "sha256": "c41acf8a63407d8759847d4559b6014b31adad6454e10765e8743f7649152dcc",
         "cached_at": 1791657566.152443,
@@ -5435,6 +5563,14 @@
         "cached_at": 1791663263.601658,
         "source": "https://coins.llama.fi/chart/coingecko:frax",
         "label": "chart:coingecko:frax",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/6f15b90c743b084bc057.json",
+        "sha256": "66cca3addc16aedafa3f32a478394a63353d83877e432f8ab8de9661412cd983",
+        "cached_at": 1791685536.4119575,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:4",
         "method": "GET"
       },
       {
@@ -5510,6 +5646,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/74dc5a798bf61f88c1cf.json",
+        "sha256": "43624a755d810a5040de01c9bf0d30a4a302750371bb016fc209644b4fc65ada",
+        "cached_at": 1791685516.67984,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:14",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/75e769cd8e417010e8a0.json",
         "sha256": "d7594f17415f946513ce75d0c39896dedd75088d9d8dc76dc5125a1af49e4f24",
         "cached_at": 1791656217.7077723,
@@ -5550,11 +5694,35 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/79a32709602534f1ffa4.json",
+        "sha256": "b983e574e7a9079f4243cac2e3b2853dedc97cab768a9fef5d7e0e240b6bac8e",
+        "cached_at": 1791685529.740403,
+        "source": "https://api-v2.pendle.finance/core/v1/1/assets/0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+        "label": "catalog_asset:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/7d6f0f7df60d5bda8017.json",
         "sha256": "d617f5ce8937e6007dbbc6bdba49da88d971a86df18cf782d5042f181982e880",
         "cached_at": 1791662442.957912,
         "source": "https://coins.llama.fi/chart/coingecko:metronome-synth-eth",
         "label": "chart:coingecko:metronome-synth-eth",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/7dde065a2301ab9e821f.json",
+        "sha256": "105c3bde3a256c11186df47870129d8ea68fea37bd871d12d105403a0ce13441",
+        "cached_at": 1791685553.1124125,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:13",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/7f576381e1e433abd9b3.json",
+        "sha256": "715be6eef935cf3666e157d853797f1f01f31bce67fbf4f6df67137f2f8f0115",
+        "cached_at": 1791685548.1120143,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:9",
         "method": "GET"
       },
       {
@@ -5572,6 +5740,14 @@
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x34280882267ffa6383b363e278b027be083bbe3b/swap",
         "label": "fire_drill_quote:pt-wsteth:2",
         "method": "GET"
+      },
+      {
+        "path": "data/raw/81329c7958f35842fa16.json",
+        "sha256": "9857be550f8f3e158a10ecfca89f3999e5361c9cd291de9b2907f8a89d4de307",
+        "cached_at": 1791685569.249376,
+        "source": "https://blue-api.morpho.org/graphql",
+        "label": "morpho_vault:0xBEEF01735c132Ada46AA9aA4c54623cAA92A64CB",
+        "method": "POST"
       },
       {
         "path": "data/raw/816f47080f3420601c49.json",
@@ -5614,6 +5790,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/871e067beb876a3135d6.json",
+        "sha256": "a521ca0bced7066315439772941efdcea5ef94f783122a8150318c973e56b734",
+        "cached_at": 1791685500.008281,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:9",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/875d3a7e3a814e573356.json",
         "sha256": "3227bd26421ddcf3cfddc555195ae6c0f82f45d0ad663472a66bc3293ce89ce8",
         "cached_at": 1791669067.7413583,
@@ -5646,11 +5830,27 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/8d421cc0f1f8756fbee1.json",
+        "sha256": "9ac3932ed48e901da076a1d455cd424865c77e376b4e0ab9a774fa543e339d72",
+        "cached_at": 1791685741.396255,
+        "source": "https://blue-api.morpho.org/graphql",
+        "label": "morpho_vault:0xBEefb9f61CC44895d8AEc381373555a64191A9c4",
+        "method": "POST"
+      },
+      {
         "path": "data/raw/8e9514166b4da357c1e4.json",
         "sha256": "a9f0b1535044174c30fc109d5556629d9792b55b14389e4deea6734e42c8677a",
         "cached_at": 1791668972.2055109,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e/swap",
         "label": "pendle_swap:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e:1006970919273263483084207",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/8eb03f51f25b5eedfc8e.json",
+        "sha256": "bd01e80963d5f7d6145b71bd09f0b9e0b21e835821a94ba0277e4c545a390707",
+        "cached_at": 1791685486.8526797,
+        "source": "https://api-v2.pendle.finance/core/v1/1/assets/0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
+        "label": "catalog_asset:0x38eeb52f0771140d10c4e9a9a72349a329fe8a6a",
         "method": "GET"
       },
       {
@@ -5667,6 +5867,14 @@
         "cached_at": 1791657545.1437533,
         "source": "https://api-v2.pendle.finance/core/v2/1/markets/0x34280882267ffa6383b363e278b027be083bbe3b/data",
         "label": "pendle_data:0x34280882267ffa6383b363e278b027be083bbe3b",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/94ddee4f8f3fbe9df2d9.json",
+        "sha256": "10e7b3b061f480d1f6b292464d76a50983cdc4a47c16aa59de015ef0c49ed25b",
+        "cached_at": 1791685484.2818408,
+        "source": "https://api-v2.pendle.finance/core/v2/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/data",
+        "label": "pendle_data:0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3",
         "method": "GET"
       },
       {
@@ -5726,6 +5934,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/99f9dc7d2ccab23fea88.json",
+        "sha256": "5ec30089ada8354c72481dc5162beef9010b45176124e7b1e213660579afd350",
+        "cached_at": 1791685514.0226896,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:13",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/9aca9756f0162529c4e4.json",
         "sha256": "15718ce9cc3c0a77f196e0343d8362e2eb0a50c10af7d98b8c6757b36b657c06",
         "cached_at": 1791657495.4116042,
@@ -5742,12 +5958,28 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/9b4b5c72bce02c9eb66a.json",
+        "sha256": "c7678f2cad4f5dbeba2a73ea887bbd44fe89dd0676428e7bcc9c9a0c0319d999",
+        "cached_at": 1791685556.7990067,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:15",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/9bc957e02c04cdb0966c.json",
         "sha256": "766515e611fdf5a3eb8901a6d3444def33d46302ea1872058b5937107d31c5e2",
         "cached_at": 1791665116.6196332,
         "source": "https://docs.re.xyz/products/about-reusd.md",
         "label": "manual_map_evidence",
         "method": "GET_TEXT"
+      },
+      {
+        "path": "data/raw/9c583273bbbc3bb7c0d0.json",
+        "sha256": "2e7241d44a04dfda2ce2c24edf9bace62c679766d56dc265ff6a9aeacd4f83ca",
+        "cached_at": 1791685520.212711,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:16",
+        "method": "GET"
       },
       {
         "path": "data/raw/9c5ed0f5f2655bf39c49.json",
@@ -5804,6 +6036,14 @@
         "source": "https://coins.llama.fi/chart/coingecko:ethereum",
         "label": "chart:coingecko:ethereum",
         "method": "GET"
+      },
+      {
+        "path": "data/raw/a188880dca9a2d58e3c6.json",
+        "sha256": "45a11c1a91d7d0fd98a58fbed41dcd24c96ae2a9a2659bc7464ad26c99e981f2",
+        "cached_at": 1791685531.9784508,
+        "source": "https://ethereum-rpc.publicnode.com",
+        "label": "catalog_decimals:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+        "method": "POST"
       },
       {
         "path": "data/raw/a292b5732f3d14f73a46.json",
@@ -5918,6 +6158,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/ad4bda57f25a6b6c1898.json",
+        "sha256": "95b042abf9c76a9ce665b55566d5d576b49b870fa8121e3f4612693d4dc1bb58",
+        "cached_at": 1791685518.0627065,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:15",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/adabd0575ceda4226df7.json",
         "sha256": "0587ed2097eaec4512e1ef0bbb90a0237dff5203e7de183ef7ffd29df17b3236",
         "cached_at": 1791668950.6292882,
@@ -5982,11 +6230,27 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/b1226835beeda52c0723.json",
+        "sha256": "87a81e86a3cccef0a3c6ff777a5eb424e05edadca83bbb7a9e5b9559db330bfe",
+        "cached_at": 1791685525.6226664,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:19",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/b1b7e2add6d28c6d3cc8.json",
         "sha256": "147bf05570af05a51ed1de0bd29289dfa717234a2371c6475c4200a279da9ccc",
         "cached_at": 1791655462.0383074,
         "source": "https://coins.llama.fi/chart/coingecko:elixir-deusd",
         "label": "chart:coingecko:elixir-deusd",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/b201d5797d961abe8cbc.json",
+        "sha256": "13cfbd9a5a2d812716f48b68fe103dcdfdb26241afae5a8ac491bc9d6cc5e01a",
+        "cached_at": 1791685524.524113,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:18",
         "method": "GET"
       },
       {
@@ -6003,6 +6267,14 @@
         "cached_at": 1791663268.411812,
         "source": "https://coins.llama.fi/chart/coingecko:usdd",
         "label": "chart:coingecko:usdd",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/b4a8a540219d9e324e05.json",
+        "sha256": "131de27cade84b69c1b5da5bf84bf67dfd7a5c17bea5c12db28cb01adad4f518",
+        "cached_at": 1791685551.096344,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:11",
         "method": "GET"
       },
       {
@@ -6046,6 +6318,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/bacc82fb187502c29c54.json",
+        "sha256": "4ea8e505ae38103e5777f67189e28e7ec128980f28144fda3a2cb2e30218931f",
+        "cached_at": 1791685552.1166492,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:12",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/bb5c500621048edbb288.json",
         "sha256": "80577aba54825c0e61b861bcfab26c1ad8bfcf74ee34e86d64cdc143ab86c56b",
         "cached_at": 1791662434.3594954,
@@ -6059,6 +6339,14 @@
         "cached_at": 1791669027.2933352,
         "source": "https://api-v2.pendle.finance/core/v1/1/assets/0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
         "label": "fire_drill_asset:0x7f39c581f595b53c5cb19bd0b3f8da6c935e2ca0",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/beb3fe26e2469a942042.json",
+        "sha256": "6c7cc435f9889a83dbf1dace30256c80ddcdd5a23a34a1bad49794989d44f8a4",
+        "cached_at": 1791685491.1368713,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:3",
         "method": "GET"
       },
       {
@@ -6076,6 +6364,14 @@
         "source": "https://docs.originprotocol.com/registry/contracts/oeth-registry.md",
         "label": "manual_map_evidence",
         "method": "GET_TEXT"
+      },
+      {
+        "path": "data/raw/c28d75abda2974f08229.json",
+        "sha256": "073f96a1f459406107bc6bec6d49bd687cb78afd1ae7362ce9a6eb29533bd73d",
+        "cached_at": 1791685531.6352868,
+        "source": "https://api-v2.pendle.finance/core/v1/1/assets/0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+        "label": "catalog_asset:0x056b269eb1f75477a8666ae8c7fe01b64dd55ecc",
+        "method": "GET"
       },
       {
         "path": "data/raw/c2d3dcb779df34bc6dde.json",
@@ -6110,6 +6406,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/c742c3bf24e0d253306f.json",
+        "sha256": "301825f08e50825f3186d94efcd80cd3367c9f65ff2a8cb3fe7be981ff80cf72",
+        "cached_at": 1791685508.7473938,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:11",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/c74531fa67e7c03edfad.json",
         "sha256": "b9e3a28132494ce6ca45a8b8efbc76c4d2da029bc5528af1da0cfab22bf3ffe4",
         "cached_at": 1791662431.273455,
@@ -6126,11 +6430,43 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/ca258cec45371394c61c.json",
+        "sha256": "d67a0ea90067e0fe072166b5e74e7a6589e2030a6d7767406ea7e2146fc49af5",
+        "cached_at": 1791685486.1896532,
+        "source": "https://ethereum-rpc.publicnode.com",
+        "label": "catalog_decimals:0xb5be35d8ff83d431899b95851cb17a2b4bcef150",
+        "method": "POST"
+      },
+      {
+        "path": "data/raw/cb87bcecd1fee6b03fa8.json",
+        "sha256": "b6563cf02f626d31c099bd31a7a396556f54204f16702c5ee5d7bb1bbd008190",
+        "cached_at": 1791685557.6993625,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:16",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/cba6d13ac056bde1b3df.json",
+        "sha256": "d0854d7570474c5e19d4c8c05f1003d1ea5be3af4e8ae444215df4d5d7e41cfb",
+        "cached_at": 1791685534.615477,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:2",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/cc395293f4059f54911f.json",
         "sha256": "42ceeb219d85bf8e2517dfcf72b2333377c6dfe04ffe3b24a92c9e297a6e0274",
         "cached_at": 1791662447.0723708,
         "source": "https://coins.llama.fi/chart/coingecko:usual-usd0",
         "label": "chart:coingecko:usual-usd0",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/cd0a9067b8356e6e7c14.json",
+        "sha256": "1bcc4376207a129c44482fc3c6d1533b1e711d73f0839095453539d577ec37a5",
+        "cached_at": 1791685493.0286582,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:4",
         "method": "GET"
       },
       {
@@ -6166,6 +6502,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/d04e0b3231ba352ab38b.json",
+        "sha256": "e8a46feded80fd8947c74e22a884985b729a64e89e5454c686f46ece090282c3",
+        "cached_at": 1791685482.6430106,
+        "source": "https://ethereum-rpc.publicnode.com",
+        "label": "catalog_rpc_header",
+        "method": "POST"
+      },
+      {
         "path": "data/raw/d06a4fd512c8795583d3.json",
         "sha256": "c0e46aa8c2028c0555da218dd3ff8301f5556d3c9832b9fe7e09ef145e93930e",
         "cached_at": 1791668953.1772068,
@@ -6179,6 +6523,14 @@
         "cached_at": 1791668966.2091067,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e/swap",
         "label": "pendle_swap:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e:553834005600294915696313",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/d2761306d7fab8c66dbd.json",
+        "sha256": "d8e53631266cc280ebf22c8e2e1144ffc0159344c63292b43e632e93d40866e8",
+        "cached_at": 1791685489.318739,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:1",
         "method": "GET"
       },
       {
@@ -6254,11 +6606,27 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/da6f8fa3d1281fc666d1.json",
+        "sha256": "339ad008a086b3b3e582f5548c7542da7cea2394ea2ce3285c30568c9f741bd0",
+        "cached_at": 1791685560.3943536,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:17",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/db8ae3a7909b4910fcf6.json",
         "sha256": "11044211e6c655081ef7eb730fc050ebbc3553db57852d614d20c4ca091e562b",
         "cached_at": 1791655268.3825955,
         "source": "https://api-v2.pendle.finance/core/v1/1/markets/active",
         "label": "pendle_active:1",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/dc9cee48b388408be64e.json",
+        "sha256": "a108d3ad956d7329d366186edd0d2895f058bd56c3cf7e70db77a35e1a949118",
+        "cached_at": 1791685490.342518,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:2",
         "method": "GET"
       },
       {
@@ -6268,6 +6636,14 @@
         "source": "https://coins.llama.fi/chart/ethereum:0xbf5495efe5db9ce00f80364c8b423567e58d2110",
         "label": "chart:ethereum:0xbf5495efe5db9ce00f80364c8b423567e58d2110",
         "method": "GET"
+      },
+      {
+        "path": "data/raw/ddd2b24a473a8f1326b1.json",
+        "sha256": "3f87e7c8a955b67d1f0df1260fc23ad3fefba4cb08852c3dbf1c05a97ca49440",
+        "cached_at": 1791685569.7289584,
+        "source": "https://blue-api.morpho.org/graphql",
+        "label": "morpho_vault:0x31A5684983EeE865d943A696AAC155363bA024f9",
+        "method": "POST"
       },
       {
         "path": "data/raw/de49b13d6f64122d582d.json",
@@ -6310,6 +6686,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/e1c622ef9b13ad5e55d9.json",
+        "sha256": "8814e77cd40f1aa79c0535502339da2871996452f16971a1e0be71eabbe719b5",
+        "cached_at": 1791685482.2824821,
+        "source": "https://ethereum-rpc.publicnode.com",
+        "label": "catalog_rpc_block",
+        "method": "POST"
+      },
+      {
         "path": "data/raw/e1c766d14e3140230de1.json",
         "sha256": "3e22953daf7d50a1166cc7d724965516e74244f092613892a63545d3da9c025e",
         "cached_at": 1791662445.8093374,
@@ -6323,6 +6707,14 @@
         "cached_at": 1791669042.397782,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x34280882267ffa6383b363e278b027be083bbe3b/swap",
         "label": "fire_drill_quote:pt-wsteth:12",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/e58322c63b0e297108df.json",
+        "sha256": "1476a9755f9eb227cae0e088f054d3e94d4678a633356792095dcd656fb5eeb3",
+        "cached_at": 1791685567.1349335,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:20",
         "method": "GET"
       },
       {
@@ -6374,6 +6766,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/ece50d915eddbf0bc865.json",
+        "sha256": "513c948ac6c5b8f01b87ce1c5d7394d61c40fd70f9ba1a29b7c48ee92834d997",
+        "cached_at": 1791685495.698328,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:6",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/edb840943e90c0411adb.json",
         "sha256": "b3a37b686f8fdae8114fbc4705d93372853bf3d37e9d80db176d6054e670d4df",
         "cached_at": 1791662439.4025705,
@@ -6411,6 +6811,14 @@
         "cached_at": 1791668944.5611422,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x9c560ebaf78e596cbcc27411d633a74d628dd7dc/swap",
         "label": "pendle_swap:0x9c560ebaf78e596cbcc27411d633a74d628dd7dc:150919392287681518962405",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/f2ca9a36075cf035a7b6.json",
+        "sha256": "f80c80433d1f2a4805e7a1aca982ef17c3220c80e218aa9852e4f1bfb1d53ed2",
+        "cached_at": 1791685550.041503,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:10",
         "method": "GET"
       },
       {
@@ -6470,6 +6878,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/f841e7b02199ab019275.json",
+        "sha256": "95a0268d6bc2e9aef097c7d5cabba3185b5bc8c39076a5f5c4b89b591601b5ba",
+        "cached_at": 1791685535.4847524,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:3",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/f9664bb65cc86cfa2e64.json",
         "sha256": "38e635126da81dc7aaa87188b2d4e9250c9f46a20959c4452a02dd130dad00df",
         "cached_at": 1791662439.8091311,
@@ -6486,6 +6902,14 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/faa0fc7f6f17e67ceb55.json",
+        "sha256": "a1ac5c7ea63b2573fedb1d4631e7df612c9963c71d4d5089856effc407f63555",
+        "cached_at": 1791685530.090574,
+        "source": "https://ethereum-rpc.publicnode.com",
+        "label": "catalog_decimals:0x7f47c3e6b2c00fc4eb4d5ae50d0ab0ab6888eb4d",
+        "method": "POST"
+      },
+      {
         "path": "data/raw/fab1e3cb33407fe6eaad.json",
         "sha256": "22474c3f160e0bfd9484a9bc609e346c5748600a7b274ed1c78631ca87ddec79",
         "cached_at": 1791668963.910756,
@@ -6494,11 +6918,35 @@
         "method": "GET"
       },
       {
+        "path": "data/raw/fbd812a486008a4c99c9.json",
+        "sha256": "612696e5d8d7849e9c9139dfa38bade5b0774ffae5a04d2e475242cbd751eef3",
+        "cached_at": 1791685546.2691376,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:8",
+        "method": "GET"
+      },
+      {
         "path": "data/raw/fc434d12b7a30f80ca2c.json",
         "sha256": "9443c2784afecabe6b44b074eb451619de0b57cf8ef49250fd3b6ae4c1bf2917",
         "cached_at": 1791668968.1755757,
         "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e/swap",
         "label": "pendle_swap:0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e:755228189454947612313155",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/fd8a095762af079f4400.json",
+        "sha256": "7ccd9f7cbf00747320c65c3853f66aa2f797ee9cd9acd148fe3d347b076192fc",
+        "cached_at": 1791685542.449774,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e/swap",
+        "label": "catalog_quote:catalog-pt-0x4a5067c3ff1abb7449244025b0e37feaf77d8e3e:6",
+        "method": "GET"
+      },
+      {
+        "path": "data/raw/fd9415b48ae5fe4c66ba.json",
+        "sha256": "e27d272dcde5cc890dfa1a302334790017fbbd83de84dc44dab34c09f945c0d8",
+        "cached_at": 1791685512.1833873,
+        "source": "https://api-v2.pendle.finance/core/v2/sdk/1/markets/0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3/swap",
+        "label": "catalog_quote:catalog-pt-0xc5f938a8ef5f3bf9e72f5aa094baf5e03f4727d3:12",
         "method": "GET"
       },
       {
@@ -6530,6 +6978,8 @@
       "data/manual/dependencies.yaml": "58d95dc364b5391abba7898f3ff80736b2c5b63d5e97b3de795a68ed3656d180",
       "data/book/sample_book.json": "df3e14077d98e83ea27467543599282e9e9c80e1fee90a7b0e685d7501f81f43",
       "data/fire_drill/execution.json": "96aab7c310dd311aa51ad5923ecc19ddaef31890015865206c3011e9716d6a50",
+      "data/fire_drill/catalog.json": "d42392e31488f7fac1997d9bc3ab14e52b1d4401c9501e4440925cb0f59df22a",
+      "data/fire_drill/catalog_execution.json": "897ec0ae2a255090e0e53c4b7a85ab834193a939d3d0c0673b1fe327dcc8d765",
       "blast_radius/__init__.py": "cda7cab1222a81ace69adce64f0c44a4eae602fbeb2b58759ea2d64df48d75e6",
       "blast_radius/analyze.py": "88989a5c1a56bab697ce83cb2b4383c57d1f7e38976956b051a19036de540c2f",
       "blast_radius/backtest/__init__.py": "5ec54aa39956a2fbd4cce198b8776ba72714585615bb8a88f42f56e3ef557c6c",
@@ -6544,8 +6994,10 @@
       "blast_radius/discovery/graph.py": "92e907f64a830841fdffc591d7093ddc1e7813ad7ffe10447e1fce3de1f82272",
       "blast_radius/discovery/resolvers.py": "845af579baa452eacf18fc16ba1e5a334791c7bfe628d3c7d49dbab976b628f6",
       "blast_radius/fire_drill/__init__.py": "2db6386d96a1ee42c72e4c762d29bf34128cbe588fe407a3d1f97a55a8236004",
-      "blast_radius/fire_drill/evidence.py": "702d666ae81edaf4d528f4312ce91b3fe4c3b0eb9c2ee3234b5a3a9de35df87d",
-      "blast_radius/fire_drill/execution.py": "96c443a9da18a7a61e1bf502ab487f5ea9d12cc4b31c47b222fdf43073b444a7",
+      "blast_radius/fire_drill/catalog.py": "82c307c47d9f9244df6f098b5cd8a4cba77930af51c4a7cf19eafc50c81808b9",
+      "blast_radius/fire_drill/challenge.py": "3ec157271e36ab5c962798552f9fc532a4bfd7e8a54eb2e061946a6e85ba96f9",
+      "blast_radius/fire_drill/evidence.py": "25bae8256c52f53a6caaecbe37d9fe263ebedd55b0d00ca236503e429988cd95",
+      "blast_radius/fire_drill/execution.py": "18cb8b1b42f3eaac33195b8c77a8cb7be9cb2b1562602ca398a07168004c10ac",
       "blast_radius/fire_drill/model.py": "ec5457ffd48977dbc057f212b0a54dc92eb5fcb0245e9a2cb7b7a396ab9999fc",
       "blast_radius/fire_drill/optimize.py": "4138f3d556f1b243c11a847e7b8a1a1fa68ee7fb76e970fb122792b39152b39c",
       "blast_radius/fire_drill/presentation.py": "74f14eafe79923d7a59d922c14d54c091fd7e56297a79d1b17ad848c5b1cf045",
@@ -6574,11 +7026,11 @@
     },
     "presentation_evidence_window_utc": [
       "2026-10-10T18:01:08.382596+00:00",
-      "2026-10-10T21:51:16.615617+00:00"
+      "2026-10-11T02:29:01.396255+00:00"
     ],
     "timestamp_semantics": "cached_at is local retrieval time; price_updated_at is provider mark time; manual maps have file hashes, not an observation timestamp; captures are not synchronized",
     "hash_normalization": "UTF-8 text with line endings normalized to LF",
-    "bundle_sha256": "07037d35ca883ebd4d65ac1529bf7ea91397002a746c3a5ef152618151d31a93"
+    "bundle_sha256": "642b795d758e9ad49e287f18245093279a5483d1b2b06c57c0a3afbdccbc150e"
   },
   "assumptions": [
     "One hypothetical intrinsic shock; scenario loss is not probability-weighted expected loss.",
@@ -6592,7 +7044,7 @@
     "Remaining claims retain snapshot exposure proportions; market feedback, cash-transfer risk and FX movements are outside this model.",
     "Foregone carry uses nonnegative snapshot APY times 30/365; no reinvestment return is assumed.",
     "API observations and sourced manual mappings are distinguished from cached RPC observations; none are labelled live.",
-    "The $10M book is an illustrative allocation to real instruments, not an observed wallet or managed fund.",
+    "The $10M book is an illustrative allocation to real instruments; judge-modified allocations are also hypothetical, not an observed wallet or managed fund.",
     "Evidence is a composite of individually timestamped captures, not an atomic block-aligned snapshot. Quote bundle captured_at is assembly time.",
     "Manual token-level oracle names are hypotheses about integrations, not verified deployed oracle contracts; market oracle addresses come from Morpho API observations.",
     "Discovery omits zero-funded and dust collateral allocations below the rounded 0.1% vault threshold. Missing paths are not evidence of safety.",
@@ -6609,5 +7061,97 @@
     "liquidity": 0.35,
     "pt_underlying_claim_override": 1.0
   },
-  "receipt_schema": "blast-radius-decision-v1"
+  "receipt_schema": "blast-radius-decision-v3",
+  "portfolio": [
+    {
+      "id": "pt-susds",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-sUSDS \u00b7 2026-11-26",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x9c560ebaf78e596cbcc27411d633a74d628dd7dc",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-susde",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-sUSDe \u00b7 2026-11-26",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x47ad2cd1dd15739a7a035b9d3b7828d916fef77e",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-wsteth",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-wstETH \u00b7 2027-12-30",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x34280882267ffa6383b363e278b027be083bbe3b",
+      "size_usd": 1000000
+    },
+    {
+      "id": "pt-reusd",
+      "kind": "pendle_pt",
+      "label": "Pendle PT-reUSD \u00b7 2026-12-10",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "market": "0x13285bcbc27f92b47b4edb99d744c07b48c977c0",
+      "size_usd": 1000000
+    },
+    {
+      "id": "smokehouse-usdt",
+      "kind": "morpho_vault",
+      "label": "Morpho Smokehouse USDT",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xA0804346780b4c2e3bE118ac957D1DB82F9d7484",
+      "size_usd": 1000000
+    },
+    {
+      "id": "steakhouse-usdt",
+      "kind": "morpho_vault",
+      "label": "Morpho Steakhouse USDT",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xbEef047a543E45807105E51A8BBEFCc5950fcfBa",
+      "size_usd": 1000000
+    },
+    {
+      "id": "steakhouse-eth",
+      "kind": "morpho_vault",
+      "label": "Morpho Steakhouse ETH",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xBEEf050ecd6a16c4e7bfFbB52Ebba7846C4b8cD4",
+      "size_usd": 1000000
+    },
+    {
+      "id": "gauntlet-usdc-prime",
+      "kind": "morpho_vault",
+      "label": "Morpho Gauntlet USDC Prime",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xdd0f28e19C1780eb6396170735D45153D261490d",
+      "size_usd": 1000000
+    },
+    {
+      "id": "hakutora-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Hakutora USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0x974c8FBf4fd795F66B85B73ebC988A51F1A040a9",
+      "size_usd": 1000000
+    },
+    {
+      "id": "yearn-og-usdc",
+      "kind": "morpho_vault",
+      "label": "Morpho Yearn OG USDC",
+      "chain": "ethereum",
+      "chain_id": 1,
+      "vault": "0xF9bdDd4A9b3A45f980e11fDDE96e16364dDBEc49",
+      "size_usd": 1000000
+    }
+  ]
 }

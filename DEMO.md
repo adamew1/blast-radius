@@ -55,6 +55,10 @@ Use a 1500×1100 viewport or larger, at 100% zoom. Start from a clean launch or 
 
 ## Skeptical-judge answers
 
+- **Can I choose instruments outside the original ten?** Yes: the catalog includes PT-apyUSD, PT-USD3, Vault Bridge WETH and Vault Bridge USDC. Use **Remove** and **Add instrument** to build a new book, then Apply and repeat the same workflow. A $2.25M portfolio made entirely from these four instruments has three independently audited scenarios; the exact construction and limits are in [the catalog guide](docs/CATALOG_VALIDATION.md). This is a bounded Ethereum catalog, not wallet import or universal support.
+
+- **Does this work beyond the prepared $10M book?** Open **Challenge this portfolio**. Ask the judge to resize PT-wstETH to $750,000 or remove a position with $0. Apply, rediscover, simulate and rebuild; point to the changed portfolio value, scenario loss and rescue. Quotes remain fixed dollar trades. For a sharper constraint test, resize PT-wstETH to $2M: captured quotes cover at most $1M, so full exit is unavailable. Reset restores the rehearsed book. Three modified books have separately audited optimal/infeasible outcomes; see [the review](docs/IMPROVEMENT_REVIEW.md).
+
 - **Is wstETH going to fail?** No probability estimate or forecast is claimed. The ranking uses a standardized hypothetical shock; it ranks conditional damage, not likelihood.
 - **Why is this the cheapest exit?** Four million combinations were independently enumerated. It is least cost on the available 5% grid for the stated stress mandate, not a globally optimal expected-return trade.
 - **Does the economics justify acting?** Only under a supplied probability or binding risk mandate. At 0.5% assumed probability the plan has −$12,967 expected net benefit; at 2%, +$15,241. Its whole-plan break-even is 1.19%.
